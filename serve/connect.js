@@ -1,14 +1,14 @@
 let nodes7 = require("nodes7");
 
-console.log('in connect');
-
 (function readData(conn) {
-    console.log('in readData');
 
     let plc = new nodes7();
     var doneReading = false;
     var doneWriting = false;
+    var variables = startData();
+    console.log('variables: ' + variables);
 
+    /*
     var variables = {
         TEST1: "db90,int20096", //fpnr
         TEST2: "db90,int20098", //scanner
@@ -21,6 +21,7 @@ console.log('in connect');
         TEST9: "db90,int20136",
         TEST10: "db90,int20140"
     };
+    */
 
     plc.initiateConnection({
         port: 102,
@@ -71,4 +72,77 @@ console.log('in connect');
       }
     }
     */
-})();
+
+ function startData() {
+
+
+    const obj = {};
+    const db = "DB1810,";
+
+    createData(6, 1, "int")
+    createData(20, 5, "X")
+    createData(22, 8, "X")
+    createData(23, 8, "X")
+    createData(24, 5, "int")
+    createData(36, 40, "char")
+    createData(76, 1, "int")
+    createData(78, 8, "X")
+    createData(80, 1, "int")
+    createData(82, 8, "X")
+    createData(84, 8, "X")
+    createData(85, 1, "X")
+    createData(86, 6, "int")
+    createData(98, 2, "dint")
+    createData(106, 8, "X")
+    createData(107, 3, "X")
+    createData(108, 3, "int")
+    createData(114, 1, "dint")
+    createData(118, 6, "byte")
+    createData(124, 8, "X")
+    createData(125, 1, "char")
+    createData(126, 8, "X")
+    createData(127, 8, "X")
+    createData(128, 8, "X")
+    createData(129, 8, "X")
+    createData(130, 21, "int")
+    createData(172, 1, "word")
+    createData(174, 7, "int")
+
+    console.log(obj)
+
+    return obj;
+
+    // take four parameters(start, length, type, first)
+    function createData(s, l, t) {
+        let b;
+        switch (t) {
+            case "X":
+                b = .1;
+                break;
+            case "char":
+            case "byte":
+                b = 1;
+                break;
+            case "int":
+            case "word":
+                b = 2;
+                break;
+            case "dint":
+                b = 4;
+                break;
+        }
+
+        for (let i = 0; i < l; i++) {
+
+            if (i !== 0) s += b;
+
+            if (b === .1) {
+                obj[s.toFixed(1)] = (db + t + s.toFixed(1));
+            } else {
+                obj[s] = (db + t + s)
+            }
+            //console.log(obj)
+        }
+    }
+
+}})();
