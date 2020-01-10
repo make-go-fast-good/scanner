@@ -8,21 +8,6 @@ let nodes7 = require("nodes7");
     var variables = startData();
     console.log('variables: ' + variables);
 
-    /*
-    var variables = {
-        TEST1: "db90,int20096", //fpnr
-        TEST2: "db90,int20098", //scanner
-        TEST3: "db90,int20110", // reads
-        TEST4: "db90,int20112", // no reads
-        TEST5: "db90,int20124", // overall read rate
-        TEST6: "db90,int20126", // last 100 read rate
-        TEST7: "db90,int20128",
-        TEST8: "db90,int20132",
-        TEST9: "db90,int20136",
-        TEST10: "db90,int20140"
-    };
-    */
-
     plc.initiateConnection({
         port: 102,
         host: "10.136.16.31",
@@ -41,10 +26,6 @@ let nodes7 = require("nodes7");
         }); // This sets the "translation" to allow us to work with object names
 
         plc.addItems(Object.keys(variables));
-        //plc.addItems("TEST6");
-        //	plc.removeItems(['TEST2', 'TEST3']);  // We could do this.
-        //	plc.writeItems(['TEST5', 'TEST6'], [ 867.5309, 9 ], valuesWritten);  // You can write an array of items as well.
-        //  plc.writeItems("TEST7", [666, 777], valuesWritten); // You can write a single array item too.
         plc.readAllItems(valuesReady);
     }
 
@@ -55,94 +36,90 @@ let nodes7 = require("nodes7");
         console.log(values);
         doneReading = true;
         process.exit();
-        // if (doneWriting) {
-        //   process.exit();
-        // }
     }
 
-    /*
-    function valuesWritten(anythingBad) {
-      if (anythingBad) {
-        console.log("SOMETHING WENT WRONG WRITING VALUES!!!!");
-      }
-      console.log("Done writing.");
-      doneWriting = true;
-      if (doneReading) {
-        process.exit();
-      }
-    }
-    */
+    function startData() {
 
- function startData() {
+        const obj = {};
+        const db = "DB1810,";
+        const structLen = 182
 
+        for (let i = 0; i < 200; i++) {
 
-    const obj = {};
-    const db = "DB1810,";
-
-    createData(6, 1, "int")
-    createData(20, 5, "X")
-    createData(22, 8, "X")
-    createData(23, 8, "X")
-    createData(24, 5, "int")
-    createData(36, 40, "char")
-    createData(76, 1, "int")
-    createData(78, 8, "X")
-    createData(80, 1, "int")
-    createData(82, 8, "X")
-    createData(84, 8, "X")
-    createData(85, 1, "X")
-    createData(86, 6, "int")
-    createData(98, 2, "dint")
-    createData(106, 8, "X")
-    createData(107, 3, "X")
-    createData(108, 3, "int")
-    createData(114, 1, "dint")
-    createData(118, 6, "byte")
-    createData(124, 8, "X")
-    createData(125, 1, "char")
-    createData(126, 8, "X")
-    createData(127, 8, "X")
-    createData(128, 8, "X")
-    createData(129, 8, "X")
-    createData(130, 21, "int")
-    createData(172, 1, "word")
-    createData(174, 7, "int")
-
-    console.log(obj)
-
-    return obj;
-
-    // take four parameters(start, length, type, first)
-    function createData(s, l, t) {
-        let b;
-        switch (t) {
-            case "X":
-                b = .1;
-                break;
-            case "char":
-            case "byte":
-                b = 1;
-                break;
-            case "int":
-            case "word":
-                b = 2;
-                break;
-            case "dint":
-                b = 4;
-                break;
+            let offset = i * structLen
+            createData((6 + offset), 1, "INT")
+            createData((8 + offset), 2, "B", true) //Date
+            createData((10 + offset), 4, "B", true) //Time of day
+            createData((14 + offset), 2, "B", true) //Date
+            createData((16 + offset), 4, "B", true) //Time of day 
+            createData((20 + offset), 5, "X")
+            createData((22 + offset), 8, "X")
+            createData((23 + offset), 8, "X")
+            createData((24 + offset), 5, "INT")
+            createData((36 + offset), 40, "CHAR")
+            createData((76 + offset), 1, "INT")
+            createData((78 + offset), 8, "X")
+            createData((80 + offset), 1, "INT")
+            createData((82 + offset), 8, "X")
+            createData((84 + offset), 8, "X")
+            createData((85 + offset), 1, "X")
+            createData((86 + offset), 6, "INT")
+            createData((98 + offset), 2, "DINT")
+            createData((106 + offset), 8, "X")
+            createData((107 + offset), 3, "X")
+            createData((108 + offset), 3, "INT")
+            createData((114 + offset), 1, "DINT")
+            createData((118 + offset), 6, "B")
+            createData((124 + offset), 8, "X")
+            createData((125 + offset), 1, "CHAR")
+            createData((126 + offset), 8, "X")
+            createData((127 + offset), 8, "X")
+            createData((128 + offset), 8, "X")
+            createData((129 + offset), 8, "X")
+            createData((130 + offset), 21, "INT")
+            createData((172 + offset), 1, "WORD")
+            createData((174 + offset), 7, "INT")
         }
+        return obj;
 
-        for (let i = 0; i < l; i++) {
-
-            if (i !== 0) s += b;
-
-            if (b === .1) {
-                obj[s.toFixed(1)] = (db + t + s.toFixed(1));
-            } else {
-                obj[s] = (db + t + s)
+        // take four parameters(start, length, type, array)
+        function createData(s, l, t, a) {
+            // b for byte
+            let b;
+            switch (t) {
+                case "X":
+                    b = .1;
+                    break;
+                case "CHAR":
+                case "B":
+                    b = 1;
+                    break;
+                case "INT":
+                case "WORD":
+                    b = 2;
+                    break;
+                case "DINT":
+                    b = 4;
+                    break;
             }
-            //console.log(obj)
-        }
-    }
 
-}})();
+            for (let i = 0; i < l; i++) {
+
+                if (i !== 0 && !a) s += b;
+                // If a is true we are working with a byte array, break from loop , we will decode later 
+                if (a) {
+                    obj[s] = (db + t + s + "." + l.toString())
+                    break;
+                }
+
+                if (b === .1) {
+                    obj[s.toFixed(1)] = (db + t + s.toFixed(1));
+                } else {
+                    obj[s] = (db + t + s)
+                }
+                //console.log(obj)
+            }
+        }
+
+    }
+})();
