@@ -6,7 +6,6 @@ import Todos from "./components/Todos";
 import SelectConn from "./components/SelectConn";
 import AddTodo from "./components/AddTodo";
 import About from "./components/pages/About";
-import readData from "./connect.js";
 
 import uuid from "uuid";
 
@@ -40,7 +39,7 @@ class App extends Component {
   // Select Connection
   selConn = conn => {
 
-    readData(conn);
+    //readData(conn);
     console.log(conn);
 
     // Return all the todos that do not match the id of the one passed into this function.
