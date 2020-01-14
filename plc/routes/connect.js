@@ -1,14 +1,11 @@
-let nodes7 = require("nodes7");
 const connection = readData();
-var data = {};
 
-function readData(conn) {
-
+async function readData(conn) {
+    const nodes7 = require("nodes7");
+    console.log('We running\n')
     const plc = new nodes7();
-    //var doneReading = false;
-    //var doneWriting = false;
-    var variables = startData();
-    //console.log('variables: ' + variables);
+    var variables = createRow();
+    var obj;
 
     plc.initiateConnection({
         port: 102,
@@ -27,21 +24,27 @@ function readData(conn) {
             return variables[tag];
         }); // This sets the "translation" to allow us to work with object names
 
+        // We add the returned variables from setTranslations to the PLC reading list
         plc.addItems(Object.keys(variables));
-        data = plc.readAllItems(valuesReady);
+        // Now read all the items on the list. 
+       obj = plc.readAllItems(valuesReady);
     }
 
-    function valuesReady(anythingBad, values) {
+    async function valuesReady(anythingBad, values) {
         if (anythingBad) {
             console.log("SOMETHING WENT WRONG READING VALUES!!!!");
         }
-        console.log(values);
-        doneReading = true;
-        process.exit();
+        obj = await values;
+        console.log('\nobj here: ')
+        console.log(obj);
+        return obj;
+        //module.exports = obj;
+        //doneReading = true;
+        //process.exit();
     }
 
-    function startData() {
-        const obj = {};
+    function createRow() {
+        const row = {};
         const db = "DB1810,";
         const structLen = 182
 
@@ -80,12 +83,7 @@ function readData(conn) {
             createData((130 + offset), 21, "INT")
             createData((172 + offset), 1, "WORD")
             createData((174 + offset), 7, "INT")
-
-            //obj[i] = row;
-
         }
-
-        return obj;
 
         // take four parameters(start, length, type, array)
         function createData(s, l, t, a) {
@@ -109,24 +107,22 @@ function readData(conn) {
             }
 
             for (let i = 0; i < l; i++) {
-
                 if (i !== 0 && !a) s += b;
                 // If a is true we are working with a byte array, break from loop , we will decode later 
                 if (a) {
-                    obj[s] = (db + t + s + "." + l.toString())
+                    row[s] = (db + t + s + "." + l.toString())
                     break;
                 }
-
                 if (b === .1) {
-                    obj[s.toFixed(1)] = (db + t + s.toFixed(1));
+                    row[s.toFixed(1)] = (db + t + s.toFixed(1));
                 } else {
-                    obj[s] = (db + t + s)
+                    row[s] = (db + t + s)
                 }
             }
         }
-
+        return row;
     }
 
-};
-
-module.exports = data;
+    return obj;
+}
+module.exports = connection
