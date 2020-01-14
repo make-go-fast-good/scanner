@@ -1,12 +1,14 @@
 let nodes7 = require("nodes7");
+const connection = readData();
+var data = {};
 
-(function readData(conn) {
+function readData(conn) {
 
-    let plc = new nodes7();
-    var doneReading = false;
-    var doneWriting = false;
+    const plc = new nodes7();
+    //var doneReading = false;
+    //var doneWriting = false;
     var variables = startData();
-    console.log('variables: ' + variables);
+    //console.log('variables: ' + variables);
 
     plc.initiateConnection({
         port: 102,
@@ -26,7 +28,7 @@ let nodes7 = require("nodes7");
         }); // This sets the "translation" to allow us to work with object names
 
         plc.addItems(Object.keys(variables));
-        plc.readAllItems(valuesReady);
+        data = plc.readAllItems(valuesReady);
     }
 
     function valuesReady(anythingBad, values) {
@@ -39,12 +41,11 @@ let nodes7 = require("nodes7");
     }
 
     function startData() {
-
         const obj = {};
         const db = "DB1810,";
         const structLen = 182
 
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 1; i++) {
 
             let offset = i * structLen
             createData((6 + offset), 1, "INT")
@@ -79,7 +80,11 @@ let nodes7 = require("nodes7");
             createData((130 + offset), 21, "INT")
             createData((172 + offset), 1, "WORD")
             createData((174 + offset), 7, "INT")
+
+            //obj[i] = row;
+
         }
+
         return obj;
 
         // take four parameters(start, length, type, array)
@@ -117,9 +122,11 @@ let nodes7 = require("nodes7");
                 } else {
                     obj[s] = (db + t + s)
                 }
-                //console.log(obj)
             }
         }
 
     }
-})();
+
+};
+
+module.exports = data;
