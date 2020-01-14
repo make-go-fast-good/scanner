@@ -6,6 +6,7 @@ import Todos from "./components/Todos";
 import SelectConn from "./components/SelectConn";
 import AddTodo from "./components/AddTodo";
 import About from "./components/pages/About";
+import MaterialTable from "./components/Table";
 
 import uuid from "uuid";
 
@@ -14,7 +15,7 @@ import "./App.css";
 class App extends Component {
   state = {
     todos: [],
-    connections: []
+    connections: [],
   };
 
   /*
@@ -98,6 +99,11 @@ class App extends Component {
               render={props => (
                 <React.Fragment>
                   <SelectConn selConn={this.selConn} />{" "}
+                  <MaterialTable 
+                      options={{
+                        search: true
+                      }} 
+                    />
                   <Todos
                     todos={this.state.todos}
                     markComplete={this.markComplete}

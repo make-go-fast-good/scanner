@@ -1,13 +1,13 @@
-const connection = readData();
 const express = require('express');
 const variables = require('../createStruct');
 const router = express.Router();
+const myData = readData();
 
-async function readData(conn) {
+async function readData() {
     const nodes7 = require("nodes7");
     const plc = new nodes7();
-    var obj;
     console.log('We running\n')
+    var tmp =[];
 
     plc.initiateConnection({
         port: 102,
@@ -29,29 +29,25 @@ async function readData(conn) {
         // We add the returned variables from setTranslations to the PLC reading list
         plc.addItems(Object.keys(variables));
         // Now read all the items on the list. 
-       obj = plc.readAllItems(valuesReady);
+        return plc.readAllItems(valuesReady);
     }
 
-    async function valuesReady(anythingBad, values) {
+        function valuesReady(anythingBad, values) {
         if (anythingBad) {
             console.log("SOMETHING WENT WRONG READING VALUES!!!!");
         }
-        obj = await values;
-        console.log('\nobj here: ')
-        console.log(obj);
-        return obj;
-        //module.exports = obj;
+        console.log('\nvalues here: ')
+        console.log(values);
+        tmp.push(values);
         //doneReading = true;
-        //process.exit();
+      // process.exit();
     }
-    return obj;
+    return tmp;
 }
-
-
 router.get('/', (req, res, next) => {
     res.status(200).json({
         message: "get your plc data here",
-        data: connection
+        data: myData
     });
 });
 
