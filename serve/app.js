@@ -1,16 +1,7 @@
 const express = require('express');
 const app = express();
-const plcRoute = require('../plc/routes/connect');
+const tt13Route = require('../plc/routes/TT13/connect');
 
-app.use('/plc', plcRoute);
-
-/*
-app.use((req, res, next) => {
-    res.status(200).json({
-        message: 'We servin',
-        data: plc
-    });
-});
-*/
+app.use('/tt13', tt13Route);
 
 module.exports = app;
