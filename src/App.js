@@ -15,7 +15,7 @@ import "./App.css";
 class App extends Component {
   state = {
     todos: [],
-    connections: [],
+    connections: []
   };
 
   /*
@@ -39,6 +39,23 @@ class App extends Component {
 
   // Select Connection
   selConn = conn => {
+    // Optionally the request above could also be done as
+    axios
+      .get("/tt13"
+     /*
+      , {
+        params: {
+          conn: this.conn
+        }
+      }
+     */ 
+      )
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
 
     //readData(conn);
     console.log(conn);
@@ -99,11 +116,11 @@ class App extends Component {
               render={props => (
                 <React.Fragment>
                   <SelectConn selConn={this.selConn} />{" "}
-                  <MaterialTable 
-                      options={{
-                        search: true
-                      }} 
-                    />
+                  <MaterialTable
+                    options={{
+                      search: true
+                    }}
+                  />
                   <Todos
                     todos={this.state.todos}
                     markComplete={this.markComplete}
