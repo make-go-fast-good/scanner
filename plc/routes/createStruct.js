@@ -2,49 +2,53 @@ const data = createStruct();
 
 function createStruct() {
     const db = "DB1810,";
-    const data = {};
+    const rows = {};
+    let data = {};
     const structLen = 182
 
     for (let i = 0; i < 5; i++) {
-
         let offset = i * structLen
+        data = {};
 
-        createData((6 + offset), 1, "INT")
-        createData((8 + offset), 2, "B", true) //Date
-        createData((10 + offset), 4, "B", true) //Time of day
-        createData((14 + offset), 2, "B", true) //Date
-        createData((16 + offset), 4, "B", true) //Time of day 
-        createData((20 + offset), 5, "X")
-        createData((22 + offset), 8, "X")
-        createData((23 + offset), 8, "X")
-        createData((24 + offset), 5, "INT")
-        createData((36 + offset), 40, "CHAR")
-        createData((76 + offset), 1, "INT")
-        createData((78 + offset), 8, "X")
-        createData((80 + offset), 1, "INT")
-        createData((82 + offset), 8, "X")
-        createData((84 + offset), 8, "X")
-        createData((85 + offset), 1, "X")
-        createData((86 + offset), 6, "INT")
-        createData((98 + offset), 2, "DINT")
-        createData((106 + offset), 8, "X")
-        createData((107 + offset), 3, "X")
-        createData((108 + offset), 3, "INT")
-        createData((114 + offset), 1, "DINT")
-        createData((118 + offset), 6, "B")
-        createData((124 + offset), 8, "X")
-        createData((125 + offset), 1, "CHAR")
-        createData((126 + offset), 8, "X")
-        createData((127 + offset), 8, "X")
-        createData((128 + offset), 8, "X")
-        createData((129 + offset), 8, "X")
-        createData((130 + offset), 21, "INT")
-        createData((172 + offset), 1, "WORD")
-        createData((174 + offset), 7, "INT")
+        createData(i, (6 + offset), 1, "INT")
+        createData(i, (8 + offset), 2, "B", true) //Date
+        createData(i, (10 + offset), 4, "B", true) //Time of day
+        createData(i, (14 + offset), 2, "B", true) //Date
+        createData(i, (16 + offset), 4, "B", true) //Time of day 
+        createData(i, (20 + offset), 5, "X")
+        createData(i, (22 + offset), 8, "X")
+        createData(i, (23 + offset), 8, "X")
+        createData(i, (24 + offset), 5, "INT")
+        createData(i, (36 + offset), 40, "CHAR")
+        createData(i, (76 + offset), 1, "INT")
+        createData(i, (78 + offset), 8, "X")
+        createData(i, (80 + offset), 1, "INT")
+        createData(i, (82 + offset), 8, "X")
+        createData(i, (84 + offset), 8, "X")
+        createData(i, (85 + offset), 1, "X")
+        createData(i, (86 + offset), 6, "INT")
+        createData(i, (98 + offset), 2, "DINT")
+        createData(i, (106 + offset), 8, "X")
+        createData(i, (107 + offset), 3, "X")
+        createData(i, (108 + offset), 3, "INT")
+        createData(i, (114 + offset), 1, "DINT")
+        createData(i, (118 + offset), 6, "B")
+        createData(i, (124 + offset), 8, "X")
+        createData(i, (125 + offset), 1, "CHAR")
+        createData(i, (126 + offset), 8, "X")
+        createData(i, (127 + offset), 8, "X")
+        createData(i, (128 + offset), 8, "X")
+        createData(i, (129 + offset), 8, "X")
+        createData(i, (130 + offset), 21, "INT")
+        createData(i, (172 + offset), 1, "WORD")
+        createData(i, (174 + offset), 7, "INT")
+        
+        rows[i] = data;
+
     }
 
     // take four parameters(start, length, type, array)
-    function createData(start, len, type, arr) {
+    function createData(index, start, len, type, arr) {
         // b for byte
         let b;
         switch (type) {
@@ -78,7 +82,7 @@ function createStruct() {
             }
         }
     }
-    return data;
+    return rows;
 }
 
 module.exports = data;
