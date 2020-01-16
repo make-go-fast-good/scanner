@@ -56,6 +56,7 @@ const awaitHandlerFactory = (middleware) => {
 }
 
 router.get('/', awaitHandlerFactory(async (request, response) => {
+    let conn = request.query.conn
     const result = await readData();
     response.send(result);
 }))
