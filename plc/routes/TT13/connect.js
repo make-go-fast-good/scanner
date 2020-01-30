@@ -26,6 +26,7 @@ function readData() {
         }); // This sets the "translation" to allow us to work with object names
 
         // We add the returned variables from setTranslations to the PLC reading list
+        //console.log(Object.keys(variables))
         plc.addItems(Object.keys(variables));
 
         // Now read all the items on the list. 
