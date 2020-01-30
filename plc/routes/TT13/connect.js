@@ -1,13 +1,10 @@
 const express = require('express');
 const variables = require('../createStruct');
 const router = express.Router();
-var data = {};
 
-function readData() {
+async function readData() {
     const nodes7 = require("nodes7");
     const plc = new nodes7();
-    console.log('We running\n')
-
     plc.initiateConnection({
         port: 102,
         host: "10.136.16.31",
@@ -15,7 +12,7 @@ function readData() {
         slot: 3
     }, connected);
 
-    function connected(err) {
+    async function connected(err) {
         if (typeof err !== "undefined") {
             // We have an error.  Maybe the PLC is not reachable.
             console.log(err);
@@ -28,22 +25,38 @@ function readData() {
         // We add the returned variables from setTranslations to the PLC reading list
         //console.log(Object.keys(variables))
         plc.addItems(Object.keys(variables));
+        var data;
 
         // Now read all the items on the list. 
-        plc.readAllItems(callback)
+        const myData = new Promise(function (resolve, reject) {
+            resolve(plc.readAllItems(callback));
+        });
+
+        var myObj = {};
+        await myData.then(function () {
+                for(key in myData){
+                    let i = 1
+                    while((parseFloat(Object.keys(key)) / i) > 188){
+                        i++
+                    }
+                    myObj[i][Object.keys(key)] = key;
+                }
+
+        });
+
+        console.log(myObj);
+        //plc.readAllItems(callback)
     }
 
-    function callback(err, values) {
+    async function callback(err, values) {
         if (err) {
             console.log("SOMETHING WENT WRONG READING VALUES!!!!");
         }
-        data = values;
-        return data;
+        data = await values;
         //process.exit();
     }
-        //console.log('data should be here:(readData)');
-        //console.log(data);
-        return data;
+
+    return data;
 }
 
 const awaitHandlerFactory = (middleware) => {
