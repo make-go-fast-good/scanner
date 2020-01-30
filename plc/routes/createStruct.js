@@ -6,7 +6,7 @@ function createStruct() {
     //let data = {};
     const structLen = 182
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 200; i++) {
 
         let offset = i * structLen
 
