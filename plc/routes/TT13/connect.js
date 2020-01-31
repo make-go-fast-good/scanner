@@ -47,7 +47,12 @@ function readData() {
                     let row = dataKeys.filter(function (val) {
                         return (parseFloat(val) <= ((i * 182) + 186)) && (parseFloat(val) >= (6 + (i * 182)))
                     })
-                    console.log(row)
+
+                    row.forEach((key) => {
+                        retData[i].data[key] = data[key];
+                    })
+
+                    console.log(retData)
 
                     //retData[i].data[] = Object.entries(data)
                     //console.log(dataKeys.filter(function(val){return parseFloat(val) >= (6 + (i * 182) && parseFloat(val) <= (6 +(i * 182)))}))
