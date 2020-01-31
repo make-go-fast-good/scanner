@@ -1,4 +1,4 @@
-class TT13Row {
+class tt13 {
     constructor(_row = 0, _db = "DB1810,", _structLen = 182) {
         this.row = _row;
         this.db = _db;
@@ -9,7 +9,6 @@ class TT13Row {
 
     createRow() {
         let offset = this.row * this.structLen;
-
         this.createData((6 + offset), 1, "INT")
         this.createData((8 + offset), 2, "B", true) //Date
         this.createData((10 + offset), 4, "B", true) //Time of day
@@ -67,22 +66,19 @@ class TT13Row {
 
         for (let i = 0; i < l; i++) {
             if (i !== 0 && !a) s += b;
+            let x = (parseFloat(s) - (this.row * this.structLen))
             // If a is true we are working with a byte array, break from loop , we will decode later 
             if (a) {
-                this.data[s + ".0"] = (this.db + t + s + "." + l.toString())
+                this.data[x + ".0"] = (this.db + t + s + "." + l.toString())
                 break;
             }
             if (b === .1) {
-                this.data[s.toFixed(1)] = (this.db + t + s.toFixed(1));
+                this.data[x.toFixed(1)] = (this.db + t + s.toFixed(1));
             } else {
-                this.data[s + ".0"] = (this.db + t + s)
+                this.data[x + ".0"] = (this.db + t + s)
             }
         }
     }
 }
 
-let testRow = new TT13Row();
-
-console.log(testRow);
-
-module.exports = testRow;
+module.exports = tt13;
