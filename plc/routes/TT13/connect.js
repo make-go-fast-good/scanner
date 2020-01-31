@@ -3,6 +3,11 @@ const variables = require('../createStruct');
 const router = express.Router();
 const nodes7 = require("nodes7");
 const plc = new nodes7();
+class dataRow {
+    constructor() {
+        this.data = {};
+    }
+}
 
 function readData() {
     return new Promise((resolve, reject) => {
@@ -38,28 +43,29 @@ function readData() {
                     reject(err);
                 }
                 data = await values;
+
                 //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
                 const dataKeys = Object.keys(data);
+
                 let retData = {};
 
-                for (i = 0; i < 5; i++) {
+                for (i = 0; i < 200; i++) {
 
+                    //lets construct our object
+                    retData[i] = new dataRow(i);
+                    //row is an array of the raw object keys from the callback function
                     let row = dataKeys.filter(function (val) {
                         return (parseFloat(val) <= ((i * 182) + 186)) && (parseFloat(val) >= (6 + (i * 182)))
                     })
-
+                    //iterate throught he dataKeys array and create a sensible structure
                     row.forEach((key) => {
-                        retData[i].data[key] = data[key];
+                        item = parseFloat(key) - (i * 182)
+                        retData[i].data[item.toFixed(1)] = data[key];
                     })
 
-                    console.log(retData)
-
-                    //retData[i].data[] = Object.entries(data)
-                    //console.log(dataKeys.filter(function(val){return parseFloat(val) >= (6 + (i * 182) && parseFloat(val) <= (6 +(i * 182)))}))
-                    // retData[i][dataKeys.filter(function(val){return val >= (6 + (i * 182) && val <= 0)})] = dataKeys.filter(dataRow)
                 }
 
-                resolve(data);
+                resolve(retData);
                 //Drop the connection, to fix all the things. 
                 plc.dropConnection();
             }
