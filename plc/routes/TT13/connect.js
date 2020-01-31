@@ -1,11 +1,13 @@
 const express = require('express');
 const variables = require('../createStruct');
 const router = express.Router();
+const nodes7 = require("nodes7");
+const plc = new nodes7();
 
 function readData() {
+
     return new Promise((resolve) => {
-        const nodes7 = require("nodes7");
-        const plc = new nodes7();
+
         plc.initiateConnection({
             port: 102,
             host: "10.136.16.31",
@@ -24,26 +26,14 @@ function readData() {
             }); // This sets the "translation" to allow us to work with object names
 
             // We add the returned variables from setTranslations to the PLC reading list
-            //console.log(Object.keys(variables))
             plc.addItems(Object.keys(variables));
             var data;
 
             // Now read all the items on the list. 
-            const myData = new Promise(function (resolve, reject) {
+            const myData = new Promise(async function (resolve, reject) {
                 resolve(plc.readAllItems(callback));
             });
-
-            var myObj = {};
-            await myData.then(function () {
-                for (key in myData) {
-                    let i = 1
-                    while ((parseFloat(Object.keys(key)) / i) > 188) {
-                        i++
-                    }
-                    myObj[i][Object.keys(key)] = key;
-                }
-            });
-            console.log(myObj);
+            myData.then(resolve(data))
             //plc.readAllItems(callback)
         }
 
@@ -52,12 +42,14 @@ function readData() {
                 console.log("SOMETHING WENT WRONG READING VALUES!!!!");
             }
             data = await values;
-            //process.exit();
+
+            return data;
         }
 
         return resolve(data);
 
     })
+
 }
 
 const awaitHandlerFactory = (middleware) => {
@@ -72,8 +64,7 @@ const awaitHandlerFactory = (middleware) => {
 
 router.get('/', awaitHandlerFactory(async (request, response) => {
     let conn = request.query.conn
-    const result = await readData();
-    response.send(result);
+    readData().then((val) => response.send(val))
 }))
 
 module.exports = router;
