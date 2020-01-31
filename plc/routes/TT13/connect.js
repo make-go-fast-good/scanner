@@ -38,6 +38,21 @@ function readData() {
                     reject(err);
                 }
                 data = await values;
+                //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
+                const dataKeys = Object.keys(data);
+                let retData = {};
+
+                for (i = 0; i < 5; i++) {
+
+                    let row = dataKeys.filter(function (val) {
+                        return (parseFloat(val) <= ((i * 182) + 186)) && (parseFloat(val) >= (6 + (i * 182)))
+                    })
+                    console.log(row)
+
+                    //retData[i].data[] = Object.entries(data)
+                    //console.log(dataKeys.filter(function(val){return parseFloat(val) >= (6 + (i * 182) && parseFloat(val) <= (6 +(i * 182)))}))
+                    // retData[i][dataKeys.filter(function(val){return val >= (6 + (i * 182) && val <= 0)})] = dataKeys.filter(dataRow)
+                }
 
                 resolve(data);
                 //Drop the connection, to fix all the things. 
@@ -58,8 +73,8 @@ const awaitHandlerFactory = (middleware) => {
 }
 
 router.get('/', awaitHandlerFactory(async (request, response) => {
-    console.log("request: \n");
-    console.log(request);
+    //console.log("request: \n");
+    //console.log(request);
     //let conn = request.query.conn
     readData().then(data => {
         response.send(data)
