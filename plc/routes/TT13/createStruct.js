@@ -1,9 +1,8 @@
-const data = createStruct();
+const plcData = createStruct();
 
 function createStruct() {
     const db = "DB1810,";
     const data = {};
-    //let data = {};
     const structLen = 182
 
     for (let i = 0; i < 200; i++) {
@@ -19,6 +18,7 @@ function createStruct() {
         createData((22 + offset), 8, "X")
         createData((23 + offset), 8, "X")
         createData((24 + offset), 5, "INT")
+        createData((34 + offset), 1, "INT")
         createData((36 + offset), 40, "CHAR")
         createData((76 + offset), 1, "INT")
         createData((78 + offset), 8, "X")
@@ -82,4 +82,4 @@ function createStruct() {
     return data;
 }
 
-module.exports = data;
+module.exports = plcData;

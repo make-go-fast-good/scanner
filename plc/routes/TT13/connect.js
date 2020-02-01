@@ -1,8 +1,9 @@
-const express = require('express');
-const variables = require('./createStruct');
-const router = express.Router();
-const nodes7 = require("nodes7");
-const plc = new nodes7();
+const Express = require('express');
+const Variables = require('./createStruct');
+const Router = Express.Router();
+const Nodes7 = require("nodes7");
+const Plc = new Nodes7();
+const Keys = require('../getKeys')
 class dataRow {
     constructor(_row = 0) {
         this.row = _row;
@@ -16,7 +17,7 @@ function readData() {
 
         // grab the connection
         //TODO get connection object from the front end
-        plc.initiateConnection({
+        Plc.initiateConnection({
             port: 102,
             host: "10.136.16.31",
             rack: 0,
@@ -31,15 +32,15 @@ function readData() {
             }
 
             // This sets the "translation" to allow us to work with object names
-            plc.setTranslationCB(tag => {
-                return variables[tag]
+            Plc.setTranslationCB(tag => {
+                return Variables[tag]
             });
 
             // Add items to the interal reading polling list.
-            plc.addItems(Object.keys(variables));
+            Plc.addItems(Object.keys(Variables));
 
             // Read items then return a values object.
-            plc.readAllItems(callback)
+            Plc.readAllItems(callback)
 
             //Callback function from readAllItems method.
             function callback(err, values) {
@@ -64,9 +65,12 @@ function readData() {
                         return (parseFloat(val) <= ((i * 182) + 186)) && (parseFloat(val) >= (6 + (i * 182)))
                     })
                     //iterate through the dataKeys array and create a sensible structure
-                    row.forEach(key => {
+                    row.forEach((key, index) => {
+                        /*
                         item = parseFloat(key) - (i * 182)
                         plcData[i].data[item.toFixed(1)] = data[key];
+                        */
+                        plcData[i].data[Keys[index]] = data[key];
                     })
 
                 }
@@ -77,7 +81,7 @@ function readData() {
                     //Return the plcData object and resolve the promise.
                 resolve(plcData);
                     //Drop the connection, to fix all the things. 
-                plc.dropConnection();
+                Plc.dropConnection();
             }
         }
     })
@@ -93,7 +97,7 @@ const awaitHandlerFactory = (middleware) => {
     }
 }
 
-router.get('/', awaitHandlerFactory(async (request, response) => {
+Router.get('/', awaitHandlerFactory(async (request, response) => {
     //let conn = request.query.conn
     readData().then(data => {
         response.send(data)
@@ -102,4 +106,4 @@ router.get('/', awaitHandlerFactory(async (request, response) => {
     })
 }))
 
-module.exports = router;
+module.exports = Router;
