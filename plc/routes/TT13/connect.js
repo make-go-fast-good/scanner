@@ -66,21 +66,29 @@ function readData() {
                     })
                     //iterate through the dataKeys array and create a sensible structure
                     row.forEach((key, index) => {
-                        /*
-                        item = parseFloat(key) - (i * 182)
-                        plcData[i].data[item.toFixed(1)] = data[key];
-                        */
-                        plcData[i].data[Keys[index]] = data[key];
+                        if (index === (1 || 3)) {
+                            //console.log("We need date here:");
+                            //console.log(data[key]);
+                            plcData[i].data[Keys[index]] = data[key];
+                        } else if (index === (2 || 4)) {
+                            //console.log("We need time here:");
+                            //console.log(data[key]);
+                            plcData[i].data[Keys[index]] = data[key];
+                        } else {
+                            plcData[i].data[Keys[index]] = data[key];
+                        }
                     })
 
+                    console.log('10987:\n' + new Date().getTime())
+
                 }
-                    //TODO map the object to the correct data keys before returning, hit em with that new new 
+                //TODO map the object to the correct data keys before returning, hit em with that new new 
 
-                    //TODO create function to translate the int arrays into datetime datatypes
+                //TODO create function to translate the int arrays into datetime datatypes
 
-                    //Return the plcData object and resolve the promise.
+                //Return the plcData object and resolve the promise.
                 resolve(plcData);
-                    //Drop the connection, to fix all the things. 
+                //Drop the connection, to fix all the things. 
                 Plc.dropConnection();
             }
         }
