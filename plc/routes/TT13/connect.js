@@ -79,7 +79,7 @@ function readData() {
                         }
                     })
 
-                    console.log('10987:\n' + new Date().getTime())
+                    //console.log('10987:\n' + new Date().getTime())
 
                 }
                 //TODO map the object to the correct data keys before returning, hit em with that new new 
@@ -97,6 +97,15 @@ function readData() {
 
 const awaitHandlerFactory = (middleware) => {
     return async (req, res, next) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+            "Access-Control-Allow-Headers",
+            "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        );
+        if (req.method === "OPTIONS") {
+            res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+//            return res.status(200);
+        }
         try {
             await middleware(req, res, next)
         } catch (err) {
