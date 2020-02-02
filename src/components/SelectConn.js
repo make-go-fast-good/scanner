@@ -86,7 +86,6 @@ export class SelectConn extends Component {
   };
 
   render() {
-    console.log(this.state.connections);
     return (
       <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
         <input
