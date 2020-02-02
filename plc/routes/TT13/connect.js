@@ -11,18 +11,12 @@ class dataRow {
     }
 }
 
-function readData() {
+function readData(_plcConnection) {
+
     return new Promise((resolve, reject) => {
         let data;
-
-        // grab the connection
-        //TODO get connection object from the front end
-        Plc.initiateConnection({
-            port: 102,
-            host: "10.136.16.31",
-            rack: 0,
-            slot: 3
-        }, connected);
+            // grab the connection, initiate connection to plc then call conencted function
+        Plc.initiateConnection(_plcConnection, connected);
 
         async function connected(err) {
             // We have an error.  Maybe the PLC is not reachable.
@@ -66,6 +60,7 @@ function readData() {
                     })
                     //iterate through the dataKeys array and create a sensible structure
                     row.forEach((key, index) => {
+                        //TODO: converty S7 Date data type to js dates. 
                         if (index === (1 || 3)) {
                             //console.log("We need date here:");
                             //console.log(data[key]);
@@ -79,13 +74,8 @@ function readData() {
                         }
                     })
 
-                    //console.log('10987:\n' + new Date().getTime())
 
                 }
-                //TODO map the object to the correct data keys before returning, hit em with that new new 
-
-                //TODO create function to translate the int arrays into datetime datatypes
-
                 //Return the plcData object and resolve the promise.
                 resolve(plcData);
                 //Drop the connection, to fix all the things. 
@@ -94,8 +84,8 @@ function readData() {
         }
     })
 }
-
-const awaitHandlerFactory = (middleware) => {
+//make the CORS work, wrap the router in the middle man to catch errors.  
+const middleMan = (middleware) => {
     return async (req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header(
@@ -104,7 +94,6 @@ const awaitHandlerFactory = (middleware) => {
         );
         if (req.method === "OPTIONS") {
             res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-//            return res.status(200);
         }
         try {
             await middleware(req, res, next)
@@ -114,9 +103,10 @@ const awaitHandlerFactory = (middleware) => {
     }
 }
 
-Router.get('/', awaitHandlerFactory(async (request, response) => {
-    //let conn = request.query.conn
-    readData().then(data => {
+Router.get('/', middleMan(async (request, response) => {
+    //convert json to javascript object
+    let plcConnection = JSON.parse(request.query.conn);
+    readData(plcConnection).then(data => {
         response.send(data)
     }).catch(err => {
         console.log('err = ' + err)

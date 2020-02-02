@@ -2,20 +2,16 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/layout/Header";
-import Todos from "./components/Todos";
 import SelectConn from "./components/SelectConn";
-import AddTodo from "./components/AddTodo";
 import About from "./components/pages/About";
 import MaterialTable from "./components/Table";
-
-import uuid from "uuid";
 
 import "./App.css";
 
 class App extends Component {
   state = {
-    todos: [],
-    connections: []
+    connections: [],
+    plcData: []
   };
 
   /*
@@ -25,83 +21,28 @@ class App extends Component {
   }
   */
 
-  markComplete = id => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      })
-    });
-    console.log(id + " id");
-  };
-
   // Select Connection
   selConn = conn => {
+    console.log(conn);
     // Optionally the request above could also be done as
     axios
-      .get("/tt13"
-     /*
-      , {
+      .get("http://localhost:8080/tt13", {
         params: {
-          conn: this.conn
+          conn: conn
         }
-      }
-     */ 
-      )
-      .then(function(response) {
-        console.log(response);
+      })
+      .then(res => {
+        this.setState.plcData = res.data
+
+
+        console.log('In App.js res: ')
+        console.log(res);
+        console.log('In App.js res.data: ')
+        console.log(res.data)
       })
       .catch(function(error) {
         console.log(error);
       });
-
-    //readData(conn);
-    console.log(conn);
-
-    // Return all the todos that do not match the id of the one passed into this function.
-    // ... "spread operator" cant just change the array , use the spread operator to make a copy of it.
-    /*
-    this.setState({
-      connections: [...this.state.connections.filter(conn => conn.id === id)]
-    });
-    */
-  };
-
-  // Delete Todo
-  delTodo = id => {
-    /*
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    .then(res => this.setState({ todos: [...this.state.todos.filter
-    (todo => todo.id !== id)] }))
-    */
-    // Return all the todos that do not match the id of the one passed into this function.
-    // ... "spread operator" cant just change the array , use the spread operator to make a copy of it.
-    this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id !== id)]
-    });
-  };
-
-  // Add Todo
-  addTodo = title => {
-    const newTodo = {
-      id: uuid.v4(),
-      title,
-      completed: false
-    };
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    });
-
-    /*
-    axios.post('https://jsonplaceholder.typicode.com/todos', {
-      title,
-      completed: false
-    })
-    .then(res => this.setState({ todos: 
-    [...this.state.todos, res.data] }))
-    */
   };
 
   render() {
@@ -121,11 +62,6 @@ class App extends Component {
                       search: true
                     }}
                   />
-                  <Todos
-                    todos={this.state.todos}
-                    markComplete={this.markComplete}
-                    delTodo={this.delTodo}
-                  />{" "}
                 </React.Fragment>
               )}
             ></Route>{" "}
