@@ -5,8 +5,9 @@ const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
 const Keys = require('../getKeys')
 class dataRow {
-    constructor(_row = 0) {
-        this.row = _row;
+    constructor(_index = 0) {
+        this.index = _index;
+        this.barcode = ''
         this.data = {};
     }
 }
@@ -15,8 +16,13 @@ function readData(_plcConnection) {
 
     return new Promise((resolve, reject) => {
         let data;
-            // grab the connection, initiate connection to plc then call conencted function
-        Plc.initiateConnection(_plcConnection, connected);
+        // grab the connection, initiate connection to plc then call conencted function
+        Plc.initiateConnection((_plcConnection || {
+            port: 102,
+            host: "10.136.16.38",
+            rack: 0,
+            slot: 3
+        }), connected);
 
         async function connected(err) {
             // We have an error.  Maybe the PLC is not reachable.
@@ -59,7 +65,13 @@ function readData(_plcConnection) {
                         return (parseFloat(val) <= ((i * 182) + 186)) && (parseFloat(val) >= (6 + (i * 182)))
                     })
                     //iterate through the dataKeys array and create a sensible structure
+                    let barcode = [];
                     row.forEach((key, index) => {
+                        if (index >= 32 && index <= 71) {
+                            //console.log(data[key]);
+                            plcData[i].barcode += data[key];
+                            //barcode.join(data[key]);
+                        }
                         //TODO: converty S7 Date data type to js dates. 
                         if (index === (1 || 3)) {
                             //console.log("We need date here:");
@@ -69,10 +81,21 @@ function readData(_plcConnection) {
                             //console.log("We need time here:");
                             //console.log(data[key]);
                             plcData[i].data[Keys[index]] = data[key];
-                        } else {
+                        }
+
+                        /* 
+                         else if (index >= 32 && index <= 72) {
+                             console.log(data[key]);
+                             //barcode.join(data[key]);
+                         } 
+                        */
+                        else {
                             plcData[i].data[Keys[index]] = data[key];
                         }
+
+                        plcData[i].barcode = plcData[i].barcode.trim();
                     })
+                    console.log(barcode);
 
 
                 }
@@ -104,8 +127,10 @@ const middleMan = (middleware) => {
 }
 
 Router.get('/', middleMan(async (request, response) => {
+    let plcConnection;
     //convert json to javascript object
-    let plcConnection = JSON.parse(request.query.conn);
+    if (request.query.conn) plcConnection = JSON.parse(request.query.conn);
+
     readData(plcConnection).then(data => {
         response.send(data)
     }).catch(err => {
