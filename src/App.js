@@ -20,7 +20,9 @@ class App extends Component {
       .then(res => this.setState({ todos: res.data }))
   }
   */
+  barcodeConcat = data => {
 
+  }
   // Select Connection
   selConn = conn => {
     console.log(conn);
@@ -33,13 +35,24 @@ class App extends Component {
       })
       .then(res => {
         this.setState.plcData = res.data
-
-
         console.log('In App.js res: ')
         console.log(res);
         console.log('In App.js res.data: ')
         console.log(res.data)
       })
+        /*
+      //merge char array into string 
+      .then( () => {
+        console.log('_plcData: ')
+        console.log(this.state.plcData)
+        for(const row of _plcData){
+          for(const barcode of row){
+            console.log(barcode);
+          }
+        }
+      })
+
+        */
       .catch(function(error) {
         console.log(error);
       });
