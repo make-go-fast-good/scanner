@@ -20,13 +20,19 @@ class App extends Component {
       .then(res => this.setState({ todos: res.data }))
   }
   */
-  barcodeConcat = data => {
 
-  }
+handleChange = e => {
+  console.log('from handle Change');
+  console.log(e);
+  this.setState({
+      [e.target.name]: e.target.value
+  })
+}
+
+
   // Select Connection
-  selConn = conn => {
+  getData = conn => {
     console.log(conn);
-    // Optionally the request above could also be done as
     axios
       .get("http://localhost:8080/tt13", {
         params: {
@@ -34,25 +40,15 @@ class App extends Component {
         }
       })
       .then(res => {
-        this.setState.plcData = res.data
-        console.log('In App.js res: ')
-        console.log(res);
-        console.log('In App.js res.data: ')
-        console.log(res.data)
-      })
-        /*
-      //merge char array into string 
-      .then( () => {
-        console.log('_plcData: ')
+        this.setState({ plcData: res.data })
         console.log(this.state.plcData)
-        for(const row of _plcData){
-          for(const barcode of row){
-            console.log(barcode);
-          }
-        }
       })
-
-        */
+      /*
+      .then(() => {
+        this.MaterialTable.setState({ data: this.state.plcData})
+        console.log(this.MaterialTable.data)
+      })
+      */
       .catch(function(error) {
         console.log(error);
       });
@@ -69,8 +65,12 @@ class App extends Component {
               path="/"
               render={props => (
                 <React.Fragment>
-                  <SelectConn selConn={this.selConn} />{" "}
+                  <SelectConn getData={this.getData} />{" "}
                   <MaterialTable
+                    rows={ 
+                       this.state.plcData 
+                    }
+                    onChange={ this.handleChange }
                     options={{
                       search: true
                     }}
