@@ -82,7 +82,7 @@ export class SelectConn extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.selConn(this.state.connections[e.target.value])
+    this.props.getData(this.state.connections[e.target.value])
   };
 
   render() {
@@ -180,7 +180,7 @@ export class SelectConn extends Component {
 
 // PropTypes
 SelectConn.propTypes = {
-  selConn: PropTypes.func.isRequired
+  getData: PropTypes.func.isRequired
 };
 
 export default SelectConn;
