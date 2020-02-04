@@ -10,7 +10,7 @@ export class BasicSearch extends Component {
 
     this.tableRef = React.createRef();
   }
-
+/*
   getData = conn => {
     console.log(conn);
     axios
@@ -28,11 +28,11 @@ export class BasicSearch extends Component {
         this.MaterialTable.setState({ data: this.state.plcData})
         console.log(this.MaterialTable.data)
       })
-      */
       .catch(function(error) {
         console.log(error);
       });
   };
+  */
 
 /*
   state = {
