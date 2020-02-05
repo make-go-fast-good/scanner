@@ -17,24 +17,23 @@ class App extends Component {
     area: ""
   };
 
-  makeTable = () => {
-    console.log("makeTable yes table");
-    this.setState({key: this.props.key})
-    this.setState({
-      options: {
-        paging: true,
-        pageSize: 10,
-        search: true
-      }
-    });
-    return (
-      <TT13Table
-        data={this.state.plcData}
-        title={this.state.area}
-        key={this.state.key}
-        options={this.state.options}
-      />
-    );
+  makeTable = (plcData, area) => {
+    if (!plcData) {
+      return <TT13Table />;
+    } else {
+      return (
+        <TT13Table
+          data={plcData}
+          title={area}
+          key={this.state.key}
+          options={{
+            paging: true,
+            pageSize: 10,
+            search: true
+          }}
+        />
+      );
+    }
   };
 
   // Select Connection
@@ -46,9 +45,7 @@ class App extends Component {
         }
       })
       .then(res => {
-        this.setState({ plcData: res.data });
-        this.setState({ area: area });
-        this.makeTable();
+        this.makeTable(res.data, area);
         console.log("after get data here is the plcData");
         console.log(this.state.plcData);
       })
