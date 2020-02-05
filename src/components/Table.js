@@ -1,61 +1,25 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
 import axios from "axios";
-import SelectConn from "./SelectConn";
 
 export class BasicSearch extends Component {
-
   constructor(props) {
     super(props);
-
     this.tableRef = React.createRef();
   }
-/*
-  getData = conn => {
-    console.log(conn);
-    axios
-      .get("http://localhost:8080/tt13", {
-        params: {
-          conn: conn
-        }
-      })
-      .then(res => {
-        this.setState({ plcData: res.data })
-        console.log(this.state.plcData)
-      })
-      /*
-      .then(() => {
-        this.MaterialTable.setState({ data: this.state.plcData})
-        console.log(this.MaterialTable.data)
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  };
-  */
 
-/*
-  state = {
-    rows: {
-      tableData: {}
-    }
+  state = { data: this.props.data };
+
+  handleChange = event => {
+    this.setState({ data: event.target.value });
   };
 
-  onChange = e => {
-    this.rows.setState({
-      tableData: this.props.rows
-    });
-  };
-
-  //  onChange = (e) => this.setState({ data: e.target.value });
-*/
   render() {
-    console.log("from table.js: ");
-    console.log(this.props);
 
     return (
       <MaterialTable
-        onChange={this.onChange}
+        onChange={this.handleChange}
+        value={this.state.data}
         title="TT13 Send"
         columns={[
           { title: "Index", field: "index" },
@@ -102,21 +66,8 @@ export class BasicSearch extends Component {
           { title: "Complete", field: "complete" },
           { title: "Zombie", field: "zombie" }
         ]}
-        data={query =>
-          new Promise((resolve, reject) => {
-            let url = 'localhost:8080/tt13'
-            axios.get(url)
-              .then(response => response.json())
-              .then(result => {
-                resolve({
-                  data: result.data,
-                })
-              })
-          })
-        }
-        options={{
-          search: true
-        }}
+        data={ this.props.data }
+        options={this.props.options}
         actions={[
           {
             icon: "refresh",

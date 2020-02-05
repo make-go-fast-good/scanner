@@ -14,22 +14,6 @@ class App extends Component {
     plcData: []
   };
 
-  /*
-  componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then(res => this.setState({ todos: res.data }))
-  }
-  */
-
-handleChange = e => {
-  console.log('from handle Change');
-  console.log(e);
-  this.setState({
-      [e.target.name]: e.target.value
-  })
-}
-
-
   // Select Connection
   getData = conn => {
     console.log(conn);
@@ -43,15 +27,10 @@ handleChange = e => {
         this.setState({ plcData: res.data })
         console.log(this.state.plcData)
       })
-      /*
-      .then(() => {
-        this.MaterialTable.setState({ data: this.state.plcData})
-        console.log(this.MaterialTable.data)
-      })
-      */
       .catch(function(error) {
         console.log(error);
       });
+    this.setState({connections: conn})
   };
 
   render() {
@@ -67,11 +46,12 @@ handleChange = e => {
                 <React.Fragment>
                   <SelectConn getData={this.getData} />{" "}
                   <MaterialTable
-                    rows={ 
-                       this.state.plcData 
-                    }
-                    onChange={ this.handleChange }
+                    getData={this.getData}
+                    connections={this.state.connections}
+                    data={this.state.plcData}
                     options={{
+                      paging: true,
+                      pageSize: 10,
                       search: true
                     }}
                   />
