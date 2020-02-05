@@ -4,46 +4,41 @@ import axios from "axios";
 import Header from "./components/layout/Header";
 import SelectConn from "./components/SelectConn";
 import About from "./components/pages/About";
-import MaterialTable from "./components/Table";
+import { TT13Table } from "./components/Table";
 
 import "./App.css";
+import DefaultTable from "./components/DefaultTable";
 
 class App extends Component {
   state = {
+    table: {},
     connections: [],
-    plcData: []
+    plcData: [],
+    area: ""
   };
 
-  makeTable = (plcData, area) => {
-
-    console.log(plcData)
-    console.log(area)
-    let table;
-
-    if (!plcData || !area) {
-      table = (<div>Select a connection to create a table</div>);
-    } else {
-      table = (
-        <MaterialTable
-          data={ plcData }
-          title={ area }
-          options={{
-            paging: true,
-            pageSize: 10,
-            search: true
-          }}
-        />
-      );
-    }
-
-    return table;
+  makeTable = () => {
+    console.log("makeTable yes table");
+    this.setState({key: this.props.key})
+    this.setState({
+      options: {
+        paging: true,
+        pageSize: 10,
+        search: true
+      }
+    });
+    return (
+      <TT13Table
+        data={this.state.plcData}
+        title={this.state.area}
+        key={this.state.key}
+        options={this.state.options}
+      />
+    );
   };
+
   // Select Connection
   getData = (conn, area) => {
-    if(conn && area){
-      console.log(conn);
-      console.log(area);
-    }
     axios
       .get("http://localhost:8080/tt13", {
         params: {
@@ -52,24 +47,24 @@ class App extends Component {
       })
       .then(res => {
         this.setState({ plcData: res.data });
+        this.setState({ area: area });
+        this.makeTable();
+        console.log("after get data here is the plcData");
         console.log(this.state.plcData);
       })
-      .then( () => {
-        this.makeTable(this.state.plcData, area)
+      /*
+      .then(() => {
+        this.makeTable(this.state.plcData, area);
       })
+      */
       .catch(function(error) {
         console.log(error);
       });
   };
 
   render() {
-
-    console.log('before makeTable')
-
-    let table = this.makeTable();
-
-    console.log('after makeTable')
-    console.log(table);
+    console.log("in App render here are this.props");
+    console.log(this.props);
 
     return (
       <Router>
@@ -82,7 +77,7 @@ class App extends Component {
               render={props => (
                 <React.Fragment>
                   <SelectConn getData={this.getData} />
-                  { table }
+                  <TT13Table />
                 </React.Fragment>
               )}
             ></Route>{" "}
