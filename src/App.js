@@ -14,9 +14,36 @@ class App extends Component {
     plcData: []
   };
 
+  makeTable = (plcData, area) => {
+
+    console.log(plcData)
+    console.log(area)
+    let table;
+
+    if (!plcData || !area) {
+      table = (<div>Select a connection to create a table</div>);
+    } else {
+      table = (
+        <MaterialTable
+          data={ plcData }
+          title={ area }
+          options={{
+            paging: true,
+            pageSize: 10,
+            search: true
+          }}
+        />
+      );
+    }
+
+    return table;
+  };
   // Select Connection
-  getData = conn => {
-    console.log(conn);
+  getData = (conn, area) => {
+    if(conn && area){
+      console.log(conn);
+      console.log(area);
+    }
     axios
       .get("http://localhost:8080/tt13", {
         params: {
@@ -24,16 +51,26 @@ class App extends Component {
         }
       })
       .then(res => {
-        this.setState({ plcData: res.data })
-        console.log(this.state.plcData)
+        this.setState({ plcData: res.data });
+        console.log(this.state.plcData);
+      })
+      .then( () => {
+        this.makeTable(this.state.plcData, area)
       })
       .catch(function(error) {
         console.log(error);
       });
-    this.setState({connections: conn})
   };
 
   render() {
+
+    console.log('before makeTable')
+
+    let table = this.makeTable();
+
+    console.log('after makeTable')
+    console.log(table);
+
     return (
       <Router>
         <div className="App">
@@ -44,17 +81,8 @@ class App extends Component {
               path="/"
               render={props => (
                 <React.Fragment>
-                  <SelectConn getData={this.getData} />{" "}
-                  <MaterialTable
-                    getData={this.getData}
-                    connections={this.state.connections}
-                    data={this.state.plcData}
-                    options={{
-                      paging: true,
-                      pageSize: 10,
-                      search: true
-                    }}
-                  />
+                  <SelectConn getData={this.getData} />
+                  { table }
                 </React.Fragment>
               )}
             ></Route>{" "}
