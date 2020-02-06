@@ -15,7 +15,7 @@ export class TT13Table extends Component {
       return  (
         <MaterialTable
           key={this.props.key}
-          title={this.props.area + "TT13 Send"}
+          title={this.props.area + " TT13 Send"}
           columns={[
             { title: "Index", field: "index" },
             { title: "Type", field: "type" },
