@@ -7,33 +7,30 @@ import About from "./components/pages/About";
 import { TT13Table } from "./components/Table";
 
 import "./App.css";
-import DefaultTable from "./components/DefaultTable";
 
 class App extends Component {
   state = {
-    table: {},
-    connections: [],
-    plcData: [],
-    area: ""
+    area: undefined,
+    data: undefined,
+    options: {}
   };
 
   makeTable = (plcData, area) => {
-    if (!plcData) {
-      return <TT13Table />;
-    } else {
-      return (
-        <TT13Table
-          data={plcData}
-          title={area}
-          key={this.state.key}
-          options={{
-            paging: true,
-            pageSize: 10,
-            search: true
-          }}
-        />
-      );
+    if (plcData && area) {
+      console.log("in makeTable should be plcData & area");
+      console.log(plcData);
+      console.log(area);
     }
+
+    this.setState({
+      area: area,
+      data: plcData,
+      options: {
+        paging: true,
+        pageSize: 10,
+        search: true
+      }
+    });
   };
 
   // Select Connection
@@ -46,22 +43,13 @@ class App extends Component {
       })
       .then(res => {
         this.makeTable(res.data, area);
-        console.log("after get data here is the plcData");
-        console.log(this.state.plcData);
       })
-      /*
-      .then(() => {
-        this.makeTable(this.state.plcData, area);
-      })
-      */
       .catch(function(error) {
         console.log(error);
       });
   };
 
   render() {
-    console.log("in App render here are this.props");
-    console.log(this.props);
 
     return (
       <Router>
@@ -74,7 +62,12 @@ class App extends Component {
               render={props => (
                 <React.Fragment>
                   <SelectConn getData={this.getData} />
-                  <TT13Table />
+                  <TT13Table
+                    area={this.state.area}
+                    data={this.state.data}
+                    options={this.state.options}
+                    key={this.state.key}
+                  />
                 </React.Fragment>
               )}
             ></Route>{" "}

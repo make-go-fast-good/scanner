@@ -7,7 +7,7 @@ export class TT13Table extends Component {
     console.log('In Table.js here are my props')
     console.log(this.props)
 
-    if (!this.props.key) {
+    if (this.props.data === undefined) {
       console.log("no table");
       return (<DefaultTable />)
     } else {
@@ -61,7 +61,7 @@ export class TT13Table extends Component {
             { title: "Complete", field: "complete" },
             { title: "Zombie", field: "zombie" }
           ]}
-          data={this.props.data}
+          data={[this.props.data]}
           options={this.props.options}
           actions={[
             {
