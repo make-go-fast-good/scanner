@@ -67,7 +67,7 @@ function processPlcData(data) {
     //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
     const dataKeys = Object.keys(data);
 
-    let plcData = {};
+    let plcData = [];
 
     for (i = 0; i < 200; i++) {
         //lets construct our object
