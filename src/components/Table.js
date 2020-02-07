@@ -2,47 +2,53 @@ import React, { Component } from "react";
 import MaterialTable from "material-table";
 import DefaultTable from "./DefaultTable";
 export class TT13Table extends Component {
+  state = {
+  };
 
   render() {
     console.log('In Table.js here are my props')
     console.log(this.props)
 
-    if (this.props.data === undefined) {
+    if (this.props.loading === true){
+      return (null);
+    }
+    else if (this.props.data === undefined) {
       console.log("no table");
       return (<DefaultTable />)
     } else {
       console.log("should be a table");
+      console.log(this.props.data);
       return  (
         <MaterialTable
           key={this.props.key}
           title={this.props.area + " TT13 Send"}
           columns={[
             { title: "Index", field: "index" },
-            { title: "Type", field: "type" },
-            { title: "Date_start", field: "start_date" },
-            { title: "Time_start", field: "time" },
-            { title: "Date_last", field: "last_access" },
-            { title: "Time_last", field: "time_2" },
+            { title: "Type", field: "data.tele_typ" },
+            { title: "Date_start", field: "data.datum_start" },
+            { title: "Time_start", field: "data.uhr_start" },
+            { title: "Date_last", field: "data.datum" },
+            { title: "Time_last", field: "data.uhr" },
 
-            { title: "FP", field: "fp_number" },
-            { title: "Scanner", field: "scanner" },
+            { title: "FP", field: "data.ta_data_ident_fpnr" },
+            { title: "Scanner", field: "data.ta_data_ident_scanner" },
             { title: "Barcode", field: "barcode" },
-            { title: "Order", field: "order" },
+            { title: "Order", field: "data.ta_data_order" },
 
-            { title: "Origin", field: "origin" },
-            { title: "Location", field: "location" },
-            { title: "Destination", field: "destination" },
-            { title: "Forced Dest", field: "forced_dest" },
+            { title: "Origin", field: "data.ta_data_herkunft" },
+            { title: "Location", field: "data.ta_data_standort" },
+            { title: "Destination", field: "data.ta_data_ziel" },
+            { title: "Forced Dest", field: "data.ta_data_zwangsziel" },
 
-            { title: "Overflow", field: "overflow" },
-            { title: "No Weight", field: "no_weight" },
-            { title: "No Contour", field: "no_contour" },
-            { title: "Special 1", field: "special1" },
-            { title: "Special 2", field: "special2" },
-            { title: "Special 3", field: "special3" },
-            { title: "TA for SC", field: "ta_for_sc" },
-            { title: "Dont Delete", field: "dont_delete" },
-            { title: "Ack", field: "ack" },
+            { title: "Overflow", field: "data.ta_data_order_ext_ueberlauf" },
+            { title: "No Weight", field: "data.ta_data_order_ext_kein_gewicht" },
+            { title: "No Contour", field: "data.ta_data_order_ext_kein_kontur" },
+            { title: "Special 1", field: "data.ta_data_order_ext_sonder_1" },
+            { title: "Special 2", field: "data.ta_data_order_ext_sonder_2" },
+            { title: "Special 3", field: "data.ta_data_order_ext_sonder_3" },
+            { title: "TA for SC", field: "data.ta_data_order_ext_ta_for_sc" },
+            { title: "Dont Delete", field: "data.ta_data_order_ext_kein_del" },
+            { title: "Ack", field: "data.ta_data_ack" },
 
             { title: "Busy", field: "busy" },
             { title: "Order Rec", field: "order_rec" },
@@ -61,8 +67,9 @@ export class TT13Table extends Component {
             { title: "Complete", field: "complete" },
             { title: "Zombie", field: "zombie" }
           ]}
-          data={[this.props.data]}
+          data={this.props.data}
           options={this.props.options}
+          /*
           actions={[
             {
               icon: "refresh",
@@ -72,6 +79,7 @@ export class TT13Table extends Component {
                 this.tableRef.current && this.tableRef.current.onQueryChange()
             }
           ]}
+          */
         />
       );
     }
