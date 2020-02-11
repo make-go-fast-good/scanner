@@ -80,6 +80,8 @@ function processPlcData(data) {
         //iterate through the dataKeys array and create a sensible structure
         let barcode = [];
         row.forEach((key, index) => {
+            if (data[key] === true) data[key] = 'true'
+            if (data[key] === false) data[key] = 'false'
             if (index >= 32 && index <= 71) {
                 plcData[i].barcode += data[key];
             }
