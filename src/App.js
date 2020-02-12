@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { css } from "@emotion/core";
-import PropagateLoader from "react-spinners/PropagateLoader";
 import axios from "axios";
 import Header from "./components/layout/Header";
 import SelectConn from "./components/SelectConn";
@@ -9,7 +8,6 @@ import About from "./components/pages/About";
 import { TT13Table } from "./components/Table";
 
 import "./App.css";
-
 class App extends Component {
   state = {
     area: undefined,
@@ -19,20 +17,14 @@ class App extends Component {
   };
 
   makeTable = (plcData, area) => {
-    if (plcData && area) {
-      console.log("in makeTable should be plcData & area");
-      console.log(plcData);
-      console.log(area);
-    }
-
     this.setState({
       area: area,
       data: plcData,
       options: {
-        paging: false,
+        paging: true,
         pageSize: 5,
         search: true,
-        grouping: false
+        grouping: true
       },
       loading: false
     });
@@ -55,13 +47,13 @@ class App extends Component {
       });
   };
 
-      //margin: 300px auto;
   render() {
     const override = css`
       margin: 300px 50%;
       display: block;
-      border-color: #d2d2d2;
+      border-color: #D2D2D2;
     `;
+
     return (
       <Router>
         <div className="App">
@@ -79,12 +71,7 @@ class App extends Component {
                     options={this.state.options}
                     key={this.state.key}
                     loading={this.state.loading}
-                  />
-                  <PropagateLoader
                     css={override}
-                    size={20}
-                    color={"#d2d2d2"}
-                    loading={this.state.loading}
                   />
                 </React.Fragment>
               )}

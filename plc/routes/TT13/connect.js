@@ -20,7 +20,7 @@ function readData(_plcConnection) {
         // grab the connection, initiate connection to plc then call conencted function
         Plc.initiateConnection((_plcConnection || {
             port: 102,
-            host: "10.136.16.38",
+            host: "10.136.16.31",
             rack: 0,
             slot: 3
         }), connected);
@@ -71,7 +71,7 @@ function processPlcData(data) {
 
     for (i = 0; i < 200; i++) {
         //lets construct our object
-        plcData[i] = new dataRow(i);
+        plcData[i] = new dataRow(i + 1); //Add one so the index starts at one in the table.
         //row is an array of the raw object keys from the callback function
         let row = dataKeys.filter(val => {
             //We want the keys to be between (6.0 - 186.0) - (i * 182)
