@@ -79,17 +79,26 @@ function processPlcData(data) {
         })
         //iterate through the dataKeys array and create a sensible structure
         let barcode = [];
+        let day = 86400000;
+        let elapsed = 631152000000;
         row.forEach((key, index) => {
             if (data[key] === true) data[key] = 'true'
             if (data[key] === false) data[key] = 'false'
             if (index >= 32 && index <= 71) {
                 plcData[i].barcode += data[key];
             }
-            //TODO: converty S7 Date data type to js dates. 
-            if (index === (1 || 3)) {
-                //console.log("We need date here:");
-                //console.log(data[key]);
-                plcData[i].data[Keys[index]] = data[key];
+            //Siemens Date data type return a hex value for number of days since Jan 1, 1990
+            //Convert that value to milliseconds since Jan 1, 1990, then add ms between 1990 & 1970. 
+            //86,400,000 milliseconds in every day.
+            //631,152,000,000 milliseconds between 1970 to 1990 
+            if (index === 1 || index === 3) {
+                let byte_0 = data[key][0]
+                let byte_1 = data[key][1]
+                let word = ((byte_0 & 0xFF) << 8) | (byte_1 & 0xFF) //combine the two bytes to create a word. 
+                let ms_date = (word * day) + elapsed  // (num of days since 1-1-1990 * 86400000) + 631,152,000,000
+                let date = new Date(ms_date);
+                date = date.toJSON().slice(0, 10)
+                plcData[i].data[Keys[index]] = date;
             } else if (index === (2 || 4)) {
                 //console.log("We need time here:");
                 //console.log(data[key]);
