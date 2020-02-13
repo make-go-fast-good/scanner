@@ -4,30 +4,53 @@
   padding: 0;
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
   background: #eaeaea
 }
 
-a{
+a {
   color: #333;
   text-decoration: none;
 }
 
-.container{
+.container {
   padding: 0 1rem;
 }
 
-.btn{
+.btn {
   display: inline-block;
   border: none;
   background: #555;
-  color: #fff;
+  /*background: #505A64;*/
+  color: #FFF;
   padding: 7px 20px;
   cursor: pointer;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }
 
-.btn:hover{
+.btn:hover {
   background: #666;
 }
+/*
+.mat-row {
+  height: auto;
+}
+
+.mat-cell {
+  padding: 1px 1px 1px 0;
+}
+*/

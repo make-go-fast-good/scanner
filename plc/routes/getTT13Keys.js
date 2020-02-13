@@ -1,4 +1,6 @@
-TT13KEYS = ['tele_typ',
+// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
+TT13KEYS = [
+    'tele_typ',
     'datum_start',
     'uhr_start',
     'datum',
