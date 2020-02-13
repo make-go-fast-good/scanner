@@ -1,9 +1,10 @@
 const Express = require("express");
-const Variables = require("./createStruct");
+//const Variables = require("./createStruct");
+const TT13Struct = require("./createstruct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
-const Keys = require("../getTT13Keys");
+const Keys = require("../TT13/getTT13Keys");
 
 class dataRow {
   constructor(_index = 0) {
@@ -16,7 +17,9 @@ class dataRow {
 function readData(_plcConnection) {
   return new Promise((resolve, reject) => {
     let data;
-    // grab the connection, initiate connection to plc then call conencted function
+    const Variables = new TT13Struct(200);
+    //console.log(Variables);
+    // Initiate connection to plc then call conencted function
     Plc.initiateConnection(
       _plcConnection || {
         port: 102,
@@ -36,11 +39,11 @@ function readData(_plcConnection) {
 
       // This sets the "translation" to allow us to work with object names
       Plc.setTranslationCB(tag => {
-        return Variables[tag];
+        return Variables.data[tag];
       });
 
       // Add items to the interal reading polling list.
-      Plc.addItems(Object.keys(Variables));
+      Plc.addItems(Object.keys(Variables.data));
 
       // Read items then return a values object.
       Plc.readAllItems(callback);
@@ -89,7 +92,7 @@ function processPlcData(data) {
       if (data[key] === true) data[key] = "true"; // change from boolean to string representation so the data table can read.
       if (data[key] === false) data[key] = "false";
 
-      if (index >= 32 && index <= 71) {
+      if (index >= 31 && index <= 71) {
         plcData[i].barcode += data[key]; // build a string from the char array 
       }
 
