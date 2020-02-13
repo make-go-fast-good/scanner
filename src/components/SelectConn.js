@@ -82,7 +82,6 @@ export class SelectConn extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    // conn, area
     this.props.getData(this.state.connections[e.target.value], e.target.value)
   };
 

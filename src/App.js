@@ -9,11 +9,12 @@ import { TT13Table } from "./components/Table";
 
 import "./App.css";
 class App extends Component {
+
   state = {
     area: undefined,
     data: undefined,
     options: {},
-    loading: false
+    loading: false,
   };
 
   makeTable = (plcData, area) => {
@@ -21,10 +22,20 @@ class App extends Component {
       area: area,
       data: plcData,
       options: {
+        maxBodyHeight: "60vh", // makes the headers fixed if the body size is larger. 
         paging: true,
-        pageSize: 5,
+        pageSize: 20,
         search: true,
-        grouping: true
+        grouping: true,
+        sorting: false,
+        headerStyle: {
+          backgroundColor: "#555",
+          color: "#FFF",
+          textAlign: "center"
+        },
+        cellStyle:{
+          textAlign: "center"
+        }
       },
       loading: false
     });
@@ -48,10 +59,11 @@ class App extends Component {
   };
 
   render() {
+
     const override = css`
       margin: 300px 50%;
       display: block;
-      border-color: #D2D2D2;
+      border-color: #d2d2d2;
     `;
 
     return (
