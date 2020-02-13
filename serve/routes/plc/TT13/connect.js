@@ -1,6 +1,6 @@
 const Express = require("express");
-//const Variables = require("./createStruct");
-const TT13Struct = require("./createstruct");
+const Variables = require("./createStruct");
+//const TT13Struct = require("./createstruct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
@@ -17,8 +17,9 @@ class dataRow {
 function readData(_plcConnection) {
   return new Promise((resolve, reject) => {
     let data;
-    const Variables = new TT13Struct(200);
-    //console.log(Variables);
+
+    //const TT13Var = new TT13Struct(200);
+
     // Initiate connection to plc then call conencted function
     Plc.initiateConnection(
       _plcConnection || {
@@ -39,11 +40,11 @@ function readData(_plcConnection) {
 
       // This sets the "translation" to allow us to work with object names
       Plc.setTranslationCB(tag => {
-        return Variables.data[tag];
+        return Variables[tag];
       });
 
       // Add items to the interal reading polling list.
-      Plc.addItems(Object.keys(Variables.data));
+      Plc.addItems(Object.keys(Variables));
 
       // Read items then return a values object.
       Plc.readAllItems(callback);
@@ -74,26 +75,34 @@ function processPlcData(data) {
 
   let plcData = [];
 
+  //lets construct our object
   for (i = 0; i < 200; i++) {
-    //lets construct our object
-    plcData[i] = new dataRow(i + 1); //Add one so the index starts at one in the table.
+
+    //Add one so the index starts at one in the table.
+    plcData[i] = new dataRow(i + 1);
+
     //row is an array of the raw object keys from the callback function
     let row = dataKeys.filter(val => {
+
       //We want the keys to be between (6.0 - 186.0) - (i * 182)
       return parseFloat(val) <= i * 182 + 186 && parseFloat(val) >= 6 + i * 182;
     });
 
     //iterate through the dataKeys array and create a sensible structure
     let barcode = [];
-    let day = 86400000; // milliseconds in a day
-    let elapsed = 631152000000; // milliseconds between jan 1, 1970 & jan 1, 1990
+    // milliseconds in a day
+    let day = 86400000;
+    // milliseconds between jan 1, 1970 & jan 1, 1990
+    let elapsed = 631152000000;
 
     row.forEach((key, index) => {
-      if (data[key] === true) data[key] = "true"; // change from boolean to string representation so the data table can read.
+      // change from boolean to string representation so the data table can read.
+      if (data[key] === true) data[key] = "true";
       if (data[key] === false) data[key] = "false";
 
-      if (index >= 31 && index <= 71) {
-        plcData[i].barcode += data[key]; // build a string from the char array 
+      if (index >= 32 && index <= 71) {
+        // build a string from the char array
+        plcData[i].barcode += data[key];
       }
 
       //Siemens Date data type return a hex value for number of days since Jan 1, 1990
@@ -104,12 +113,15 @@ function processPlcData(data) {
         let byte_0 = data[key][0];
         let byte_1 = data[key][1];
 
-        let word = ((byte_0 & 0xff) << 8) | (byte_1 & 0xff); //combine the two bytes to create a word.
+        //combine the two bytes to create a word.
+        let word = ((byte_0 & 0xff) << 8) | (byte_1 & 0xff);
 
-        let ms_date = word * day + elapsed; // (num of days since 1-1-1990 * 86400000) + 631,152,000,000
+        // (num of days since 1-1-1990 * 86400000) + 631,152,000,000
+        let ms_date = word * day + elapsed;
         let date = new Date(ms_date);
 
-        plcData[i].data[Keys[index]] = date.toJSON().slice(0, 10); //cut off the time of day, we only care about the date here. 
+        //cut off the time of day, we only care about the date here. 
+        plcData[i].data[Keys[index]] = date.toJSON().slice(0, 10);
       } else if (index === 2 || index === 4) {
         //Siemens Time data type returns the number of milliseconds since the beginning of the day.
         let byte_0 = data[key][0];
@@ -117,18 +129,22 @@ function processPlcData(data) {
         let byte_2 = data[key][2];
         let byte_3 = data[key][3];
 
-        let word_0 = ((byte_0 & 0xff) << 8) | (byte_1 & 0xff); //combine the two bytes to create a word.
-        let word_1 = ((byte_2 & 0xff) << 8) | (byte_3 & 0xff); 
+        //combine the two bytes to create a word.
+        let word_0 = ((byte_0 & 0xff) << 8) | (byte_1 & 0xff);
+        let word_1 = ((byte_2 & 0xff) << 8) | (byte_3 & 0xff);
 
-        let ms_time = ((word_0 & 0xffff) << 16) | (word_1 & 0xffff); //combine words for double word
+        //combine words for double word
+        let ms_time = ((word_0 & 0xffff) << 16) | (word_1 & 0xffff);
         let time = new Date(ms_time);
 
-        plcData[i].data[Keys[index]] = time.toJSON().slice(11, 19); //cut off that 1970 date, we only care about time of day.
+        //cut off that 1970 date, we only care about time of day.
+        plcData[i].data[Keys[index]] = time.toJSON().slice(11, 19);
       } else {
-        plcData[i].data[Keys[index]] = data[key]; // normal key
+        // normal key
+        plcData[i].data[Keys[index]] = data[key];
       }
-
-      plcData[i].barcode = plcData[i].barcode.trim(); //remove the white space
+      //remove the white space
+      plcData[i].barcode = plcData[i].barcode.trim();
     });
   }
 

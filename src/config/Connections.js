@@ -73,4 +73,4 @@
         }
     };
 
-    module.export = CONNECTIONS
+    module.exports = CONNECTIONS;
