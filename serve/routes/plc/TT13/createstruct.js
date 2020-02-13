@@ -1,14 +1,18 @@
-class tt13 {
-    constructor(_row = 0, _db = "DB1810,", _structLen = 182) {
-        this.row = _row;
+class TT13Struct {
+    constructor(_rows = 0, _db = "DB1810,", _structLen = 182) {
+        this.rows = _rows;
         this.db = _db;
         this.structLen = _structLen;
         this.data = {};
-        this.createRow();
+        for (let i = 0; i < this.rows; i++) {
+            this.createStruct(i);
+        }
     }
 
-    createRow() {
-        let offset = this.row * this.structLen;
+    createStruct(index) {
+
+        let offset = index * this.structLen;
+
         this.createData((6 + offset), 1, "INT")
         this.createData((8 + offset), 2, "B", true) //Date
         this.createData((10 + offset), 4, "B", true) //Time of day
@@ -41,7 +45,6 @@ class tt13 {
         this.createData((130 + offset), 21, "INT")
         this.createData((172 + offset), 1, "WORD")
         this.createData((174 + offset), 7, "INT")
-
     }
 
     createData(s, l, t, a) {
@@ -69,16 +72,16 @@ class tt13 {
             let x = (parseFloat(s) - (this.row * this.structLen))
             // If a is true we are working with a byte array, break from loop , we will decode later 
             if (a) {
-                this.data[x + ".0"] = (this.db + t + s + "." + l.toString())
+                this.data[s + ".0"] = (this.db + t + s + "." + l.toString())
                 break;
             }
             if (b === .1) {
-                this.data[x.toFixed(1)] = (this.db + t + s.toFixed(1));
+                this.data[s.toFixed(1)] = (this.db + t + s.toFixed(1));
             } else {
-                this.data[x + ".0"] = (this.db + t + s)
+                this.data[s + ".0"] = (this.db + t + s)
             }
         }
     }
 }
 
-module.exports = tt13;
+module.exports = TT13Struct;

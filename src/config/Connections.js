@@ -1,4 +1,4 @@
-    const plc = {
+    const CONNECTIONS = {
         C01: {
             port: 102,
             host: "10.136.16.31",
@@ -72,3 +72,5 @@
             slot: 2
         }
     };
+
+    module.export = CONNECTIONS

@@ -1,5 +1,3 @@
-const plcData = createStruct();
-
 function createStruct() {
     const db = "DB1810,";
     const data = {};
@@ -82,4 +80,4 @@ function createStruct() {
     return data;
 }
 
-module.exports = plcData;
+module.exports = createStruct();
