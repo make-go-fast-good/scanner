@@ -52,6 +52,7 @@ class App extends Component {
       })
       .then(res => {
         this.makeTable(res.data, area);
+        //console.log(res.data)
       })
       .catch(function(error) {
         console.log(error);
@@ -70,7 +71,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <Header />
+            <Header 
+              title={'TT13 Data'}
+            />
             <Route
               exact
               path="/"
