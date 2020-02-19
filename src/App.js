@@ -45,7 +45,7 @@ class App extends Component {
   getData = (conn, area) => {
     this.setState({ loading: true });
     axios
-      .get("http://localhost:8080/tt13", {
+      .get("http://localhost:8080/TT13/connect", {
         params: {
           conn: conn
         }

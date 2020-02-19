@@ -1,5 +1,5 @@
 const Express = require("express");
-const Variables = require("./createStruct");
+const Variables = require("./createTT13Struct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
@@ -11,12 +11,12 @@ function readData(_plcConnection) {
     console.log(Process);
     // Initiate connection to plc then call conencted function
     Plc.initiateConnection(
-      _plcConnection || {
+      _plcConnection /*|| {
         port: 102,
         host: "10.136.16.31",
         rack: 0,
         slot: 3
-      },
+      }*/,
       connected //callback function
     );
 
@@ -24,7 +24,7 @@ function readData(_plcConnection) {
       // We have an error.  Maybe the PLC is not reachable.
       if (typeof err !== "undefined") {
         console.log(err);
-        process.exit();
+        //process.exit();
       }
 
       // This sets the "translation" to allow us to work with object names
@@ -85,8 +85,8 @@ Router.get(
   "/",
   wrapper(async (request, response) => {
     let plcConnection;
-    //convert json to javascript object
-    if (request.query.conn) plcConnection = JSON.parse(request.query.conn);
+    
+    if (request.query.conn) plcConnection = JSON.parse(request.query.conn); //convert json to javascript object
 
     readData(plcConnection)
       .then(data => {

@@ -1,22 +1,57 @@
 const express = require('express');
 const app = express();
-const tt13Route = require('./routes/plc/TT13/connect');
-const tt39Route = require('./routes/plc/TT39/connect');
+const path = require('path');
+
+const tt13Data = require('./routes/plc/TT13/connect');
+
+app.use('/TT13/connect', tt13Data);
+
+
 /*
-app.use((req,res,next) => {
+app.use('/static', '../build/static');
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+ });
+
+//app.get('/TT13', './routes/build/TT13/index.html');
+
+app.route('/TT13/index.html').get(function(req,res)
+{
+    res.sendFile(path.join(__dirname + '/routes/build/index.html'));
+});
+
+//make the CORS work, wrap the router in the middle man to catch errors.
+const wrapper = middleware => {
+  return async (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
-        "Access-Control-Allow-Headers", 
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-        );
-    if(req.method === "OPTIONS"){
-        res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-        return res.status(200);
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "PUT, POST, PATCH, DELETE, GET"
+      );
     }
-})
-*/
+    try {
+      await middleware(req, res, next);
+    } catch (err) {
+      next(err);
+    }
+  };
+};
 
-app.use('/tt13', tt13Route);
-app.use('/tt39', tt39Route);
+app.get(
+  "/TT13/index.html",
+  wrapper(async (request, response) => {
+        response.sendFile(path.join(__dirname + '/routes/build/index.html'));
+      })
+);
+
+*/
 
 module.exports = app;
