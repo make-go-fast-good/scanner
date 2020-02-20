@@ -7,6 +7,8 @@ export class TT13Table extends Component {
   render() {
     if (this.props.loading === true) {
       return <DefaultTable loading={this.props.loading} css={this.props.css} />;
+    } else if (this.props.error !== undefined) {
+      return <DefaultTable error={this.props.error} />;
     } else if (this.props.data === undefined) {
       return <DefaultTable />;
     } else {

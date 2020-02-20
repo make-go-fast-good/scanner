@@ -6,6 +6,7 @@ import Header from "./components/layout/Header";
 import SelectConn from "./components/SelectConn";
 import About from "./components/pages/About";
 import { TT13Table } from "./components/Table";
+import ErrorBoundary from "./components/ErrorBoundry"
 
 import "./App.css";
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
     data: undefined,
     options: {},
     loading: false,
+    error: undefined
   };
 
   makeTable = (plcData, area) => {
@@ -54,9 +56,12 @@ class App extends Component {
         this.makeTable(res.data, area);
         //console.log(res.data)
       })
-      .catch(function(error) {
-        console.log(error);
-        this.makeTable(null,null);
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          loading: false,
+          error: "Connection Error: Verify connection to the PLC network."
+          })
       });
   };
 
@@ -88,6 +93,7 @@ class App extends Component {
                     key={this.state.key}
                     loading={this.state.loading}
                     css={override}
+                    error={this.state.error}
                   />
                 </React.Fragment>
               )}

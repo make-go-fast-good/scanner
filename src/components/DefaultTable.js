@@ -27,6 +27,12 @@ export class DefaultTable extends Component {
           />
         </div>
       );
+    } else if (this.props.error !== undefined) {
+      return (
+        <div style={this.getStyle()}>
+         {this.props.error} 
+        </div>
+      );
     } else {
       return (
         <h2 style={this.getStyle()}>
