@@ -29,9 +29,9 @@ export class DefaultTable extends Component {
       );
     } else if (this.props.error !== undefined) {
       return (
-        <div style={this.getStyle()}>
+        <h2 style={this.getStyle()}>
          {this.props.error} 
-        </div>
+        </h2>
       );
     } else {
       return (

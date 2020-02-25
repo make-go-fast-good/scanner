@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import connections from '../config/Connections';
 
 export class SelectConn extends Component {
-  state = {
-    connections: connections 
-  };
+  state = { };
 
   onSubmit = e => {
+    let conn = e.target.value
     e.preventDefault();
-    let conn = this.state.connections[e.target.value];
-    this.props.getData(conn, e.target.value);
+    this.props.getData({conn});
   };
 
   render() {

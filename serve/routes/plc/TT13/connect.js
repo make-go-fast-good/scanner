@@ -4,19 +4,22 @@ const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
 const Process = require("./processTT13Data");
+const fs = require("fs");
+const path = require('path');
+const appDir = path.dirname(require.main.filename);
 
-function readData(_plcConnection) {
+function readData(plc) {
+
+  //using fs to read the configuration outside of the packaged executable. 
+  const myConn = fs.readFileSync(path.join(path.dirname(process.cwd()), './config/Connections.json'))
+  let Connections = JSON.parse(myConn)
+  let plcConnection = Connections[plc.conn]
+
   return new Promise((resolve, reject) => {
     let data;
-    console.log(Process);
     // Initiate connection to plc then call conencted function
     Plc.initiateConnection(
-      _plcConnection /*|| {
-        port: 102,
-        host: "10.136.16.31",
-        rack: 0,
-        slot: 3
-      }*/,
+      plcConnection,
       connected //callback function
     );
 
@@ -24,7 +27,7 @@ function readData(_plcConnection) {
       // We have an error.  Maybe the PLC is not reachable.
       if (typeof err !== "undefined") {
         console.log(err);
-        //process.exit();
+        process.exit();
       }
 
       // This sets the "translation" to allow us to work with object names
@@ -85,8 +88,8 @@ Router.get(
   "/",
   wrapper(async (request, response) => {
     let plcConnection;
-    
-    if (request.query.conn) plcConnection = JSON.parse(request.query.conn); //convert json to javascript object
+
+    if (request.query.area) plcConnection = JSON.parse(request.query.area); //convert json to javascript object
 
     readData(plcConnection)
       .then(data => {
