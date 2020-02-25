@@ -6,7 +6,6 @@ import Header from "./components/layout/Header";
 import SelectConn from "./components/SelectConn";
 import About from "./components/pages/About";
 import { TT13Table } from "./components/Table";
-import ErrorBoundary from "./components/ErrorBoundry"
 
 import "./App.css";
 class App extends Component {
@@ -44,16 +43,16 @@ class App extends Component {
   };
 
   // Select Connection
-  getData = (conn, area) => {
+  getData = (area) => {
     this.setState({ loading: true });
     axios
       .get("http://localhost:8080/TT13/connect", {
         params: {
-          conn: conn
+          area: area
         }
       })
       .then(res => {
-        this.makeTable(res.data, area);
+        this.makeTable(res.data, area.conn);
         //console.log(res.data)
       })
       .catch(err => {
