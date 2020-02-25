@@ -4,6 +4,17 @@ import PropTypes from "prop-types";
 export class SelectConn extends Component {
   state = { };
 
+  getStyle = () =>{
+    return {
+      WebkitUserSelect: 'none',
+      msUserSelect: 'none',
+      MozUserSelect: 'none',
+      userSelect: 'none',
+      flex: "1" ,
+      marginRight: ".2%" 
+    }
+  }
+
   onSubmit = e => {
     let conn = e.target.value
     e.preventDefault();
@@ -17,77 +28,77 @@ export class SelectConn extends Component {
           type="submit"
           value="C01"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C02"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C03"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C04"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C05"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C06"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C07"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C08"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C09"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C10"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
           type="submit"
           value="C11"
           className="btn"
-          style={{ flex: "1", marginRight: ".2%" }}
+          style={ this.getStyle() }
           onClick={this.onSubmit}
         ></input>
         <input
@@ -108,3 +119,4 @@ SelectConn.propTypes = {
 };
 
 export default SelectConn;
+
