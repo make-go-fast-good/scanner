@@ -15,6 +15,7 @@ class App extends Component {
     data: undefined,
     options: {},
     loading: false,
+    error: undefined
   };
 
   makeTable = (plcData, area) => {
@@ -42,19 +43,24 @@ class App extends Component {
   };
 
   // Select Connection
-  getData = (conn, area) => {
+  getData = (area) => {
     this.setState({ loading: true });
     axios
-      .get("http://localhost:8080/tt13", {
+      .get("http://localhost:8080/TT13/connect", {
         params: {
-          conn: conn
+          area: area
         }
       })
       .then(res => {
-        this.makeTable(res.data, area);
+        this.makeTable(res.data, area.conn);
+        //console.log(res.data)
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          loading: false,
+          error: "Connection Error: Verify connection to the PLC network."
+          })
       });
   };
 
@@ -70,7 +76,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <Header />
+            <Header 
+              title={'TT13 Data'}
+            />
             <Route
               exact
               path="/"
@@ -84,6 +92,7 @@ class App extends Component {
                     key={this.state.key}
                     loading={this.state.loading}
                     css={override}
+                    error={this.state.error}
                   />
                 </React.Fragment>
               )}
