@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { css } from "@emotion/core";
 import axios from "axios";
-import Header from "./components/layout/Header";
-import SelectConn from "./components/SelectConn";
-import About from "./components/pages/About";
-import { TT13Table } from "./components/Table";
+import SelectConn from "../SelectConn";
+import { Table } from "../Table";
 
-import "./App.css";
-class TT19 extends Component {
+import "../../App.css";
 
+class DataTable extends Component {
   state = {
     area: undefined,
     data: undefined,
@@ -23,7 +21,7 @@ class TT19 extends Component {
       area: area,
       data: plcData,
       options: {
-        maxBodyHeight: "60vh", // makes the headers fixed if the body size is larger. 
+        maxBodyHeight: "60vh", // makes the headers fixed if the body size is larger.
         paging: true,
         pageSize: 10,
         search: true,
@@ -34,7 +32,7 @@ class TT19 extends Component {
           color: "#FFF",
           textAlign: "center"
         },
-        cellStyle:{
+        cellStyle: {
           textAlign: "center"
         }
       },
@@ -43,10 +41,10 @@ class TT19 extends Component {
   };
 
   // Select Connection
-  getData = (area) => {
+  getData = area => {
     this.setState({ loading: true });
     axios
-      .get("http://localhost:8080/TT19/connect", {
+      .get("http://localhost:8080/TT13/connect", {
         params: {
           area: area
         }
@@ -60,12 +58,11 @@ class TT19 extends Component {
         this.setState({
           loading: false,
           error: "Connection Error: Verify connection to the PLC network."
-          })
+        });
       });
   };
 
   render() {
-
     const override = css`
       margin: 300px 50%;
       display: block;
@@ -74,35 +71,21 @@ class TT19 extends Component {
 
     return (
       <Router>
-        <div className="App">
-          <div className="container">
-            <Header 
-              title={'TT19 Data'}
-            />
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <React.Fragment>
-                  <SelectConn getData={this.getData} />
-                  <TT13Table
-                    area={this.state.area}
-                    data={this.state.data}
-                    options={this.state.options}
-                    key={this.state.key}
-                    loading={this.state.loading}
-                    css={override}
-                    error={this.state.error}
-                  />
-                </React.Fragment>
-              )}
-            ></Route>{" "}
-            <Route path="/about" component={About}></Route>{" "}
-          </div>{" "}
-        </div>{" "}
+            <React.Fragment>
+              <SelectConn getData={this.getData} />
+              <Table
+                area={this.state.area}
+                data={this.state.data}
+                options={this.state.options}
+                key={this.state.key}
+                loading={this.state.loading}
+                css={override}
+                error={this.state.error}
+              />
+            </React.Fragment>
       </Router>
     );
   }
 }
 
-export default TT19;
+export default DataTable;
