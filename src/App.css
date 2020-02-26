@@ -58,6 +58,7 @@ a {
 }
 
 .btn {
+  text-decoration: none;
   display: inline-block;
   border: none;
   background: #555;
