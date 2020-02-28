@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MaterialTable from "material-table";
 import DefaultTable from "./DefaultTable";
 import Columns from "../config/Columns";
-export class TT13Table extends Component {
+export class Table extends Component {
   state = {
     extended: false
   };
@@ -41,4 +41,4 @@ export class TT13Table extends Component {
   }
 }
 
-export default TT13Table;
+export default Table;
