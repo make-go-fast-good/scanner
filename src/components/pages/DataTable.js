@@ -9,6 +9,7 @@ import "../../App.css";
 
 class DataTable extends Component {
   state = {
+    type: this.props.type,
     area: undefined,
     data: undefined,
     options: {},
@@ -43,8 +44,10 @@ class DataTable extends Component {
   // Select Connection
   getData = area => {
     this.setState({ loading: true });
+    console.log('heres the url')
+    console.log("http://localhost:8080/" + this.state.type + "/connect")
     axios
-      .get("http://localhost:8080/TT13/connect", {
+      .get("http://localhost:8080/" + this.state.type + "/connect", {
         params: {
           area: area
         }
