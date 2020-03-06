@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
 import DefaultTable from "./DefaultTable";
-import Columns from "../config/Columns";
+import TT13Columns from "../config/TT13Columns";
+import TT19Columns from "../config/TT19Columns";
 export class Table extends Component {
   state = {
     extended: false
   };
   render() {
     let _columns;
+    let tableColumns;
+
+    if(this.props.type === 'TT13') tableColumns = TT13Columns
+    if(this.props.type === 'TT19') tableColumns = TT19Columns
 
     if (this.props.loading === true) {
       return <DefaultTable loading={this.props.loading} css={this.props.css} />;
@@ -17,8 +22,8 @@ export class Table extends Component {
       return <DefaultTable />;
     } else {
       this.state.extended === false
-        ? (_columns = Columns.condensed)
-        : (_columns = Columns.extended);
+        ? (_columns = tableColumns.condensed)
+        : (_columns = tableColumns.extended);
       return (
         <MaterialTable
           style={{ marginTop: "15px" }}

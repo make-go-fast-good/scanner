@@ -84,6 +84,7 @@ class DataTable extends Component {
                 loading={this.state.loading}
                 css={override}
                 error={this.state.error}
+                type={this.state.type}
               />
             </React.Fragment>
       </Router>

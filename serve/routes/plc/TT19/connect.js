@@ -49,6 +49,7 @@ function readData(plc) {
         }
 
         data = values;
+        console.log(data);
 
         //const promisedData = processPlcData(data);
         const promisedData = Process(data);
