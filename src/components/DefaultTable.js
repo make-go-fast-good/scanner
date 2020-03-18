@@ -3,10 +3,6 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import Header from "./layout/Header"
 import Card from './Card'
 export class DefaultTable extends Component {
-  makeCard = e => {
-    
-  }
-
   getStyle = (props) => {
     let _height; 
 

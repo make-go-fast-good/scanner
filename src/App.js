@@ -61,6 +61,17 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
+             <Route
+              exact
+              strict
+              path="/ERROR"
+              render={props => (
+                <React.Fragment>
+                  <Header title="Error Log" />
+                  <DataTable type="ERROR" />
+                </React.Fragment>
+              )}
+            ></Route>
             <Route path="/about" component={About}></Route>
           </div>
         </div>
