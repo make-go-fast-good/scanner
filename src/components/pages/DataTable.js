@@ -24,7 +24,7 @@ class DataTable extends Component {
       options: {
         maxBodyHeight: "60vh", // makes the headers fixed if the body size is larger.
         paging: true,
-        pageSize: 10,
+        pageSize: 20,
         search: true,
         grouping: true,
         sorting: false,

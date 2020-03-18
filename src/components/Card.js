@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import { Icon, CardHeader } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
@@ -26,6 +27,7 @@ function ListItemLink(props) {
         <Box
           display={"flex"}
           flexDirection={"column"}
+          flexWrap={"wrap"}
           alignItems={"center"}
           justifyContent={"space-around"}
           textAlign={"center"}
@@ -48,6 +50,7 @@ ListItemLink.propTypes = {
 const useStyles = makeStyles({
   root: {
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "center",
     margin: "100px",
     width: 300,
@@ -60,7 +63,7 @@ export default function ListRouter() {
   const classes = useStyles();
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", flexDirection: "wrap" }}>
       <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
         <ListItemLink
           to="/TT13"
@@ -77,11 +80,20 @@ export default function ListRouter() {
       </Paper>
       <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
         <ListItemLink
+          to="/ERROR"
+          primary="Error Log"
+          icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }}/>}
+        />
+      </Paper>
+      {/* 
+      <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
+        <ListItemLink
           to="/TT31"
           primary="TT31 Data"
           icon={<EmailTwoToneIcon style={{ fontSize: "38px" }}/>}
         />
       </Paper>
+      */}
     </div>
   );
 }

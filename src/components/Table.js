@@ -3,6 +3,7 @@ import MaterialTable from "material-table";
 import DefaultTable from "./DefaultTable";
 import TT13Columns from "../config/TT13Columns";
 import TT19Columns from "../config/TT19Columns";
+import ERRORColumns from "../config/ERRORColumns";
 export class Table extends Component {
   state = {
     extended: false
@@ -13,6 +14,7 @@ export class Table extends Component {
 
     if(this.props.type === 'TT13') tableColumns = TT13Columns
     if(this.props.type === 'TT19') tableColumns = TT19Columns
+    if(this.props.type === 'ERROR') tableColumns = ERRORColumns
 
     if (this.props.loading === true) {
       return <DefaultTable loading={this.props.loading} css={this.props.css} />;
