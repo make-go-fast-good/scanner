@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import MaterialTable from "material-table";
 import DefaultTable from "./DefaultTable";
 import TT13Columns from "../config/TT13Columns";
-import TT19Columns from "../config/TT19Columns";
+import DB171Columns from "../config/DB1852Columns";
+import DB421Columns from "../config/DB1852Columns";
+import DB1852Columns from "../config/DB1852Columns";
 import ERRORColumns from "../config/ERRORColumns";
 export class Table extends Component {
   state = {
@@ -13,7 +15,7 @@ export class Table extends Component {
     let tableColumns;
 
     if(this.props.type === 'TT13') tableColumns = TT13Columns
-    if(this.props.type === 'TT19') tableColumns = TT19Columns
+    if(this.props.type === 'OVERHEAD') tableColumns = DB1852Columns
     if(this.props.type === 'ERROR') tableColumns = ERRORColumns
 
     if (this.props.loading === true) {
