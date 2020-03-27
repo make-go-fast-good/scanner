@@ -42,11 +42,11 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/TT19"
+              path="/OVERHEAD"
               render={props => (
                 <React.Fragment>
-                  <Header title="TT19 Data" />
-                  <DataTable type="TT19" />
+                  <Header title="Overhead Scanner Data" />
+                  <DataTable type="OVERHEAD" />
                 </React.Fragment>
               )}
             ></Route>

@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
+import ScannerTwoToneIcon from '@material-ui/icons/ScannerTwoTone';
 import { Icon, CardHeader } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
@@ -73,9 +74,9 @@ export default function ListRouter() {
       </Paper>
       <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
         <ListItemLink
-          to="/TT19"
-          primary="TT19 Data"
-          icon={<EmailTwoToneIcon style={{ fontSize: "38px" }}/>}
+          to="/OVERHEAD"
+          primary="Overhead Scanner Data"
+          icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }}/>}
         />
       </Paper>
       <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
