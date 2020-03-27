@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import Header from "./layout/Header"
 import Card from './Card'
 export class DefaultTable extends Component {
   getStyle = (props) => {
