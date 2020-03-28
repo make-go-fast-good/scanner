@@ -1,5 +1,6 @@
+//for i in range(1): print("\'var[%d]\'," % i)
 // Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
-TT19KEYS = [
+TT1852KEYS = [
     'x_send',
     'ttxx_idx',
     'tele_head_sender',
@@ -216,4 +217,4 @@ TT19KEYS = [
     'tele_top_barcode[170]'
 ]
 
-module.exports = TT19KEYS;
+module.exports = TT1852KEYS;
