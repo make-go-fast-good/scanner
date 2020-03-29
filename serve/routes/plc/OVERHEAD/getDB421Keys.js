@@ -47,7 +47,7 @@ DB421KEYS = [
     'ctrl_in_sensor_1',
     'ctrl_in_sensor_2',
     'ctrl_in_res_d12',
-    'ctrl_in_res_d13,
+    'ctrl_in_res_d13',
     'ctrl_in_res_d14',
     'ctrl_in_toggle',
     'ctrl_in_sc_rdy',
