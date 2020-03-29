@@ -1,4 +1,4 @@
-const createData = require("./createData.js")
+const createData() = require("./createData.js")
 
 function createStruct() {
     const db = "DB1852,";
