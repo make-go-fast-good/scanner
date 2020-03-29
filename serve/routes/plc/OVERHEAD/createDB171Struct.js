@@ -1,6 +1,7 @@
-const createData() = require("./createData.js")
+const generateStruct = require("./createData.js")
 
 function createStruct() {
+    const createData = generateStruct.createData;
     const db = "DB171,";
     const data = {};
     const structLen = 363
