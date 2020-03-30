@@ -69,7 +69,7 @@ function readData(_plc) {
       Plc.setTranslationCB(tag => {
         return Variables[tag];
       });
-
+      
       // Add items to the interal reading polling list.
       Plc.addItems(Object.keys(Variables));
 
@@ -84,6 +84,8 @@ function readData(_plc) {
         }
 
         data = values;
+
+        console.log('DATA HERE: ');
         console.log(data);
 
         //const promisedData = processPlcData(data);

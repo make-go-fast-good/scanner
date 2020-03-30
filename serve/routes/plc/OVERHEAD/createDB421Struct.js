@@ -1,7 +1,7 @@
 function createStruct() {
 
     const db = "DB421,";
-    const structLen = 209
+    const structLen = 363
 
     let createData = require("./createData.js")
     let data = {};
@@ -10,46 +10,52 @@ function createStruct() {
 
         let offset = i * structLen
 
-        createData(data, db, (0   + offset), 4,  "INT")
-        createData(data, db, (8   + offset), 4,  "X")
-        createData(data, db, (10  + offset), 3,  "X")
-        createData(data, db, (12  + offset), 7,  "INT")
-        createData(data, db, (26  + offset), 1,  "DINT")
-        createData(data, db, (36  + offset), 8,  "INT")
-        createData(data, db, (52  + offset), 1,  "DINT")
-        createData(data, db, (56  + offset), 2,  "INT")
-        createData(data, db, (60  + offset), 1,  "CHAR")
-        createData(data, db, (62  + offset), 3,  "INT")
-        createData(data, db, (68  + offset), 7,  "X")
-        createData(data, db, (70  + offset), 8,  "X")
-        createData(data, db, (71  + offset), 8,  "X")
-        createData(data, db, (72  + offset), 8,  "X")
-        createData(data, db, (73  + offset), 8,  "X")
-        createData(data, db, (74  + offset), 40, "CHAR")
-        createData(data, db, (114 + offset), 1,  "X")
-        createData(data, db, (116 + offset), 1,  "INT")
-        createData(data, db, (118 + offset), 4,  "X")
-        createData(data, db, (119 + offset), 1,  "CHAR")
-        createData(data, db, (120 + offset), 3,  "INT")
-        createData(data, db, (150 + offset), 3,  "INT")
-        createData(data, db, (156 + offset), 10, "B")
-        createData(data, db, (168 + offset), 1,  "INT")
-        createData(data, db, (170 + offset), 2,  "X")
-        createData(data, db, (172 + offset), 1,  "INT")
-        createData(data, db, (174 + offset), 2,  "CHAR")
-        createData(data, db, (176 + offset), 1,  "X")
-        createData(data, db, (178 + offset), 4,  "CHAR")
-        createData(data, db, (182 + offset), 4,  "INT")
-        createData(data, db, (190 + offset), 1,  "X")
-        createData(data, db, (192 + offset), 1,  "X")
-        createData(data, db, (194 + offset), 32, "B")
-        createData(data, db, (226 + offset), 2,  "X")
-        createData(data, db, (228 + offset), 3,  "INT")
-        createData(data, db, (234 + offset), 16, "B")
-        createData(data, db, (250 + offset), 3,  "INT")
+        createData(data, db, (0   + offset), 4,   "INT")
+        createData(data, db, (8   + offset), 3,   "X")
+        createData(data, db, (10  + offset), 3,   "X")
+        createData(data, db, (12  + offset), 2,   "WORD")
+        createData(data, db, (16  + offset), 6,   "INT")
+        createData(data, db, (26  + offset), 1,   "DINT")
+        createData(data, db, (36  + offset), 12,  "INT")
+        createData(data, db, (60  + offset), 10,  "B")
+        createData(data, db, (72  + offset), 3,   "INT")
+        createData(data, db, (78  + offset), 1,   "DINT")
+        createData(data, db, (82  + offset), 2,   "INT")
+        createData(data, db, (86  + offset), 1,   "CHAR")
+        createData(data, db, (88  + offset), 2,   "INT")
+        createData(data, db, (92  + offset), 7,   "X")
+        createData(data, db, (94  + offset), 40,  "CHAR")
+        createData(data, db, (134 + offset), 2,   "X")
+        createData(data, db, (136 + offset), 3,   "INT")
+        createData(data, db, (142 + offset), 2,   "X")
+        createData(data, db, (144 + offset), 1,   "INT")
+        createData(data, db, (146 + offset), 1,   "WORD")
+        createData(data, db, (148 + offset), 1,   "INT")
+        createData(data, db, (150 + offset), 8,   "X")
+        createData(data, db, (151 + offset), 4,   "B")
+        createData(data, db, (156 + offset), 3,   "WORD")
+        createData(data, db, (166 + offset), 2,   "DWORD")
+        createData(data, db, (170 + offset), 1,   "X")
+        createData(data, db, (172 + offset), 1,   "INT")
+        createData(data, db, (174 + offset), 4,   "X")
+        createData(data, db, (175 + offset), 1,   "CHAR")
+        createData(data, db, (176 + offset), 3,   "INT")
+        createData(data, db, (206 + offset), 3,   "INT")
+        createData(data, db, (212 + offset), 10,  "B")
+        createData(data, db, (224 + offset), 1,   "INT")
+        createData(data, db, (226 + offset), 2,   "X")
+        createData(data, db, (228 + offset), 1,   "INT")
+        createData(data, db, (230 + offset), 2,   "CHAR")
+        createData(data, db, (232 + offset), 1,   "X")
+        createData(data, db, (234 + offset), 4,   "CHAR")
+        createData(data, db, (238 + offset), 4,   "INT")
+        createData(data, db, (246 + offset), 1,   "X")
+        createData(data, db, (248 + offset), 1,   "X")
+        createData(data, db, (250 + offset), 200, "CHAR")
    }
 
     return data;
 }
 
 module.exports = createStruct();
+
