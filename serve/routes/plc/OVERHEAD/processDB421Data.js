@@ -12,7 +12,7 @@ const process = function processPlcData(data) {
   //if there's no data leave. 
   if (!data) return;
 
-  //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
+  //data is one big object we want to grab all the keys to use array functions
   const dataKeys = Object.keys(data);
 
     //Add one so the index starts at one in the table.
@@ -31,7 +31,7 @@ const process = function processPlcData(data) {
         plcData.barcode += data[key];
       }
 
-      if (index >= 250 && index <= 429) {
+      if (index >= 164 && index <= 363) {
         // build a string from the char array
         plcData.shipping_label += data[key];
       }
