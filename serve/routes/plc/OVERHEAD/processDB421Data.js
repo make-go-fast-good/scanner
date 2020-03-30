@@ -15,8 +15,8 @@ const process = function processPlcData(data) {
   //data is one big object we want to grab all the keys to use array functions
   const dataKeys = Object.keys(data);
 
-    //Add one so the index starts at one in the table.
     let plcData = new dataRow(1);
+    let row = [];
 
     //iterate through the dataKeys array and create a sensible structure
     let barcode = [];

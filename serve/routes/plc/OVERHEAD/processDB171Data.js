@@ -17,6 +17,7 @@ const process = function processPlcData(data) {
 
     //Add one so the index starts at one in the table.
     let plcData = new dataRow(1);
+    let row = [];
 
     //iterate through the dataKeys array and create a sensible structure
     let barcode = [];
