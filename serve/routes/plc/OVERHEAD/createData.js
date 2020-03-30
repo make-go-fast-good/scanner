@@ -1,4 +1,4 @@
-function createData(start, len, type, arr) {
+function buildStruct(data, db, start, len, type, arr) {
     // b for byte
     let b;
     switch (type) {
@@ -34,4 +34,4 @@ function createData(start, len, type, arr) {
     }
 }
 
-module.exports = createData();
+module.exports = buildStruct;
