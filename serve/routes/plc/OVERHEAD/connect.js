@@ -18,7 +18,7 @@ function readData(_plc) {
     let Variables;
     let Process;
 
-    switch (_plc) {
+    switch (_plc.conn) {
         case 'C08':
             Variables = db1852Variables
             Process   = db1852Process
@@ -48,7 +48,7 @@ function readData(_plc) {
   //using fs to read the configuration outside of the packaged executable.
   const myConn = fs.readFileSync(path.join(path.dirname(process.cwd()), './config/Connections.json'))
   let Connections = JSON.parse(myConn)
-  let plcConnection = Connections[plc.conn]
+  let plcConnection = Connections[_plc.conn]
 
   return new Promise((resolve, reject) => {
     let data;
