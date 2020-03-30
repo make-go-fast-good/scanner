@@ -55,6 +55,9 @@
             {"title": "x_recv_error", "field": "data.x_recv_error"},
             {"title": "x_anz_goodread", "field": "data.x_anz_goodread"},
             {"title": "x_anz_noread", "field": "data.x_anz_noread"},
+
+            {"title": "Barcode",                     "field": "barcode"},
+
             {"title": "letzte_lesung[1]", "field": "data.letzte_lesung[1]"},
             {"title": "letzte_lesung[2]", "field": "data.letzte_lesung[2]"},
             {"title": "letzte_lesung[3]", "field": "data.letzte_lesung[3]"},
@@ -534,6 +537,9 @@
             {"title": "I_SIM_SC_can_adr", "field": "data.I_SIM_SC_can_adr"},
             {"title": "I_SIM_SC_x_init", "field": "data.I_SIM_SC_x_init"},
             {"title": "init", "field": "data.init"},
+
+            {"title": "Top Scanner Barcode",         "field": "shipping_label"}
+
             {"title": "puffer[1]", "field": "data.puffer[1]"},
             {"title": "puffer[2]", "field": "data.puffer[2]"},
             {"title": "puffer[3]", "field": "data.puffer[3]"},
