@@ -1,11 +1,5 @@
 {
     "condensed":  [{"title": "Lane",    "field": "index"},
-        {"title": "Send Telegram",    "field": "data.x_send"},
-        {"title": "TTXX-Index for Definitions",  "field": "data.ttxx_idx"},
-        {"title": "Sender",                      "field": "data.tele_head_sender"},
-        {"title": "Receiver",                    "field": "data.tele_head_empfaenger"},
-        {"title": "Telegram type",               "field": "data.tele_head_tele_typ"},
-        {"title": "Telegram Producer",           "field": "data.tele_head_producer"},
         {"title": "Area",                        "field": "data.tele_area"},
         {"title": "Barcode NoRead",              "field": "data.tele_flag_bc_noread"},
         {"title": "Barcode NoScan",              "field": "data.tele_flag_bc_noscan"},

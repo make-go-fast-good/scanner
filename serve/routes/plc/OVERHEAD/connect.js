@@ -1,25 +1,59 @@
 const Express = require("express");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
-const Plc = new Nodes7();
 const fs = require("fs");
 const path = require('path');
 const appDir = path.dirname(require.main.filename);
 
 const db171Process = require("./processDB171Data");
 const db421Process = require("./processDB421Data");
-const Process = require("./processDB1852Data");
+const db422Process = require("./processDB422Data");
+const C10Process = require("./processC10Data");
+const db1852Process = require("./processDB1852Data");
 
 const db171Variables = require("./createDB171Struct");
 const db421Variables = require("./createDB421Struct");
-const Variables = require("./createDB1852Struct");
+const db422Variables = require("./createDB422Struct");
+const C10Variables = require("./createC10Struct");
+const db1852Variables = require("./createDB1852Struct");
 
-function readData(plc) {
+function readData(_plc) {
 
-  //using fs to read the configuration outside of the packaged executable. 
+    let Plc = new Nodes7();
+    let Variables = undefined;
+    let Process = undefined;
+
+    switch (_plc.conn){
+        case 'C08':
+            Variables = db1852Variables
+            Process   = db1852Process
+            break;
+
+        case 'C09':
+            Variables = db421Variables
+            Process   = db421Process
+            break;
+        case 'C10':
+            Variables = C10Variables
+            Process   = C10Process
+            break;
+        case 'C11':
+            Variables = db171Variables
+            Process   = db171Process
+            break;
+
+        case 'C12':
+            Variables = db422Variables
+            Process   = db422Process
+            break;
+
+        default:
+    }
+
+  //using fs to read the configuration outside of the packaged executable.
   const myConn = fs.readFileSync(path.join(path.dirname(process.cwd()), './config/Connections.json'))
   let Connections = JSON.parse(myConn)
-  let plcConnection = Connections[plc.conn]
+  let plcConnection = Connections[_plc.conn]
 
   return new Promise((resolve, reject) => {
     let data;
@@ -33,7 +67,6 @@ function readData(plc) {
       // We have an error.  Maybe the PLC is not reachable.
       if (typeof err !== "undefined") {
         console.log(err);
-        process.exit();
       }
 
       // This sets the "translation" to allow us to work with object names
@@ -42,8 +75,8 @@ function readData(plc) {
       });
 
       // Add items to the interal reading polling list.
-      Plc.addItems(Object.keys(Variables));
 
+      Plc.addItems(Object.keys(Variables));
       // Read items then return a values object.
       Plc.readAllItems(callback);
 
@@ -52,10 +85,12 @@ function readData(plc) {
         if (err) {
           console.log("SOMETHING WENT WRONG READING VALUES!!!!");
           reject(err);
+
+          Plc.connectionCleanup();
+          Plc.resetNow();
         }
 
         data = values;
-        console.log(data);
 
         //const promisedData = processPlcData(data);
         const promisedData = Process(data);
@@ -63,7 +98,9 @@ function readData(plc) {
         //Return the plcData object and resolve the promise.
         resolve(promisedData);
         //Drop the connection, to fix all the things.
+        Plc.connectionCleanup();
         Plc.dropConnection();
+        Plc = undefined;
       }
     }
   });
@@ -94,11 +131,13 @@ const wrapper = middleware => {
 Router.get(
   "/",
   wrapper(async (request, response) => {
-    let plcConnection;
+    let plc;
 
-    if (request.query.area) plcConnection = JSON.parse(request.query.area); //convert json to javascript object
+    if (request.query.area){
+            plc = JSON.parse(request.query.area); //convert json to javascript object
+    }
 
-    readData(plcConnection)
+    readData(plc)
       .then(data => {
         response.send(data);
       })
