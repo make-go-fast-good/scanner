@@ -14,7 +14,7 @@ function createStruct() {
         createData(data, db, (8   + offset), 3,   "X")
         createData(data, db, (10  + offset), 3,   "X")
         createData(data, db, (12  + offset), 2,   "WORD")
-        createData(data, db, (16  + offset), 6,   "INT")
+        createData(data, db, (16  + offset), 5,   "INT")
         createData(data, db, (26  + offset), 1,   "DINT")
         createData(data, db, (36  + offset), 12,  "INT")
         createData(data, db, (60  + offset), 10,  "B")
@@ -34,7 +34,7 @@ function createStruct() {
         createData(data, db, (150 + offset), 8,   "X")
         createData(data, db, (151 + offset), 4,   "B")
         createData(data, db, (156 + offset), 3,   "WORD")
-        createData(data, db, (166 + offset), 2,   "DWORD")
+        createData(data, db, (162 + offset), 2,   "DWORD")
         createData(data, db, (170 + offset), 1,   "X")
         createData(data, db, (172 + offset), 1,   "INT")
         createData(data, db, (174 + offset), 4,   "X")
@@ -51,12 +51,10 @@ function createStruct() {
         createData(data, db, (238 + offset), 4,   "INT")
         createData(data, db, (246 + offset), 1,   "X")
         createData(data, db, (248 + offset), 1,   "X")
-        createData(data, db, (250 + offset), 200, "CHAR")
+        createData(data, db, (250 + offset), 200, "B")
    }
 
     return data;
 }
 
 module.exports = createStruct();
-
-

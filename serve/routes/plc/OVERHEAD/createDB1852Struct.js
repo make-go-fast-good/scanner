@@ -24,6 +24,9 @@ function createStruct() {
         createData(data, db, (34 + offset), 170, "CHAR")
    }
 
+   // console.log('Data Struct Here DB1852: ')
+   // console.log(data)
+
     return data;
 }
 

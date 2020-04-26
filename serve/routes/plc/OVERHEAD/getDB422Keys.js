@@ -1,6 +1,6 @@
 //for i in range(1): print("\'var[%d]\'," % i)
 // Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
-DB421KEYS = [
+DB422KEYS = [
     'V_FPNR',
     'V_SCANNER',
     'VISU_SCANNER',
@@ -370,4 +370,4 @@ DB421KEYS = [
     'puffer[200]'
 ]
 
-module.exports = DB421KEYS;
+module.exports = DB422KEYS;

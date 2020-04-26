@@ -15,7 +15,9 @@ const process = function processPlcData(data) {
   //data is one big object we want to grab all the keys to use array functions
   const dataKeys = Object.keys(data);
 
-    let plcData = new dataRow(1);
+    let plcData = [];
+
+    plcData[0] = new dataRow(1);
 
     //iterate through the dataKeys array and create a sensible structure
     let barcode = [];
@@ -27,20 +29,19 @@ const process = function processPlcData(data) {
       if (data[key] === false) data[key] = "false";
       if (index >= 56 && index <= 95) {
         // build a string from the char array
-        plcData.barcode += data[key];
+        plcData[0].barcode += data[key];
       }
 
       if (index >= 163) {
-        // build a string from the char array
-        plcData.shipping_label += data[key];
+        // convert bytes to char & build a string from the char array
+        plcData[0].shipping_label += String.fromCharCode(data[key]);
       }
        // normal key
-        plcData.data[Keys[index]] = data[key];
+        plcData[0].data[Keys[index]] = data[key];
       //remove the white space
-      plcData.barcode = plcData.barcode.trim();
-      plcData.shipping_label = plcData.shipping_label.trim();
+      plcData[0].barcode = plcData[0].barcode.trim();
+      plcData[0].shipping_label = plcData[0].shipping_label.trim();
     });
-    console.log(plcData)
 
   return plcData;
 }
