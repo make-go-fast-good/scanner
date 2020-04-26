@@ -28,8 +28,6 @@ const process = function processPlcData(data) {
       //We want the keys to be between (6.0 - 186.0) - (i * 182)
       return parseFloat(val) <= i * 204 + 203 && parseFloat(val) >= i * 204;
     });
-    console.log('heres your row')
-    console.log(row)
 
     //iterate through the dataKeys array and create a sensible structure
     let barcode = [];
@@ -54,7 +52,6 @@ const process = function processPlcData(data) {
       plcData[i].barcode = plcData[i].barcode.trim();
       plcData[i].shipping_label = plcData[i].shipping_label.trim();
     });
-    console.log(plcData)
   }
 
   return plcData;

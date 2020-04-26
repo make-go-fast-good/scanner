@@ -1,6 +1,6 @@
 function createStruct() {
 
-    const db = "DB421,";
+    const db = "DB422,";
     const structLen = 363
 
     let createData = require("./createData.js")
@@ -54,8 +54,6 @@ function createStruct() {
         createData(data, db, (250 + offset), 200, "B")
    }
 
-    //console.log('Data Struct Here DB421: ')
-    //console.log(data)
     return data;
 }
 

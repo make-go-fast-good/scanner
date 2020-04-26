@@ -1,12 +1,13 @@
 const Express = require("express");
-const Variables = require("./createTT31Struct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Plc = new Nodes7();
-const Process = require("./processTT31Data");
 const fs = require("fs");
 const path = require('path');
 const appDir = path.dirname(require.main.filename);
+
+const Variables = require("./createTT13Struct");
+const Process = require("./processTT13Data");
 
 function readData(plc) {
 
