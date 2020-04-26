@@ -1,19 +1,20 @@
 const Express = require("express");
-const Variables = require("./createTT13Struct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
-const Plc = new Nodes7();
-const Process = require("./processTT13Data");
 const fs = require("fs");
 const path = require('path');
 const appDir = path.dirname(require.main.filename);
 
-function readData(plc) {
+const Variables = require("./createTT13Struct");
+const Process = require("./processTT13Data");
 
-  //using fs to read the configuration outside of the packaged executable. 
+function readData(_plc) {
+
+  let Plc = new Nodes7();
+  //using fs to read the configuration outside of the packaged executable.
   const myConn = fs.readFileSync(path.join(path.dirname(process.cwd()), './config/Connections.json'))
   let Connections = JSON.parse(myConn)
-  let plcConnection = Connections[plc.conn]
+  let plcConnection = Connections[_plc.conn]
 
   return new Promise((resolve, reject) => {
     let data;
@@ -27,7 +28,6 @@ function readData(plc) {
       // We have an error.  Maybe the PLC is not reachable.
       if (typeof err !== "undefined") {
         console.log(err);
-        process.exit();
       }
 
       // This sets the "translation" to allow us to work with object names
@@ -36,8 +36,8 @@ function readData(plc) {
       });
 
       // Add items to the interal reading polling list.
-      Plc.addItems(Object.keys(Variables));
 
+      Plc.addItems(Object.keys(Variables));
       // Read items then return a values object.
       Plc.readAllItems(callback);
 
@@ -46,6 +46,9 @@ function readData(plc) {
         if (err) {
           console.log("SOMETHING WENT WRONG READING VALUES!!!!");
           reject(err);
+
+          Plc.connectionCleanup();
+          Plc.resetNow();
         }
 
         data = values;
@@ -56,7 +59,9 @@ function readData(plc) {
         //Return the plcData object and resolve the promise.
         resolve(promisedData);
         //Drop the connection, to fix all the things.
+        Plc.connectionCleanup();
         Plc.dropConnection();
+        Plc = undefined;
       }
     }
   });

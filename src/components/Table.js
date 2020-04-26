@@ -13,7 +13,14 @@ export class Table extends Component {
   render() {
     let _columns;
     let tableColumns;
-
+      /*
+          console.log('this.props.area');
+          console.log(this.props.area);
+          console.log('this.props.data');
+          console.log(this.props.data);
+          console.log('area: ');
+          console.log(area);
+          */
       switch (this.props.type) {
           case 'TT13':
               tableColumns = TT13Columns
@@ -23,22 +30,30 @@ export class Table extends Component {
               break;
           case 'OVERHEAD':
               switch (this.props.area) {
-                  case 'C08':
+                 case 'C08':
+                      console.log('Table columns here: ');
+                      console.log('DB1852Columns');
                       tableColumns = DB1852Columns
                       break;
                    case 'C09':
                    case 'C10':
                    case 'C12':
+                      console.log('Table columns here: ');
+                      console.log('DB421Columns');
                       tableColumns = DB421Columns
                       break;
                    case 'C11':
+                      console.log('Table columns here: ');
+                      console.log('DB171Columns');
                       tableColumns = DB171Columns
                       break;
+                      /*
                   default:
+                      console.log('Table columns here: ');
+                      console.log('DB1852Columns');
                       tableColumns = DB1852Columns
+                      */
               }
-          default:
-              tableColumns = TT13Columns
       }
 /*
     if(this.props.type === 'TT13') tableColumns = TT13Columns

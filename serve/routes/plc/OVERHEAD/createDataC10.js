@@ -1,4 +1,5 @@
-function buildStruct(data, db, start, len, type, arr) {
+function buildStruct(data, db, offset, start, len, type, arr) {
+
     // b for byte
     let b;
     switch (type) {
@@ -19,17 +20,21 @@ function buildStruct(data, db, start, len, type, arr) {
             break;
     }
 
+
     for (let i = 0; i < len; i++) {
         if (i !== 0 && !arr) start += b;
+
+        //start += offset;
+
         // If a is true we are working with a byte array, break from loop , we will decode later 
         if (arr) {
             data[start + ".0"] = (db + type + start + "." + len.toString())
             break;
         }
         if (b === .1) {
-            data[start.toFixed(1)] = (db + type + start.toFixed(1));
+            data[start.toFixed(1)] = (db + type + (start - offset).toFixed(1));
         } else {
-            data[start + ".0"] = (db + type + start)
+            data[start + ".0"] = (db + type + (start - offset))
         }
     }
 }

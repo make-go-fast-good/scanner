@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { css } from "@emotion/core";
 import axios from "axios";
-import SelectConn from "../SelectConn";
-import { Table } from "../Table";
+import SelectConn from "./SelectConn";
+import { Table } from "./Table";
 
-import "../../App.css";
+import "../App.css";
 
 class DataTable extends Component {
   state = {
@@ -43,7 +43,9 @@ class DataTable extends Component {
 
   // Select Connection
   getData = area => {
-    this.setState({ loading: true });
+    this.setState({ loading: true,
+                    area: area.conn
+    });
     console.log('heres the url')
     console.log("http://localhost:8080/" + this.state.type + "/connect")
     axios
@@ -54,7 +56,8 @@ class DataTable extends Component {
       })
       .then(res => {
         this.makeTable(res.data, area.conn);
-        //console.log(res.data)
+        console.log('res.data')
+        console.log(res.data)
       })
       .catch(err => {
         console.log(err);
