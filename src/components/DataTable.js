@@ -14,7 +14,7 @@ class DataTable extends Component {
     data: undefined,
     options: {},
     loading: false,
-    error: undefined
+    error: undefined,
   };
 
   makeTable = (plcData, area) => {
@@ -31,39 +31,37 @@ class DataTable extends Component {
         headerStyle: {
           backgroundColor: "#555",
           color: "#FFF",
-          textAlign: "center"
+          textAlign: "center",
         },
         cellStyle: {
-          textAlign: "center"
-        }
+          textAlign: "center",
+        },
       },
-      loading: false
+      loading: false,
     });
   };
 
   // Select Connection
-  getData = area => {
-    this.setState({ loading: true,
-                    area: area.conn
-    });
-    console.log('heres the url')
-    console.log("http://localhost:8080/" + this.state.type + "/connect")
+  getData = (area) => {
+    this.setState({ loading: true, area: area.conn });
+    console.log("heres the url");
+    console.log("http://localhost:8080/" + this.state.type + "/connect");
     axios
       .get("http://localhost:8080/" + this.state.type + "/connect", {
         params: {
-          area: area
-        }
+          area: area,
+        },
       })
-      .then(res => {
+      .then((res) => {
         this.makeTable(res.data, area.conn);
-        console.log('res.data')
-        console.log(res.data)
+        console.log("res.data");
+        console.log(res.data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         this.setState({
           loading: false,
-          error: "Connection Error: Verify connection to the PLC network."
+          error: "Connection Error: Verify connection to the PLC network.",
         });
       });
   };
@@ -77,22 +75,19 @@ class DataTable extends Component {
 
     return (
       <Router>
-            <React.Fragment>
-              <SelectConn 
-                  getData={this.getData} 
-                  area={this.state.type}
-                />
-              <Table
-                area={this.state.area}
-                data={this.state.data}
-                options={this.state.options}
-                key={this.state.key}
-                loading={this.state.loading}
-                css={override}
-                error={this.state.error}
-                type={this.state.type}
-              />
-            </React.Fragment>
+        <React.Fragment>
+          <SelectConn getData={this.getData} area={this.state.type} />
+          <Table
+            area={this.state.area}
+            data={this.state.data}
+            options={this.state.options}
+            key={this.state.key}
+            loading={this.state.loading}
+            css={override}
+            error={this.state.error}
+            type={this.state.type}
+          />
+        </React.Fragment>
       </Router>
     );
   }
