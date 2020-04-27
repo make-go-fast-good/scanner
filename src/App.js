@@ -9,9 +9,7 @@ import DataTable from "./components/DataTable";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    
-  };
+  state = {};
 
   render() {
     return (
@@ -22,7 +20,7 @@ class App extends Component {
               exact
               strict
               path="/"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   <Header title="Telegram Homepage" />
                   <DefaultTable home={true} />
@@ -33,7 +31,7 @@ class App extends Component {
               exact
               strict
               path="/TT13"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   <AppBar title="TT13 Data" />
                   <DataTable type="TT13" />
@@ -44,29 +42,29 @@ class App extends Component {
               exact
               strict
               path="/OVERHEAD"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   <AppBar title="Overhead Scanner Data" />
                   <DataTable type="OVERHEAD" />
                 </React.Fragment>
               )}
             ></Route>
-             <Route
+            <Route
               exact
               strict
               path="/TT31"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   <Header title="TT31 Data" />
                   <DataTable type="TT31" />
                 </React.Fragment>
               )}
             ></Route>
-             <Route
+            <Route
               exact
               strict
               path="/ERROR"
-              render={props => (
+              render={(props) => (
                 <React.Fragment>
                   <AppBar title="Error Log" />
                   <DataTable type="ERROR" />
