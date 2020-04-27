@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { css } from "@emotion/core";
 import axios from "axios";
 import SelectConn from "./SelectConn";
@@ -78,7 +78,10 @@ class DataTable extends Component {
     return (
       <Router>
             <React.Fragment>
-              <SelectConn getData={this.getData} />
+              <SelectConn 
+                  getData={this.getData} 
+                  area={this.state.type}
+                />
               <Table
                 area={this.state.area}
                 data={this.state.data}

@@ -25,8 +25,8 @@ const ssi_logo = {
 const headerStyle = {
 	textAlign: 'left',
 	fontSize: '20px',
-	margin: '10px 0px',
-	padding: '5px',
+	margin: '8px 0px',
+	padding: '10px 25px 10px 25px',
 	background: 'yellow'
 }
 
