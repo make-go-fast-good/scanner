@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
+import AppBar from "./components/layout/Appbar";
 import About from "./components/pages/About";
 import DefaultTable from "./components/DefaultTable";
 import DataTable from "./components/DataTable";
@@ -34,7 +35,7 @@ class App extends Component {
               path="/TT13"
               render={props => (
                 <React.Fragment>
-                  <Header title="TT13 Data" />
+                  <AppBar title="TT13 Data" />
                   <DataTable type="TT13" />
                 </React.Fragment>
               )}
@@ -45,7 +46,7 @@ class App extends Component {
               path="/OVERHEAD"
               render={props => (
                 <React.Fragment>
-                  <Header title="Overhead Scanner Data" />
+                  <AppBar title="Overhead Scanner Data" />
                   <DataTable type="OVERHEAD" />
                 </React.Fragment>
               )}
@@ -67,7 +68,7 @@ class App extends Component {
               path="/ERROR"
               render={props => (
                 <React.Fragment>
-                  <Header title="Error Log" />
+                  <AppBar title="Error Log" />
                   <DataTable type="ERROR" />
                 </React.Fragment>
               )}
