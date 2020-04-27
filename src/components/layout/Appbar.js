@@ -9,6 +9,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Logo from './Logo';
 
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import { Icon } from "@material-ui/core";
+>>>>>>> 613c03281adab54035697c43632cd90c1339526f
 import { makeStyles } from '@material-ui/core/styles';
 
 import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
@@ -21,10 +25,18 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
 	fontSize: '20px',
 	margin: '10px 0px 5px 0px',
+<<<<<<< HEAD
     padding: '1px',
   },
   menuButton: {
     marginRight: theme.spacing(3),
+=======
+    padding: '1px'
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+
+>>>>>>> 613c03281adab54035697c43632cd90c1339526f
   },
   colorInherit: {
       color: 'black',
@@ -48,14 +60,25 @@ export default function DenseAppBar(props) {
     setAnchorEl(null);
   };
 
+<<<<<<< HEAD
   return (
     <div className={classes.root}>
       <AppBar position="static" color="inherit" elevation={0} className={classes.colorInherit}>
+=======
+
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" color="inherit" className={classes.colorInherit}>
+>>>>>>> 613c03281adab54035697c43632cd90c1339526f
         <Toolbar variant="dense" >
           <IconButton
               edge="start"
               size="medium"
               aria-label="menuLogo"
+<<<<<<< HEAD
+=======
+              className={classes.menuButton}
+>>>>>>> 613c03281adab54035697c43632cd90c1339526f
               className={classes.colorPrimary}
               onClick={handleClick}
           >
