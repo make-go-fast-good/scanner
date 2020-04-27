@@ -78,7 +78,10 @@ class DataTable extends Component {
     return (
       <Router>
             <React.Fragment>
-              <SelectConn getData={this.getData} />
+              <SelectConn 
+                  getData={this.getData} 
+                  area={this.state.type}
+                />
               <Table
                 area={this.state.area}
                 data={this.state.data}
