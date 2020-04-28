@@ -61,8 +61,7 @@ export default function DenseAppBar(props) {
             edge="start"
             size="medium"
             aria-label="menuLogo"
-            className={classes.menuButton}
-            className={classes.colorPrimary}
+            className={[classes.menuButton, classes.colorPrimary]}
             onClick={handleClick}
           >
             <MenuIcon />
