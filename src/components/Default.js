@@ -13,30 +13,7 @@ import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
 
 export class DefaultTable extends Component {
 
-  updateDimensions() {
-      let update_height;
-      let update_width  = window.innerWidth-100;
-        if (window.innerWidth < 500) {
-            let update_height = "180vh";
-             this.setState({ width: update_width, height: update_height });
-        } else {
-            let update_height = "90vh";
-            this.setState({ width: update_width, height: update_height });
-        }
-          this.setState({ width: update_width, height: update_height });
-  }
-
-  componentDidMount() {
-    this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-
-  getStyle = (props) => {
+  getStyle = () => {
       return {
       background: "#F4F4F4",
       flexWrap: "wrap",
@@ -66,7 +43,7 @@ export class DefaultTable extends Component {
       return <h2 style={this.getStyle()}>{this.props.error}</h2>;
     } else if (this.props.home === true) {
       return (
-        <h2 style={this.getStyle(this.props.home)}>
+        <h2 style={this.getStyle()}>
             <Card 
               to="/TT13"
               primary="TT13 Data"
@@ -96,7 +73,7 @@ export class DefaultTable extends Component {
       );
     } else {
       return (
-        <h2 style={this.getStyle()} height="90vh">
+        <h2 style={this.getStyle()}>
             <div>
               Select a connection from above to read from the PLC
             </div>

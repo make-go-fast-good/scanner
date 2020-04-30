@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppBar from "./components/layout/Appbar";
 import About from "./components/pages/About";
-import DefaultTable from "./components/DefaultTable";
+import Default from "./components/Default";
 import DataTable from "./components/DataTable";
 import Coordinates from "./components/Coordinates.js";
 
@@ -23,7 +23,7 @@ class App extends Component {
               render={(props) => (
                 <React.Fragment>
                   <AppBar title="Homepage" />
-                  <DefaultTable home={true} />
+                  <Default home={true} />
                 </React.Fragment>
               )}
             ></Route>
@@ -89,7 +89,7 @@ class App extends Component {
               render={(props) => (
                 <React.Fragment>
                   <AppBar title="Matrix Coordinates" />
-                  { Coordinates }
+                  <Coordinates />
                 </React.Fragment>
               )}
             ></Route>

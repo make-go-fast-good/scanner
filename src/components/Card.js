@@ -40,12 +40,6 @@ function ListItemLink(props) {
   );
 }
 
-ListItemLink.propTypes = {
-  icon: PropTypes.element,
-  primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-};
-
 const useStyles = makeStyles({
   root: {
     flexDirection: "row",
@@ -73,3 +67,11 @@ export default function ListRouter(props) {
     </div>
   );
 }
+
+ListItemLink.propTypes = {
+  icon: PropTypes.element,
+  primary: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+};
+
+
