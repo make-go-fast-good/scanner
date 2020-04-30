@@ -15,6 +15,8 @@ import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
+import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
+import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +60,6 @@ export default function DenseAppBar(props) {
       >
         <Toolbar variant="dense">
           <IconButton
-            edge="start"
             size="medium"
             aria-label="menuLogo"
             className={[classes.menuButton, classes.colorPrimary]}
@@ -99,6 +100,12 @@ export default function DenseAppBar(props) {
             </MenuItem>
             <MenuItem component={Link} to="/ERROR" onClick={handleClose}>
               <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
+            </MenuItem>
+            <MenuItem component={Link} to="/COORDINATES" onClick={handleClose}>
+              <MyLocationTwoToneIcon className={classes.menuButton} /> Matrix Coordinates
+            </MenuItem>
+            <MenuItem component={Link} to="/BOOKMARKS" onClick={handleClose}>
+              <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
             </MenuItem>
           </Menu>
         </Toolbar>

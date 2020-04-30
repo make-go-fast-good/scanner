@@ -1,30 +1,52 @@
 import React, { Component } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import DotLoader from "react-spinners/DotLoader";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import Card from "./Card";
 
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+import TelegramIcon from '@material-ui/icons/Telegram';
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
+import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
+import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
 
 export class DefaultTable extends Component {
+
+  updateDimensions() {
+      let update_height;
+      let update_width  = window.innerWidth-100;
+        if (window.innerWidth < 500) {
+            let update_height = "180vh";
+             this.setState({ width: update_width, height: update_height });
+        } else {
+            let update_height = "90vh";
+            this.setState({ width: update_width, height: update_height });
+        }
+          this.setState({ width: update_width, height: update_height });
+  }
+
+  componentDidMount() {
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+
   getStyle = (props) => {
-    let _height;
-
-    props ? (_height = "88.5vh") : (_height = "83vh");
-
-    return {
+      return {
       background: "#F4F4F4",
       flexWrap: "wrap",
       display: "flex",
       justifyContent: "space-around",
       alignItems: "center",
-      height: _height,
-
       border: "1px dashed #BBB",
-      width: "100%",
       margin: "15px auto",
       color: "#555",
+      minHeight: "86vh"
     };
   };
 
@@ -32,9 +54,9 @@ export class DefaultTable extends Component {
     if (this.props.loading === true) {
       return (
         <div style={this.getStyle()}>
-          <ClimbingBoxLoader
+          <DotLoader
             css={this.props.css}
-            size={20}
+            size={110}
             color={"#d2d2d2"}
             loading={this.props.loading}
           />
@@ -60,12 +82,24 @@ export class DefaultTable extends Component {
               primary="Error Log"
               icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
             />
+            <Card
+              to="/COORDINATES"
+              primary="Matrix Coordinates"
+              icon={<MyLocationTwoToneIcon style={{ fontSize: "38px" }} />}
+            />
+            <Card
+              to="/BOOKMARKS"
+              primary="Bookmarks"
+              icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
+            />
         </h2>
       );
     } else {
       return (
-        <h2 style={this.getStyle()}>
-          Select a connection from above to read from the PLC
+        <h2 style={this.getStyle()} height="90vh">
+            <div>
+              Select a connection from above to read from the PLC
+            </div>
         </h2>
       );
     }

@@ -4,6 +4,7 @@ import AppBar from "./components/layout/Appbar";
 import About from "./components/pages/About";
 import DefaultTable from "./components/DefaultTable";
 import DataTable from "./components/DataTable";
+import Coordinates from "./components/Coordinates.js";
 
 import "./App.css";
 
@@ -88,7 +89,7 @@ class App extends Component {
               render={(props) => (
                 <React.Fragment>
                   <AppBar title="Matrix Coordinates" />
-                  <DataTable type="COORDINATES" />
+                  { Coordinates }
                 </React.Fragment>
               )}
             ></Route>
