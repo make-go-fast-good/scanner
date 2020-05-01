@@ -2,44 +2,76 @@ import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { css } from "@emotion/core";
 import axios from "axios";
+import { Container } from "./Container";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
+import DotLoader from "react-spinners/DotLoader";
 
 import "../App.css";
+// import "./pages/coordinates/css/blockade.css"
+// import "./pages/coordinates/css/sheetjs.css"
+// import "./pages/coordinates/css/w3.css"
+// 
+// import "./pages/coordinates/js/main.js"
+// import "./pages/coordinates/js/coordparse.js"
+// import "./pages/coordinates/lib/Blob.js"
+// import "./pages/coordinates/lib/canvas-datagrid.js"
+// import "./pages/coordinates/lib/dropsheet.js"
+// import "./pages/coordinates/lib/FileSaver.js"
+// import "./pages/coordinates/lib/sheetjsw.js"
+// import "./pages/coordinates/lib/shim.js"
+// import "./pages/coordinates/lib/spin.js"
+// import "./pages/coordinates/lib/xlsx.full.min.js"
 
 class Coordinates extends Component {
+
+  componentDidMount(){
+      this.getData();
+  }
+
   state = {
     loading: false,
-    error: undefined
+    error: undefined,
+    data: undefined
   };
 
-  makeTable = (page) => {
-      console.log("we makin")
-    this.setState({ loading: false, });
-    return page;
-  };
 
   // Select Connection
   getData = (area) => {
-
-    console.log("heres the url");
     this.setState({ loading: true});
-    console.log("heres the url");
-    console.log("http://localhost:8080/" + this.state.type + "/connect");
     axios
       .get("http://localhost:8080/COORDINATES")
       .then((res) => {
+        this.setState({
+              loading: false,
+              data: res.data,
+            });
         console.log("res.data");
         console.log(res.data);
-        this.makeTable(res.data);
-        return res.data
       })
       .catch((err) => {
         console.log(err);
         this.setState({
           loading: false,
-          error: "Connection Error: Verify connection to the PLC network.",
+          error: "Connection Error: Verify server is running.",
         });
       });
   };
+
+  getStyle = (props) => {
+      return {
+      background: "#F4F4F4",
+      flexWrap: "wrap",
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "center",
+      border: "1px dashed #BBB",
+      margin: "15px auto",
+      color: "#555",
+      minHeight: "88vh"
+    };
+  };
+
 
   render() {
     const override = css`
@@ -48,16 +80,12 @@ class Coordinates extends Component {
       border-color: #d2d2d2;
     `;
 
-    return (
-      <Router>
-        <React.Fragment>
-            <div>
-                this.getData();
+     return (
+            <div style={this.getStyle()}>
+              { ReactHtmlParser(this.state.data) }
             </div>
-        </React.Fragment>
-      </Router>
-    );
-  }
+      );
+    }
 }
 
 export default Coordinates;

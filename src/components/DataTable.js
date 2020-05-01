@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { css } from "@emotion/core";
 import axios from "axios";
-import SelectConn from "./SelectConn";
-import { Table } from "./Table";
+import PlcConnections from "./PlcConnections";
+import { Container } from "./Container";
 
 import "../App.css";
 
@@ -76,8 +76,8 @@ class DataTable extends Component {
     return (
       <Router>
         <React.Fragment>
-          <SelectConn getData={this.getData} area={this.state.type} />
-          <Table
+          <PlcConnections getData={this.getData} area={this.state.type} />
+          <Container
             area={this.state.area}
             data={this.state.data}
             options={this.state.options}
