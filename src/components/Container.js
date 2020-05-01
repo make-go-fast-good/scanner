@@ -54,7 +54,7 @@ export class Container extends Component {
     } else if (this.props.data === undefined) {
       return <Default />;
     } else if (this.props.type === "Coordinates") {
-      return <Default  type={this.props.type} />;
+      return <Coordinates />;
     } else {
       this.state.extended === false
         ? (_columns = tableColumns.condensed)

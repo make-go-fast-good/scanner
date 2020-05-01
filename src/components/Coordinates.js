@@ -35,7 +35,6 @@ class Coordinates extends Component {
     data: undefined
   };
 
-
   // Select Connection
   getData = (area) => {
     this.setState({ loading: true});
