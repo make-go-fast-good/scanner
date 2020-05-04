@@ -1,7 +1,6 @@
 <!--made by phillip crandall 2019-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <title>Blockade Check</title>
     <meta charset="UTF-8">
@@ -18,9 +17,7 @@
     <script src="./js/main.js"></script>
     <script src="./lib/canvas-datagrid.js"></script>
     <script src="./lib/xlsx.full.min.js"></script>
-
 </head>
-
 <body>
     <div id="one" class="w3-third w3-container w3-mobile">
         <div class="w3-container w3-margin-left">
@@ -31,7 +28,7 @@
             <h4>Message:</h4>
             <input type="text" name="filename" value="" id="resultText" style="width: auto;" readonly>
             </br>
-            <input type="button" class="smbutton w3-margin-top" id="ParseButton" value="Check Coordinate"" onclick="
+            <input type="button" class="smbutton w3-margin-top" id="ParseButton" value="Check Coordinate" onclick="
                 parseData()">
             </br>
             <h4 class="w3-margin-top">Select Blockade Checklist File:</h4>
@@ -120,16 +117,17 @@
                         </div>
                     </td>
                     <td>
-                        <ul>
-                            <li>
-                                <div id="x28" class="location">Z28</div>
-                            <li>
-                                <div id="x26" class="location">Z26</div>
-                            <li>
-                                <div id="x24" class="location">Z24</div>
-                            <li>
-                                <div id="x22" class="location">Z22</div>
-                        </ul>
+                        <div id="right_side">
+                          <ul>
+                              <li>
+                                  <div id="x28" class="location">Z28</div>
+                              <li>
+                                  <div id="x26" class="location">Z26</div>
+                              <li>
+                                  <div id="x24" class="location">Z24</div>
+                              <li>
+                                  <div id="x22" class="location">Z22</div>
+                          </ul>
                     </td>
                     <td>
                         <div id="right_side">
@@ -148,27 +146,25 @@
                         </div>
                     </td>
                 </tr>
+            </table>
+            <table class="w3-container w3-center container w3-table-all w3-small">
+                <thead>
+                    <tr class="w3-light-grey">
+                        <td>Field: </td>
+                        <td id="ftable"></td>
+                    </tr>
+                </thead>
                 <tr>
-                    <table class="w3-container w3-center container w3-table-all w3-small">
-                        <thead>
-                            <tr class="w3-light-grey">
-                                <td>Field: </td>
-                                <td id="ftable"></td>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <td>X coordinate: </td>
-                            <td id="xtable"></td>
-                        </tr>
-                        <tr>
-                            <td>Y coordinate: </td>
-                            <td id="ytable"></td>
-                        </tr>
-                        <tr>
-                            <td>Z coordinate: </td>
-                            <td id="ztable"></td>
-                        </tr>
-                    </table>
+                    <td>X coordinate: </td>
+                    <td id="xtable"></td>
+                </tr>
+                <tr>
+                    <td>Y coordinate: </td>
+                    <td id="ytable"></td>
+                </tr>
+                <tr>
+                    <td>Z coordinate: </td>
+                    <td id="ztable"></td>
                 </tr>
             </table>
         </div>
@@ -243,7 +239,8 @@
                     <td id="" class="invisible_td"><a></a></td>
                     <td id="1112" rowspan=2 class="navette_shut"><a>1<br />1<br />1<br />2</a></td>
                 </tr>
-                <td></td>
+                <tr>
+                    <td></td>
                 </tr>
                 <tr>
                     <td id="6211" rowspan=2 class="navette_shut"><a>6<br />2<br />1<br />1</a></td>
@@ -275,7 +272,5 @@
         </h2>
         <div class="container" id="grid"></div>
     </div>
-
 </body>
-
 </html>

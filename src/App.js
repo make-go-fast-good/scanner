@@ -5,6 +5,7 @@ import About from "./components/pages/About";
 import Default from "./components/Default";
 import DataTable from "./components/DataTable";
 import Coordinates from "./components/Coordinates.js";
+import Bookmarks from "./components/Bookmarks.js";
 
 import "./App.css";
 
@@ -77,8 +78,8 @@ class App extends Component {
               path="/BOOKMARKS"
               render={(props) => (
                 <React.Fragment>
-                  <AppBar title="Bookmarks" />
-                  <DataTable type="BOOKMARKS" />
+                  <AppBar title="Bookmarks" minWidth="1200px"/>
+                  <Bookmarks />
                 </React.Fragment>
               )}
             ></Route>
