@@ -45,9 +45,9 @@ const useStyles = makeStyles({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    margin: "3vw",
-    width: 300,
-    height: 300,
+    margin: "1.5vw 5vw",
+    width: 275,
+    height: 275,
     fontSize: "24px",
   },
 });

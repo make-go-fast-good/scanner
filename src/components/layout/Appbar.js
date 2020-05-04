@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DenseAppBar(props) {
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 

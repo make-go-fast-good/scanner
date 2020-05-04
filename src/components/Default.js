@@ -24,7 +24,7 @@ export class DefaultTable extends Component {
       border: "1px dashed #BBB",
       margin: "15px auto",
       color: "#555",
-      minHeight: "86vh"
+      minHeight: "83vh"
     };
   };
 

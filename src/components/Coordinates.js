@@ -4,14 +4,13 @@ import { css } from "@emotion/core";
 import axios from "axios";
 import { Container } from "./Container";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-
 import DotLoader from "react-spinners/DotLoader";
 
+import "./pages/Coordinates/css/blockade.css"
+import "./pages/Coordinates/css/sheetjs.css"
+// import "./pages/Coordinates/css/w3.css"
 import "../App.css";
-// import "./pages/coordinates/css/blockade.css"
-// import "./pages/coordinates/css/sheetjs.css"
-// import "./pages/coordinates/css/w3.css"
-// 
+
 // import "./pages/coordinates/js/main.js"
 // import "./pages/coordinates/js/coordparse.js"
 // import "./pages/coordinates/lib/Blob.js"
