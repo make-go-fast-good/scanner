@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
 
   /** Spinner **/
   var spinner;
@@ -83,20 +83,20 @@ window.addEventListener('load', function () {
     inputText.value = "";
     wbName.value = _filename();
 
-    //remove the drop target when the sheet loads. 
+    //remove the drop target when the sheet loads.
     document.getElementById('drop').style.display = "none";
 
     /* show grid */
     _grid.style.display = "block";
     _resize();
 
-    //need to check the header more thouroughly here. 
+    //need to check the header more thouroughly here.
     //Check the length, make sure we have at least three columns for the sheet.
     if (json[0].length <= 2) {
       json.unshift(["STOLOC", "LU", "Verified LU"]);
     }
 
-    //create an object and filter out duplicates and empty lines. 
+    //create an object and filter out duplicates and empty lines.
     let uniq = {};
 
     uniq = json.filter(function (loc) {
@@ -118,7 +118,7 @@ window.addEventListener('load', function () {
     /* load data */
     cdg.data = json = uniq;
 
-    //first row is the header, save the first row for later use. 
+    //first row is the header, save the first row for later use.
     firstRow = json[0];
 
     //Rearrange the columns
@@ -144,7 +144,7 @@ window.addEventListener('load', function () {
       });
     }
 
-    // Check for columns not identified, assign order to whatever one is not used. 
+    // Check for columns not identified, assign order to whatever one is not used.
     var tmp = Object.values(sortedCols);
     var found = [];
 
@@ -183,7 +183,7 @@ window.addEventListener('load', function () {
       json.sort(sortThings);
     });
 
-    //Attempt to re-arrange the columns in the correct order. We get checklists in many different formats. 
+    //Attempt to re-arrange the columns in the correct order. We get checklists in many different formats.
     cdg.columnOrder = order;
 
     //write the headers.
@@ -196,7 +196,7 @@ window.addEventListener('load', function () {
     cdg.style.columnHeaderCellHorizontalAlignment = 'right';
     cdg.attributes.selectionMode = 'row';
 
-    //Add empty row at the end to make inputs work correctly. 
+    //Add empty row at the end to make inputs work correctly.
     json.push(["", "", ""])
 
     //first row is the header now, remove it
@@ -292,4 +292,4 @@ window.addEventListener('load', function () {
     }
   })
 
-});
+// });
