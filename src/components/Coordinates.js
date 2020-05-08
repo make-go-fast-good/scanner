@@ -7,25 +7,16 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 import DotLoader from "react-spinners/DotLoader";
 
 import "./pages/Coordinates/css/blockade.css"
-import "./pages/Coordinates/css/sheetjs.css"
-// import "./pages/Coordinates/css/w3.css"
 import "../App.css";
 
-// import "./pages/coordinates/js/main.js"
-// import "./pages/coordinates/js/coordparse.js"
-// import "./pages/coordinates/lib/Blob.js"
-// import "./pages/coordinates/lib/canvas-datagrid.js"
-// import "./pages/coordinates/lib/dropsheet.js"
-// import "./pages/coordinates/lib/FileSaver.js"
-// import "./pages/coordinates/lib/sheetjsw.js"
-// import "./pages/coordinates/lib/shim.js"
-// import "./pages/coordinates/lib/spin.js"
-// import "./pages/coordinates/lib/xlsx.full.min.js"
+import "./pages/Coordinates/js/main.js"
+import "./pages/Coordinates/js/coordparse.js"
+import "./pages/Coordinates/lib/dropsheet.js"
+import "./pages/Coordinates/lib/sheetjsw.js"
 
 class Coordinates extends Component {
 
   componentDidMount(){
-      // this.getData();
   }
 
   state = {
@@ -78,7 +69,10 @@ class Coordinates extends Component {
       border-color: #d2d2d2;
     `;
 
+      const canvasDatagrid = require('canvas-datagrid')
+
      return (
+
             <div style={this.getStyle()}>
                 {/* <div class= "w3-center" style={{width: "100%"}}> */}
                 {/*     <div  class="w3-third w3-container w3-mobile "> */}

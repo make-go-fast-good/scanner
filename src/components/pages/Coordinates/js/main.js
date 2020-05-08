@@ -1,4 +1,16 @@
 // window.addEventListener('load', function () {
+import {inputText, resultText, wbName, firstRow} from './coordparse.js'
+import '../vendor/spin.js'
+import {shim} from 'core-js'
+
+const canvasDatagrid = require('canvas-datagrid')
+const parseData = require('./coordparse.js')
+const Spinner = require('../lib/spin.js')
+const XLSX = require('../lib/xlsx.full.min.js')
+const Blob = require('../lib/Blob.js')
+// const shim = require('../lib/shim.js')
+//const alertify = require('../vendor/alertify.js')
+// const Spinner = require('../vendor/spin.js')
 
   /** Spinner **/
   var spinner;
@@ -19,23 +31,22 @@
     return filename;
   }
 
-  /** Alerts **/
-  var _badfile = function () {
-    alertify.alert('This file does not appear to be a valid Excel file.  If we made a mistake, please send this file to <a href="mailto:dev@sheetjs.com?subject=I+broke+your+stuff">dev@sheetjs.com</a> so we can take a look.', function () {});
-  };
+  // var _badfile = function () {
+  //   alertify.alert('This file does not appear to be a valid Excel file.  If we made a mistake, please send this file to <a href="mailto:dev@sheetjs.com?subject=I+broke+your+stuff">dev@sheetjs.com</a> so we can take a look.', function () {});
+  // };
 
-  var _pending = function () {
-    alertify.alert('Please wait until the current file is processed.', function () {});
-  };
+  // var _pending = function () {
+  //   alertify.alert('Please wait until the current file is processed.', function () {});
+  // };
 
-  var _large = function (len, cb) {
-    alertify.confirm("This file is " + len + " bytes and may take a few moments.  Your browser may lock up during this process.  Shall we play?", cb);
-  };
+  // var _large = function (len, cb) {
+  //   alertify.confirm("This file is " + len + " bytes and may take a few moments.  Your browser may lock up during this process.  Shall we play?", cb);
+  // };
 
-  var _failed = function (e) {
-    console.log(e, e.stack);
-    alertify.alert('We unfortunately dropped the ball here.  Please test the file using the <a href="/js-xlsx/">raw parser</a>.  If there are issues with the file processor, please send this file to <a href="mailto:dev@sheetjs.com?subject=I+broke+your+stuff">dev@sheetjs.com</a> so we can make things right.', function () {});
-  };
+  // var _failed = function (e) {
+  //   console.log(e, e.stack);
+  //   alertify.alert('We unfortunately dropped the ball here.  Please test the file using the <a href="/js-xlsx/">raw parser</a>.  If there are issues with the file processor, please send this file to <a href="mailto:dev@sheetjs.com?subject=I+broke+your+stuff">dev@sheetjs.com</a> so we can make things right.', function () {});
+  // };
 
   var _target = document.getElementById('drop');
   var _file = document.getElementById('file');
@@ -119,7 +130,7 @@
     cdg.data = json = uniq;
 
     //first row is the header, save the first row for later use.
-    firstRow = json[0];
+    var firstRow = json[0];
 
     //Rearrange the columns
     sortedCols = sortColumns(firstRow);
@@ -273,6 +284,8 @@
     return cols;
   }
 
+const DropSheet = require('../lib/dropsheet.js')
+
   /**Dropsheet things**/
   DropSheet({
     file: _file,
@@ -283,13 +296,13 @@
       sheet: _onsheet,
       foo: 'bar'
     },
-    errors: {
-      badfile: _badfile,
-      pending: _pending,
-      failed: _failed,
-      large: _large,
-      foo: 'bar'
-    }
+    // errors: {
+    //   badfile: _badfile,
+    //   pending: _pending,
+    //   failed: _failed,
+    //   large: _large,
+    //   foo: 'bar'
+    // }
   })
 
 // });

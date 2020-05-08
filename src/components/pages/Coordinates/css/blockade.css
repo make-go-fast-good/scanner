@@ -158,6 +158,50 @@
             padding: 0;
             margin: 0;
         }
+
+html {
+    overflow: hidden;
+  }
+  #drop{
+    border:2px dashed #bbb;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    width:300px;
+    font:30pt bold;
+    color:#bbb;
+    margin: 0 auto;
+  }
+
+  #left {
+    width:188px;
+    position:absolute;
+    left:0;
+  }
+  #right {
+    position:absolute;
+    left:200px;
+  }
+  #logo {
+    padding:25px;
+  }
+  #header {
+    height:168px;
+  }
+  #grid {
+    height: 100px;
+    display: none;
+  }
+
+  .winpt { width:98%; }
+  .success { color: #468847; }
+  .error { color: #b94a48; }
+  .info { color: #3a87ad; }
+  pre { white-space: pre-wrap; }
+
+
         /* W3.CSS 4.13 June 2019 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
@@ -388,3 +432,5 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-dark-grey,.w3-hover-border-dark-grey:hover,.w3-border-dark-gray,.w3-hover-border-dark-gray:hover{border-color:#616161!important}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+
