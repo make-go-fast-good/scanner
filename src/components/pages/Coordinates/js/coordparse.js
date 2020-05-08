@@ -45,7 +45,7 @@ var transfers = {
 };
 
 function parseData(e) {
-    //Check for coordinate to parse. 
+    //Check for coordinate to parse.
     if (!e) {
         var inputText = document.getElementById("inputText").value;
     } else {
@@ -58,7 +58,7 @@ function parseData(e) {
     result.value = "Success!";
     result.style.backgroundColor = "lime";
 
-    // Reset the shelf indicator. 
+    // Reset the shelf indicator.
     document.getElementsByClassName("shelf").backgroundColor = "#7A8B99";
 
     var xValue = inputText.substring(inputText.lastIndexOf("X") + 1, inputText.lastIndexOf("Y"));
@@ -66,7 +66,7 @@ function parseData(e) {
     var zValue = inputText.substring(inputText.lastIndexOf("Z") + 1);
     var aValue = inputText.substring(inputText.lastIndexOf("A") + 1, inputText.lastIndexOf("X"));
 
-    //reset the shelf indicators. 
+    //reset the shelf indicators.
     for (var i = 0; i < shelf.length; i++) {
         document.getElementById(shelf[i]).style.backgroundColor = "#7A8B99";
     };
@@ -81,11 +81,11 @@ function parseData(e) {
         result.value = "Invalid length!";
         result.style.backgroundColor = "red";
     } else {
-        //Storage / Transfer location check. 
+        //Storage / Transfer location check.
         if (inputText[0] != "N" || inputText[1] != "R" || inputText[2] != "A") {
 
             result.style.backgroundColor = "red";
-            //Transfer position check. 
+            //Transfer position check.
             if ((inputText[0] == "T" && (inputText[1] == "G" || inputText[1] == "P") && inputText[2] == "A") &&
                 (validTranfer(xValue) === true)) {
                 transferPos = true;
@@ -157,8 +157,8 @@ function parseData(e) {
                 document.getElementById("x21").style.backgroundColor = "yellow";
                 document.getElementById("ztable").innerHTML = zValue + "1";
             } else {
-                res.style.backgroundColor = "red";
-                res.value = "Invalid Z value!";
+                result.style.backgroundColor = "red";
+                result.value = "Invalid Z value!";
                 document.getElementById("ztable").innerHTML = "Invalid Z value!";
             }
         }
