@@ -41,7 +41,7 @@ class Bookmarks extends Component {
   navStyle = (props) => {
       return {
       borderColor: "#E3E3E3",
-      background: "#7A8B99", 
+      background: "#7A8B99",
       color: "#EEE",
       fontSize: "18px",
       flexWrap: "wrap",
@@ -60,7 +60,7 @@ class Bookmarks extends Component {
   liftStyle = (props) => {
       return {
       bordercolor: "#D3D3E3",
-      background: "#6A7A88", 
+      background: "#6A7A88",
       color: "#EEE",
       fontSize: "16px",
       flexWrap: "wrap",
