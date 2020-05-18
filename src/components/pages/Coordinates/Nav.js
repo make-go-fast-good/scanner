@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Typography } from '@material-ui/core';
 
-import "../App.css";
+import "../../../App.css";
 
 class Navettes extends Component {
 
   state = {
-      navs: [],
       rack: [],
+      navs: [],
       aisle:[]
   };
 
@@ -20,20 +20,31 @@ class Navettes extends Component {
       fontSize: "14px",
       flexWrap: "wrap",
       display: "flex",
-      justifyContent: "space-around",
       flex: "1",
+      justifyContent: "center",
       alignItems: "center",
-      margin: "15px auto",
-      padding: "15px auto",
-      minHeight: "15vh",
-      minWidth: "6vh",
+      margin: "5px auto",
+      padding: "5px auto",
+      minHeight: "10vh",
+      minWidth: "2vh",
     };
   };
 
+ VerticalText = props => (
+  <div style={{ flex: 1, flexDirection: 'column' }}>
+      {props.string.split('').map(char => <Typography>{char}</Typography>)}
+  </div>
+)
+
   render() {
      return (
-            <div style={this.getStyle()}>
-            </div>
+                this.props.nav.map(_nav =>{
+                    return(
+                        <div style={this.navStyle()}>
+                           this.VerticalText({_nav.id + ""})
+                        </div>
+                    )
+                })
       );
     }
 }

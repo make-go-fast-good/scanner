@@ -83,17 +83,17 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            <Route
-              exact
-              strict
-              path="/COORDINATES"
-              render={(props) => (
-                <React.Fragment>
-                  <AppBar title="Matrix Coordinates" />
-                  <Coordinates />
-                </React.Fragment>
-              )}
-            ></Route>
+            {/* <Route */}
+            {/*   exact */}
+            {/*   strict */}
+            {/*   path="/COORDINATES" */}
+            {/*   render={(props) => ( */}
+            {/*     <React.Fragment> */}
+            {/*       <AppBar title="Matrix Coordinates" /> */}
+            {/*       <Coordinates /> */}
+            {/*     </React.Fragment> */}
+            {/*   )} */}
+            {/* ></Route> */}
             <Route
               exact
               strict
@@ -105,7 +105,7 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            {/* 
+            {/*
             <Route path="/about" component={About}></Route>
             */}
           </div>

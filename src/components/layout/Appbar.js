@@ -101,9 +101,9 @@ export default function DenseAppBar(props) {
             <MenuItem component={Link} to="/ERROR" onClick={handleClose}>
               <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
             </MenuItem>
-            <MenuItem component={Link} to="/COORDINATES" onClick={handleClose}>
-              <MyLocationTwoToneIcon className={classes.menuButton} /> Matrix Coordinates
-            </MenuItem>
+            {/* <MenuItem component={Link} to="/COORDINATES" onClick={handleClose}> */}
+            {/*   <MyLocationTwoToneIcon className={classes.menuButton} /> Matrix Coordinates */}
+            {/* </MenuItem> */}
             <MenuItem component={Link} to="/BOOKMARKS" onClick={handleClose}>
               <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
             </MenuItem>
