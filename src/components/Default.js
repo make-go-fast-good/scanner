@@ -45,7 +45,7 @@ export class DefaultTable extends Component {
     } else if (this.props.home === true) {
       return (
         <h2 style={this.getStyle()}>
-            <Card 
+            <Card
               to="/TT13"
               primary="TT13 Data"
               icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
@@ -60,11 +60,11 @@ export class DefaultTable extends Component {
               primary="Error Log"
               icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
             />
-            <Card
-              to="/COORDINATES"
-              primary="Matrix Coordinates"
-              icon={<MyLocationTwoToneIcon style={{ fontSize: "38px" }} />}
-            />
+            {/* <Card */}
+            {/*   to="/COORDINATES" */}
+            {/*   primary="Matrix Coordinates" */}
+            {/*   icon={<MyLocationTwoToneIcon style={{ fontSize: "38px" }} />} */}
+            {/* /> */}
             <Card
               to="/BOOKMARKS"
               primary="Bookmarks"

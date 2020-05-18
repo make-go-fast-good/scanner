@@ -1,6 +1,6 @@
 {
-  "short_name": "TT13",
-  "name": "Telegram monitor",
+  "short_name": "toolkit",
+  "name": "PLC toolkit",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
