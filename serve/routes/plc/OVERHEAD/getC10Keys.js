@@ -1,6 +1,6 @@
 //for i in range(1): print("\'var[%d]\'," % i)
-// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
-DB421KEYS = [
+// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC
+const DB421KEYS = [
     'V_FPNR',
     'V_SCANNER',
     'VISU_SCANNER',

@@ -7,6 +7,7 @@ import DB171Columns from "../config/DB171Columns";
 import DB421Columns from "../config/DB421Columns";
 import DB1852Columns from "../config/DB1852Columns";
 import ERRORColumns from "../config/ERRORColumns";
+import SCANNERSColumns from "../config/SCANNERSColumns";
 
 export class Container extends Component {
   state = {
@@ -21,30 +22,37 @@ export class Container extends Component {
       case "TT13":
         tableColumns = TT13Columns;
         break;
+      case "SCANNERS":
+        tableColumns = SCANNERSColumns;
+        break;
       case "ERROR":
         tableColumns = ERRORColumns;
         break;
       case "OVERHEAD":
 
         switch (this.props.area) {
+
           case "C08":
-            console.log("Table columns here: ");
-            console.log("DB1852Columns");
             tableColumns = DB1852Columns;
             break;
+
           case "C09":
           case "C10":
           case "C12":
-            console.log("Table columns here: ");
-            console.log("DB421Columns");
             tableColumns = DB421Columns;
             break;
+
           case "C11":
-            console.log("Table columns here: ");
-            console.log("DB171Columns");
             tableColumns = DB171Columns;
             break;
+
+          default:
+            break;
         }
+        break;
+
+      default:
+        break;
     }
 
     if (this.props.loading === true) {

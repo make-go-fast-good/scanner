@@ -11,6 +11,7 @@ import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
 import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
+import FlightTakeoffTwoToneIcon from '@material-ui/icons/FlightTakeoffTwoTone';
 
 export class DefaultTable extends Component {
 
@@ -51,9 +52,14 @@ export class DefaultTable extends Component {
               icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
             />
             <Card
+              to="/SCANNERS"
+              primary="Scanner Data"
+              icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }} />}
+            />
+            <Card
               to="/OVERHEAD"
               primary="Overhead Scanner Data"
-              icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }} />}
+              icon={<FlightTakeoffTwoToneIcon style={{ fontSize: "38px" }} />}
             />
             <Card
               to="/ERROR"

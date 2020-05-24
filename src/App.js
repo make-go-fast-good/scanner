@@ -61,17 +61,17 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            <Route
-              exact
-              strict
-              path="/TT31"
-              render={(props) => (
-                <React.Fragment>
-                  <AppBar title="TT31 Data" />
-                  <DataTable type="TT31" />
-                </React.Fragment>
-              )}
-            ></Route>
+            {/* <Route */}
+            {/*   exact */}
+            {/*   strict */}
+            {/*   path="/TT31" */}
+            {/*   render={(props) => ( */}
+            {/*     <React.Fragment> */}
+            {/*       <AppBar title="TT31 Data" /> */}
+            {/*       <DataTable type="TT31" /> */}
+            {/*     </React.Fragment> */}
+            {/*   )} */}
+            {/* ></Route> */}
             <Route
               exact
               strict
@@ -80,6 +80,17 @@ class App extends Component {
                 <React.Fragment>
                   <AppBar title="Bookmarks" minWidth="1200px"/>
                   <Bookmarks />
+                </React.Fragment>
+              )}
+            ></Route>
+            <Route
+              exact
+              strict
+              path="/SCANNERS"
+              render={(props) => (
+                <React.Fragment>
+                  <AppBar title="Scanners"/>
+                  <DataTable type="SCANNERS" />
                 </React.Fragment>
               )}
             ></Route>

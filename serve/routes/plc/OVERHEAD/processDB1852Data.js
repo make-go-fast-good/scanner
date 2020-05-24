@@ -9,7 +9,7 @@ class dataRow {
 }
 
 const process = function processPlcData(data) {
-  //if there's no data leave. 
+  //if there's no data leave.
   if (!data) return;
 
   //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
@@ -18,7 +18,7 @@ const process = function processPlcData(data) {
   let plcData = [];
 
   //lets construct our object
-  for (i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i++) {
 
     //Add one so the index starts at one in the table.
     plcData[i] = new dataRow(i + 1);
@@ -30,8 +30,6 @@ const process = function processPlcData(data) {
     });
 
     //iterate through the dataKeys array and create a sensible structure
-    let barcode = [];
-    let shipping_label = [];
 
     row.forEach((key, index) => {
       // change from boolean to string representation so the data table can read.
