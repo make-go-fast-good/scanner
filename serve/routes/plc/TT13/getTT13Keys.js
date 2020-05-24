@@ -1,5 +1,5 @@
-// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
-TT13KEYS = [
+// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC
+const TT13KEYS = [
     'tele_typ',
     'datum_start',
     'uhr_start',

@@ -1,6 +1,6 @@
 const Keys = require("./getC10Keys");
 class dataRow {
-  constructor(_index = [i]) {
+  constructor(_index = 0) {
     this.index = _index;
     this.barcode = "";
     this.shipping_label = "";
@@ -18,7 +18,7 @@ const process = function processPlcData(data) {
     let plcData = [];
 
      //lets construct our object
-    for (i = 0; i < 2; i++) {
+    for (let i = 0; i < 2; i++) {
 
         plcData[i] = new dataRow(1);
 
@@ -29,8 +29,6 @@ const process = function processPlcData(data) {
         });
 
         //iterate through the dataKeys array and create a sensible structure
-        let barcode = [];
-        let shipping_label = [];
 
         row.forEach((key, index) => {
           // change from boolean to string representation so the data table can read.

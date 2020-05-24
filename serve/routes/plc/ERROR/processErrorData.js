@@ -7,7 +7,7 @@ class dataRow {
 }
 
 const process = function processPlcData(data) {
-  //if there's no data leave. 
+  //if there's no data leave.
   if (!data) return;
 
   //Since data is one big object we want to grab all the keys to use array functions (36400 keys)
@@ -16,7 +16,7 @@ const process = function processPlcData(data) {
   let plcData = [];
 
   //lets construct our object
-  for (i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1000; i++) {
 
     //Add one so the index starts at one in the table.
     plcData[i] = new dataRow(i + 1);
@@ -49,7 +49,7 @@ const process = function processPlcData(data) {
         let ms_date = word * day + elapsed;
         let date = new Date(ms_date);
 
-        //cut off the time of day, we only care about the date here. 
+        //cut off the time of day, we only care about the date here.
         plcData[i].data[Keys[index]] = date.toJSON().slice(0, 10);
       } else if (index === 5) {
         //Siemens Time data type returns the number of milliseconds since the beginning of the day.

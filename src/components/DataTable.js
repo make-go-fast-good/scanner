@@ -56,6 +56,8 @@ class DataTable extends Component {
         this.makeTable(res.data, area.conn);
         console.log("res.data");
         console.log(res.data);
+        console.log("res");
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);

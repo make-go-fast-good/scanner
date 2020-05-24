@@ -17,6 +17,7 @@ import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
 import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
+import FlightTakeoffTwoToneIcon from '@material-ui/icons/FlightTakeoffTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,8 +95,12 @@ export default function DenseAppBar(props) {
               <EmailTwoToneIcon className={classes.menuButton} />
               TT13 Data
             </MenuItem>
+            <MenuItem component={Link} to="/SCANNERS" onClick={handleClose}>
+              <ScannerTwoToneIcon className={classes.menuButton} />
+              Scanners
+            </MenuItem>
             <MenuItem component={Link} to="/OVERHEAD" onClick={handleClose}>
-              <ScannerTwoToneIcon className={classes.menuButton} /> Overhead
+              <FlightTakeoffTwoToneIcon className={classes.menuButton} /> Overhead
               Scanner
             </MenuItem>
             <MenuItem component={Link} to="/ERROR" onClick={handleClose}>

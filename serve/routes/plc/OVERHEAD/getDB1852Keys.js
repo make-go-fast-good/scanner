@@ -1,6 +1,6 @@
 //for i in range(1): print("\'var[%d]\'," % i)
-// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC 
-TT1852KEYS = [
+// Use this to rename the integer keys intially read from the PLC to match what is actually in the PLC
+const TT1852KEYS = [
     'x_send',
     'ttxx_idx',
     'tele_head_sender',
