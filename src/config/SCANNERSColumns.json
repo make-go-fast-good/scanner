@@ -3,7 +3,15 @@
         { "title": "FPNR", "field": "data.fpnr", "defaultSort": "asc" },
         { "title": "Scanner", "field": "data.scanner" },
         { "title": "Barcode", "field": "barcode" },
-        { "title": "Read History Goodread=0, Noread=1", "field": "bitField" },
+        { "title": "Read History Goodread=0, Noread=1", "field": "bitField",
+            "render": {
+                        Object.keys(rowData).map(char =>
+                        char === "0" ?
+                        <div style={{width: 4, height: 8, backgroundColor: green }}/></div> :
+                        <div style={{width: 4, height: 8, backgroundColor: red }}/></div>
+                    )
+            }
+        },
         { "title": "Read_rate Last 100", "field": "data.leserate_100" },
         { "title": "Read_rate Overall", "field": "data.leserate" },
         { "title": "Amount_of_Reads", "field": "data.anz_read" },
