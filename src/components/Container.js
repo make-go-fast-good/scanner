@@ -7,7 +7,7 @@ import DB171Columns from "../config/DB171Columns";
 import DB421Columns from "../config/DB421Columns";
 import DB1852Columns from "../config/DB1852Columns";
 import ERRORColumns from "../config/ERRORColumns";
-import SCANNERSColumns from "../config/SCANNERSColumns";
+import SCANNERSColumns from "../config/SCANNERSColumns.js";
 
 export class Container extends Component {
     state = {

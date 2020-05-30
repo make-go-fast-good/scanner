@@ -102,6 +102,8 @@ const process = function processPlcData(data, _num) {
         plcData[i].numberScanners = data["20000.0"];
         //read rate until fault threshold
         plcData[i].readRateUntilFault = data["20002.0"];
+        if (plcData[i].data["anz_read"] < 0) plcData[i].data["anz_read"] += 65535
+        if (plcData[i].data["anz_noread"] < 0) plcData[i].data["anz_noread"] += 65535
     }
     return plcData;
 };
