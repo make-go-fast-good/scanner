@@ -9,6 +9,7 @@ class dataRow {
         this.numberScanners = 0;
         this.readRateUntilFault = 0;
         this.data = {};
+        this.DB90 = 0;
     }
 }
 
@@ -36,6 +37,9 @@ const process = function processPlcData(data, _num) {
         });
 
         row.forEach((key, index) => {
+
+            if (index === 0) plcData[i].DB90 = key;
+
             if (data[key] === true) data[key] = "true";
             if (data[key] === false) data[key] = "false";
 
