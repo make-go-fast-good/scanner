@@ -7,6 +7,8 @@ import DataTable from "./components/DataTable";
 import Coordinates from "./components/Coordinates.js";
 import Bookmarks from "./components/Bookmarks.js";
 
+import BookmarksSwitch from "./components/Switch.js";
+
 import "./App.css";
 
 class App extends Component {
