@@ -1,15 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { css } from "@emotion/core";
-import { Container } from "./Container";
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-    htmlparser2
-} from "react-html-parser";
 import axios from "axios";
-import Paper from "@material-ui/core/Paper";
-import DotLoader from "react-spinners/DotLoader";
+import BookmarksIframe from './Iframe.js'
 import BookmarksSwitch from "./Switch.js";
 
 import "../App.css";
@@ -22,7 +13,8 @@ class Bookmarks extends Component {
             checked: false,
             loading: false,
             error: undefined,
-            data: undefined
+            data: undefined,
+            url: null
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -30,6 +22,31 @@ class Bookmarks extends Component {
     handleChange(checked) {
         this.setState({ checked });
     }
+
+
+    // Select Connection
+    getData = url => {
+        this.setState({ loading: true, data: url });
+            axios
+            .get("http://localhost:8080/BOOKMARKS/connect", {
+                params: {
+                    url: url
+                }
+            })
+            .then(res => {
+                this.makeTable(res.data);
+                console.log("res.data");
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({
+                    loading: false,
+                    error:
+                        "Connection Error: Verify connection to the PLC network."
+                });
+            });
+    };
 
     openLink = (octet, m_name) => {
 
@@ -44,14 +61,13 @@ class Bookmarks extends Component {
 
         let f_url = f_url1 + f_url2 + m_name + f_url3;
 
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-
-
         const url1 = "http://10.136.17.";
         const url2 = "/admin.html";
-        window.open(url1 + octet + url2, "_self");
+
+        this.state.checked === false
+           ? window.open(url1 + octet + url2, "_self")
+           : window.open(f_url)
+           // : this.setState({ url: f_url })
     };
 
     switchStyle = props => {
@@ -146,6 +162,7 @@ class Bookmarks extends Component {
                     handleChange={this.handleChange}
                 />
             </div>
+                {/* <BookmarksIframe url={this.state.url}/> */}
                 <table>
                     <td>
                         <button

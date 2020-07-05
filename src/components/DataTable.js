@@ -22,7 +22,7 @@ class DataTable extends Component {
             area: area,
             data: plcData,
             options: {
-                maxBodyHeight: "60vh", // makes the headers fixed if the body size is larger.
+                maxBodyHeight: "68vh", // makes the headers fixed if the body size is larger.
                 paging: true,
                 pageSize: 20,
                 search: true,
