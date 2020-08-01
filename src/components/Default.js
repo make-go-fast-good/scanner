@@ -11,6 +11,7 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
+import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
 import MyLocationTwoToneIcon from "@material-ui/icons/MyLocationTwoTone";
 import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
@@ -82,6 +83,15 @@ export class DefaultTable extends Component {
                         primary="Bookmarks"
                         icon={
                             <BookmarksTwoToneIcon
+                                style={{ fontSize: "38px" }}
+                            />
+                        }
+                    />
+                    <Card
+                        to="/HEX"
+                        primary="Matrix Hex parser"
+                        icon={
+                            <SearchTwoToneIcon
                                 style={{ fontSize: "38px" }}
                             />
                         }

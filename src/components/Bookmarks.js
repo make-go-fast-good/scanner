@@ -338,7 +338,7 @@ class Bookmarks extends Component {
                         </button>
                         <button
                             style={this.liftStyle()}
-                            onClick={() => this.openLink(84, "NL5083")}
+                            onClick={() => this.openLink(83, "NL5083")}
                         >
                             <div>
                                 50
@@ -635,34 +635,34 @@ class Bookmarks extends Component {
                     <td>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(34, "N2114")}
+                            onClick={() => this.openLink(39, "N2214")}
                         >
                             <div>
-                                2<br />1<br />1<br />4
+                                2<br />2<br />1<br />4
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(33, "N2113")}
+                            onClick={() => this.openLink(38, "N2213")}
                         >
                             <div>
-                                2<br />1<br />1<br />3
+                                2<br />2<br />1<br />3
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(32, "N2112")}
+                            onClick={() => this.openLink(37, "N2212")}
                         >
                             <div>
-                                2<br />1<br />1<br />2
+                                2<br />2<br />1<br />2
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(31, "N2111")}
+                            onClick={() => this.openLink(36, "N2211")}
                         >
                             <div>
-                                2<br />1<br />1<br />1
+                                2<br />2<br />1<br />1
                             </div>
                         </button>
                     </td>
@@ -718,34 +718,34 @@ class Bookmarks extends Component {
                     <td>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(39, "N2214")}
+                            onClick={() => this.openLink(34, "N2114")}
                         >
                             <div>
-                                2<br />2<br />1<br />4
+                                2<br />1<br />1<br />4
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(38, "N2213")}
+                            onClick={() => this.openLink(33, "N2113")}
                         >
                             <div>
-                                2<br />2<br />1<br />3
+                                2<br />1<br />1<br />3
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(37, "N2212")}
+                            onClick={() => this.openLink(32, "N2112")}
                         >
                             <div>
-                                2<br />2<br />1<br />2
+                                2<br />1<br />1<br />2
                             </div>
                         </button>
                         <button
                             style={this.navStyle()}
-                            onClick={() => this.openLink(36, "N2211")}
+                            onClick={() => this.openLink(31, "N2111")}
                         >
                             <div>
-                                2<br />2<br />1<br />1
+                                2<br />1<br />1<br />1
                             </div>
                         </button>
                     </td>

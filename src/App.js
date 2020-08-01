@@ -5,6 +5,7 @@ import About from "./components/pages/About";
 import Default from "./components/Default";
 import DataTable from "./components/DataTable";
 import Coordinates from "./components/Coordinates.js";
+import Hex from "./components/Hex.js";
 import Bookmarks from "./components/Bookmarks.js";
 
 import BookmarksSwitch from "./components/Switch.js";
@@ -96,17 +97,17 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            {/* <Route */}
-            {/*   exact */}
-            {/*   strict */}
-            {/*   path="/COORDINATES" */}
-            {/*   render={(props) => ( */}
-            {/*     <React.Fragment> */}
-            {/*       <AppBar title="Matrix Coordinates" /> */}
-            {/*       <Coordinates /> */}
-            {/*     </React.Fragment> */}
-            {/*   )} */}
-            {/* ></Route> */}
+            <Route
+              exact
+              strict
+              path="/HEX"
+              render={(props) => (
+                <React.Fragment>
+                  <AppBar title="Matrix hex parser" />
+                  <Hex />
+                </React.Fragment>
+              )}
+            ></Route>
             <Route
               exact
               strict
@@ -118,9 +119,6 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            {/*
-            <Route path="/about" component={About}></Route>
-            */}
           </div>
         </div>
       </Router>

@@ -18,6 +18,7 @@ import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
 import MyLocationTwoToneIcon from '@material-ui/icons/MyLocationTwoTone';
 import FlightTakeoffTwoToneIcon from '@material-ui/icons/FlightTakeoffTwoTone';
+import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,6 +112,9 @@ export default function DenseAppBar(props) {
             {/* </MenuItem> */}
             <MenuItem component={Link} to="/BOOKMARKS" onClick={handleClose}>
               <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
+            </MenuItem>
+            <MenuItem component={Link} to="/HEX" onClick={handleClose}>
+              <SearchTwoToneIcon className={classes.menuButton} /> Hex Parser
             </MenuItem>
           </Menu>
         </Toolbar>
