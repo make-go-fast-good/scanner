@@ -1,0 +1,11 @@
+{
+    "general" : [
+        "Telegram sender ID",
+        "Telegram receiver ID",
+        "Telegram type",
+        "Telegram sub type",
+        "Version",
+        "Topic",
+        "Status request ID"
+    ]
+}
