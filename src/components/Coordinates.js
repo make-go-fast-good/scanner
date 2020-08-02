@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import PARAMS from "../config/Coordinates.json";
-
-import Nav from "./pages/Coordinates/Nav.js";
-
-//import "./pages/Coordinates/css/blockade.css";
-
-//import "../App.css";
-
+import Nav from "./pages/Coordinates/Navettes.js";
 
 class Location {
     constructor(val) {

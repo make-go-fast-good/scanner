@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import AppBar from "./components/layout/Appbar";
-import About from "./components/pages/About";
+
 import Default from "./components/Default";
 import DataTable from "./components/DataTable";
-import Coordinates from "./components/Coordinates.js";
-import Hex from "./components/Hex.js";
-import Bookmarks from "./components/Bookmarks.js";
 
-import BookmarksSwitch from "./components/Switch.js";
+import About from "./components/pages/About";
+import Hex from "./components/pages/Hex/Hex.js";
+import Bookmarks from "./components/pages/Bookmarks/Bookmarks.js";
+// import Coordinates from ".components/pages/Coordinates/Coordinates.js";
 
 import "./App.css";
 
@@ -64,17 +65,6 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            {/* <Route */}
-            {/*   exact */}
-            {/*   strict */}
-            {/*   path="/TT31" */}
-            {/*   render={(props) => ( */}
-            {/*     <React.Fragment> */}
-            {/*       <AppBar title="TT31 Data" /> */}
-            {/*       <DataTable type="TT31" /> */}
-            {/*     </React.Fragment> */}
-            {/*   )} */}
-            {/* ></Route> */}
             <Route
               exact
               strict
@@ -103,7 +93,7 @@ class App extends Component {
               path="/HEX"
               render={(props) => (
                 <React.Fragment>
-                  <AppBar title="Matrix hex parser" />
+                  <AppBar title="Hex Parser" />
                   <Hex />
                 </React.Fragment>
               )}
