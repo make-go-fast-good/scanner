@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Iframe from 'react-iframe'
 
-import "../App.css";
+import "../../../App.css";
 
 class BookmarksIframe extends Component {
 

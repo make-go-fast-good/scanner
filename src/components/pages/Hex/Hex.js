@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-import ModalImage from "react-modal-image";
 
-import Params from "../config/VisuHex.json";
-import gen from "./pages/Hex/img/general.png";
-import Visu from "./VisuHex.js";
-import MFS from "./MFSHex.js";
-
-//import "./pages/Coordinates/css/blockade.css";
-
-//import "../App.css";
+import Params from "../../../config/VisuHex.json";
+import VisuHex from "./VisuHex.js";
+import VisuImg from "./VisuImg.js";
 
 class Location {
     constructor(val) {
@@ -17,41 +11,34 @@ class Location {
     }
 }
 
+class Image {
+    constructor(val) {
+        console.log(val);
+        this.img = val[0];
+        this.txt = val[1];
+    }
+}
+
 class Coordinates extends Component {
     componentDidMount() {
-        this.init(Params.general);
+        this.init(Params);
     }
 
     state = {
         title: "",
-        general: []
+        general: [],
+        image: []
     };
 
     init = val => {
         this.setState({
-            general: val.map(_obj => {
+            general: val.GENERAL.map(_obj => {
                 return new Location(_obj);
+            }),
+            image: val.IMAGE.map(_obj => {
+                return new Image(_obj);
             })
         });
-    };
-
-    imgStyle = props => {
-        return {
-            display: "flex",
-            flexWrap: "wrap",
-            flexDirection: "column",
-            flex: "1",
-            justifyContent: "space-evenly",
-            borderColor: "#E3E3E3",
-            background: "#7A8B99",
-            color: "#EEE",
-            fontSize: "14px",
-            alignItems: "center",
-            padding: "10px 10px ",
-            margin: "20px 10px ",
-            minHeight: "10px",
-            minWidth: "200px"
-        };
     };
 
     getStyle = props => {
@@ -82,7 +69,7 @@ class Coordinates extends Component {
     render() {
         return (
             <React.Fragment>
-                <div> Visu Parser</div>
+                {/* <div style={{ margin: "5px", padding: "5px" }}> Visu Parser</div> */}
                 <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
                     <input
                         type="text"
@@ -102,28 +89,10 @@ class Coordinates extends Component {
                 </form>
                 <div style={this.getStyle()}>
                     <div>
-                        <Visu
-                            style={{
-                                display: "flex",
-                                flex: "1",
-                                flexDirection: "row"
-                            }}
-                            genprop={this.state.general}
-                        />
+                        <VisuHex genProp={this.state.general} />
                     </div>
-                    <div >
-                        <div style={this.imgStyle()}>
-                            <ModalImage
-                                large={gen}
-                                alt="TT0751 General Structure"
-                            />
-                        </div>
-                        <div style={this.imgStyle()}>
-                        <ModalImage
-                            large={gen}
-                            alt="TT0751 General Structure"
-                        />
-                        </div>
+                    <div>
+                        <VisuImg imgProp={this.state.image} />
                     </div>
                 </div>
             </React.Fragment>
