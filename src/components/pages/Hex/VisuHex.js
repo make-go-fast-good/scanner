@@ -4,23 +4,6 @@ class visuHex extends Component {
     getStyle = props => {
         return {
             borderColor: "#E3E3E3",
-            flexDirection: "row",
-            flex: "1",
-            background: "#7A8B99",
-            color: "#EEE",
-            fontSize: "14px",
-            display: "flex",
-            justifyContent: "center",
-            padding: "10px 10px ",
-            margin: "10px 10px ",
-            minHeight: "10px",
-            minWidth: "200px"
-        };
-    };
-
-    resStyle = props => {
-        return {
-            borderColor: "#E3E3E3",
             display: "flex",
             flex: "1",
             color: "#666",
@@ -34,20 +17,15 @@ class visuHex extends Component {
         };
     };
 
-    genProp = gen =>
-        gen.map(_val => {
+    render() {
+        return this.props.strProp.map((_str, index) => {
+            // console.log(parseInt("0x" + _str[index] + ));
             return (
-                <React.Fragment>
-                    <div style={this.resStyle()}>{_val.placeholder}</div>
-                    <div style={this.getStyle()}>{_val.id}</div>
-                </React.Fragment>
+                <div id={_str[index]} style={this.getStyle()}>
+                    {parseInt("0x" + _str.str) || _str.placeholder}
+                </div>
             );
         });
-
-    render() {
-        return (
-            this.genProp(this.props.genProp)
-        );
     }
 }
 
