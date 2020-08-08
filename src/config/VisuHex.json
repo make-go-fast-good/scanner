@@ -1,12 +1,33 @@
 {
     "GENERAL": [
-        "Telegram sender ID",
-        "Telegram receiver ID",
-        "Telegram type",
-        "Telegram sub type",
-        "Version",
-        "Topic",
-        "Status request ID"
+        {
+            "id" : "0",
+            "title" : "Telegram sender ID"
+        },
+        {
+            "id" : "2",
+            "title" : "Telegram receiver ID"
+        },
+        {
+            "id" : "4",
+            "title" : "Telegram type"
+        },
+        {
+            "id" : "6",
+            "title" : "Telegram sub type"
+        },
+        {
+            "id" : "8",
+            "title" : "Version"
+        },
+        {
+            "id" : "10",
+            "title" : "Topic"
+        },
+        {
+            "id" : "12",
+            "title" : "Status request ID"
+        }
     ],
     "IMAGE": [
         [
