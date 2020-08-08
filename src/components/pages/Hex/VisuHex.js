@@ -18,11 +18,11 @@ class visuHex extends Component {
     };
 
     render() {
-        return this.props.strProp.map((_str, index) => {
-            // console.log(parseInt("0x" + _str[index] + ));
+        return this.props.strProp.map((_str) => {
+            // console.log(_str);
             return (
-                <div id={_str[index]} style={this.getStyle()}>
-                    {parseInt("0x" + _str.str) || _str.placeholder}
+                <div id={_str.id} style={this.getStyle()}>
+                    { parseInt("0x" + _str.str) ||_str.placeholder}
                 </div>
             );
         });
