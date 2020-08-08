@@ -52,7 +52,7 @@ class Hex extends Component {
             flexDirection: "row",
             flex: "1",
             justifyContent: "space-evenly",
-            alignItems: "center",
+            alignItems: "flex-start",
             background: "#F4F4F4",
             border: "1px dashed #BBB",
             margin: "15px auto",
@@ -64,28 +64,28 @@ class Hex extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-
-        // this.state.stringArr.map((_val, index) => {
-        //     this.setState({ [this.state.general[index].str]: _val[index] });
-        // });
     };
 
     onChange = e => {
-        let tmp = [];
+        let arr = [];
         let str = e.target.value;
         // remove whitespace from string
         str = str.replace(/\s+/g, "");
 
         do {
-            tmp.push(str.substring(0, 2));
-        } while ((str = str.substring(2, str.length)) !== "");
+            arr.push(str.substring(0, 4));
+        } while ((str = str.substring(4, str.length)) !== "");
 
         this.setState({ [e.target.name]: e.target.value });
-        this.setState({ stringArr: tmp });
+
+        this.setState({ stringArr: arr });
+
         this.setState(general => {
             general.general.map((_obj, index) => {
-                let update = Object.assign({}, general); // creating copy of state variable general
-                update.general[index].str = general.stringArr[index]; // update the name property, assign a new value
+                // creating copy of state variable general
+                let update = Object.assign({}, general);
+                // update the name property, assign a new value
+                update.general[index].str = general.stringArr[index];
                 // console.log(update);
                 return { update };
             });
@@ -95,8 +95,6 @@ class Hex extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <div style={{ margin: "5px", padding: "5px" }}> Visu Parser</div> */}
-                {/*  */}
                 <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
                     <input
                         type="text"
