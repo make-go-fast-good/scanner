@@ -46,17 +46,6 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/OVERHEAD"
-              render={(props) => (
-                <React.Fragment>
-                  <AppBar title="Overhead Scanner Data" />
-                  <DataTable type="OVERHEAD" />
-                </React.Fragment>
-              )}
-            ></Route>
-            <Route
-              exact
-              strict
               path="/ERROR"
               render={(props) => (
                 <React.Fragment>

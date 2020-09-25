@@ -61,8 +61,6 @@ export class Container extends Component {
             return <Default error={this.props.error} />;
         } else if (this.props.data === undefined) {
             return <Default />;
-        } else if (this.props.type === "Coordinates") {
-            return <Coordinates />;
         } else {
             this.state.extended === false
                 ? (_columns = tableColumns.condensed)
@@ -76,6 +74,17 @@ export class Container extends Component {
                     data={this.props.data}
                     options={this.props.options}
                     actions={[
+                        {
+                            icon: "refresh",
+                            tooltip: "Refresh PLC Data",
+                            isFreeAction: true,
+                                onClick: (e) =>{
+                                    console.log(e)
+                                    let conn = this.props.area;
+                                    e.preventDefault();
+                                    this.props.getData({ conn });
+                                }
+                        },
                         {
                             icon:
                                 this.state.extended === false

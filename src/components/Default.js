@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import DotLoader from "react-spinners/DotLoader";
-import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
-import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./Card";
-import Coordinates from "./Coordinates";
 
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-import TelegramIcon from "@material-ui/icons/Telegram";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
-import MyLocationTwoToneIcon from "@material-ui/icons/MyLocationTwoTone";
 import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
 export class DefaultTable extends Component {
@@ -60,15 +54,6 @@ export class DefaultTable extends Component {
                         }
                     />
                     <Card
-                        to="/OVERHEAD"
-                        primary="Overhead Scanner Data"
-                        icon={
-                            <FlightTakeoffTwoToneIcon
-                                style={{ fontSize: "38px" }}
-                            />
-                        }
-                    />
-                    <Card
                         to="/ERROR"
                         primary="Error Log"
                         icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
@@ -87,19 +72,17 @@ export class DefaultTable extends Component {
                             />
                         }
                     />
-                    <Card
-                        to="/HEX"
-                        primary="Matrix Hex parser"
-                        icon={
-                            <SearchTwoToneIcon
-                                style={{ fontSize: "38px" }}
-                            />
-                        }
-                    />
+                    {/* <Card */}
+                    {/*     to="/HEX" */}
+                    {/*     primary="Matrix Hex parser" */}
+                    {/*     icon={ */}
+                    {/*         <SearchTwoToneIcon */}
+                    {/*             style={{ fontSize: "38px" }} */}
+                    {/*         /> */}
+                    {/*     } */}
+                    {/* /> */}
                 </h2>
             );
-        } else if (this.props.type === "Coordinates") {
-            return <h2 style={this.getStyle()}></h2>;
         } else {
             return (
                 <h2 style={this.getStyle()}>

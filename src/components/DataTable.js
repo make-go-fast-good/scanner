@@ -82,6 +82,7 @@ class DataTable extends Component {
                         area={this.state.type}
                     />
                     <Container
+                        getData={this.getData}
                         area={this.state.area}
                         data={this.state.data}
                         options={this.state.options}
