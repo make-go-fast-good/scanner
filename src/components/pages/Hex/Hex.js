@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import Params from "../../../config/VisuHex.json";
 import VisuTitle from "./VisuTitle.js";
@@ -76,9 +76,9 @@ class Hex extends Component {
             arr.push(str.substring(0, 4));
         } while ((str = str.substring(4, str.length)) !== "");
 
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value});
 
-        this.setState({ stringArr: arr });
+        this.setState({stringArr: arr});
 
         this.setState(general => {
             general.general.map((_obj, index) => {
@@ -87,7 +87,7 @@ class Hex extends Component {
                 // update the name property, assign a new value
                 update.general[index].str = general.stringArr[index];
                 // console.log(update);
-                return { update };
+                return {update};
             });
         });
     };
@@ -95,12 +95,12 @@ class Hex extends Component {
     render() {
         return (
             <React.Fragment>
-                <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
+                <form onSubmit={this.onSubmit} style={{display: "flex"}}>
                     <input
                         type="text"
                         name="string"
                         placeholder="Visu Hex string here..."
-                        style={{ flex: "10", padding: "5px" }}
+                        style={{flex: "10", padding: "5px"}}
                         value={this.state.string}
                         onChange={this.onChange}
                     />
@@ -108,7 +108,7 @@ class Hex extends Component {
                         type="submit"
                         value="Submit"
                         className="btn"
-                        style={{ flex: "1" }}
+                        style={{flex: "1"}}
                     />
                 </form>
                 <div style={this.getStyle()}>

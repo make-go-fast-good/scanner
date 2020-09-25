@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import Card from "./Card";
 
@@ -6,8 +6,6 @@ import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
-import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
-import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
 export class DefaultTable extends Component {
     getStyle = () => {
@@ -44,19 +42,19 @@ export class DefaultTable extends Component {
                     <Card
                         to="/TT13"
                         primary="TT13 Data"
-                        icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
+                        icon={<EmailTwoToneIcon style={{fontSize: "38px"}} />}
                     />
                     <Card
                         to="/SCANNERS"
                         primary="Scanner Data"
                         icon={
-                            <ScannerTwoToneIcon style={{ fontSize: "38px" }} />
+                            <ScannerTwoToneIcon style={{fontSize: "38px"}} />
                         }
                     />
                     <Card
                         to="/ERROR"
                         primary="Error Log"
-                        icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
+                        icon={<ErrorTwoToneIcon style={{fontSize: "38px"}} />}
                     />
                     {/* <Card */}
                     {/*   to="/COORDINATES" */}
@@ -68,7 +66,7 @@ export class DefaultTable extends Component {
                         primary="Bookmarks"
                         icon={
                             <BookmarksTwoToneIcon
-                                style={{ fontSize: "38px" }}
+                                style={{fontSize: "38px"}}
                             />
                         }
                     />

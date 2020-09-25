@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import BookmarksSwitch from "./Switch.js";
 import "../../../App.css";
@@ -17,12 +17,12 @@ class Bookmarks extends Component {
     }
 
     handleChange(checked) {
-        this.setState({ checked });
+        this.setState({checked});
     }
 
     // Select Connection
     getData = url => {
-        this.setState({ loading: true, data: url });
+        this.setState({loading: true, data: url});
         axios
             .get("http://localhost:8080/BOOKMARKS/connect", {
                 params: {

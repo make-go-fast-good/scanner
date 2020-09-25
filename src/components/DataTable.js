@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { css } from "@emotion/core";
+import React, {Component} from "react";
+import {BrowserRouter as Router} from "react-router-dom";
+import {css} from "@emotion/core";
 import axios from "axios";
 import PlcConnections from "./PlcConnections";
-import { Container } from "./Container";
+import {Container} from "./Container";
 
 import "../App.css";
 
@@ -43,7 +43,7 @@ class DataTable extends Component {
 
     // Select Connection
     getData = area => {
-        this.setState({ loading: true, area: area.conn });
+        this.setState({loading: true, area: area.conn});
         console.log("heres the url");
         console.log("http://localhost:8080/" + this.state.type + "/connect");
         axios

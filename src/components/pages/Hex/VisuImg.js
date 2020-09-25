@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import ModalImage from "react-modal-image";
 
 class visuImg extends Component {
