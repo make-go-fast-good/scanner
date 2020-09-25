@@ -60,8 +60,9 @@ const process = function processPlcData(data, _num) {
         //remove the white space
         plcData[i].barcode = plcData[i].barcode.trim();
 
-        if (plcData[i].barcode.slice(-1) == "0" || plcData[i].barcode.slice(-1) == "1" || plcData[i].barcode.slice(-1) == "2"){
-            plcData[i].barcode = plcData[i].barcode.substring(0, plcData[i].barcode.length - 1); // Remove orientation char from barcode output
+        // Remove orientation char from barcode output
+        if (plcData[i].barcode.length === 10 && (plcData[i].barcode.slice(-1) == "0" || plcData[i].barcode.slice(-1) == "1" || plcData[i].barcode.slice(-1) == "2")){
+            plcData[i].barcode = plcData[i].barcode.substring(0, plcData[i].barcode.length - 1);
         }
 
         plcData[i].scannerName = plcData[i].scannerName.trim();

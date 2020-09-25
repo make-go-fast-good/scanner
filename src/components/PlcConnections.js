@@ -43,34 +43,6 @@ export class SelectConn extends Component {
             style={this.getStyle(1)}
             onClick={this.onSubmit}
           ></input>
-          <input
-            type="submit"
-            value="C09"
-            className="btn"
-            style={this.getStyle(1)}
-            onClick={this.onSubmit}
-          ></input>
-          <input
-            type="submit"
-            value="C10"
-            className="btn"
-            style={this.getStyle(1)}
-            onClick={this.onSubmit}
-          ></input>
-          <input
-            type="submit"
-            value="C11"
-            className="btn"
-            style={this.getStyle(1)}
-            onClick={this.onSubmit}
-          ></input>
-          <input
-            type="submit"
-            value="C12"
-            className="btn"
-            style={{ flex: "2" }}
-            onClick={this.onSubmit}
-          ></input>
         </form>
       );
     } else {

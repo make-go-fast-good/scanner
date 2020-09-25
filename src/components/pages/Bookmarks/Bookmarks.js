@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import BookmarksIframe from "./Iframe.js";
 import BookmarksSwitch from "./Switch.js";
 import "../../../App.css";
 
@@ -158,7 +157,6 @@ class Bookmarks extends Component {
                             handleChange={this.handleChange}
                         />
                     </div>
-                    {/* <BookmarksIframe url={this.state.url}/> */}
                     <table>
                         <td>
                             <button
