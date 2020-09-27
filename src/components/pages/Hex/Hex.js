@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import Params from "../../../config/VisuHex.json";
 import VisuTitle from "./VisuTitle.js";
@@ -30,22 +30,22 @@ class Hex extends Component {
         string: "",
         stringArr: [],
         general: [],
-        image: []
+        image: [],
     };
 
-    init = val => {
+    init = (val) => {
         this.setState({
-            general: val.GENERAL.map(_obj => {
+            general: val.GENERAL.map((_obj) => {
                 return new Location(_obj);
             }),
-            image: val.IMAGE.map(_obj => {
+            image: val.IMAGE.map((_obj) => {
                 return new Image(_obj);
             }),
-            stringArr: this.state.general.placeholder
+            stringArr: this.state.general.placeholder,
         });
     };
 
-    getStyle = props => {
+    getStyle = (props) => {
         return {
             display: "flex",
             flexWrap: "wrap",
@@ -58,36 +58,42 @@ class Hex extends Component {
             margin: "15px auto",
             padding: "15px auto",
             color: "#555",
-            minHeight: "81vh"
+            minHeight: "81vh",
         };
     };
 
-    onSubmit = e => {
+    onSubmit = (e) => {
         e.preventDefault();
     };
 
-    onChange = e => {
+    onChange = (e) => {
         let arr = [];
+        let debug = [];
         let str = e.target.value;
         // remove whitespace from string
         str = str.replace(/\s+/g, "");
 
         do {
             arr.push(str.substring(0, 4));
+            debug.push(parseInt(str.substring(0, 4), 16));
         } while ((str = str.substring(4, str.length)) !== "");
 
-        this.setState({ [e.target.name]: e.target.value });
+        console.log("Here's your debug thanks\n");
+        console.log(arr);
+        console.log(debug);
 
-        this.setState({ stringArr: arr });
+        this.setState({[e.target.name]: e.target.value});
 
-        this.setState(general => {
+        this.setState({stringArr: arr});
+
+        this.setState((general) => {
             general.general.map((_obj, index) => {
                 // creating copy of state variable general
                 let update = Object.assign({}, general);
                 // update the name property, assign a new value
                 update.general[index].str = general.stringArr[index];
                 // console.log(update);
-                return { update };
+                return {update};
             });
         });
     };
@@ -95,12 +101,12 @@ class Hex extends Component {
     render() {
         return (
             <React.Fragment>
-                <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
+                <form onSubmit={this.onSubmit} style={{display: "flex"}}>
                     <input
                         type="text"
                         name="string"
                         placeholder="Visu Hex string here..."
-                        style={{ flex: "10", padding: "5px" }}
+                        style={{flex: "10", padding: "5px"}}
                         value={this.state.string}
                         onChange={this.onChange}
                     />
@@ -108,7 +114,7 @@ class Hex extends Component {
                         type="submit"
                         value="Submit"
                         className="btn"
-                        style={{ flex: "1" }}
+                        style={{flex: "1"}}
                     />
                 </form>
                 <div style={this.getStyle()}>
