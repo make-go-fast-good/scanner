@@ -1,13 +1,35 @@
 import React, {Component} from "react";
 
-import Params from "../../../config/VisuHex.json";
-import VisuTitle from "./VisuTitle.js";
-import VisuHex from "./VisuHex.js";
-import VisuImg from "./VisuImg.js";
+import HexTitle from "./HexTitle.js";
+import HexVal from "./HexVal.js";
+import HexImg from "./HexImg.js";
 
-class Location {
+import HEXPARAMS from "../../../config/HexVal.json";
+
+class General {
     constructor(val) {
         this.id = val.id;
+        this.len = val.len;
+        this.title = val.title;
+        this.placeholder = "0x00";
+        this.str = "";
+    }
+}
+
+class TT1413 {
+    constructor(val) {
+        this.id = val.id;
+        this.len = val.len;
+        this.title = val.title;
+        this.placeholder = "0x00";
+        this.str = "";
+    }
+}
+
+class TT1434 {
+    constructor(val) {
+        this.id = val.id;
+        this.len = val.len;
         this.title = val.title;
         this.placeholder = "0x00";
         this.str = "";
@@ -23,24 +45,32 @@ class Image {
 
 class Hex extends Component {
     componentDidMount() {
-        this.init(Params);
+        this.init(HEXPARAMS);
     }
 
     state = {
-        string: "",
         stringArr: [],
         general: [],
+        tt1413: [],
+        tt1434: [],
         image: [],
     };
 
     init = (val) => {
         this.setState({
             general: val.GENERAL.map((_obj) => {
-                return new Location(_obj);
+                return new General(_obj);
             }),
             image: val.IMAGE.map((_obj) => {
                 return new Image(_obj);
             }),
+            tt1413: val.TT1413.map((_obj) => {
+                return new TT1413(_obj);
+            }),
+            tt1434: val.TT1434.map((_obj) => {
+                return new TT1434(_obj);
+            }),
+
             stringArr: this.state.general.placeholder,
         });
     };
@@ -73,11 +103,26 @@ class Hex extends Component {
         // remove whitespace from string
         str = str.replace(/\s+/g, "");
 
+        let i = 0;
+        let tmp = this.state.general[i];
         do {
-            arr.push(str.substring(0, 4));
-            debug.push(parseInt(str.substring(0, 4), 16));
+            tmp = this.state.general[i];
+            if (tmp !== undefined) {
+                console.log(tmp);
+                console.log(tmp.len);
+                arr.push(str.substring(0, (parseInt(tmp.len) * 2)));
+                debug.push(parseInt(str.substring(0, 4), 16));
+            }
+            i++
         } while ((str = str.substring(4, str.length)) !== "");
 
+        // for (; (str = str.substring(4, str.length) !== "");) {
+        //     arr.push(str.substring(0, 4));
+        //     debug.push(parseInt(str.substring(0, 4), 16));
+        //     i++;
+        //     // idx += this.state.general[i].len
+        //     console.log(str);
+        // }
         console.log("Here's your debug thanks\n");
         console.log(arr);
         console.log(debug);
@@ -96,6 +141,20 @@ class Hex extends Component {
                 return {update};
             });
         });
+
+        this.setState((tt1413) => {
+            tt1413.tt1413.map((_obj, index) => {
+                // creating copy of state variable general
+                let update = Object.assign({}, tt1413);
+                // update the name property, assign a new value
+                update.tt1413[index].str = tt1413.stringArr[index + 7];
+                // console.log(update);
+                return {update};
+            });
+        });
+
+        console.log("after while");
+        console.log(this.state);
     };
 
     render() {
@@ -105,7 +164,7 @@ class Hex extends Component {
                     <input
                         type="text"
                         name="string"
-                        placeholder="Visu Hex string here..."
+                        placeholder="Parse Hex string here..."
                         style={{flex: "10", padding: "5px"}}
                         value={this.state.string}
                         onChange={this.onChange}
@@ -119,13 +178,15 @@ class Hex extends Component {
                 </form>
                 <div style={this.getStyle()}>
                     <div>
-                        <VisuTitle genProp={this.state.general} />
+                        <HexTitle genProp={this.state.general} />
+                        <HexTitle genProp={this.state.tt1413} />
                     </div>
                     <div>
-                        <VisuHex strProp={this.state.general} />
+                        <HexVal strProp={this.state.general} />
+                        <HexVal strProp={this.state.tt1413} />
                     </div>
                     <div>
-                        <VisuImg imgProp={this.state.image} />
+                        <HexImg imgProp={this.state.image} />
                     </div>
                 </div>
             </React.Fragment>
