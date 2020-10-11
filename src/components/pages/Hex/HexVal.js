@@ -19,7 +19,7 @@ class hexVal extends Component {
 
     render() {
         return this.props.strProp.map((_str) => {
-            console.log(_str);
+            // console.log(_str);
             return (
                 <div id={_str.id} style={this.getStyle()}>
                     {parseInt("0x" + _str.str) || _str.placeholder}

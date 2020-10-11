@@ -98,34 +98,40 @@ class Hex extends Component {
 
     onChange = (e) => {
         let arr = [];
-        let debug = [];
         let str = e.target.value;
+        let i = 0;
+        let reset = false;
+        let tmpLen = 0;
         // remove whitespace from string
         str = str.replace(/\s+/g, "");
 
-        let i = 0;
-        let tmp = this.state.general[i];
-        do {
-            tmp = this.state.general[i];
-            if (tmp !== undefined) {
-                console.log(tmp);
-                console.log(tmp.len);
-                arr.push(str.substring(0, (parseInt(tmp.len) * 2)));
-                debug.push(parseInt(str.substring(0, 4), 16));
-            }
-            i++
-        } while ((str = str.substring(4, str.length)) !== "");
+        console.log("before loop str here: \n" + str)
 
-        // for (; (str = str.substring(4, str.length) !== "");) {
-        //     arr.push(str.substring(0, 4));
-        //     debug.push(parseInt(str.substring(0, 4), 16));
-        //     i++;
-        //     // idx += this.state.general[i].len
-        //     console.log(str);
-        // }
+        do {
+            if (!reset) {
+                tmpLen = HEXPARAMS.GENERAL[i].len * 2
+                console.log("len here: " + HEXPARAMS.GENERAL[i].len);
+                console.log("str here: \n" + str)
+                arr.push(str.substring(0, tmpLen));
+            } else if (reset && HEXPARAMS.TT1413[i] !== undefined) {
+                tmpLen = HEXPARAMS.TT1413[i].len * 2
+                console.log("len here: " + HEXPARAMS.TT1413[i].len);
+                console.log("str here: \n" + str)
+                console.log("in 1413 heres i " + i)
+                if (i !== 1) arr.push(str.substring(0, tmpLen)); // want to skip movement options 1
+
+            }
+            if (i === 4 && reset === false) {
+                reset = true
+                i = 0;
+                continue;
+            }
+            i++;
+        } while ((str = str.substring(tmpLen, str.length)) !== "");
+
         console.log("Here's your debug thanks\n");
+        console.log("str here: \n" + str)
         console.log(arr);
-        console.log(debug);
 
         this.setState({[e.target.name]: e.target.value});
 
@@ -147,14 +153,11 @@ class Hex extends Component {
                 // creating copy of state variable general
                 let update = Object.assign({}, tt1413);
                 // update the name property, assign a new value
-                update.tt1413[index].str = tt1413.stringArr[index + 7];
+                update.tt1413[index].str = tt1413.stringArr[index + 5];
                 // console.log(update);
                 return {update};
             });
         });
-
-        console.log("after while");
-        console.log(this.state);
     };
 
     render() {
