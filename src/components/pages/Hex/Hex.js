@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import HexTitle from "./HexTitle.js";
 import HexVal from "./HexVal.js";
 import HexImg from "./HexImg.js";
+import HexDoc from "./HexPdf.js"
 
 import HEXPARAMS from "../../../config/HexVal.json";
 
@@ -188,9 +189,14 @@ class Hex extends Component {
                         <HexVal strProp={this.state.general} />
                         <HexVal strProp={this.state.tt1413} />
                     </div>
+
+                    <div>
+                        <HexPdf />
+                    </div>
                     <div>
                         <HexImg imgProp={this.state.image} />
                     </div>
+
                 </div>
             </React.Fragment>
         );
