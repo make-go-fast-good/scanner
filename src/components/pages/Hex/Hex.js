@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import HexTitle from "./HexTitle.js";
 import HexVal from "./HexVal.js";
 import HexImg from "./HexImg.js";
-import HexDoc from "./HexPdf.js";
+import HexDoc from "./HexPdf.tsx";
 
 import HEXPARAMS from "../../../config/HexVal.json";
 
@@ -80,9 +80,9 @@ class Hex extends Component {
             general: val.GENERAL.map((_obj) => {
                 return new General(_obj);
             }),
-            image: val.IMAGE.map((_obj) => {
-                return new Image(_obj);
-            }),
+            // image: val.IMAGE.map((_obj) => {
+            //     return new Image(_obj);
+            // }),
             tt1413: val.TT1413.map((_obj) => {
                 return new TT1413(_obj);
             }),
@@ -183,12 +183,12 @@ class Hex extends Component {
                         <HexVal strProp={this.state.general} />
                         <HexVal strProp={this.state.tt1413} />
                     </div>
-                    {/* <div> */}
-                    {/*     <HexDoc /> */}
-                    {/* </div> */}
                     <div>
-                        <HexImg imgProp={this.state.image} />
+                        <HexDoc myTitle='TT1413' fileUrl='/TT1413.pdf' />
                     </div>
+                    {/* <div> */}
+                    {/*     <HexImg imgProp={this.state.image} /> */}
+                    {/* </div> */}
                 </div>
             </React.Fragment>
         );

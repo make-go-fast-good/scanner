@@ -1,64 +1,44 @@
-import React, {Component} from 'react';
-import {Document, Page} from 'react-pdf';
+import React, {Component} from "react";
+import {Document, Page} from "react-pdf";
+import base64TT1413 from './assets/TT1413.txt'
+import DOCTT1413 from './assets/TT1413.pdf'
 
-const options = {
-    cMapUrl: 'cmaps/',
-    cMapPacked: true,
-};
+export default class HexDoc extends Component {
 
-export default class Sample extends Component {
-    state = {
-        file: './assets/TT1413.pdf',
-        numPages: null,
-    }
-
-    onFileChange = (event) => {
-        this.setState({
-            file: event.target.files[0],
-        });
-    }
+    state = {numPages: null, pageNumber: 1};
 
     onDocumentLoadSuccess = ({numPages}) => {
         this.setState({numPages});
-    }
+    };
+
+    goToPrevPage = () =>
+        this.setState(state => ({pageNumber: state.pageNumber - 1}));
+    goToNextPage = () =>
+        this.setState(state => ({pageNumber: state.pageNumber + 1}));
 
     render() {
-        const {file, numPages} = this.state;
+        const {pageNumber, numPages} = this.state;
+        console.log(typeof (base64TT1413))
 
         return (
-            <div className="Example">
-                <header>
-                    <h1>react-pdf sample page</h1>
-                </header>
-                <div className="Example__container">
-                    <div className="Example__container__load">
-                        <label htmlFor="file">Load from file:</label>
-                        {' '}
-                        <input
-                            onChange={this.onFileChange}
-                            type="file"
-                        />
-                    </div>
-                    <div className="Example__container__document">
-                        <Document
-                            file={file}
-                            onLoadSuccess={this.onDocumentLoadSuccess}
-                            options={options}
-                        >
-                            {
-                                Array.from(
-                                    new Array(numPages),
-                                    (el, index) => (
-                                        <Page
-                                            key={`page_${index + 1}`}
-                                            pageNumber={index + 1}
-                                        />
-                                    ),
-                                )
-                            }
-                        </Document>
-                    </div>
+            <div>
+                <nav>
+                    <button onClick={this.goToPrevPage}>Prev</button>
+                    <button onClick={this.goToNextPage}>Next</button>
+                </nav>
+
+                <div style={{width: 600}}>
+                    <Document
+                        file={`data:application/pdf;base64,${base64TT1413}`}
+                        onLoadSuccess={this.onDocumentLoadSuccess}
+                    >
+                        <Page pageNumber={1} width={600} />
+                    </Document>
                 </div>
+
+                <p>
+                    Page {pageNumber} of {numPages}
+                </p>
             </div>
         );
     }
