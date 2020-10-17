@@ -22,7 +22,8 @@ class hexVal extends Component {
             // console.log(_str);
             return (
                 <div id={_str.id} style={this.getStyle()}>
-                    {parseInt("0x" + _str.str) || _str.placeholder}
+                    {/* barcode id == 70; dont want the integer value */}
+                    {parseInt(_str.id) === 70 ? _str.str || _str.placeholder : parseInt("0x" + _str.str) || _str.placeholder}
                 </div>
             );
         });

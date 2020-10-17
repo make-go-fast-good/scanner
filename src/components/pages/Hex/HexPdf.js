@@ -1,56 +1,65 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import {Document, Page} from 'react-pdf';
 
-import samplePDF from './assets/TT1413.pdf';
+const options = {
+    cMapUrl: 'cmaps/',
+    cMapPacked: true,
+};
 
-export default function Test() {
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
-
-    function onDocumentLoadSuccess({numPages}) {
-        setNumPages(numPages);
-        setPageNumber(1);
+export default class Sample extends Component {
+    state = {
+        file: './assets/TT1413.pdf',
+        numPages: null,
     }
 
-    function changePage(offset) {
-        setPageNumber(prevPageNumber => prevPageNumber + offset);
+    onFileChange = (event) => {
+        this.setState({
+            file: event.target.files[0],
+        });
     }
 
-    function previousPage() {
-        changePage(-1);
+    onDocumentLoadSuccess = ({numPages}) => {
+        this.setState({numPages});
     }
 
-    function nextPage() {
-        changePage(1);
-    }
+    render() {
+        const {file, numPages} = this.state;
 
-    return (
-        <>
-            <Document
-                file={samplePDF}
-                onLoadSuccess={onDocumentLoadSuccess}
-            >
-                <Page pageNumber={pageNumber} />
-            </Document>
-            <div>
-                <p>
-                    Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
-                </p>
-                <button
-                    type="button"
-                    disabled={pageNumber <= 1}
-                    onClick={previousPage}
-                >
-                    Previous
-        </button>
-                <button
-                    type="button"
-                    disabled={pageNumber >= numPages}
-                    onClick={nextPage}
-                >
-                    Next
-        </button>
+        return (
+            <div className="Example">
+                <header>
+                    <h1>react-pdf sample page</h1>
+                </header>
+                <div className="Example__container">
+                    <div className="Example__container__load">
+                        <label htmlFor="file">Load from file:</label>
+                        {' '}
+                        <input
+                            onChange={this.onFileChange}
+                            type="file"
+                        />
+                    </div>
+                    <div className="Example__container__document">
+                        <Document
+                            file={file}
+                            onLoadSuccess={this.onDocumentLoadSuccess}
+                            options={options}
+                        >
+                            {
+                                Array.from(
+                                    new Array(numPages),
+                                    (el, index) => (
+                                        <Page
+                                            key={`page_${index + 1}`}
+                                            pageNumber={index + 1}
+                                        />
+                                    ),
+                                )
+                            }
+                        </Document>
+                    </div>
+                </div>
             </div>
-        </>
-    );
+        );
+    }
 }

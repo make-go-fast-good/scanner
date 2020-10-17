@@ -96,6 +96,11 @@
             "title" : "Request ID"
         },
         {
+            "id" : "14",
+            "len" : "2",
+            "title" : "Movement options 1(Reserve)"
+        },
+        {
             "id" : "16",
             "len" : "2",
             "title" : "X Movement options (% of a and v)"
@@ -109,6 +114,11 @@
             "id" : "20",
             "len" : "2",
             "title" : "Z Movement options (% of a and v)"
+        },
+        {
+            "id" : "22",
+            "len" : "2",
+            "title" : "Reserve"
         },
         {
             "id" : "24",
@@ -194,6 +204,56 @@
             "id" : "55",
             "len" : "1",
             "title" : "Acknowledge extension 2"
+        },
+        {
+            "id" : "56",
+            "len" : "2",
+            "title" : "TU 1.1 Type"
+        },
+        {
+            "id" : "58",
+            "len" : "1",
+            "title" : "TU 1.1 Type flags 1"
+        },
+        {
+            "id" : "59",
+            "len" : "1",
+            "title" : "TU 1.1 Type flags 2"
+        },
+        {
+            "id" : "60",
+            "len" : "2",
+            "title" : "TU 1.1 Length"
+        },
+        {
+            "id" : "62",
+            "len" : "2",
+            "title" : "TU 1.1 Width"
+        },
+        {
+            "id" : "64",
+            "len" : "2",
+            "title" : "TU 1.1 Height"
+        },
+        {
+            "id" : "66",
+            "len" : "2",
+            "title" : "TU 1.1 Weight"
+        },
+        {
+            "id" : "68",
+            "len" : "1",
+            "title" : "TU 1.1 Error flags 1"
+        },
+        {
+            "id" : "69",
+            "len" : "1",
+            "title" : "TU 1.1 Error flags 2"
+        },
+        {
+            "id" : "70",
+            "len" : "20",
+            "title" : "Barcode"
         }
     ],
     "TT1434": [

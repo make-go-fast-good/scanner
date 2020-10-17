@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import HexTitle from "./HexTitle.js";
 import HexVal from "./HexVal.js";
 import HexImg from "./HexImg.js";
-import HexDoc from "./HexPdf.js"
+import HexDoc from "./HexPdf.js";
 
 import HEXPARAMS from "../../../config/HexVal.json";
 
@@ -44,6 +44,7 @@ class Image {
     }
 }
 
+
 class Hex extends Component {
     componentDidMount() {
         this.init(HEXPARAMS);
@@ -55,6 +56,23 @@ class Hex extends Component {
         tt1413: [],
         tt1434: [],
         image: [],
+    };
+
+    getStyle = (props) => {
+        return {
+            display: "flex",
+            flexWrap: "wrap",
+            flexDirection: "row",
+            flex: "1",
+            justifyContent: "space-evenly",
+            alignItems: "flex-start",
+            background: "#F4F4F4",
+            border: "1px dashed #BBB",
+            margin: "15px auto",
+            padding: "15px auto",
+            color: "#555",
+            minHeight: "81vh",
+        };
     };
 
     init = (val) => {
@@ -76,27 +94,6 @@ class Hex extends Component {
         });
     };
 
-    getStyle = (props) => {
-        return {
-            display: "flex",
-            flexWrap: "wrap",
-            flexDirection: "row",
-            flex: "1",
-            justifyContent: "space-evenly",
-            alignItems: "flex-start",
-            background: "#F4F4F4",
-            border: "1px dashed #BBB",
-            margin: "15px auto",
-            padding: "15px auto",
-            color: "#555",
-            minHeight: "81vh",
-        };
-    };
-
-    onSubmit = (e) => {
-        e.preventDefault();
-    };
-
     onChange = (e) => {
         let arr = [];
         let str = e.target.value;
@@ -106,24 +103,27 @@ class Hex extends Component {
         // remove whitespace from string
         str = str.replace(/\s+/g, "");
 
-        console.log("before loop str here: \n" + str)
-
         do {
             if (!reset) {
-                tmpLen = HEXPARAMS.GENERAL[i].len * 2
-                console.log("len here: " + HEXPARAMS.GENERAL[i].len);
-                console.log("str here: \n" + str)
+                tmpLen = HEXPARAMS.GENERAL[i].len * 2;
                 arr.push(str.substring(0, tmpLen));
             } else if (reset && HEXPARAMS.TT1413[i] !== undefined) {
-                tmpLen = HEXPARAMS.TT1413[i].len * 2
-                console.log("len here: " + HEXPARAMS.TT1413[i].len);
-                console.log("str here: \n" + str)
-                console.log("in 1413 heres i " + i)
-                if (i !== 1) arr.push(str.substring(0, tmpLen)); // want to skip movement options 1
-
+                tmpLen = HEXPARAMS.TT1413[i].len * 2;
+                if (tmpLen === 40) {
+                    var hexBarcode = str.toString();
+                    let tmpBarcode = "";
+                    for (var n = 0; n < hexBarcode.length; n += 2) {
+                        tmpBarcode += String.fromCharCode(parseInt(hexBarcode.substr(n, 2), 16));
+                        str = tmpBarcode
+                    }
+                    str = str.substring(0, 9)
+                    console.log("should be charcode");
+                    console.log(str);
+                }
+                arr.push(str.substring(0, tmpLen));
             }
             if (i === 4 && reset === false) {
-                reset = true
+                reset = true;
                 i = 0;
                 continue;
             }
@@ -131,7 +131,7 @@ class Hex extends Component {
         } while ((str = str.substring(tmpLen, str.length)) !== "");
 
         console.log("Here's your debug thanks\n");
-        console.log("str here: \n" + str)
+        console.log("str here: \n" + str);
         console.log(arr);
 
         this.setState({[e.target.name]: e.target.value});
@@ -169,15 +169,9 @@ class Hex extends Component {
                         type="text"
                         name="string"
                         placeholder="Parse Hex string here..."
-                        style={{flex: "10", padding: "5px"}}
+                        style={{flex: "12", padding: "5px"}}
                         value={this.state.string}
                         onChange={this.onChange}
-                    />
-                    <input
-                        type="submit"
-                        value="Submit"
-                        className="btn"
-                        style={{flex: "1"}}
                     />
                 </form>
                 <div style={this.getStyle()}>
@@ -189,14 +183,12 @@ class Hex extends Component {
                         <HexVal strProp={this.state.general} />
                         <HexVal strProp={this.state.tt1413} />
                     </div>
-
-                    <div>
-                        <HexPdf />
-                    </div>
+                    {/* <div> */}
+                    {/*     <HexDoc /> */}
+                    {/* </div> */}
                     <div>
                         <HexImg imgProp={this.state.image} />
                     </div>
-
                 </div>
             </React.Fragment>
         );
