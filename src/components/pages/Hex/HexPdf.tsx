@@ -106,23 +106,21 @@ const ModalExample: React.FC<SinglePageViewExampleProps> = ({fileUrl, myTitle}) 
                 transform: 'translate(-50%, -50%)',
 
                 /* Modal size */
-                height: '75%',
+                height: '80%',
                 width: '50%',
-
-
-                /* Make the content scrollable */
-                overflow: 'auto',
             }}
         >
             {/* <Worker workerUrl="./assets/pdf.worker.min.js"> */}
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.min.js">
-                <Tooltip
-                    position={Position.BottomLeft}
-                    target={<Button onClick={() => setShown(false)}><CloseSharpIcon style={{fontSize: '36px'}} /></Button>}
-                    content={() => 'Close'}
-                    offset={{left: 0, top: 0}}
-                />
-                <div>
+                <div style={{float: 'right'}}>
+                    <Tooltip
+                        position={Position.BottomRight}
+                        target={<Button onClick={() => setShown(false)}><CloseSharpIcon style={{fontSize: '36px'}} /></Button>}
+                        content={() => 'Close'}
+                        offset={{left: 0, top: 0}}
+                    />
+                </div>
+                <div style={{height: '90%'}}>
                     <Viewer
                         fileUrl={fileUrl}
                         defaultScale={SpecialZoomLevel.PageWidth}
