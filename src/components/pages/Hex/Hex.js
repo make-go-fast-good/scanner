@@ -7,6 +7,12 @@ import HexDoc from "./HexPdf.tsx";
 
 import HEXPARAMS from "../../../config/HexVal.json";
 
+import pdf1413 from "./assets/TT1413.pdf"
+import pdf1430 from "./assets/TT1430.pdf"
+import pdf1434 from "./assets/TT1434.pdf"
+import pdf750 from "./assets/TT750.pdf"
+import pdf751 from "./assets/TT751.pdf"
+
 class General {
     constructor(val) {
         this.id = val.id;
@@ -63,8 +69,6 @@ class Hex extends Component {
             display: "flex",
             flexWrap: "wrap",
             flexDirection: "row",
-            flex: "1",
-            justifyContent: "space-evenly",
             alignItems: "flex-start",
             background: "#F4F4F4",
             border: "1px dashed #BBB",
@@ -183,8 +187,16 @@ class Hex extends Component {
                         <HexVal strProp={this.state.general} />
                         <HexVal strProp={this.state.tt1413} />
                     </div>
-                    <div>
-                        <HexDoc myTitle='TT1413' fileUrl='/TT1413.pdf' />
+                    <div style={{flex: 6, justifyContent: "space-evenly"}}>
+                        <HexDoc myTitle='TT1413' fileUrl={pdf1413} />
+                        <HexDoc myTitle='TT1430' fileUrl={pdf1430} />
+                        <HexDoc myTitle='TT1434' fileUrl={pdf1434} />
+                        <HexDoc myTitle='TT750' fileUrl={pdf750} />
+                        <HexDoc myTitle='TT751' fileUrl={pdf751} />
+                    </div>
+                    <div id="pdfContainer">
+                        <>
+                        </>
                     </div>
                     {/* <div> */}
                     {/*     <HexImg imgProp={this.state.image} /> */}

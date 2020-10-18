@@ -1,27 +1,3 @@
-/* import React from 'react'; */
-/* import Viewer, {SpecialZoomLevel, Worker} from '@phuocng/react-pdf-viewer'; */
-/* import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css'; */
-
-/* interface SinglePageViewExampleProps { */
-/*     fileUrl: string; */
-/* } */
-
-/* const SinglePageViewExample: React.FC<SinglePageViewExampleProps> = ({fileUrl}) => { */
-/*     return ( */
-
-/*         <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.min.js"> */
-/*             <div> */
-/*                 <Viewer */
-/*                     fileUrl={fileUrl} */
-/*                     defaultScale={SpecialZoomLevel.PageFit} */
-/*                 /> */
-/*             </div> */
-/*         </Worker> */
-/*     ); */
-/* }; */
-
-/* export default SinglePageViewExample; */
-
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import Viewer, {
@@ -34,16 +10,15 @@ import Viewer, {
     Tooltip,
     SpecialZoomLevel,
     Worker,
-    ScrollMode,
 } from '@phuocng/react-pdf-viewer';
 import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
-
-import CloseIcon from './CloseIcon';
+import CloseSharpIcon from '@material-ui/icons/CloseSharp';
 
 interface SinglePageViewExampleProps {
     fileUrl: string;
     myTitle: string;
 }
+
 const ModalExample: React.FC<SinglePageViewExampleProps> = ({fileUrl, myTitle}) => {
     const [shown, setShown] = useState(false);
 
@@ -85,12 +60,15 @@ const ModalExample: React.FC<SinglePageViewExampleProps> = ({fileUrl, myTitle}) 
                     <div style={{padding: '0 2px'}}>
                         {toolbarSlot.zoomInButton}
                     </div>
-                    <div style={{marginLeft: 'auto', padding: '0 2px'}}>
+                    <div style={{padding: '0 2px'}}>
+                        {toolbarSlot.downloadButton}
+                    </div>
+                    <div >
                         <Tooltip
-                            position={Position.BottomRight}
-                            target={<Button onClick={() => setShown(false)}><CloseIcon /></Button>}
+                            position={Position.LeftCenter}
+                            target={<Button onClick={() => setShown(false)}><CloseSharpIcon /></Button>}
                             content={() => 'Close'}
-                            offset={{left: 0, top: 0}}
+                            offset={{left: 0, top: 10}}
                         />
                     </div>
                 </div>
@@ -118,33 +96,36 @@ const ModalExample: React.FC<SinglePageViewExampleProps> = ({fileUrl, myTitle}) 
         <div
             style={{
                 /* Fixed position */
-                backgroundColor: '#fff',
-                top: '50%',
-                left: '75%',
+                backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                top: '58%',
+                left: '72%',
                 position: 'absolute',
                 padding: '1em',
                 borderRadius: '1em',
                 marginRight: '-50%',
                 transform: 'translate(-50%, -50%)',
 
-                /* Take full size */
-                height: '80%',
+                /* Modal size */
+                height: '75%',
                 width: '50%',
 
-                /* Displayed on top of other elements */
-                zIndex: 9999,
 
                 /* Make the content scrollable */
                 overflow: 'auto',
             }}
         >
-
+            {/* <Worker workerUrl="./assets/pdf.worker.min.js"> */}
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.min.js">
+                <Tooltip
+                    position={Position.BottomLeft}
+                    target={<Button onClick={() => setShown(false)}><CloseSharpIcon style={{fontSize: '36px'}} /></Button>}
+                    content={() => 'Close'}
+                    offset={{left: 0, top: 0}}
+                />
                 <div>
                     <Viewer
                         fileUrl={fileUrl}
-                        defaultScale={SpecialZoomLevel.ActualSize}
-                        layout={layout}
+                        defaultScale={SpecialZoomLevel.PageWidth}
                     />
                 </div>
             </Worker>
