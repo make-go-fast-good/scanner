@@ -1,0 +1,731 @@
+{
+  "GENERAL": [
+    {
+      "id": "0",
+      "len": "2",
+      "title": "Telegram sender ID"
+    },
+    {
+      "id": "2",
+      "len": "2",
+      "title": "Telegram receiver ID"
+    },
+    {
+      "id": "4",
+      "len": "2",
+      "title": "Telegram type"
+    },
+    {
+      "id": "6",
+      "len": "2",
+      "title": "Telegram sub type"
+    },
+    {
+      "id": "8",
+      "len": "2",
+      "title": "Version"
+    }
+  ],
+  "TT1413": [
+    {
+      "id": "10",
+      "len": "4",
+      "title": "Request ID"
+    },
+    {
+      "id": "14",
+      "len": "2",
+      "title": "Movement options 1(Reserve)"
+    },
+    {
+      "id": "16",
+      "len": "2",
+      "title": "X Movement options (% of a and v)"
+    },
+    {
+      "id": "18",
+      "len": "2",
+      "title": "Y Movement options (% of a and v)"
+    },
+    {
+      "id": "20",
+      "len": "2",
+      "title": "Z Movement options (% of a and v)"
+    },
+    {
+      "id": "22",
+      "len": "2",
+      "title": "Reserve"
+    },
+    {
+      "id": "24",
+      "len": "2",
+      "title": "LHD1 SRM extern(rack,CS) Aisle"
+    },
+    {
+      "id": "26",
+      "len": "4",
+      "title": "LHD1 SRM extern(rack,CS) X-coordinate"
+    },
+    {
+      "id": "30",
+      "len": "2",
+      "title": "LHD1 SRM extern(rack,CS) Y-coordinate"
+    },
+    {
+      "id": "32",
+      "len": "2",
+      "title": "LHD1 SRM extern(rack,CS) S-coordinate"
+    },
+    {
+      "id": "34",
+      "len": "2",
+      "title": "LHD1 SRM extern(rack,CS) D-coordinate"
+    },
+    {
+      "id": "36",
+      "len": "2",
+      "title": "LHD1 SRM intern (fork) SRM number"
+    },
+    {
+      "id": "38",
+      "len": "2",
+      "title": "LHD1 SRM intern (fork) LHD number"
+    },
+    {
+      "id": "40",
+      "len": "2",
+      "title": "LHD1 SRM intern (fork) Place on LHD"
+    },
+    {
+      "id": "42",
+      "len": "2",
+      "title": "LHD1 SRM intern (fork) Gripper opening width"
+    },
+    {
+      "id": "44",
+      "len": "2",
+      "title": "LHD1 SRM intern (fork) Type of extern location"
+    },
+    {
+      "id": "46",
+      "len": "2",
+      "title": "LHD1 Amount of TUs"
+    },
+    {
+      "id": "48",
+      "len": "2",
+      "title": "Order"
+    },
+    {
+      "id": "50",
+      "len": "1",
+      "title": "Order extension 1"
+    },
+    {
+      "id": "51",
+      "len": "1",
+      "title": "Order extension 2"
+    },
+    {
+      "id": "52",
+      "len": "2",
+      "title": "Acknowledge"
+    },
+    {
+      "id": "54",
+      "len": "1",
+      "title": "Acknowledge extension 1"
+    },
+    {
+      "id": "55",
+      "len": "1",
+      "title": "Acknowledge extension 2"
+    },
+    {
+      "id": "56",
+      "len": "2",
+      "title": "TU 1.1 Type"
+    },
+    {
+      "id": "58",
+      "len": "1",
+      "title": "TU 1.1 Type flags 1"
+    },
+    {
+      "id": "59",
+      "len": "1",
+      "title": "TU 1.1 Type flags 2"
+    },
+    {
+      "id": "60",
+      "len": "2",
+      "title": "TU 1.1 Length"
+    },
+    {
+      "id": "62",
+      "len": "2",
+      "title": "TU 1.1 Width"
+    },
+    {
+      "id": "64",
+      "len": "2",
+      "title": "TU 1.1 Height"
+    },
+    {
+      "id": "66",
+      "len": "2",
+      "title": "TU 1.1 Weight"
+    },
+    {
+      "id": "68",
+      "len": "1",
+      "title": "TU 1.1 Error flags 1"
+    },
+    {
+      "id": "69",
+      "len": "1",
+      "title": "TU 1.1 Error flags 2"
+    },
+    {
+      "id": "70",
+      "len": "20",
+      "title": "Barcode"
+    }
+  ],
+  "TT1430": [
+    {
+      "id": "16",
+      "len": "2",
+      "title": "Control code"
+    },
+    {
+      "id": "18",
+      "len": "2",
+      "title": "Error code"
+    },
+    {
+      "id": "20",
+      "len": "2",
+      "title": "Amount of TOs expected"
+    },
+    {
+      "id": "22",
+      "len": "2",
+      "title": "Amount of TOs reported"
+    },
+    {
+      "id": "24",
+      "len": "2",
+      "title": "Amount of found occupancy mismatches"
+    },
+    {
+      "id": "26",
+      "len": "2",
+      "title": "Coordinate SRM extern (rack,CS) Aisle"
+    },
+    {
+      "id": "28",
+      "len": "4",
+      "title": "Coordinate SRM extern (rack,CS) X-coordinate"
+    },
+    {
+      "id": "32",
+      "len": "2",
+      "title": "Coordinate SRM extern (rack,CS) Y-coordinate"
+    },
+    {
+      "id": "34",
+      "len": "2",
+      "title": "Coordinate SRM extern (rack,CS) S-coordinate"
+    },
+    {
+      "id": "36",
+      "len": "2",
+      "title": "Coordinate SRM extern (rack,CS) D-coordinate"
+    },
+    {
+      "id": "38",
+      "len": "2",
+      "title": "Coordinate SRM intern (fork) SRM number"
+    },
+    {
+      "id": "40",
+      "len": "2",
+      "title": "Coordinate SRM intern (fork) LHD number"
+    },
+    {
+      "id": "42",
+      "len": "2",
+      "title": "Coordinate SRM intern (fork) Place on LHD"
+    },
+    {
+      "id": "44",
+      "len": "1",
+      "title": "Long term blocking flags 1"
+    },
+    {
+      "id": "45",
+      "len": "1",
+      "title": "Control flags 1"
+    }
+  ],
+  "TT1434": [
+    {
+      "id": "16",
+      "len": "1",
+      "title": "System status 1"
+    },
+    {
+      "id": "17",
+      "len": "1",
+      "title": "System status 2"
+    },
+    {
+      "id": "18",
+      "len": "1",
+      "title": "System status 3"
+    },
+    {
+      "id": "19",
+      "len": "1",
+      "title": "System status 4"
+    },
+    {
+      "id": "20",
+      "len": "1",
+      "title": "Status LHD 1"
+    },
+    {
+      "id": "21",
+      "len": "1",
+      "title": "Status LHD 2"
+    },
+    {
+      "id": "22",
+      "len": "1",
+      "title": "Status LHD 3"
+    },
+    {
+      "id": "23",
+      "len": "1",
+      "title": "Status LHD 4"
+    },
+    {
+      "id": "24",
+      "len": "2",
+      "title": "Amount of TOs in buffer (including active MFS-TO)"
+    },
+    {
+      "id": "26",
+      "len": "2",
+      "title": "SRM-No."
+    },
+    {
+      "id": "28",
+      "len": "2",
+      "title": "LHD1 Current coordinate Aisle"
+    },
+    {
+      "id": "30",
+      "len": "4",
+      "title": "LHD1 Current coordinate X-coordinate"
+    },
+    {
+      "id": "34",
+      "len": "2",
+      "title": "LHD1 Current coordinate Y-coordinate"
+    },
+    {
+      "id": "36",
+      "len": "2",
+      "title": "LHD1 Current coordinate S-coordinate"
+    },
+    {
+      "id": "38",
+      "len": "2",
+      "title": "LHD1 Current coordinate D-coordinate"
+    },
+    {
+      "id": "40",
+      "len": "2",
+      "title": "LHD1 gripper opening width"
+    },
+    {
+      "id": "42",
+      "len": "2",
+      "title": "LHD2 Current coordinate Aisle"
+    },
+    {
+      "id": "44",
+      "len": "4",
+      "title": "LHD2 Current coordinate X-coordinate"
+    },
+    {
+      "id": "48",
+      "len": "2",
+      "title": "LHD2 Current coordinate Y-coordinate"
+    },
+    {
+      "id": "50",
+      "len": "2",
+      "title": "LHD2 Current coordinate S-coordinate"
+    },
+    {
+      "id": "52",
+      "len": "2",
+      "title": "LHD2 Current coordinate D-coordinate"
+    },
+    {
+      "id": "54",
+      "len": "2",
+      "title": "LHD2 gripper opening width"
+    },
+    {
+      "id": "84",
+      "len": "4",
+      "title": "Active order Request ID"
+    },
+    {
+      "id": "88",
+      "len": "4",
+      "title": "Buffered order Request ID"
+    }
+  ],
+  "TT750_1": [
+      {
+        "id": "16",
+        "len": "2",
+        "title": "Control code"
+      },
+      {
+        "id": "18",
+        "len": "2",
+        "title": "Error code"
+      }
+    ],
+  "TT750_2": [
+      {
+        "id": "16",
+        "len": "1",
+        "title": "Visu Button auto on"
+      },
+      {
+        "id": "17",
+        "len": "1",
+        "title": "Visu Button auto off"
+      },
+      {
+        "id": "18",
+        "len": "1",
+        "title": "Visu Button error reset"
+      },
+      {
+        "id": "19",
+        "len": "1",
+        "title": "Visu Button Home Position"
+      },
+      {
+        "id": "20",
+        "len": "1",
+        "title": "Visu Button Reset OHC"
+      },
+      {
+        "id": "21",
+        "len": "1",
+        "title": "Visu Button Reset OHC"
+      },
+      {
+        "id": "22",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "23",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "24",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "25",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "26",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "27",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "28",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "29",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "30",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "31",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "32",
+        "len": "1",
+        "title": "General Information Fire alert"
+      },
+      {
+        "id": "33",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "34",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "35",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "36",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "37",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "38",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "39",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "40",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "41",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "42",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "43",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "44",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "45",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "46",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "47",
+        "len": "1",
+        "title": "General Information not defined"
+      }
+    ],
+  "TT750_5": [
+      {
+        "id": "16",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC total OHC"
+      },
+      {
+        "id": "20",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC automatic mode"
+      },
+      {
+        "id": "24",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC of the engine in X direction"
+      },
+      {
+        "id": "28",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC of the engine in Y direction"
+      },
+      {
+        "id": "32",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC Axis Amount of drives (X direction)"
+      },
+      {
+        "id": "36",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC Axis Amount of drives (Y direction)"
+      },
+      {
+        "id": "40",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles with bars / gripper"
+      },
+      {
+        "id": "44",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles with bars / gripper"
+      },
+      {
+        "id": "48",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles without bars / gripper"
+      },
+      {
+        "id": "52",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles without bars / gripper"
+      },
+      {
+        "id": "56",
+        "len": "4",
+        "title": "Operational Total(not resettable) OHC LHD1 Amount of total cycles (sum of the 4 fields above)"
+      },
+      {
+        "id": "27",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "28",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "29",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "30",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "31",
+        "len": "1",
+        "title": "not defined"
+      },
+      {
+        "id": "32",
+        "len": "1",
+        "title": "General Information Fire alert"
+      },
+      {
+        "id": "33",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "34",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "35",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "36",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "37",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "38",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "39",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "40",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "41",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "42",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "43",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "44",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "45",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "46",
+        "len": "1",
+        "title": "General Information not defined"
+      },
+      {
+        "id": "47",
+        "len": "1",
+        "title": "General Information not defined"
+      }
+    ]
+}

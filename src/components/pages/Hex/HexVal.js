@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
-class visuHex extends Component {
+class hexVal extends Component {
     getStyle = props => {
         return {
             borderColor: "#E3E3E3",
@@ -22,11 +22,12 @@ class visuHex extends Component {
             // console.log(_str);
             return (
                 <div id={_str.id} style={this.getStyle()}>
-                    { parseInt("0x" + _str.str) ||_str.placeholder}
+                    {/* barcode id == 70; dont want the integer value */}
+                    {parseInt(_str.id) === 70 ? _str.str || _str.placeholder : parseInt("0x" + _str.str) || _str.placeholder}
                 </div>
             );
         });
     }
 }
 
-export default visuHex;
+export default hexVal;

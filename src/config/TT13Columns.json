@@ -23,8 +23,9 @@
         {"title": "Dest_OK","field": "data.ta_data_status_ziel_ok"},
         {"title": "TDB_Known","field": "data.ta_data_status_tdb_bekannt"},
         {"title": "New_data received","field": "data.ta_data_status_ndr"},
-        {"title": "No_scan","field": "data.ta_data_status_noscan"},
-        {"title": "No_read","field": "data.ta_data_status_noread"},
+        {"title": "No_Scan","field": "data.ta_data_ack_ext_noscan"},
+        {"title": "No_Read","field": "data.ta_data_ack_ext_noread"},
+        {"title": "No_Data","field": "data.ta_data_ack_ext_nodata"},
         {"title": "Barcode present","field": "data.ta_data_status_barcode"},
         {"title": "Complete","field": "data.ta_data_status_data_komplett"},
         {"title": "Zombie","field": "data.ta_data_status_ta_zombie"}

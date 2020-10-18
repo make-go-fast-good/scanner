@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import ModalImage from "react-modal-image";
+import React, {Component} from "react";
 
-class visuImg extends Component {
-    imgStyle = props => {
+class visuTitle extends Component {
+    getStyle = props => {
         return {
             borderColor: "#E3E3E3",
-            borderRadius: "5px",
             flexDirection: "row",
             flex: "1",
             background: "#7A8B99",
@@ -20,19 +18,19 @@ class visuImg extends Component {
         };
     };
 
-    render() {
-        return this.props.imgProp.map(_val => {
+    genProp = gen =>
+        gen.map(_val => {
+            // console.log(_val);
             return (
-                <div style={this.imgStyle()}>
-                    <ModalImage
-                        large={_val.img}
-                        alt={_val.title}
-                        hideDownload="true"
-                    />
+                <div>
+                    <div style={this.getStyle()}>{_val.title}</div>
                 </div>
             );
         });
+
+    render() {
+        return this.genProp(this.props.genProp);
     }
 }
 
-export default visuImg;
+export default visuTitle;

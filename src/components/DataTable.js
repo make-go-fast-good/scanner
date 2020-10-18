@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { css } from "@emotion/core";
+import React, {Component} from "react";
+import {BrowserRouter as Router} from "react-router-dom";
+import {css} from "@emotion/core";
 import axios from "axios";
 import PlcConnections from "./PlcConnections";
-import { Container } from "./Container";
+import {Container} from "./Container";
 
 import "../App.css";
 
@@ -22,8 +22,9 @@ class DataTable extends Component {
             area: area,
             data: plcData,
             options: {
-                maxBodyHeight: "68vh", // makes the headers fixed if the body size is larger.
+                maxBodyHeight: "61vh", // makes the headers fixed if the body size is larger.
                 paging: true,
+                exportButton: true,
                 pageSize: 20,
                 search: true,
                 grouping: true,
@@ -43,7 +44,7 @@ class DataTable extends Component {
 
     // Select Connection
     getData = area => {
-        this.setState({ loading: true, area: area.conn });
+        this.setState({loading: true, area: area.conn});
         console.log("heres the url");
         console.log("http://localhost:8080/" + this.state.type + "/connect");
         axios

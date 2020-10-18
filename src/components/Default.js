@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import Card from "./Card";
 
@@ -44,19 +44,19 @@ export class DefaultTable extends Component {
                     <Card
                         to="/TT13"
                         primary="TT13 Data"
-                        icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
+                        icon={<EmailTwoToneIcon style={{fontSize: "38px"}} />}
                     />
                     <Card
                         to="/SCANNERS"
                         primary="Scanner Data"
                         icon={
-                            <ScannerTwoToneIcon style={{ fontSize: "38px" }} />
+                            <ScannerTwoToneIcon style={{fontSize: "38px"}} />
                         }
                     />
                     <Card
                         to="/ERROR"
                         primary="Error Log"
-                        icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
+                        icon={<ErrorTwoToneIcon style={{fontSize: "38px"}} />}
                     />
                     {/* <Card */}
                     {/*   to="/COORDINATES" */}
@@ -68,19 +68,19 @@ export class DefaultTable extends Component {
                         primary="Bookmarks"
                         icon={
                             <BookmarksTwoToneIcon
-                                style={{ fontSize: "38px" }}
+                                style={{fontSize: "38px"}}
                             />
                         }
                     />
-                    {/* <Card */}
-                    {/*     to="/HEX" */}
-                    {/*     primary="Matrix Hex parser" */}
-                    {/*     icon={ */}
-                    {/*         <SearchTwoToneIcon */}
-                    {/*             style={{ fontSize: "38px" }} */}
-                    {/*         /> */}
-                    {/*     } */}
-                    {/* /> */}
+                    <Card
+                        to="/HEX"
+                        primary="Matrix Hex parser"
+                        icon={
+                            <SearchTwoToneIcon
+                                style={{fontSize: "38px"}}
+                            />
+                        }
+                    />
                 </h2>
             );
         } else {
