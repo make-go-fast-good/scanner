@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class visuTitle extends Component {
     getStyle = props => {

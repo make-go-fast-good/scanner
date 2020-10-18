@@ -392,8 +392,7 @@
       "title": "Buffered order Request ID"
     }
   ],
-  "TT750": [
-    [
+  "TT750_1": [
       {
         "id": "16",
         "len": "2",
@@ -405,7 +404,7 @@
         "title": "Error code"
       }
     ],
-    [
+  "TT750_2": [
       {
         "id": "16",
         "len": "1",
@@ -567,7 +566,7 @@
         "title": "General Information not defined"
       }
     ],
-    [
+  "TT750_5": [
       {
         "id": "16",
         "len": "4",
@@ -729,5 +728,4 @@
         "title": "General Information not defined"
       }
     ]
-  ]
 }
