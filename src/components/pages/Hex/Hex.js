@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import HexTitle from "./HexTitle.js";
 import HexVal from "./HexVal.js";
 import HexDoc from "./HexPdf.tsx";
-import {Typography} from "@material-ui/core";
 
 import HEXPARAMS from "../../../config/HexVal.json";
 
@@ -115,14 +114,6 @@ class Hex extends Component {
         };
     };
 
-    colStyle = (props) => {
-        return {
-            justifyContent: 'center',
-            margin: '0px auto',
-            padding: '0px auto',
-        };
-    };
-
     init = (val) => {
         // console.log(val)
         this.setState({
@@ -150,7 +141,7 @@ class Hex extends Component {
 
             stringArr: this.state.general.placeholder,
         });
-        // console.log(this.state)
+        console.log(this.state)
     };
 
     onChange = (e) => {
@@ -166,8 +157,10 @@ class Hex extends Component {
             if (!reset) {
                 tmpLen = HEXPARAMS.GENERAL[i].len * 2;
                 arr.push(str.substring(0, tmpLen));
-            } else if (reset && HEXPARAMS.TT1413[i] !== undefined) {
-                tmpLen = HEXPARAMS.TT1413[i].len * 2;
+            } else if (reset && HEXPARAMS["TT" + parseInt(arr[2], 16)][i] !== undefined) {
+                console.log("telegram type should be here: " + parseInt(arr[2], 16));
+                console.log("TT" + parseInt(arr[2], 16));
+                tmpLen = HEXPARAMS["TT" + parseInt(arr[2], 16)][i].len * 2;
                 if (tmpLen === 40) {
                     var hexBarcode = str.toString();
                     let tmpBarcode = "";
@@ -226,27 +219,38 @@ class Hex extends Component {
                 case 1413:
                     console.log("yes 1413")
                     targetState = 'tt1413'
+                    this.setState((targetState) => {
+                        targetState.tt1413.map((_obj, index) => {
+                            // creating copy of state variable general
+                            let update = Object.assign({}, targetState);
+                            // update the name property, assign a new value
+                            update.tt1413[index].str = targetState.stringArr[index + 5];
+                            // console.log(update);
+                            return {update};
+                        });
+                    });
                     break;
                 case 1430:
                     console.log("yes 1430")
                     break;
                 case 1434:
                     console.log("yes 1434")
+                    targetState = 'tt1434'
+                    this.setState((targetState) => {
+                        targetState.tt1434.map((_obj, index) => {
+                            // creating copy of state variable general
+                            let update = Object.assign({}, targetState);
+                            // update the name property, assign a new value
+                            update.tt1434[index].str = targetState.stringArr[index + 5];
+                            // console.log(update);
+                            return {update};
+                        });
+                    });
                     break;
                 default:
                     console.log("no")
             }
 
-            this.setState((targetState) => {
-                targetState.tt1413.map((_obj, index) => {
-                    // creating copy of state variable general
-                    let update = Object.assign({}, targetState);
-                    // update the name property, assign a new value
-                    update.tt1413[index].str = targetState.stringArr[index + 5];
-                    // console.log(update);
-                    return {update};
-                });
-            });
         }
 
         // console.log("from Onchange")
@@ -258,8 +262,11 @@ class Hex extends Component {
         if (val.length > 1 && parseInt(val[2].str, 16) > 0) console.log(parseInt(val[2].str, 16))
         return
     }
+
     render() {
         if (this.state.string) {
+            // this.state.general[2].str is hex val of telegram type, convert to int
+            console.log(this.state["tt" + parseInt(this.state.general[2].str, 16)])
             return (
                 <React.Fragment>
                     {this.myBody(this.state.general)}
@@ -275,21 +282,21 @@ class Hex extends Component {
                     </form>
                     <div style={this.getStyle()}>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '38%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Field
                             </div>
                             <HexTitle genProp={this.state.general} />
-                            <HexTitle genProp={this.state.tt1413} />
+                            <HexTitle genProp={this.state["tt" + parseInt(this.state.general[2].str, 16)]} />
                         </div>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '25%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Value
                             </div>
                             <HexVal strProp={this.state.general} />
-                            <HexVal strProp={this.state.tt1413} />
+                            <HexVal strProp={this.state["tt" + parseInt(this.state.general[2].str, 16)]} />
                         </div>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '14%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Documentation
                             </div>
                             <HexDoc myTitle="TT1413" fileUrl={pdf1413} />
@@ -317,19 +324,19 @@ class Hex extends Component {
                     </form>
                     <div style={this.getStyle()}>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '38%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Field
                             </div>
                             <HexTitle genProp={this.state.general} />
                         </div>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '25%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Value
                             </div>
                             <HexVal strProp={this.state.general} />
                         </div>
                         <div>
-                            <div style={{marginTop: "24px", marginLeft: '14%', fontSize: "24px"}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginTop: "24px", fontSize: "24px"}}>
                                 Documentation
                             </div>
                             <HexDoc myTitle="TT1413" fileUrl={pdf1413} />

@@ -195,6 +195,16 @@
   ],
   "TT1430": [
     {
+      "id": "10",
+      "len": "2",
+      "title": "Topic"
+    },
+    {
+      "id": "12",
+      "len": "4",
+      "title": "Status request ID"
+    },
+    {
       "id": "16",
       "len": "2",
       "title": "Control code"
@@ -271,6 +281,16 @@
     }
   ],
   "TT1434": [
+    {
+      "id": "10",
+      "len": "2",
+      "title": "Topic"
+    },
+    {
+      "id": "12",
+      "len": "4",
+      "title": "Status request ID"
+    },
     {
       "id": "16",
       "len": "1",
