@@ -1,7 +1,8 @@
 const Express = require("express");
 const Router = Express.Router();
-const axios = require("axios");
-
+const opn = require('opn');
+const fs = require("fs");
+const path = require('path');
 //make the CORS work, wrap the router in the middle man to catch errors.
 const wrapper = middleware => {
     return async (req, res, next) => {
@@ -27,25 +28,12 @@ const wrapper = middleware => {
 Router.get(
     "/",
     wrapper(async (request, response) => {
-        if (request.query.url) {
-            axios
-                .get(request.query.url, {
-                    auth: {
-                        key: "guest",
-                        password: "guest"
-                    }
-                })
-                .then(res => {
-                    console.log("res.data");
-                    console.log(res);
-                    response.send(res.data);
-                })
-                .catch(err => {
-                    console.log("err = " + err);
-                    response.send(err);
-                });
+        if (request.query.m_name) {
+            let exePath = path.join(path.dirname(process.cwd())) + '\\s7_server\\navhist.exe'
+            response.send(exePath + " " + request.query.m_name);
+            opn(exePath, {wait: true});
         } else {
-            console.log("something wrong");
+            response.send(err);
         }
     })
 );

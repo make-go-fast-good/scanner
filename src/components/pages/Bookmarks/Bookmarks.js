@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import BookmarksSwitch from "./Switch.js";
 import "../../../App.css";
@@ -17,30 +17,26 @@ class Bookmarks extends Component {
     }
 
     handleChange(checked) {
-        this.setState({ checked });
+        this.setState({checked});
     }
 
+
     // Select Connection
-    getData = url => {
-        this.setState({ loading: true, data: url });
+    getData = m_name => {
+        console.log("heres the url");
         axios
             .get("http://localhost:8080/BOOKMARKS/connect", {
                 params: {
-                    url: url
+                    m_name: m_name
                 }
             })
             .then(res => {
-                this.makeTable(res.data);
                 console.log("res.data");
                 console.log(res.data);
             })
             .catch(err => {
+                console.log("err here:");
                 console.log(err);
-                this.setState({
-                    loading: false,
-                    error:
-                        "Connection Error: Verify connection to the PLC network."
-                });
             });
     };
 
@@ -61,8 +57,7 @@ class Bookmarks extends Component {
 
         this.state.checked === false
             ? window.open(url1 + octet + url2, "_self")
-            : window.open(f_url);
-        // : this.setState({ url: f_url })
+            : this.getData(m_name);
     };
 
     switchStyle = props => {

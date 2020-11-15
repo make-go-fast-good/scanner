@@ -52,3 +52,7 @@ call xcopy C:\Users\Phillip.Crandall\Projects\_Telegrams\Documentation\*.pdf C:\
 call xcopy C:\Users\Phillip.Crandall\Projects\_Telegrams\Executables\_Telegrams.exe C:\Users\Phillip.Crandall\Projects\_Telegrams\releases\%date:~-4,4%%date:~-10,2%%date:~7,2%\build\ /E
 
 call pkg C:\Users\Phillip.Crandall\Projects\Telegrams\serve\server.js -o  C:\Users\Phillip.Crandall\Projects\_Telegrams\releases\%date:~-4,4%%date:~-10,2%%date:~7,2%\s7_server\s7_Server.exe --target node10-win-x64
+
+call xcopy C:\Users\Phillip.Crandall\Projects\Telegrams\assets\navhist.exe C:\Users\Phillip.Crandall\Projects\_Telegrams\releases\%date:~-4,4%%date:~-10,2%%date:~7,2%\s7_server\ /E
+
+call ./buildfrontendddddd.bat
