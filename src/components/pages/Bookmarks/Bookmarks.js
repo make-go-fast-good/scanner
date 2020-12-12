@@ -22,12 +22,14 @@ class Bookmarks extends Component {
 
 
     // Select Connection
-    getData = m_name => {
+    getData = (keyMode, m_name, error) => {
         console.log("heres the url");
         axios
             .get("http://localhost:8080/BOOKMARKS/connect", {
                 params: {
-                    m_name: m_name
+                    keyMode: keyMode,
+                    m_name: m_name,
+                    error: error
                 }
             })
             .then(res => {
@@ -55,9 +57,13 @@ class Bookmarks extends Component {
         const url1 = "http://10.136.17.";
         const url2 = "/admin.html";
 
+        let keyMode = "http://10.136.17." + octet + "/LevelControlKeySwitchMode?"
+        let error = "http://10.136.17." + octet + "/Srm1CurrErrors?"
+
         this.state.checked === false
             ? window.open(url1 + octet + url2, "_self")
-            : this.getData(m_name);
+            // : this.getData(f_url, m_name);
+            : this.getData(keyMode, m_name, error);
     };
 
     switchStyle = props => {
