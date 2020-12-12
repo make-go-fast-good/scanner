@@ -80,6 +80,7 @@ class Bookmarks extends Component {
                 console.log("UPDATE COMPONENT HERE: ");
                 console.log(updateComponent)
                 updateComponent.style.backgroundColor = res.data.color
+                updateComponent.style.color = "rgb(255,255,255)"
             })
             .catch(err => {
                 console.log("err here:");

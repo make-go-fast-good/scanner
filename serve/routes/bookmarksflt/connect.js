@@ -63,21 +63,20 @@ Router.get(
 
             switch (operationMode) {
                 case "auto":
-                    status.color = "rgba(0, 255, 0, 0.6)"
+                    status.color = "rgba(0, 215, 0, 0.8)"
                     break;
                 case "semi":
-                    status.color = "rgba(192, 192, 192, 0.6)"
+                    status.color = "rgba(192, 192, 192, 0.8)"
                     break;
                 case "local":
-                    status.color = "rgba(0, 255, 0, 0.6)"
+                    status.color = "rgba(200, 0, 0, 0.8)"
                     break;
                 case "undefined":
-                    status.color = "rgba(192, 192, 192, 0.6)"
+                    status.color = "rgba(192, 192, 192, 0.8)"
                     break;
             }
 
-            if (navError === true) status.color = "rgba(0, 255, 0, 0.6)";
-
+            if (navError === true) status.color = "rgba(200, 0, 0, 0.8)"
             response.send(status);
         } else {
             response.send(err);
