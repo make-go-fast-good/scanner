@@ -58,9 +58,26 @@ Router.get(
 
             let status = {
                 name: request.query.m_name,
-                key: operationMode,
-                err: navError
+                color: "rgba(0, 0, 0, 0.8)"
             }
+
+            switch (operationMode) {
+                case "auto":
+                    status.color = "rgba(0, 255, 0, 0.6)"
+                    break;
+                case "semi":
+                    status.color = "rgba(192, 192, 192, 0.6)"
+                    break;
+                case "local":
+                    status.color = "rgba(0, 255, 0, 0.6)"
+                    break;
+                case "undefined":
+                    status.color = "rgba(192, 192, 192, 0.6)"
+                    break;
+            }
+
+            if (navError === true) status.color = "rgba(0, 255, 0, 0.6)";
+
             response.send(status);
         } else {
             response.send(err);

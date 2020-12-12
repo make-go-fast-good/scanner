@@ -2,8 +2,49 @@ import React, {Component} from "react";
 import axios from "axios";
 import BookmarksSwitch from "./Switch.js";
 import "../../../App.css";
+import {findDOMNode} from "react-dom";
+
+class Navette {
+    constructor(val) {
+        this.id = val.id;
+        this.style = val.style;
+        this.openLink = (val) => {
+            let url = "http://10.136.17." + val.octet + "/admin.html"
+            let keyMode = "http://10.136.17." + val.octet + "/LevelControlKeySwitchMode?"
+            let error = "http://10.136.17." + val.octet + "/Srm1CurrErrors?"
+            this.state.checked === false
+                ? window.open(url, "_self")
+                : this.getStatus(keyMode, val.id, error);
+        };
+
+        this.getStatus = (keyMode, id, error) => {
+            axios
+                .get("http://localhost:8080/BOOKMARKS/connect", {
+                    params: {
+                        keyMode: keyMode,
+                        m_name: id,
+                        error: error
+                    }
+                })
+                .then(res => {
+                    this.setState({[res.data.name]: res.data.color});
+                })
+                .catch(err => {
+                    console.log("err here:");
+                    console.log(err);
+                });
+        };
+    }
+}
 
 class Bookmarks extends Component {
+
+    /*
+    componentDidMount() {
+      axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+        .then(res => this.setState({ todos: res.data }))
+    }
+    */
     constructor() {
         super();
         this.state = {
@@ -22,7 +63,7 @@ class Bookmarks extends Component {
 
 
     // Select Connection
-    getData = (keyMode, m_name, error) => {
+    getStatus = (keyMode, m_name, error) => {
         console.log("heres the url");
         axios
             .get("http://localhost:8080/BOOKMARKS/connect", {
@@ -35,6 +76,10 @@ class Bookmarks extends Component {
             .then(res => {
                 console.log("res.data");
                 console.log(res.data);
+                let updateComponent = findDOMNode(this.refs[res.data.name]);
+                console.log("UPDATE COMPONENT HERE: ");
+                console.log(updateComponent)
+                updateComponent.style.backgroundColor = res.data.color
             })
             .catch(err => {
                 console.log("err here:");
@@ -63,10 +108,10 @@ class Bookmarks extends Component {
         this.state.checked === false
             ? window.open(url1 + octet + url2, "_self")
             // : this.getData(f_url, m_name);
-            : this.getData(keyMode, m_name, error);
+            : this.getStatus(keyMode, m_name, error);
     };
 
-    switchStyle = props => {
+    switchStyle = () => {
         return {
             flexWrap: "wrap",
             display: "flex",
@@ -80,59 +125,110 @@ class Bookmarks extends Component {
     };
 
     getStyle = props => {
-        return {
-            background: "#FFF",
-            flexWrap: "wrap",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            border: "1px dashed #BBB",
-            margin: "15px auto",
-            color: "#FFF",
-            minHeight: "88vh",
-            minWidth: "1200px"
-        };
+        if (props) {
+            return {background: props.color};
+        } else {
+            return {
+                background: "#FFF",
+                flexWrap: "wrap",
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                border: "1px dashed #BBB",
+                margin: "15px auto",
+                color: "#FFF",
+                minHeight: "88vh",
+                minWidth: "1200px"
+            };
+        }
     };
 
-    navStyle = props => {
-        return {
-            borderColor: "#E3E3E3",
-            background: "#7A8B99",
-            color: "#EEE",
-            fontSize: "18px",
-            flexWrap: "wrap",
-            display: "flex",
-            justifyContent: "space-around",
-            flex: "1",
-            alignItems: "center",
-            margin: "15px auto",
-            padding: "15px auto",
-            minHeight: "15vh",
-            minWidth: "6vh",
-            cursor: "pointer"
-        };
+    navStyle = (color) => {
+        // if (props.id !== undefined) console.log(props.id)
+        if (color) {
+            console.log("color here " + color)
+            return {
+                background: color
+            }
+        } else {
+            return {
+                borderColor: "#E3E3E3",
+                background: "#7A8B99",
+                color: "#EEE",
+                fontSize: "18px",
+                flexWrap: "wrap",
+                display: "flex",
+                justifyContent: "space-around",
+                flex: "1",
+                alignItems: "center",
+                margin: "15px auto",
+                padding: "15px auto",
+                minHeight: "15vh",
+                minWidth: "6vh",
+                cursor: "pointer"
+            }
+        }
     };
 
     liftStyle = props => {
-        return {
-            bordercolor: "#D3D3E3",
-            background: "#6A7A88",
-            color: "#EEE",
-            fontSize: "16px",
-            flexWrap: "wrap",
-            display: "flex",
-            flex: "1",
-            justifyContent: "space-around",
-            alignItems: "center",
-            margin: "50px 20px auto",
-            padding: "15px auto",
-            minHeight: "8vh",
-            minWidth: "8vh",
-            cursor: "pointer"
+        if (props) {
+            if (this.state[props.name]) {
+                console.log(this.state)
+                return {
+                    bordercolor: "#D3D3E3",
+                    background: props.color,
+                    color: "#EEE",
+                    fontSize: "16px",
+                    flexWrap: "wrap",
+                    display: "flex",
+                    flex: "1",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    margin: "50px 20px auto",
+                    padding: "15px auto",
+                    minHeight: "8vh",
+                    minWidth: "8vh",
+                    cursor: "pointer"
+                };
+            } else {
+                return {
+                    bordercolor: "#D3D3E3",
+                    background: "#6A7A88",
+                    color: "#EEE",
+                    fontSize: "16px",
+                    flexWrap: "wrap",
+                    display: "flex",
+                    flex: "1",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    margin: "50px 20px auto",
+                    padding: "15px auto",
+                    minHeight: "8vh",
+                    minWidth: "8vh",
+                    cursor: "pointer"
+                };
+            }
+        } else {
+            return {
+                bordercolor: "#D3D3E3",
+                background: "#6A7A88",
+                color: "#EEE",
+                fontSize: "16px",
+                flexWrap: "wrap",
+                display: "flex",
+                flex: "1",
+                justifyContent: "space-around",
+                alignItems: "center",
+                margin: "50px 20px auto",
+                padding: "15px auto",
+                minHeight: "8vh",
+                minWidth: "8vh",
+                cursor: "pointer"
+            };
         };
     };
 
-    noStyle = props => {
+    noStyle = () => {
         return {
             background: "#FFF",
             flexWrap: "wrap",
@@ -161,6 +257,7 @@ class Bookmarks extends Component {
                     <table>
                         <td>
                             <button
+                                ref="N6214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(119, "N6214")}
                             >
@@ -169,6 +266,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(118, "N6213")}
                             >
@@ -177,6 +275,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(117, "N6212")}
                             >
@@ -185,6 +284,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(116, "N6211")}
                             >
@@ -195,6 +295,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL6085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(105, "NL6085")}
                             >
@@ -205,6 +306,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL6084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(104, "NL6084")}
                             >
@@ -215,6 +317,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL6083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(103, "NL6083")}
                             >
@@ -225,6 +328,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL6082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(102, "NL6082")}
                             >
@@ -244,6 +348,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N6114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(114, "N6114")}
                             >
@@ -252,6 +357,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(113, "N6113")}
                             >
@@ -260,6 +366,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(112, "N6112")}
                             >
@@ -268,6 +375,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N6111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(111, "N6111")}
                             >
@@ -278,6 +386,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N5214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(99, "N5214")}
                             >
@@ -286,6 +395,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(98, "N5213")}
                             >
@@ -294,6 +404,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(97, "N5212")}
                             >
@@ -302,6 +413,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(96, "N5211")}
                             >
@@ -312,6 +424,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL5085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(85, "NL5085")}
                             >
@@ -322,6 +435,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL5084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(84, "NL5084")}
                             >
@@ -332,6 +446,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL5083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(83, "NL5083")}
                             >
@@ -342,6 +457,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL5082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(82, "NL5082")}
                             >
@@ -361,6 +477,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N5114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(94, "N5114")}
                             >
@@ -369,6 +486,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(93, "N5113")}
                             >
@@ -377,6 +495,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(92, "N5112")}
                             >
@@ -385,6 +504,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N5111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(91, "N5111")}
                             >
@@ -395,6 +515,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N4214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(79, "N4214")}
                             >
@@ -403,6 +524,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(78, "N4213")}
                             >
@@ -411,6 +533,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(77, "N4212")}
                             >
@@ -419,6 +542,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(76, "N4211")}
                             >
@@ -429,6 +553,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL4085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(65, "NL4085")}
                             >
@@ -439,6 +564,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL4084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(64, "NL4084")}
                             >
@@ -449,6 +575,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL4083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(63, "NL4083")}
                             >
@@ -459,6 +586,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL4082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(62, "NL4082")}
                             >
@@ -478,6 +606,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N4114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(74, "N4114")}
                             >
@@ -486,6 +615,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(73, "N4113")}
                             >
@@ -494,6 +624,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(72, "N4112")}
                             >
@@ -502,6 +633,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N4111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(71, "N4111")}
                             >
@@ -512,6 +644,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N3214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(59, "N3214")}
                             >
@@ -520,6 +653,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(58, "N3213")}
                             >
@@ -528,6 +662,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(57, "N3212")}
                             >
@@ -536,6 +671,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(56, "N3211")}
                             >
@@ -546,6 +682,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL3085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(45, "NL3085")}
                             >
@@ -556,6 +693,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL3084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(44, "NL3084")}
                             >
@@ -566,6 +704,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL3083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(43, "NL3083")}
                             >
@@ -576,6 +715,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL3082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(42, "NL3082")}
                             >
@@ -595,6 +735,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N3114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(54, "N3114")}
                             >
@@ -603,6 +744,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(53, "N3113")}
                             >
@@ -611,6 +753,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(52, "N3112")}
                             >
@@ -619,6 +762,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N3111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(51, "N3111")}
                             >
@@ -629,6 +773,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N2214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(39, "N2214")}
                             >
@@ -637,6 +782,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(38, "N2213")}
                             >
@@ -645,6 +791,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(37, "N2212")}
                             >
@@ -653,6 +800,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(36, "N2211")}
                             >
@@ -663,6 +811,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL2085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(25, "NL2085")}
                             >
@@ -673,6 +822,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL2084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(24, "NL2084")}
                             >
@@ -683,6 +833,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL2083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(23, "NL2083")}
                             >
@@ -693,6 +844,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL2082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(22, "NL2082")}
                             >
@@ -712,6 +864,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N2114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(34, "N2114")}
                             >
@@ -720,6 +873,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(33, "N2113")}
                             >
@@ -728,6 +882,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(32, "N2112")}
                             >
@@ -736,6 +891,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N2111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(31, "N2111")}
                             >
@@ -746,6 +902,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N1214"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(19, "N1214")}
                             >
@@ -754,6 +911,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1213"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(18, "N1213")}
                             >
@@ -762,6 +920,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1212"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(17, "N1212")}
                             >
@@ -770,6 +929,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1211"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(16, "N1211")}
                             >
@@ -780,6 +940,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="NL1085"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(5, "NL1085")}
                             >
@@ -790,6 +951,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL1084"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(4, "NL1084")}
                             >
@@ -800,6 +962,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL1083"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(3, "NL1083")}
                             >
@@ -810,6 +973,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="NL1082"
                                 style={this.liftStyle()}
                                 onClick={() => this.openLink(2, "NL1082")}
                             >
@@ -829,6 +993,7 @@ class Bookmarks extends Component {
                         </td>
                         <td>
                             <button
+                                id="N1114"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(14, "N1114")}
                             >
@@ -837,6 +1002,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1113"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(13, "N1113")}
                             >
@@ -845,6 +1011,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1112"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(12, "N1112")}
                             >
@@ -853,6 +1020,7 @@ class Bookmarks extends Component {
                                 </div>
                             </button>
                             <button
+                                id="N1111"
                                 style={this.navStyle()}
                                 onClick={() => this.openLink(11, "N1111")}
                             >
