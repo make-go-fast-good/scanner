@@ -28,7 +28,7 @@ import NAVETTES from "../../../config/NAVETTES.json";
 //                     }
 //                 })
 //                 .then(res => {
-//                     this.setState({[res.data.name]: res.data.color});
+//                     this.setState({[res.data.name]: res.data.backgroundColor});
 //                 })
 //                 .catch(err => {
 //                     console.log("err here:");
@@ -75,11 +75,6 @@ class Bookmarks extends Component {
             let keyMode = "http://10.136.17" + octet + "/LevelControlKeySwitchMode?"
             let error = "http://10.136.17" + octet + "/Srm1CurrErrors?"
             let srmStatus = "http://10.136.17" + octet + "/srm1CurrSrmStatus.html?"
-
-            // console.log("keyMode")
-            // console.log(keyMode)
-            // console.log("error")
-            // console.log(error)
             axios
                 .get("http://localhost:8080/BOOKMARKS/connect", {
                     params: {
@@ -90,13 +85,10 @@ class Bookmarks extends Component {
                     }
                 })
                 .then(res => {
-                    console.log("res.data");
                     console.log(res.data);
                     let updateComponent = findDOMNode(this.refs[res.data.name]);
-                    // console.log("UPDATE COMPONENT HERE: ");
-                    // console.log(updateComponent)
                     updateComponent.style.color = "rgb(255,255,255)"
-                    resolve(updateComponent.style.backgroundColor = res.data.color);
+                    resolve(updateComponent.style.backgroundColor = res.data.backgroundColor);
                 })
                 .catch(err => {
                     console.log(err);
@@ -134,107 +126,56 @@ class Bookmarks extends Component {
         };
     };
 
-    getStyle = props => {
-        if (props) {
-            return {background: props.color};
-        } else {
-            return {
-                background: "#FFF",
-                flexWrap: "wrap",
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                border: "1px dashed #BBB",
-                margin: "15px auto",
-                color: "#FFF",
-                minHeight: "88vh",
-                minWidth: "1200px"
-            };
-        }
+    getStyle = () => {
+        return {
+            background: "#FFF",
+            flexWrap: "wrap",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            border: "1px dashed #BBB",
+            margin: "15px auto",
+            color: "#FFF",
+            minHeight: "88vh",
+            minWidth: "1200px"
+        };
     };
 
-    navStyle = (color) => {
-        // if (props.id !== undefined) console.log(props.id)
-        if (color) {
-            console.log("color here " + color)
-            return {
-                background: color
-            }
-        } else {
-            return {
-                borderColor: "#E3E3E3",
-                background: "#7A8B99",
-                color: "#EEE",
-                fontSize: "18px",
-                flexWrap: "wrap",
-                display: "flex",
-                justifyContent: "space-around",
-                flex: "1",
-                alignItems: "center",
-                margin: "15px auto",
-                padding: "15px auto",
-                minHeight: "15vh",
-                minWidth: "6vh",
-                cursor: "pointer"
-            }
-        }
+    navStyle = () => {
+        return {
+            borderColor: "#E3E3E3",
+            background: "#7A8B99",
+            color: "#EEE",
+            fontSize: "18px",
+            flexWrap: "wrap",
+            display: "flex",
+            justifyContent: "space-around",
+            flex: "1",
+            alignItems: "center",
+            margin: "15px auto",
+            padding: "15px auto",
+            minHeight: "15vh",
+            minWidth: "6vh",
+            cursor: "pointer"
+        };
     };
 
-    liftStyle = props => {
-        if (props) {
-            if (this.state[props.name]) {
-                console.log(this.state)
-                return {
-                    bordercolor: "#D3D3E3",
-                    background: props.color,
-                    color: "#EEE",
-                    fontSize: "16px",
-                    flexWrap: "wrap",
-                    display: "flex",
-                    flex: "1",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    margin: "50px 20px auto",
-                    padding: "15px auto",
-                    minHeight: "8vh",
-                    minWidth: "8vh",
-                    cursor: "pointer"
-                };
-            } else {
-                return {
-                    bordercolor: "#D3D3E3",
-                    background: "#6A7A88",
-                    color: "#EEE",
-                    fontSize: "16px",
-                    flexWrap: "wrap",
-                    display: "flex",
-                    flex: "1",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    margin: "50px 20px auto",
-                    padding: "15px auto",
-                    minHeight: "8vh",
-                    minWidth: "8vh",
-                    cursor: "pointer"
-                };
-            }
-        } else {
-            return {
-                bordercolor: "#D3D3E3",
-                background: "#6A7A88",
-                color: "#EEE",
-                fontSize: "16px",
-                flexWrap: "wrap",
-                display: "flex",
-                flex: "1",
-                justifyContent: "space-around",
-                alignItems: "center",
-                margin: "50px 20px auto",
-                padding: "15px auto",
-                minHeight: "8vh",
-                minWidth: "8vh",
-                cursor: "pointer"
-            };
+    liftStyle = () => {
+        return {
+            bordercolor: "#D3D3E3",
+            background: "#6A7A88",
+            color: "#EEE",
+            fontSize: "16px",
+            flexWrap: "wrap",
+            display: "flex",
+            flex: "1",
+            justifyContent: "space-around",
+            alignItems: "center",
+            margin: "50px 20px auto",
+            padding: "15px auto",
+            minHeight: "8vh",
+            minWidth: "8vh",
+            cursor: "pointer"
         };
     };
 

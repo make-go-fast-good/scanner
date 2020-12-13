@@ -32,7 +32,7 @@ Router.get(
             // console.log("ERROR HERE:" + request.query.error)
             // console.log("QUERY NAME HERE: " + request.query.m_name)
             // console.log("SRM STATUS HERE: " + request.query.srmStatus)
-            const operationMode = await axios
+            const keyMode = await axios
                 .get(request.query.keyMode,) //for GET
                 .then(res => {
                     return res.data
@@ -44,51 +44,82 @@ Router.get(
                 .get(request.query.srmStatus,) //for GET
                 .then(res => {
                     let status = res.data
-                    status = status.substring(80, 90)
+                    status = status.substring(78, 88);
+                    // regex to remove html tag, the lenght of returned status varies
+                    status = status.replace(/[td<>\/]/g, '');
+
+                    // switch (request.query.m_name) {
+                    //     // For whatever reason the navettes don't send status in a consistent manner
+                    //     case "N2203":
+                    //         status = status.substring(81, 83);
+                    //         break;
+                    //     case "N3201":
+                    //     case "N3202":
+                    //     case "N2202":
+                    //     case "N5201":
+                    //     case "N6101":
+                    //     case "NL2084":
+                    //     case "NL2085":
+                    //     case "NL3085":
+                    //         status = status.substring(82, 84);
+                    //         break;
+                    //     default:
+                    //         status = status.substring(83, 85);
+                    //         break;
+                    // }
+                    // status = status.substring(80, 90)
                     return status
                 })
                 .catch(err => {
                     console.log(err);
                 })
-            const navError = await axios
+            const navErrorString = await axios
                 .get(request.query.error,) //for GET
                 .then(res => {
                     let err = res.data
                     // remove whitespace from string
                     // err = parseInt(err.replace(/\s+/g, ""));
                     err = err.replace(/\s+/g, "");
-                    parseInt(err, 10) ? err = true : err = false;
+                    // parseInt(err, 10) ? err = true : err = false;
                     return err
                 })
                 .catch(err => {
                     console.log(err);
                 })
-            // console.log("OPERATION MODE: " + operationMode)
-            // console.log("ERROR : " + navError)
+            // console.log("OPERATION MODE: " + keyMode)
+            // console.log("ERROR : " + navErrorString)
             // console.log("SRM STATUS : " + srmStatus)
+            //
+            let navError;
+            parseInt(navErrorString) > 0 ? navError = true : navError = false
 
             let status = {
                 name: request.query.m_name,
-                color: "rgba(0, 0, 0, 0.8)",
-                srmStatus: srmStatus
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                srmStatus: srmStatus,
+                keyMode: keyMode,
+                navErrorString: navErrorString,
+                navError: navError
             }
 
-            switch (operationMode) {
+            switch (keyMode) {
                 case "auto":
-                    status.color = "rgba(0, 215, 0, 0.7)"
+                    status.backgroundColor = "rgba(0, 215, 0, 0.7)"
                     break;
                 case "semi":
-                    status.color = "rgba(192, 192, 192, 0.7)"
+                    status.backgroundColor = "rgba(192, 192, 192, 0.7)"
                     break;
                 case "local":
-                    status.color = "rgba(200, 0, 0, 0.7)"
+                    status.backgroundColor = "rgba(200, 0, 0, 0.7)"
                     break;
                 case "undefined":
-                    status.color = "rgba(192, 192, 192, 0.7)"
+                    status.backgroundColor = "rgba(192, 192, 192, 0.7)"
                     break;
             }
 
-            if (navError === true) status.color = "rgba(200, 0, 0, 0.7)"
+            srmStatus == "10" ? status.backgroundColor = "rgba(0, 215, 0, 0.7)" : status.backgroundColor = "rgba(192, 192, 192, 0.7)"
+
+            if (navError === true) status.backgroundColor = "rgba(200, 0, 0, 0.7)"
             // <tr><td>I</td><td>2020-12-12 17:35:15:725</td><td id="desc"></td><td>41780</td><td>
             response.send(status);
         } else {
