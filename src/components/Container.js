@@ -1,6 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import MaterialTable from "material-table";
 import Default from "./Default";
+import Coordinates from "./Coordinates";
 import TT13Columns from "../config/TT13Columns";
 import DB171Columns from "../config/DB171Columns";
 import DB421Columns from "../config/DB421Columns";
@@ -66,7 +67,7 @@ export class Container extends Component {
                 : (_columns = tableColumns.extended);
             return (
                 <MaterialTable
-                    style={{marginTop: "15px"}}
+                    style={{ marginTop: "15px" }}
                     key={this.props.key}
                     title={this.props.area}
                     columns={_columns}
@@ -77,12 +78,12 @@ export class Container extends Component {
                             icon: "refresh",
                             tooltip: "Refresh PLC Data",
                             isFreeAction: true,
-                            onClick: (e) => {
-                                console.log(e)
-                                let conn = this.props.area;
-                                e.preventDefault();
-                                this.props.getData({conn});
-                            }
+                                onClick: (e) =>{
+                                    console.log(e)
+                                    let conn = this.props.area;
+                                    e.preventDefault();
+                                    this.props.getData({ conn });
+                                }
                         },
                         {
                             icon:

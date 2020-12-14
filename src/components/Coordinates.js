@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PARAMS from "../config/Coordinates.json";
 import Nav from "./pages/Coordinates/Navettes.js";
 
@@ -63,17 +63,17 @@ class Coordinates extends Component {
 
     render() {
 
-        return (
-            <div style={this.getStyle()}>
-                <div id="one">
-                </div>
-                <div id="two">
-                </div>
-                <div id="three">
-                    <Nav
-                        nav={this.state.navs}
-                    />
-                </div>
+        return(
+             <div style={this.getStyle()}>
+                 <div id="one">
+                 </div>
+                 <div id="two">
+                 </div>
+                 <div id="three">
+                     <Nav
+                         nav={this.state.navs}
+                     />
+                 </div>
             </div>
         )
     }

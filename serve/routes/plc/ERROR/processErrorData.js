@@ -17,13 +17,11 @@ const process = function processPlcData(data) {
 
   //lets construct our object
   for (let i = 0; i < 1000; i++) {
-
     //Add one so the index starts at one in the table.
     plcData[i] = new dataRow(i + 1);
 
     //row is an array of the raw object keys from the callback function
-    let row = dataKeys.filter(val => {
-
+    let row = dataKeys.filter((val) => {
       //We want the keys to be between (4.0 - 14.0) - (i * 14)
       return parseFloat(val) <= i * 14 + 14 && parseFloat(val) >= 4 + i * 14;
     });
@@ -34,7 +32,7 @@ const process = function processPlcData(data) {
     let elapsed = 631152000000;
 
     row.forEach((key, index) => {
-         //Siemens Date data type return a hex value for number of days since Jan 1, 1990
+      //Siemens Date data type return a hex value for number of days since Jan 1, 1990
       //Convert that value to milliseconds since Jan 1, 1990, then add ms between 1990 & 1970.
       //86,400,000 milliseconds in every day.
       //631,152,000,000 milliseconds between 1970 to 1990
@@ -76,6 +74,6 @@ const process = function processPlcData(data) {
   }
 
   return plcData;
-}
+};
 
-module.exports = process
+module.exports = process;

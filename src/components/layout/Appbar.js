@@ -15,7 +15,8 @@ import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-import BookmarksTwoToneIcon from '@material-ui/icons/BookmarksTwoTone';
+import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +62,7 @@ export default function DenseAppBar(props) {
           <IconButton
             size="medium"
             aria-label="menuLogo"
-            className= {classes.menuButton}
+            className={classes.menuButton}
             onClick={handleClick}
           >
             <MenuIcon />
@@ -91,7 +92,7 @@ export default function DenseAppBar(props) {
             </MenuItem>
             <MenuItem component={Link} to="/TT13" onClick={handleClose}>
               <EmailTwoToneIcon className={classes.menuButton} />
-              TT13 Data
+              AG-Link
             </MenuItem>
             <MenuItem component={Link} to="/SCANNERS" onClick={handleClose}>
               <ScannerTwoToneIcon className={classes.menuButton} />
@@ -102,6 +103,10 @@ export default function DenseAppBar(props) {
             </MenuItem>
             <MenuItem component={Link} to="/BOOKMARKS" onClick={handleClose}>
               <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
+            </MenuItem>
+            <MenuItem component={Link} to="/HEX" onClick={handleClose}>
+              <SearchIcon className={classes.menuButton} />
+              Hex Parser
             </MenuItem>
           </Menu>
         </Toolbar>
