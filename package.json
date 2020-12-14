@@ -28,10 +28,10 @@
     "react-modal-image": "^2.5.0",
     "react-pdf": "^5.0.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^4.0.1",
     "react-spinners": "^0.8.0",
     "react-switch": "^5.0.1",
-    "serve": "^11.3.0",
+    "serve": "^11.3.2",
     "typescript": "^4.0.3"
   },
   "scripts": {
