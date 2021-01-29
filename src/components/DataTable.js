@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { css } from "@emotion/core";
+import {css} from "@emotion/core";
 import axios from "axios";
-import PlcConnections from "./PlcConnections";
-import { Container } from "./Container";
-
+import React, {Component} from "react";
+import {BrowserRouter as Router} from "react-router-dom";
 import "../App.css";
+import {Container} from "./Container";
+import PlcConnections from "./PlcConnections";
 
 class DataTable extends Component {
   state = {
@@ -15,18 +14,40 @@ class DataTable extends Component {
     options: {},
     loading: false,
     paging: true,
+        pageSize: 20,
     error: undefined,
+    bodyHeight: "61vh",
+  };
+
+  pagination = () => {
+    this.setState({
+      paging: !this.state.paging,
+    });
+  };
+
+  bodyHeight = () => {
+    if (this.state.paging == true) {
+      this.setState({
+        bodyHeight: "61vh",
+      });
+    } else {
+      this.setState({
+        bodyHeight: "62vh",
+      });
+    }
   };
 
   makeTable = (plcData, area) => {
     this.setState({
       area: area,
       data: plcData,
+      pagination: this.pagination.bind(this, true),
       options: {
-        maxBodyHeight: "61vh", // makes the headers fixed if the body size is larger.
-        paging: true,
+        // maxBodyHeight: this.bodyHeight.bind(this), // makes the headers fixed if the body size is larger.
+        maxBodyHeight: this.state.bodyHeight,
+        paging: this.state.paging,
         exportButton: true,
-        pageSize: 20,
+        pageSize: this.state.pageSize,
         search: true,
         grouping: true,
         sorting: true,
@@ -46,8 +67,6 @@ class DataTable extends Component {
   // Select Connection
   getData = (area) => {
     this.setState({ loading: true, area: area.conn });
-    console.log("heres the url");
-    console.log("http://localhost:8080/" + this.state.type + "/connect");
     axios
       .get("http://localhost:8080/" + this.state.type + "/connect", {
         params: {
@@ -56,8 +75,6 @@ class DataTable extends Component {
       })
       .then((res) => {
         this.makeTable(res.data, area.conn);
-        console.log("res.data");
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
