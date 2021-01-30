@@ -58,11 +58,7 @@ export default function ListRouter(props) {
   return (
     <div style={{ display: "flex", flexDirection: "wrap" }}>
       <Paper elevation={2} style={{ flex: "1" }} className={classes.root}>
-        <ListItemLink
-          to={props.to}
-          primary={props.primary}
-          icon={props.icon}
-        />
+        <ListItemLink to={props.to} primary={props.primary} icon={props.icon} />
       </Paper>
     </div>
   );
@@ -73,5 +69,3 @@ ListItemLink.propTypes = {
   primary: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
 };
-
-

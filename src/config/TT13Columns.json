@@ -1,194 +1,412 @@
 {
-    "condensed": [{"title": "Index","field": "index"},
-        {"title": "Date","field": "data.datum"},
-        {"title": "Time","field": "data.uhr"},
-        {"title": "Fpnr","field": "data.ta_data_ident_fpnr"},
-        {"title": "Scanner","field": "data.ta_data_ident_scanner"},
-        {"title": "Barcode","field": "barcode"},
-        {"title": "Order","field": "data.ta_data_order"},
-        {"title": "Origin","field": "data.ta_data_herkunft"},
-        {"title": "Location","field": "data.ta_data_standort"},
-        {"title": "Destination","field": "data.ta_data_ziel"},
-        {"title": "Forced_Dest","field": "data.ta_data_zwangsziel"},
-        {"title": "Ack","field": "data.ta_data_ack"},
-        {"title": "Overflow","field": "data.ta_data_order_ext_ueberlauf"},
-        {"title": "No_Weight Measure","field": "data.ta_data_order_ext_kein_gewicht"},
-        {"title": "No_Contour Measure","field": "data.ta_data_order_ext_kein_kontur"},
-        {"title": "Special_1","field": "data.ta_data_order_ext_sonder_1"},
-        {"title": "Special_2","field": "data.ta_data_order_ext_sonder_2"},
-        {"title": "Special_3","field": "data.ta_data_order_ext_sonder_3"},
-        {"title": "Order Received","field": "data.ta_data_status_order_empf"},
-        {"title": "Blocked","field": "data.ta_data_status_gesperrt"},
-        {"title": "Released","field": "data.ta_data_status_freigabe"},
-        {"title": "Dest_OK","field": "data.ta_data_status_ziel_ok"},
-        {"title": "TDB_Known","field": "data.ta_data_status_tdb_bekannt"},
-        {"title": "New_data received","field": "data.ta_data_status_ndr"},
-        {"title": "No_Scan","field": "data.ta_data_ack_ext_noscan"},
-        {"title": "No_Read","field": "data.ta_data_ack_ext_noread"},
-        {"title": "No_Data","field": "data.ta_data_ack_ext_nodata"},
-        {"title": "Barcode present","field": "data.ta_data_status_barcode"},
-        {"title": "Complete","field": "data.ta_data_status_data_komplett"},
-        {"title": "Zombie","field": "data.ta_data_status_ta_zombie"}
-    ],
-    "extended": [{"title": "Index","field": "index"},
-        {"title": "telegram","field": "data.tele_typ"},
-        {"title": "start_date","field": "data.datum_start"},
-        {"title": "start_time","field": "data.uhr_start"},
-        {"title": "date","field": "data.datum"},
-        {"title": "time","field": "data.uhr"},
-        {"title": "dataset occupied","field": "data.status_belegt"},
-        {"title": "te_in plc_known","field": "data.status_te_bekannt"},
-        {"title": "tt13_rec","field": "data.status_order_empf"},
-        {"title": "data_free","field": "data.status_data_free"},
-        {"title": "ta_zombie","field": "data.status_ta_zombie"},
-        {"title": "ta_dataset occupied","field": "data.ta_data_status_belegt"},
-        {"title": "ta_tt13 received","field": "data.ta_data_status_order_empf"},
-        {"title": "blocked","field": "data.ta_data_status_gesperrt"},
-        {"title": "released","field": "data.ta_data_status_freigabe"},
-        {"title": "destination_ok","field": "data.ta_data_status_ziel_ok"},
-        {"title": "ta-data_set known_in_TDB","field": "data.ta_data_status_tdb_bekannt"},
-        {"title": "res_0_6","field": "data.ta_data_status_res_0_6"},
-        {"title": "new_data received","field": "data.ta_data_status_ndr"},
-        {"title": "noscan","field": "data.ta_data_status_noscan"},
-        {"title": "noread","field": "data.ta_data_status_noread"},
-        {"title": "barcode present","field": "data.ta_data_status_barcode"},
-        {"title": "long_barcode","field": "data.ta_data_status_bc_lang"},
-        {"title": "res_1_4","field": "data.ta_data_status_res_1_4"},
-        {"title": "res_1_5","field": "data.ta_data_status_res_1_5"},
-        {"title": "data complete","field": "data.ta_data_status_data_komplett"},
-        {"title": "ta_zombie","field": "data.ta_data_status_ta_zombie"},
-        {"title": "origin","field": "data.ta_data_herkunft"},
-        {"title": "location","field": "data.ta_data_standort"},
-        {"title": "destination","field": "data.ta_data_ziel"},
-        {"title": "forced destination","field": "data.ta_data_zwangsziel"},
-        {"title": "fpnr","field": "data.ta_data_ident_fpnr"},
-        {"title": "scanner","field": "data.ta_data_ident_scanner"},
-        {"title": "barcode","field": "barcode"},
-        {"title": "order","field": "data.ta_data_order"},
-        {"title": "order_ext overflow","field": "data.ta_data_order_ext_ueberlauf"},
-        {"title": "order_ext no_weight_measure","field": "data.ta_data_order_ext_kein_gewicht"},
-        {"title": "order_ext no_contour_measure","field": "data.ta_data_order_ext_kein_kontur"},
-        {"title": "order_ext special_1","field": "data.ta_data_order_ext_sonder_1"},
-        {"title": "order_ext special_2","field": "data.ta_data_order_ext_sonder_2"},
-        {"title": "order_ext special_3","field": "data.ta_data_order_ext_sonder_3"},
-        {"title": "order_ext transport_order_for_place","field": "data.ta_data_order_ext_ta_for_sc"},
-        {"title": "order_ext kein_del","field": "data.ta_data_order_ext_kein_del"},
-        {"title": "ack","field": "data.ta_data_ack"},
-        {"title": "ack_ext contour fault","field": "data.ta_data_ack_ext_kont_feh"},
-        {"title": "ack_ext weight error","field": "data.ta_data_ack_ext_gew_feh"},
-        {"title": "ack_ext overflow","field": "data.ta_data_ack_ext_ueberlauf"},
-        {"title": "ack_ext forced destination","field": "data.ta_data_ack_ext_zwangsziel"},
-        {"title": "ack_ext nodata","field": "data.ta_data_ack_ext_nodata"},
-        {"title": "ack_ext noread","field": "data.ta_data_ack_ext_noread"},
-        {"title": "ack_ext noscan","field": "data.ta_data_ack_ext_noscan"},
-        {"title": "ack_ext general fault","field": "data.ta_data_ack_ext_allg_feh"},
-        {"title": "contour_limit dataset_occupied","field": "data.ta_data_kont_limit_belegt"},
-        {"title": "contour_limit min_length","field": "data.ta_data_kont_limit_bel_min_laenge"},
-        {"title": "contour_limit max_length","field": "data.ta_data_kont_limit_bel_max_laenge"},
-        {"title": "contour_limit min_width","field": "data.ta_data_kont_limit_bel_min_breite"},
-        {"title": "contour_limit max_width","field": "data.ta_data_kont_limit_bel_max_breite"},
-        {"title": "contour_limit min_height","field": "data.ta_data_kont_limit_bel_min_hoehe"},
-        {"title": "contour_limit max_height","field": "data.ta_data_kont_limit_bel_max_hoehe"},
-        {"title": "contour_limit min_weight","field": "data.ta_data_kont_limit_bel_min_gewicht"},
-        {"title": "contour_limit max_weight","field": "data.ta_data_kont_limit_bel_max_gewicht"},
-        {"title": "contour_limit min_length","field": "data.ta_data_kont_limit_min_laenge"},
-        {"title": "contour_limit max_length","field": "data.ta_data_kont_limit_max_laenge"},
-        {"title": "contour_limit min_width","field": "data.ta_data_kont_limit_min_breite"},
-        {"title": "contour_limit max_width","field": "data.ta_data_kont_limit_max_breite"},
-        {"title": "contour_limit min_height","field": "data.ta_data_kont_limit_min_hoehe"},
-        {"title": "contour_limit max_height","field": "data.ta_data_kont_limit_max_hoehe"},
-        {"title": "contour_limit min_weight","field": "data.ta_data_kont_limit_min_gewicht"},
-        {"title": "contour_limit max_weight","field": "data.ta_data_kont_limit_max_gewicht"},
-        {"title": "contour data_exists","field": "data.ta_data_kontur_belegt"},
-        {"title": "contour length","field": "data.ta_data_kontur_bel_laenge"},
-        {"title": "contour width","field": "data.ta_data_kontur_bel_breite"},
-        {"title": "contour height","field": "data.ta_data_kontur_bel_hoehe"},
-        {"title": "contour weight","field": "data.ta_data_kontur_bel_gewicht"},
-        {"title": "contour barcode_check","field": "data.ta_data_kontur_bel_bc"},
-        {"title": "contour tu_orientation","field": "data.ta_data_kontur_bel_tu_or"},
-        {"title": "contour plc","field": "data.ta_data_kontur_bel_plc"},
-        {"title": "contour special_2","field": "data.ta_data_kontur_bel_sonder_2"},
-        {"title": "contour special_1","field": "data.ta_data_kontur_bel_sonder_1"},
-        {"title": "contour tu_type id","field": "data.ta_data_kontur_bel_tu_typ_id"},
-        {"title": "contour length","field": "data.ta_data_kontur_laenge"},
-        {"title": "contour width","field": "data.ta_data_kontur_breite"},
-        {"title": "contour height","field": "data.ta_data_kontur_hoehe"},
-        {"title": "contour weight","field": "data.ta_data_kontur_gewicht"},
-        {"title": "contour res_9","field": "data.ta_data_kontur_res_9"},
-        {"title": "contour res_10","field": "data.ta_data_kontur_res_10"},
-        {"title": "contour res_11","field": "data.ta_data_kontur_res_11"},
-        {"title": "contour res_12","field": "data.ta_data_kontur_res_12"},
-        {"title": "contour res_13","field": "data.ta_data_kontur_res_13"},
-        {"title": "contour res_14","field": "data.ta_data_kontur_res_14"},
-        {"title": "contour_barcode check_noread_li","field": "data.ta_data_kontur_bc_noread_li"},
-        {"title": "contour_barcode check_noread_re","field": "data.ta_data_kontur_bc_noread_re"},
-        {"title": "contour_barcode check_noread_v","field": "data.ta_data_kontur_bc_noread_v"},
-        {"title": "contour_barcode check_noread_h","field": "data.ta_data_kontur_bc_noread_h"},
-        {"title": "contour_barcode check_noread_o","field": "data.ta_data_kontur_bc_noread_o"},
-        {"title": "contour_barcode check_res_5","field": "data.ta_data_kontur_bc_res_5"},
-        {"title": "contour_barcode check_delta","field": "data.ta_data_kontur_bc_delta"},
-        {"title": "contour_barcode check_check_ok","field": "data.ta_data_kontur_bc_check_ok"},
-        {"title": "contour tu_orientation","field": "data.ta_data_kontur_tu_or"},
-        {"title": "contour pair_creation active","field": "data.ta_data_kontur_plc_pair_run"},
-        {"title": "contour pair_creation aborted","field": "data.ta_data_kontur_plc_pair_nio"},
-        {"title": "contour pair_creation successful","field": "data.ta_data_kontur_plc_pair_io"},
-        {"title": "contour plc_3","field": "data.ta_data_kontur_plc_3"},
-        {"title": "contour plc_4","field": "data.ta_data_kontur_plc_4"},
-        {"title": "contour plc_5","field": "data.ta_data_kontur_plc_5"},
-        {"title": "contour plc_6","field": "data.ta_data_kontur_plc_6"},
-        {"title": "contour plc_7","field": "data.ta_data_kontur_plc_7"},
-        {"title": "contour UEE_pair not_built","field": "data.ta_data_kontur_sonder_2_0"},
-        {"title": "contour UEE_triplet not_built","field": "data.ta_data_kontur_sonder_2_1"},
-        {"title": "contour UEE_quarted not_built","field": "data.ta_data_kontur_sonder_2_2"},
-        {"title": "contour special_2_3","field": "data.ta_data_kontur_sonder_2_3"},
-        {"title": "contour special_2_4","field": "data.ta_data_kontur_sonder_2_4"},
-        {"title": "contour special_2_5","field": "data.ta_data_kontur_sonder_2_5"},
-        {"title": "contour special_2_6","field": "data.ta_data_kontur_sonder_2_6"},
-        {"title": "contour special_2_7","field": "data.ta_data_kontur_sonder_2_7"},
-        {"title": "contour LAID_printing faults","field": "data.ta_data_kontur_sonder_1_0"},
-        {"title": "contour LAID_data mismatch","field": "data.ta_data_kontur_sonder_1_1"},
-        {"title": "contour LAID_no_printer data_for_tu","field": "data.ta_data_kontur_sonder_1_2"},
-        {"title": "contour special_1_3","field": "data.ta_data_kontur_sonder_1_3"},
-        {"title": "contour special_1_4","field": "data.ta_data_kontur_sonder_1_4"},
-        {"title": "contour special_1_5","field": "data.ta_data_kontur_sonder_1_5"},
-        {"title": "contour special_1_6","field": "data.ta_data_kontur_sonder_1_6"},
-        {"title": "contour special_1_7","field": "data.ta_data_kontur_sonder_1_7"},
-        {"title": "contour tu_type id_0","field": "data.ta_data_kontur_tu_typ_id_0"},
-        {"title": "contour tu_type id_1","field": "data.ta_data_kontur_tu_typ_id_1"},
-        {"title": "contour tu_type id_2","field": "data.ta_data_kontur_tu_typ_id_2"},
-        {"title": "contour tu_type id_3","field": "data.ta_data_kontur_tu_typ_id_3"},
-        {"title": "contour tu_type id_4","field": "data.ta_data_kontur_tu_typ_id_4"},
-        {"title": "contour tu_type id_5","field": "data.ta_data_kontur_tu_typ_id_5"},
-        {"title": "contour tu_type id_6","field": "data.ta_data_kontur_tu_typ_id_6"},
-        {"title": "contour tu_type id_7","field": "data.ta_data_kontur_tu_typ_id_7"},
-        {"title": "amount_of alt_destinations","field": "data.ta_data_alt_dest_anz_alt_dest"},
-        {"title": "alt_dest[1]","field": "data.ta_data_alt_dest_alt_dest[1]"},
-        {"title": "alt_dest[2]","field": "data.ta_data_alt_dest_alt_dest[2]"},
-        {"title": "alt_dest[3]","field": "data.ta_data_alt_dest_alt_dest[3]"},
-        {"title": "alt_dest[4]","field": "data.ta_data_alt_dest_alt_dest[4]"},
-        {"title": "alt_dest[5]","field": "data.ta_data_alt_dest_alt_dest[5]"},
-        {"title": "alt_dest[6]","field": "data.ta_data_alt_dest_alt_dest[6]"},
-        {"title": "alt_dest[7]","field": "data.ta_data_alt_dest_alt_dest[7]"},
-        {"title": "alt_dest[8]","field": "data.ta_data_alt_dest_alt_dest[8]"},
-        {"title": "alt_dest[9]","field": "data.ta_data_alt_dest_alt_dest[9]"},
-        {"title": "alt_dest[10]","field": "data.ta_data_alt_dest_alt_dest[10]"},
-        {"title": "alt_dest[11]","field": "data.ta_data_alt_dest_alt_dest[11]"},
-        {"title": "alt_dest[12]","field": "data.ta_data_alt_dest_alt_dest[12]"},
-        {"title": "alt_dest[13]","field": "data.ta_data_alt_dest_alt_dest[13]"},
-        {"title": "alt_dest[14]","field": "data.ta_data_alt_dest_alt_dest[14]"},
-        {"title": "alt_dest[15]","field": "data.ta_data_alt_dest_alt_dest[15]"},
-        {"title": "alt_dest[16]","field": "data.ta_data_alt_dest_alt_dest[16]"},
-        {"title": "alt_dest[17]","field": "data.ta_data_alt_dest_alt_dest[17]"},
-        {"title": "alt_dest[18]","field": "data.ta_data_alt_dest_alt_dest[18]"},
-        {"title": "alt_dest[19]","field": "data.ta_data_alt_dest_alt_dest[19]"},
-        {"title": "alt_dest[20]","field": "data.ta_data_alt_dest_alt_dest[20]"},
-        {"title": "tu_info","field": "data.ta_data_te_info"},
-        {"title": "index_to place_data","field": "data.ta_data_platz_idx"},
-        {"title": "index_to transport_order-list","field": "data.ta_data_taidx"},
-        {"title": "index_to transport_database","field": "data.ta_data_tdb_idx"},
-        {"title": "data_zombie counter","field": "data.ta_data_zombie"},
-        {"title": "ext_sps_dummy","field": "data.ta_data_ext_sps_dummy"},
-        {"title": "zombie counter","field": "data.zombie"},
-        {"title": "ext_dh_dummy","field": "data.ext_dh_dummy"}
-    ]
+  "condensed": [
+    { "title": "Index", "field": "index" },
+    { "title": "Date", "field": "data.datum" },
+    { "title": "Time", "field": "data.uhr" },
+    { "title": "Fpnr", "field": "data.ta_data_ident_fpnr" },
+    { "title": "Scanner", "field": "data.ta_data_ident_scanner" },
+    { "title": "Barcode", "field": "barcode" },
+    { "title": "Order", "field": "data.ta_data_order" },
+    { "title": "Origin", "field": "data.ta_data_herkunft" },
+    { "title": "Location", "field": "data.ta_data_standort" },
+    { "title": "Destination", "field": "data.ta_data_ziel" },
+    { "title": "Forced_Dest", "field": "data.ta_data_zwangsziel" },
+    { "title": "Ack", "field": "data.ta_data_ack" },
+    { "title": "Overflow", "field": "data.ta_data_order_ext_ueberlauf" },
+    {
+      "title": "No_Weight Measure",
+      "field": "data.ta_data_order_ext_kein_gewicht"
+    },
+    {
+      "title": "No_Contour Measure",
+      "field": "data.ta_data_order_ext_kein_kontur"
+    },
+    { "title": "Special_1", "field": "data.ta_data_order_ext_sonder_1" },
+    { "title": "Special_2", "field": "data.ta_data_order_ext_sonder_2" },
+    { "title": "Special_3", "field": "data.ta_data_order_ext_sonder_3" },
+    { "title": "Order Received", "field": "data.ta_data_status_order_empf" },
+    { "title": "Blocked", "field": "data.ta_data_status_gesperrt" },
+    { "title": "Released", "field": "data.ta_data_status_freigabe" },
+    { "title": "Dest_OK", "field": "data.ta_data_status_ziel_ok" },
+    { "title": "TDB_Known", "field": "data.ta_data_status_tdb_bekannt" },
+    { "title": "New_data received", "field": "data.ta_data_status_ndr" },
+    { "title": "No_Scan", "field": "data.ta_data_ack_ext_noscan" },
+    { "title": "No_Read", "field": "data.ta_data_ack_ext_noread" },
+    { "title": "No_Data", "field": "data.ta_data_ack_ext_nodata" },
+    { "title": "Barcode present", "field": "data.ta_data_status_barcode" },
+    { "title": "Complete", "field": "data.ta_data_status_data_komplett" },
+    { "title": "Zombie", "field": "data.ta_data_status_ta_zombie" }
+  ],
+  "extended": [
+    { "title": "Index", "field": "index" },
+    { "title": "telegram", "field": "data.tele_typ" },
+    { "title": "start_date", "field": "data.datum_start" },
+    { "title": "start_time", "field": "data.uhr_start" },
+    { "title": "date", "field": "data.datum" },
+    { "title": "time", "field": "data.uhr" },
+    { "title": "dataset occupied", "field": "data.status_belegt" },
+    { "title": "te_in plc_known", "field": "data.status_te_bekannt" },
+    { "title": "tt13_rec", "field": "data.status_order_empf" },
+    { "title": "data_free", "field": "data.status_data_free" },
+    { "title": "ta_zombie", "field": "data.status_ta_zombie" },
+    { "title": "ta_dataset occupied", "field": "data.ta_data_status_belegt" },
+    { "title": "ta_tt13 received", "field": "data.ta_data_status_order_empf" },
+    { "title": "blocked", "field": "data.ta_data_status_gesperrt" },
+    { "title": "released", "field": "data.ta_data_status_freigabe" },
+    { "title": "destination_ok", "field": "data.ta_data_status_ziel_ok" },
+    {
+      "title": "ta-data_set known_in_TDB",
+      "field": "data.ta_data_status_tdb_bekannt"
+    },
+    { "title": "res_0_6", "field": "data.ta_data_status_res_0_6" },
+    { "title": "new_data received", "field": "data.ta_data_status_ndr" },
+    { "title": "noscan", "field": "data.ta_data_status_noscan" },
+    { "title": "noread", "field": "data.ta_data_status_noread" },
+    { "title": "barcode present", "field": "data.ta_data_status_barcode" },
+    { "title": "long_barcode", "field": "data.ta_data_status_bc_lang" },
+    { "title": "res_1_4", "field": "data.ta_data_status_res_1_4" },
+    { "title": "res_1_5", "field": "data.ta_data_status_res_1_5" },
+    { "title": "data complete", "field": "data.ta_data_status_data_komplett" },
+    { "title": "ta_zombie", "field": "data.ta_data_status_ta_zombie" },
+    { "title": "origin", "field": "data.ta_data_herkunft" },
+    { "title": "location", "field": "data.ta_data_standort" },
+    { "title": "destination", "field": "data.ta_data_ziel" },
+    { "title": "forced destination", "field": "data.ta_data_zwangsziel" },
+    { "title": "fpnr", "field": "data.ta_data_ident_fpnr" },
+    { "title": "scanner", "field": "data.ta_data_ident_scanner" },
+    { "title": "barcode", "field": "barcode" },
+    { "title": "order", "field": "data.ta_data_order" },
+    {
+      "title": "order_ext overflow",
+      "field": "data.ta_data_order_ext_ueberlauf"
+    },
+    {
+      "title": "order_ext no_weight_measure",
+      "field": "data.ta_data_order_ext_kein_gewicht"
+    },
+    {
+      "title": "order_ext no_contour_measure",
+      "field": "data.ta_data_order_ext_kein_kontur"
+    },
+    {
+      "title": "order_ext special_1",
+      "field": "data.ta_data_order_ext_sonder_1"
+    },
+    {
+      "title": "order_ext special_2",
+      "field": "data.ta_data_order_ext_sonder_2"
+    },
+    {
+      "title": "order_ext special_3",
+      "field": "data.ta_data_order_ext_sonder_3"
+    },
+    {
+      "title": "order_ext transport_order_for_place",
+      "field": "data.ta_data_order_ext_ta_for_sc"
+    },
+    {
+      "title": "order_ext kein_del",
+      "field": "data.ta_data_order_ext_kein_del"
+    },
+    { "title": "ack", "field": "data.ta_data_ack" },
+    {
+      "title": "ack_ext contour fault",
+      "field": "data.ta_data_ack_ext_kont_feh"
+    },
+    {
+      "title": "ack_ext weight error",
+      "field": "data.ta_data_ack_ext_gew_feh"
+    },
+    { "title": "ack_ext overflow", "field": "data.ta_data_ack_ext_ueberlauf" },
+    {
+      "title": "ack_ext forced destination",
+      "field": "data.ta_data_ack_ext_zwangsziel"
+    },
+    { "title": "ack_ext nodata", "field": "data.ta_data_ack_ext_nodata" },
+    { "title": "ack_ext noread", "field": "data.ta_data_ack_ext_noread" },
+    { "title": "ack_ext noscan", "field": "data.ta_data_ack_ext_noscan" },
+    {
+      "title": "ack_ext general fault",
+      "field": "data.ta_data_ack_ext_allg_feh"
+    },
+    {
+      "title": "contour_limit dataset_occupied",
+      "field": "data.ta_data_kont_limit_belegt"
+    },
+    {
+      "title": "contour_limit min_length",
+      "field": "data.ta_data_kont_limit_bel_min_laenge"
+    },
+    {
+      "title": "contour_limit max_length",
+      "field": "data.ta_data_kont_limit_bel_max_laenge"
+    },
+    {
+      "title": "contour_limit min_width",
+      "field": "data.ta_data_kont_limit_bel_min_breite"
+    },
+    {
+      "title": "contour_limit max_width",
+      "field": "data.ta_data_kont_limit_bel_max_breite"
+    },
+    {
+      "title": "contour_limit min_height",
+      "field": "data.ta_data_kont_limit_bel_min_hoehe"
+    },
+    {
+      "title": "contour_limit max_height",
+      "field": "data.ta_data_kont_limit_bel_max_hoehe"
+    },
+    {
+      "title": "contour_limit min_weight",
+      "field": "data.ta_data_kont_limit_bel_min_gewicht"
+    },
+    {
+      "title": "contour_limit max_weight",
+      "field": "data.ta_data_kont_limit_bel_max_gewicht"
+    },
+    {
+      "title": "contour_limit min_length",
+      "field": "data.ta_data_kont_limit_min_laenge"
+    },
+    {
+      "title": "contour_limit max_length",
+      "field": "data.ta_data_kont_limit_max_laenge"
+    },
+    {
+      "title": "contour_limit min_width",
+      "field": "data.ta_data_kont_limit_min_breite"
+    },
+    {
+      "title": "contour_limit max_width",
+      "field": "data.ta_data_kont_limit_max_breite"
+    },
+    {
+      "title": "contour_limit min_height",
+      "field": "data.ta_data_kont_limit_min_hoehe"
+    },
+    {
+      "title": "contour_limit max_height",
+      "field": "data.ta_data_kont_limit_max_hoehe"
+    },
+    {
+      "title": "contour_limit min_weight",
+      "field": "data.ta_data_kont_limit_min_gewicht"
+    },
+    {
+      "title": "contour_limit max_weight",
+      "field": "data.ta_data_kont_limit_max_gewicht"
+    },
+    { "title": "contour data_exists", "field": "data.ta_data_kontur_belegt" },
+    { "title": "contour length", "field": "data.ta_data_kontur_bel_laenge" },
+    { "title": "contour width", "field": "data.ta_data_kontur_bel_breite" },
+    { "title": "contour height", "field": "data.ta_data_kontur_bel_hoehe" },
+    { "title": "contour weight", "field": "data.ta_data_kontur_bel_gewicht" },
+    { "title": "contour barcode_check", "field": "data.ta_data_kontur_bel_bc" },
+    {
+      "title": "contour tu_orientation",
+      "field": "data.ta_data_kontur_bel_tu_or"
+    },
+    { "title": "contour plc", "field": "data.ta_data_kontur_bel_plc" },
+    {
+      "title": "contour special_2",
+      "field": "data.ta_data_kontur_bel_sonder_2"
+    },
+    {
+      "title": "contour special_1",
+      "field": "data.ta_data_kontur_bel_sonder_1"
+    },
+    {
+      "title": "contour tu_type id",
+      "field": "data.ta_data_kontur_bel_tu_typ_id"
+    },
+    { "title": "contour length", "field": "data.ta_data_kontur_laenge" },
+    { "title": "contour width", "field": "data.ta_data_kontur_breite" },
+    { "title": "contour height", "field": "data.ta_data_kontur_hoehe" },
+    { "title": "contour weight", "field": "data.ta_data_kontur_gewicht" },
+    { "title": "contour res_9", "field": "data.ta_data_kontur_res_9" },
+    { "title": "contour res_10", "field": "data.ta_data_kontur_res_10" },
+    { "title": "contour res_11", "field": "data.ta_data_kontur_res_11" },
+    { "title": "contour res_12", "field": "data.ta_data_kontur_res_12" },
+    { "title": "contour res_13", "field": "data.ta_data_kontur_res_13" },
+    { "title": "contour res_14", "field": "data.ta_data_kontur_res_14" },
+    {
+      "title": "contour_barcode check_noread_li",
+      "field": "data.ta_data_kontur_bc_noread_li"
+    },
+    {
+      "title": "contour_barcode check_noread_re",
+      "field": "data.ta_data_kontur_bc_noread_re"
+    },
+    {
+      "title": "contour_barcode check_noread_v",
+      "field": "data.ta_data_kontur_bc_noread_v"
+    },
+    {
+      "title": "contour_barcode check_noread_h",
+      "field": "data.ta_data_kontur_bc_noread_h"
+    },
+    {
+      "title": "contour_barcode check_noread_o",
+      "field": "data.ta_data_kontur_bc_noread_o"
+    },
+    {
+      "title": "contour_barcode check_res_5",
+      "field": "data.ta_data_kontur_bc_res_5"
+    },
+    {
+      "title": "contour_barcode check_delta",
+      "field": "data.ta_data_kontur_bc_delta"
+    },
+    {
+      "title": "contour_barcode check_check_ok",
+      "field": "data.ta_data_kontur_bc_check_ok"
+    },
+    { "title": "contour tu_orientation", "field": "data.ta_data_kontur_tu_or" },
+    {
+      "title": "contour pair_creation active",
+      "field": "data.ta_data_kontur_plc_pair_run"
+    },
+    {
+      "title": "contour pair_creation aborted",
+      "field": "data.ta_data_kontur_plc_pair_nio"
+    },
+    {
+      "title": "contour pair_creation successful",
+      "field": "data.ta_data_kontur_plc_pair_io"
+    },
+    { "title": "contour plc_3", "field": "data.ta_data_kontur_plc_3" },
+    { "title": "contour plc_4", "field": "data.ta_data_kontur_plc_4" },
+    { "title": "contour plc_5", "field": "data.ta_data_kontur_plc_5" },
+    { "title": "contour plc_6", "field": "data.ta_data_kontur_plc_6" },
+    { "title": "contour plc_7", "field": "data.ta_data_kontur_plc_7" },
+    {
+      "title": "contour UEE_pair not_built",
+      "field": "data.ta_data_kontur_sonder_2_0"
+    },
+    {
+      "title": "contour UEE_triplet not_built",
+      "field": "data.ta_data_kontur_sonder_2_1"
+    },
+    {
+      "title": "contour UEE_quarted not_built",
+      "field": "data.ta_data_kontur_sonder_2_2"
+    },
+    {
+      "title": "contour special_2_3",
+      "field": "data.ta_data_kontur_sonder_2_3"
+    },
+    {
+      "title": "contour special_2_4",
+      "field": "data.ta_data_kontur_sonder_2_4"
+    },
+    {
+      "title": "contour special_2_5",
+      "field": "data.ta_data_kontur_sonder_2_5"
+    },
+    {
+      "title": "contour special_2_6",
+      "field": "data.ta_data_kontur_sonder_2_6"
+    },
+    {
+      "title": "contour special_2_7",
+      "field": "data.ta_data_kontur_sonder_2_7"
+    },
+    {
+      "title": "contour LAID_printing faults",
+      "field": "data.ta_data_kontur_sonder_1_0"
+    },
+    {
+      "title": "contour LAID_data mismatch",
+      "field": "data.ta_data_kontur_sonder_1_1"
+    },
+    {
+      "title": "contour LAID_no_printer data_for_tu",
+      "field": "data.ta_data_kontur_sonder_1_2"
+    },
+    {
+      "title": "contour special_1_3",
+      "field": "data.ta_data_kontur_sonder_1_3"
+    },
+    {
+      "title": "contour special_1_4",
+      "field": "data.ta_data_kontur_sonder_1_4"
+    },
+    {
+      "title": "contour special_1_5",
+      "field": "data.ta_data_kontur_sonder_1_5"
+    },
+    {
+      "title": "contour special_1_6",
+      "field": "data.ta_data_kontur_sonder_1_6"
+    },
+    {
+      "title": "contour special_1_7",
+      "field": "data.ta_data_kontur_sonder_1_7"
+    },
+    {
+      "title": "contour tu_type id_0",
+      "field": "data.ta_data_kontur_tu_typ_id_0"
+    },
+    {
+      "title": "contour tu_type id_1",
+      "field": "data.ta_data_kontur_tu_typ_id_1"
+    },
+    {
+      "title": "contour tu_type id_2",
+      "field": "data.ta_data_kontur_tu_typ_id_2"
+    },
+    {
+      "title": "contour tu_type id_3",
+      "field": "data.ta_data_kontur_tu_typ_id_3"
+    },
+    {
+      "title": "contour tu_type id_4",
+      "field": "data.ta_data_kontur_tu_typ_id_4"
+    },
+    {
+      "title": "contour tu_type id_5",
+      "field": "data.ta_data_kontur_tu_typ_id_5"
+    },
+    {
+      "title": "contour tu_type id_6",
+      "field": "data.ta_data_kontur_tu_typ_id_6"
+    },
+    {
+      "title": "contour tu_type id_7",
+      "field": "data.ta_data_kontur_tu_typ_id_7"
+    },
+    {
+      "title": "amount_of alt_destinations",
+      "field": "data.ta_data_alt_dest_anz_alt_dest"
+    },
+    { "title": "alt_dest[1]", "field": "data.ta_data_alt_dest_alt_dest[1]" },
+    { "title": "alt_dest[2]", "field": "data.ta_data_alt_dest_alt_dest[2]" },
+    { "title": "alt_dest[3]", "field": "data.ta_data_alt_dest_alt_dest[3]" },
+    { "title": "alt_dest[4]", "field": "data.ta_data_alt_dest_alt_dest[4]" },
+    { "title": "alt_dest[5]", "field": "data.ta_data_alt_dest_alt_dest[5]" },
+    { "title": "alt_dest[6]", "field": "data.ta_data_alt_dest_alt_dest[6]" },
+    { "title": "alt_dest[7]", "field": "data.ta_data_alt_dest_alt_dest[7]" },
+    { "title": "alt_dest[8]", "field": "data.ta_data_alt_dest_alt_dest[8]" },
+    { "title": "alt_dest[9]", "field": "data.ta_data_alt_dest_alt_dest[9]" },
+    { "title": "alt_dest[10]", "field": "data.ta_data_alt_dest_alt_dest[10]" },
+    { "title": "alt_dest[11]", "field": "data.ta_data_alt_dest_alt_dest[11]" },
+    { "title": "alt_dest[12]", "field": "data.ta_data_alt_dest_alt_dest[12]" },
+    { "title": "alt_dest[13]", "field": "data.ta_data_alt_dest_alt_dest[13]" },
+    { "title": "alt_dest[14]", "field": "data.ta_data_alt_dest_alt_dest[14]" },
+    { "title": "alt_dest[15]", "field": "data.ta_data_alt_dest_alt_dest[15]" },
+    { "title": "alt_dest[16]", "field": "data.ta_data_alt_dest_alt_dest[16]" },
+    { "title": "alt_dest[17]", "field": "data.ta_data_alt_dest_alt_dest[17]" },
+    { "title": "alt_dest[18]", "field": "data.ta_data_alt_dest_alt_dest[18]" },
+    { "title": "alt_dest[19]", "field": "data.ta_data_alt_dest_alt_dest[19]" },
+    { "title": "alt_dest[20]", "field": "data.ta_data_alt_dest_alt_dest[20]" },
+    { "title": "tu_info", "field": "data.ta_data_te_info" },
+    { "title": "index_to place_data", "field": "data.ta_data_platz_idx" },
+    { "title": "index_to transport_order-list", "field": "data.ta_data_taidx" },
+    { "title": "index_to transport_database", "field": "data.ta_data_tdb_idx" },
+    { "title": "data_zombie counter", "field": "data.ta_data_zombie" },
+    { "title": "ext_sps_dummy", "field": "data.ta_data_ext_sps_dummy" },
+    { "title": "zombie counter", "field": "data.zombie" },
+    { "title": "ext_dh_dummy", "field": "data.ext_dh_dummy" }
+  ]
 }

@@ -1,60 +1,62 @@
 {
-    "condensed": [{
-            "title": "Index",
-            "field": "index"
-        },
-        {
-            "title": "Date",
-            "field": "data.datum"
-        },
-        {
-            "title": "Time",
-            "field": "data.urhzeit"
-        },
-        {
-            "title": "FB-Number",
-            "field": "data.typ"
-        },
-        {
-            "title": "FP-Number / Place",
-            "field": "data.zusatz_info"
-        },
-        {
-            "title": "Error code",
-            "field": "data.error"
-        },
-        {
-            "title": "Additional Information",
-            "field": "data.error_ext"
-        }
-   ],
-    "extended": [{
-            "title": "Index",
-            "field": "index"
-        },
-        {
-            "title": "Date",
-            "field": "data.datum"
-        },
-        {
-            "title": "Time",
-            "field": "data.urhzeit"
-        },
-        {
-            "title": "FB-Number",
-            "field": "data.typ"
-        },
-        {
-            "title": "FP-Number / Place",
-            "field": "data.zusatz_info"
-        },
-        {
-            "title": "Error code",
-            "field": "data.error"
-        },
-        {
-            "title": "Additional Information",
-            "field": "data.error_ext"
-        }
-   ]
+  "condensed": [
+    {
+      "title": "Index",
+      "field": "index"
+    },
+    {
+      "title": "Date",
+      "field": "data.datum"
+    },
+    {
+      "title": "Time",
+      "field": "data.urhzeit"
+    },
+    {
+      "title": "FB-Number",
+      "field": "data.typ"
+    },
+    {
+      "title": "FP-Number / Place",
+      "field": "data.zusatz_info"
+    },
+    {
+      "title": "Error code",
+      "field": "data.error"
+    },
+    {
+      "title": "Additional Information",
+      "field": "data.error_ext"
+    }
+  ],
+  "extended": [
+    {
+      "title": "Index",
+      "field": "index"
+    },
+    {
+      "title": "Date",
+      "field": "data.datum"
+    },
+    {
+      "title": "Time",
+      "field": "data.urhzeit"
+    },
+    {
+      "title": "FB-Number",
+      "field": "data.typ"
+    },
+    {
+      "title": "FP-Number / Place",
+      "field": "data.zusatz_info"
+    },
+    {
+      "title": "Error code",
+      "field": "data.error"
+    },
+    {
+      "title": "Additional Information",
+      "field": "data.error_ext"
+    }
+  ]
 }

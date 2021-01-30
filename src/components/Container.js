@@ -100,7 +100,7 @@ export class Container extends Component {
                 if (this.state.paging) {
                   this.props.options.maxBodyHeight = "61vh";
                 } else {
-                  this.props.options.maxBodyHeight = "70vh";
+                  this.props.options.maxBodyHeight = "68vh";
                 }
                 console.log("this.state");
                 console.log(this.state);

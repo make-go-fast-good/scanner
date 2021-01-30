@@ -413,339 +413,339 @@
     }
   ],
   "TT750_1": [
-      {
-        "id": "16",
-        "len": "2",
-        "title": "Control code"
-      },
-      {
-        "id": "18",
-        "len": "2",
-        "title": "Error code"
-      }
-    ],
+    {
+      "id": "16",
+      "len": "2",
+      "title": "Control code"
+    },
+    {
+      "id": "18",
+      "len": "2",
+      "title": "Error code"
+    }
+  ],
   "TT750_2": [
-      {
-        "id": "16",
-        "len": "1",
-        "title": "Visu Button auto on"
-      },
-      {
-        "id": "17",
-        "len": "1",
-        "title": "Visu Button auto off"
-      },
-      {
-        "id": "18",
-        "len": "1",
-        "title": "Visu Button error reset"
-      },
-      {
-        "id": "19",
-        "len": "1",
-        "title": "Visu Button Home Position"
-      },
-      {
-        "id": "20",
-        "len": "1",
-        "title": "Visu Button Reset OHC"
-      },
-      {
-        "id": "21",
-        "len": "1",
-        "title": "Visu Button Reset OHC"
-      },
-      {
-        "id": "22",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "23",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "24",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "25",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "26",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "27",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "28",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "29",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "30",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "31",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "32",
-        "len": "1",
-        "title": "General Information Fire alert"
-      },
-      {
-        "id": "33",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "34",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "35",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "36",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "37",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "38",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "39",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "40",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "41",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "42",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "43",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "44",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "45",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "46",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "47",
-        "len": "1",
-        "title": "General Information not defined"
-      }
-    ],
+    {
+      "id": "16",
+      "len": "1",
+      "title": "Visu Button auto on"
+    },
+    {
+      "id": "17",
+      "len": "1",
+      "title": "Visu Button auto off"
+    },
+    {
+      "id": "18",
+      "len": "1",
+      "title": "Visu Button error reset"
+    },
+    {
+      "id": "19",
+      "len": "1",
+      "title": "Visu Button Home Position"
+    },
+    {
+      "id": "20",
+      "len": "1",
+      "title": "Visu Button Reset OHC"
+    },
+    {
+      "id": "21",
+      "len": "1",
+      "title": "Visu Button Reset OHC"
+    },
+    {
+      "id": "22",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "23",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "24",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "25",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "26",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "27",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "28",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "29",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "30",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "31",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "32",
+      "len": "1",
+      "title": "General Information Fire alert"
+    },
+    {
+      "id": "33",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "34",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "35",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "36",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "37",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "38",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "39",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "40",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "41",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "42",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "43",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "44",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "45",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "46",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "47",
+      "len": "1",
+      "title": "General Information not defined"
+    }
+  ],
   "TT750_5": [
-      {
-        "id": "16",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC total OHC"
-      },
-      {
-        "id": "20",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC automatic mode"
-      },
-      {
-        "id": "24",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC of the engine in X direction"
-      },
-      {
-        "id": "28",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC of the engine in Y direction"
-      },
-      {
-        "id": "32",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC Axis Amount of drives (X direction)"
-      },
-      {
-        "id": "36",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC Axis Amount of drives (Y direction)"
-      },
-      {
-        "id": "40",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles with bars / gripper"
-      },
-      {
-        "id": "44",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles with bars / gripper"
-      },
-      {
-        "id": "48",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles without bars / gripper"
-      },
-      {
-        "id": "52",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles without bars / gripper"
-      },
-      {
-        "id": "56",
-        "len": "4",
-        "title": "Operational Total(not resettable) OHC LHD1 Amount of total cycles (sum of the 4 fields above)"
-      },
-      {
-        "id": "27",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "28",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "29",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "30",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "31",
-        "len": "1",
-        "title": "not defined"
-      },
-      {
-        "id": "32",
-        "len": "1",
-        "title": "General Information Fire alert"
-      },
-      {
-        "id": "33",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "34",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "35",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "36",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "37",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "38",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "39",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "40",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "41",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "42",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "43",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "44",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "45",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "46",
-        "len": "1",
-        "title": "General Information not defined"
-      },
-      {
-        "id": "47",
-        "len": "1",
-        "title": "General Information not defined"
-      }
-    ]
+    {
+      "id": "16",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC total OHC"
+    },
+    {
+      "id": "20",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC automatic mode"
+    },
+    {
+      "id": "24",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC of the engine in X direction"
+    },
+    {
+      "id": "28",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC of the engine in Y direction"
+    },
+    {
+      "id": "32",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC Axis Amount of drives (X direction)"
+    },
+    {
+      "id": "36",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC Axis Amount of drives (Y direction)"
+    },
+    {
+      "id": "40",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles with bars / gripper"
+    },
+    {
+      "id": "44",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles with bars / gripper"
+    },
+    {
+      "id": "48",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC LHD1 Amount of GET cycles without bars / gripper"
+    },
+    {
+      "id": "52",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC LHD1 Amount of PUT cycles without bars / gripper"
+    },
+    {
+      "id": "56",
+      "len": "4",
+      "title": "Operational Total(not resettable) OHC LHD1 Amount of total cycles (sum of the 4 fields above)"
+    },
+    {
+      "id": "27",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "28",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "29",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "30",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "31",
+      "len": "1",
+      "title": "not defined"
+    },
+    {
+      "id": "32",
+      "len": "1",
+      "title": "General Information Fire alert"
+    },
+    {
+      "id": "33",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "34",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "35",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "36",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "37",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "38",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "39",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "40",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "41",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "42",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "43",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "44",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "45",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "46",
+      "len": "1",
+      "title": "General Information not defined"
+    },
+    {
+      "id": "47",
+      "len": "1",
+      "title": "General Information not defined"
+    }
+  ]
 }

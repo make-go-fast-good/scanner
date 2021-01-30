@@ -10,10 +10,18 @@
     "col1 col1 col2 col2 col3 col3 pdf pdf pdf pdf pdf";
 }
 
-.col1 { grid-area: col1; }
+.col1 {
+  grid-area: col1;
+}
 
-.col2 { grid-area: col2; }
+.col2 {
+  grid-area: col2;
+}
 
-.col3 { grid-area: col3; }
+.col3 {
+  grid-area: col3;
+}
 
-.pdf { grid-area: pdf; }
+.pdf {
+  grid-area: pdf;
+}

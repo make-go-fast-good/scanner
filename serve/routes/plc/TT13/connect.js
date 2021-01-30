@@ -2,19 +2,20 @@ const Express = require("express");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const fs = require("fs");
-const path = require('path');
+const path = require("path");
 const appDir = path.dirname(require.main.filename);
 
 const Variables = require("./createTT13Struct");
 const Process = require("./processTT13Data");
 
 function readData(_plc) {
-
   let Plc = new Nodes7();
   //using fs to read the configuration outside of the packaged executable.
-  const myConn = fs.readFileSync(path.join(path.dirname(process.cwd()), './config/Connections.json'))
-  let Connections = JSON.parse(myConn)
-  let plcConnection = Connections[_plc.conn]
+  const myConn = fs.readFileSync(
+    path.join(path.dirname(process.cwd()), "./config/Connections.json")
+  );
+  let Connections = JSON.parse(myConn);
+  let plcConnection = Connections[_plc.conn];
 
   return new Promise((resolve, reject) => {
     let data;
@@ -31,7 +32,7 @@ function readData(_plc) {
       }
 
       // This sets the "translation" to allow us to work with object names
-      Plc.setTranslationCB(tag => {
+      Plc.setTranslationCB((tag) => {
         return Variables[tag];
       });
 
@@ -68,7 +69,7 @@ function readData(_plc) {
 }
 
 //make the CORS work, wrap the router in the middle man to catch errors.
-const wrapper = middleware => {
+const wrapper = (middleware) => {
   return async (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
@@ -97,10 +98,10 @@ Router.get(
     if (request.query.area) plcConnection = JSON.parse(request.query.area); //convert json to javascript object
 
     readData(plcConnection)
-      .then(data => {
+      .then((data) => {
         response.send(data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("err = " + err);
       });
   })
