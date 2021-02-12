@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import BookmarksSwitch from "./Switch.js";
 import { findDOMNode } from "react-dom";
-import NAVETTES from "../../../config/NAVETTES.json";
+import bookmarks from "../../../config/Bookmarks.json";
 
 import "../../../App.css";
 
@@ -11,9 +10,9 @@ import "../../../App.css";
 //         this.id = val.id;
 //         this.style = val.style;
 //         this.openLink = (val) => {
-//             let url = "http://10.136.17." + val.octet + "/admin.html"
-//             let keyMode = "http://10.136.17." + val.octet + "/LevelControlKeySwitchMode?"
-//             let error = "http://10.136.17." + val.octet + "/Srm1CurrErrors?"
+//             let url = "http://10.136.17." + val.addr + "/admin.html"
+//             let keyMode = "http://10.136.17." + val.addr + "/LevelControlKeySwitchMode?"
+//             let error = "http://10.136.17." + val.addr + "/Srm1CurrErrors?"
 //             this.state.checked === false
 //                 ? window.open(url, "_self")
 //                 : this.getStatus(keyMode, val.id, error);
@@ -41,40 +40,46 @@ import "../../../App.css";
 
 class Bookmarks extends Component {
   componentDidMount() {
-    this.init(NAVETTES);
+    this.init(bookmarks);
   }
 
   constructor() {
     super();
     this.state = {
-      checked: false,
-      loading: false,
       error: undefined,
       data: undefined,
       url: null,
     };
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(checked) {
-    this.setState({ checked });
-  }
+  // handleChange(checked) {
+  //   this.setState({ checked });
+  // }
 
   init = (val) => {
-    val.nav.map((_nav) => {
+    val.machine.map((_nav) => {
       let _key = Object.keys(_nav);
+      // console.log("key here: ");
+      // console.log(Object.keys(_nav));
+      //Array [ "N6214", "type" ]
       let _val = Object.values(_nav);
+      // console.log("val here: ");
+      // console.log(Object.values(_nav));
+      // Array [ "10.136.17.119", "nav" ]
+      // let _val = Object.values(_nav);
       this.getStatus(_val[0], _key[0]);
     });
   };
 
+
   // Select Connection
-  getStatus = (octet, m_name) => {
+  getStatus = (addr, m_name) => {
     return new Promise((resolve, reject) => {
-      let keyMode = "http://10.136.17" + octet + "/LevelControlKeySwitchMode?";
-      let error = "http://10.136.17" + octet + "/Srm1CurrErrors?";
-      let srmStatus = "http://10.136.17" + octet + "/srm1CurrSrmStatus.html?";
-      let orderStatus = "http://10.136.17" + octet + "/srm1OrderAckList.html?";
+      let keyMode = "http://" + addr + "/LevelControlKeySwitchMode?";
+      let error = "http://" + addr + "/Srm1CurrErrors?";
+      let srmStatus = "http://" + addr + "/srm1CurrSrmStatus.html?";
+      let orderStatus = "http://" + addr + "/srm1OrderAckList.html?";
 
       axios
         .get("http://localhost:8080/BOOKMARKS/connect", {
@@ -101,33 +106,10 @@ class Bookmarks extends Component {
     });
   };
 
-  openLink = (octet, m_name) => {
-    // const f_url1 =
-    //     "http://10.136.17.191:8080/lighthouse-core/services/notification/table";
-    // const f_url2 =
-    //     "?condition=(($%3C%3Cdefinition.severity%3E%3E+%3D+%27ERROR%27)+AND+($%3C%3Ctext%3E%3E+NOT+LIKE+%27%25afety%25%27)+AND+($%3C%3Ctext%3E%3E+NOT+LIKE+%27%25dmittance%25%27)+AND+($%3C%3Ctext%3E%3E+NOT+LIKE+%27Check%25%27)+AND+(($%3C%3CnodeId%3E%3E+IN+(%27";
-    // const f_url3 =
-    //     "-PHYSICAL%27))))&firstResult=0&maxResults=15&orderBy=$%3C%3CstartTime%3E%3E+DESC";
-    // let f_url = f_url1 + f_url2 + m_name + f_url3;
+  openLink = (addr, m_name) => {
     const url1 = "http://10.136.17.";
     const url2 = "/admin.html";
-    this.state.checked === false
-      ? window.open(url1 + octet + url2, "_self")
-      : // : this.getData(f_url, m_name);
-        this.getStatus(octet, m_name);
-  };
-
-  switchStyle = () => {
-    return {
-      flexWrap: "wrap",
-      display: "flex",
-      flex: "1",
-      justifyContent: "flex-end",
-      alignItems: "center",
-      color: "black",
-      margin: "5px",
-      minWidth: "1200px",
-    };
+      window.open(url1 + addr + url2, "_self")
   };
 
   getStyle = () => {
@@ -202,12 +184,6 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
-        {/* <div style={this.switchStyle()}> */}
-        {/*     <BookmarksSwitch */}
-        {/*         checked={this.state.checked} */}
-        {/*         handleChange={this.handleChange} */}
-        {/*     /> */}
-        {/* </div> */}
         <table>
           <td>
             <button

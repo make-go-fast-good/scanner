@@ -80,7 +80,8 @@ Router.get(
           // make new date out of stripped string
           last = new Date(status);
           _now = new Date();
-          let elapsed = _now - last;
+          let elapsed = (_now - last) / 3600000.0;
+          elapsed = elapsed.toFixed(3) + " hours";
           //3600000 ms in an hour
           return elapsed;
         })
@@ -89,7 +90,8 @@ Router.get(
         });
 
       parseInt(navErrorString) > 0 ? (navError = true) : (navError = false);
-      sinceLastOrder > 3600000 ? (overHour = true) : (overHour = false);
+      // sinceLastOrder > 3600000 ? (overHour = true) : (overHour = false);
+      parseInt(sinceLastOrder) > 1.0 ? (overHour = true) : (overHour = false);
 
       let status = {
         name: request.query.m_name,
