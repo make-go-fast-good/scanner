@@ -109,7 +109,7 @@ Router.get(
           status.backgroundColor = "rgba(0, 215, 0, 0.7)";
           break;
         case "semi":
-          status.backgroundColor = "rgba(192, 192, 192, 0.7)";
+          status.backgroundColor = "rgba(160, 160, 160, 0.7)";
           // status.backgroundColor = "rgba(210, 210, 210, 0.7)"
           break;
         case "local":
@@ -117,12 +117,13 @@ Router.get(
           break;
         default:
           // status.backgroundColor = "rgba(210, 210, 210, 0.7)"
-          status.backgroundColor = "rgba(192, 192, 192, 0.7)";
+          // status.backgroundColor = "rgba(192, 192, 192, 0.7)";
+          status.backgroundColor = "rgba(227, 227, 227, 1)";
       }
 
       srmStatus == "10"
         ? (status.backgroundColor = "rgba(0, 215, 0, 0.7)")
-        : (status.backgroundColor = "rgba(192, 192, 192, 0.7)");
+        : (status.backgroundColor = "rgba(160, 160, 160, 0.7)");
 
       if (navError === true) status.backgroundColor = "rgba(200, 0, 0, 0.7)";
 

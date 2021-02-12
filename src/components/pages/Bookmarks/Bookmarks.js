@@ -43,35 +43,26 @@ class Bookmarks extends Component {
     this.init(bookmarks);
   }
 
-  constructor() {
-    super();
-    this.state = {
-      error: undefined,
-      data: undefined,
-      url: null,
-    };
-    // this.handleChange = this.handleChange.bind(this);
-  }
-
-  // handleChange(checked) {
-  //   this.setState({ checked });
-  // }
-
-  init = (val) => {
-    val.machine.map((_nav) => {
-      let _key = Object.keys(_nav);
+  init = (json) => {
+    json.machine.map((_nav) => {
       // console.log("key here: ");
       // console.log(Object.keys(_nav));
       //Array [ "N6214", "type" ]
-      let _val = Object.values(_nav);
+      let _key = Object.keys(_nav);
       // console.log("val here: ");
       // console.log(Object.values(_nav));
       // Array [ "10.136.17.119", "nav" ]
       // let _val = Object.values(_nav);
+      let _val = Object.values(_nav);
       this.getStatus(_val[0], _key[0]);
     });
   };
 
+  openLink = (addr, m_name) => {
+    const url1 = "http://10.136.17.";
+    const url2 = "/admin.html";
+    window.open(url1 + addr + url2, "_self");
+  };
 
   // Select Connection
   getStatus = (addr, m_name) => {
@@ -106,13 +97,23 @@ class Bookmarks extends Component {
     });
   };
 
-  openLink = (addr, m_name) => {
-    const url1 = "http://10.136.17.";
-    const url2 = "/admin.html";
-      window.open(url1 + addr + url2, "_self")
+  headerStyle = (props) => {
+    return {
+      background: props,
+      color: "#FFF",
+      fontSize: "16px",
+      flexWrap: "wrap",
+      display: "flex",
+      flex: "1",
+      justifyContent: "space-around",
+      alignItems: "center",
+      margin: "5px 20px auto",
+      padding: "auto",
+      minHeight: "4vh",
+    };
   };
 
-  getStyle = () => {
+  getStyle = (props) => {
     return {
       background: "#FFF",
       flexWrap: "wrap",
@@ -124,6 +125,7 @@ class Bookmarks extends Component {
       color: "#FFF",
       minHeight: "88vh",
       minWidth: "1200px",
+    props
     };
   };
 
@@ -184,6 +186,18 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
+
+          {/* <div> */}
+          {/* <p style={this.headerStyle()}>Auto Mode</p> */}
+          {/* <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}></div> */}
+          {/* </div> */}
+
+          <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
+          <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
+          <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>No orders in an hour</div>
+          <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>Semi mode</div>
+          <div style={this.headerStyle( "#7A8B99")}>Unavailable</div>
+
         <table>
           <td>
             <button

@@ -85,27 +85,27 @@ export class Container extends Component {
                   extended: !this.state.extended,
                 }),
             },
-            {
-              icon: this.state.paging === false ? "add" : "remove",
-              tooltip:
-                this.state.paging === false
-                  ? "Enable pagination"
-                  : "Disable pagination",
-              isFreeAction: true,
-              onClick: () => {
-                this.setState({
-                  paging: !this.state.paging,
-                });
-                this.props.options.paging = this.state.paging;
-                if (this.state.paging) {
-                  this.props.options.maxBodyHeight = "61vh";
-                } else {
-                  this.props.options.maxBodyHeight = "68vh";
-                }
-                console.log("this.state");
-                console.log(this.state);
-              },
-            },
+            // {
+            //   icon: this.state.paging === false ? "add" : "remove",
+            //   tooltip:
+            //     this.state.paging === false
+            //       ? "Enable pagination"
+            //       : "Disable pagination",
+            //   isFreeAction: true,
+            //   onClick: () => {
+            //     this.setState({
+            //       paging: !this.state.paging,
+            //     });
+            //     this.props.options.paging = this.state.paging;
+            //     if (this.state.paging) {
+            //       this.props.options.maxBodyHeight = "61vh";
+            //     } else {
+            //       this.props.options.maxBodyHeight = "68vh";
+            //     }
+            //     console.log("this.state");
+            //     console.log(this.state);
+            //   },
+            // },
           ]}
         />
       );
