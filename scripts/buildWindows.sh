@@ -1,9 +1,9 @@
 #! /bin/bash
 # this script is used with WSL, requires node npm and pkg installed on windows
-projectDir=/mnt/c/Users/Phillip.Crandall/Projects
-appDir=$projectDir/Telegrams
-outputDir=$projectDir/Telegrams/releases/$(date -d "0 days ago" +'%F')
-docDir=$projectDir/Telegrams/assets/Documentation
+
+appDir=$(pwd)
+docDir=$appDir/assets/Documentation
+outputDir=$appDir/releases/$(date -d "0 days ago" +'%F')
 
 cd $appDir
 echo "==> Release directory is ${outputDir}"
