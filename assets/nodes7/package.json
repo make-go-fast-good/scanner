@@ -1,0 +1,53 @@
+{
+  "_from": "nodes7",
+  "_id": "nodes7@0.3.9",
+  "_inBundle": false,
+  "_integrity": "sha512-gl18+AX3eOC4yGvAJnG1Dvj1732aq1vZhJLq6gKUEOiKsUSgS/51K8pWV3J/v9+KRSAGGeffEGseReictm3Qkw==",
+  "_location": "/nodes7",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "nodes7",
+    "name": "nodes7",
+    "escapedName": "nodes7",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodes7/-/nodes7-0.3.9.tgz",
+  "_shasum": "9aaf40daa6d0240b48b864a86315256159e748b5",
+  "_spec": "nodes7",
+  "_where": "C:\\Users\\Phillip.Crandall\\Projects\\scanner",
+  "author": {
+    "name": "Dana Moffit",
+    "email": "nodejsplc@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/plcpeople/nodes7/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Routine to communicate with Siemens S7 PLCs",
+  "engine": "node 10.x.x",
+  "homepage": "https://github.com/plcpeople/nodes7#readme",
+  "keywords": [
+    "S7",
+    "Siemens",
+    "PLC",
+    "RFC1006",
+    "iso-on-tcp"
+  ],
+  "license": "MIT",
+  "main": "nodeS7.js",
+  "name": "nodes7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plcpeople/nodes7.git"
+  },
+  "version": "0.3.9"
+}
