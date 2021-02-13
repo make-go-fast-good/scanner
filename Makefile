@@ -21,7 +21,7 @@ git:
 	@git add -u
 	@git commit
 	@echo "==> pushing to git remote"
-	@git push origin
+	@git push
 .PHONY: git
 
 clean:
