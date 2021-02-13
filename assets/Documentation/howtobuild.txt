@@ -1,0 +1,7 @@
+Open Node command prompt
+    in serve dir
+        pkg server.js -o s7_Server.exe --targets node10-win-x64
+    in Telegrams dir
+        npm run-script build
+    Use prior release folder as a template, replace the existing executable and the build folder. 
+
