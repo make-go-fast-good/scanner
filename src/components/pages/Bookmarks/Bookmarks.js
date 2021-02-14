@@ -1,9 +1,9 @@
-import React, { Component } from "react";
 import axios from "axios";
-import { findDOMNode } from "react-dom";
+import React, {Component} from "react";
+import {findDOMNode} from "react-dom";
+import "../../../App.css";
 import bookmarks from "../../../config/Bookmarks.json";
 
-import "../../../App.css";
 
 // class Navette {
 //     constructor(val) {
@@ -85,10 +85,12 @@ class Bookmarks extends Component {
         .then((res) => {
           console.log(res.data);
           let updateComponent = findDOMNode(this.refs[res.data.name]);
-          updateComponent.style.color = "rgb(255,255,255)";
-          resolve(
-            (updateComponent.style.backgroundColor = res.data.backgroundColor)
-          );
+          if (updateComponent !== null) {
+            updateComponent.style.color = "rgb(255,255,255)";
+            resolve(
+              (updateComponent.style.backgroundColor = res.data.backgroundColor)
+            );
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -125,7 +127,7 @@ class Bookmarks extends Component {
       color: "#FFF",
       minHeight: "88vh",
       minWidth: "1200px",
-    props
+      props,
     };
   };
 
@@ -186,17 +188,20 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
+        {/* <div> */}
+        {/* <p style={this.headerStyle()}>Auto Mode</p> */}
+        {/* <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}></div> */}
+        {/* </div> */}
 
-          {/* <div> */}
-          {/* <p style={this.headerStyle()}>Auto Mode</p> */}
-          {/* <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}></div> */}
-          {/* </div> */}
-
-          <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
-          <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
-          <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>No orders in an hour</div>
-          <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>Semi mode</div>
-          <div style={this.headerStyle( "#7A8B99")}>Unavailable</div>
+        <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
+        <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
+        <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>
+          No orders in an hour
+        </div>
+        <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>
+          Semi mode
+        </div>
+        <div style={this.headerStyle("#7A8B99")}>Unavailable</div>
 
         <table>
           <td>
