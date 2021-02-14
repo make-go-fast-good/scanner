@@ -32,6 +32,7 @@ class BookmarksModal extends Component {
       fontSize: "18px",
       flexWrap: "wrap",
       margin: "15px",
+      padding: "0px 20px",
       minHeight: "10vh",
     };
   };
@@ -46,7 +47,7 @@ class BookmarksModal extends Component {
         </div>
         <Modal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="Bookmarks legend"
           onRequestClose={this.handleCloseModal}
           style={{
             content: {
@@ -69,9 +70,10 @@ class BookmarksModal extends Component {
             },
           }}
         >
-          <button style={closeStyle} onClick={this.handleCloseModal}>
-            X
-          </button>
+          <></>
+          {/* <button style={closeStyle} onClick={this.handleCloseModal}> */}
+          {/*   X */}
+          {/* </button> */}
 
           <div style={contentStyle}>
             <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>
