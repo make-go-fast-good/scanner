@@ -18,9 +18,9 @@ export class DefaultTable extends Component {
       justifyContent: "space-around",
       alignItems: "center",
       border: "1px dashed #BBB",
-      margin: "15px auto",
+      margin: "5px auto",
       color: "#555",
-      minHeight: "82vh",
+      minHeight: "85vh",
     };
   };
 

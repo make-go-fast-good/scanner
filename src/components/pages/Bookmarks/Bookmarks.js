@@ -102,15 +102,15 @@ class Bookmarks extends Component {
   getStyle = (props) => {
     return {
       flexDirection: "column",
-      background: "#FFF",
+      background: "#F4F4F4",
       flexWrap: "wrap",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       border: "1px dashed #BBB",
-      margin: "15px auto",
-      color: "#FFF",
-      minHeight: "87vh",
+      margin: "5px auto",
+      color: "#555",
+      minHeight: "89vh",
       minWidth: "1200px",
       props,
     };
@@ -156,7 +156,7 @@ class Bookmarks extends Component {
 
   noStyle = () => {
     return {
-      background: "#FFF",
+      background: "#F4F4F4",
       flexWrap: "wrap",
       display: "flex",
       flex: "1",
@@ -164,7 +164,7 @@ class Bookmarks extends Component {
       alignItems: "center",
       margin: "43px 15px auto",
       padding: "10px auto",
-      color: "#FFF",
+      color: "#F4F4F4",
       minHeight: "8vh",
       minWidth: "8vh",
     };

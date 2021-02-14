@@ -125,9 +125,9 @@ Router.get(
         ? (status.backgroundColor = "rgba(0, 215, 0, 0.7)")
         : (status.backgroundColor = "rgba(160, 160, 160, 0.7)");
 
-      if (navError === true) status.backgroundColor = "rgba(200, 0, 0, 0.7)";
-
       if (overHour === true) status.backgroundColor = "rgba(249, 141, 59, 1)";
+
+      if (navError === true) status.backgroundColor = "rgba(200, 0, 0, 0.7)";
 
       response.send(status);
 
