@@ -116,7 +116,7 @@ const closeStyle = {
 const openStyle = {
   display: "flex",
   flex: "1",
-  background: "#666",
+  background: "#7A8B99",
   color: "#fff",
   border: "none",
   padding: "8px",
