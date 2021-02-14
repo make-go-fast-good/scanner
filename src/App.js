@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import AppBar from "./components/layout/Appbar";
 
-import Default from "./components/Default";
+import Home from "./components/Home";
 import DataTable from "./components/DataTable";
 
 import About from "./components/pages/About";
 import Hex from "./components/pages/Hex/Hex.js";
 import Bookmarks from "./components/pages/Bookmarks/Bookmarks.js";
-// import Worker from "./components/pages/Hex/assets/pdf.worker.min"
-// import Coordinates from ".components/pages/Coordinates/Coordinates.js";
 
 import "./App.css";
 
@@ -27,7 +25,7 @@ class App extends Component {
               render={() => (
                 <React.Fragment>
                   <AppBar title="Homepage" />
-                  <Default home={true} />
+                  <Home home={true} />
                 </React.Fragment>
               )}
             ></Route>
@@ -39,17 +37,6 @@ class App extends Component {
                 <React.Fragment>
                   <AppBar title="AG-Link" />
                   <DataTable type="TT13" />
-                </React.Fragment>
-              )}
-            ></Route>
-            <Route
-              exact
-              strict
-              path="/OVERHEAD"
-              render={() => (
-                <React.Fragment>
-                  <AppBar title="Overhead Scanner Data" />
-                  <DataTable type="OVERHEAD" />
                 </React.Fragment>
               )}
             ></Route>
@@ -92,7 +79,7 @@ class App extends Component {
               path="/HEX"
               render={() => (
                 <React.Fragment>
-                  <AppBar title="Hex Parser (WIP tt1413,tt1430,tt1434 ONLY)" />
+                  <AppBar title="Hex Parser (tt14xx only)" />
                   <Hex />
                 </React.Fragment>
               )}
@@ -108,16 +95,6 @@ class App extends Component {
                 </React.Fragment>
               )}
             ></Route>
-            {/* <Route */}
-            {/*     exact */}
-            {/*     strict */}
-            {/*     path="/WORKER" */}
-            {/*     render={() => ( */}
-            {/*         <React.Fragment> */}
-            {/*             {Worker} */}
-            {/*         </React.Fragment> */}
-            {/*     )} */}
-            {/* ></Route> */}
           </div>
         </div>
       </Router>

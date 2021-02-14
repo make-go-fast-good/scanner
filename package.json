@@ -1,11 +1,11 @@
 {
-  "name": "react_tt13_send",
+  "name": "plc_toolkit",
   "homepage": "http://localhost:9000",
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.0.1",
-    "@material-ui/icons": "^4.5.1",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@phuocng/react-pdf-viewer": "^1.7.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -25,10 +25,11 @@
     "react-dom": "^16.12.0",
     "react-html-parser": "^2.0.2",
     "react-iframe": "^1.8.0",
+    "react-modal": "^3.12.1",
     "react-modal-image": "^2.5.0",
     "react-pdf": "^5.0.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.4",
+    "react-scripts": "^4.0.2",
     "react-spinners": "^0.8.0",
     "react-switch": "^5.0.1",
     "serve": "^11.3.0",
@@ -57,10 +58,5 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.8.3"
-  },
-  "pkg": {
-    "scripts": "build/**/*.js",
-    "assets": "build/**/*"
-  },
-  "bin": "src/Server.js"
+  }
 }

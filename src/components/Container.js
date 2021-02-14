@@ -6,7 +6,7 @@ import DB421Columns from "../config/DB421Columns";
 import ERRORColumns from "../config/ERRORColumns";
 import SCANNERSColumns from "../config/SCANNERSColumns.js";
 import TT13Columns from "../config/TT13Columns";
-import Default from "./Default";
+import Home from "./Home";
 
 export class Container extends Component {
   state = {
@@ -44,11 +44,11 @@ export class Container extends Component {
     }
 
     if (this.props.loading === true) {
-      return <Default loading={this.props.loading} css={this.props.css} />;
+      return <Home loading={this.props.loading} css={this.props.css} />;
     } else if (this.props.error !== undefined) {
-      return <Default error={this.props.error} />;
+      return <Home error={this.props.error} />;
     } else if (this.props.data === undefined) {
-      return <Default />;
+      return <Home />;
     } else {
       this.state.extended === false
         ? (_columns = tableColumns.condensed)

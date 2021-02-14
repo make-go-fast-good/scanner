@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import {findDOMNode} from "react-dom";
 import "../../../App.css";
 import bookmarks from "../../../config/Bookmarks.json";
+import BookmarksModal from "./BookmarksModal"
 
 // class Navette {
 //     constructor(val) {
@@ -98,33 +99,18 @@ class Bookmarks extends Component {
     });
   };
 
-  headerStyle = (props) => {
-    return {
-      background: props,
-      display: "flex",
-      flex: "1",
-      justifyContent: "space-around",
-      alignItems: "center",
-      color: "#FFF",
-      fontSize: "16px",
-      flexWrap: "wrap",
-      margin: "5px 40px auto",
-      padding: "auto",
-      minHeight: "4vh",
-    };
-  };
-
   getStyle = (props) => {
     return {
+      flexDirection: "column",
       background: "#FFF",
       flexWrap: "wrap",
       display: "flex",
-      justifyContent: "space-around",
+      justifyContent: "center",
       alignItems: "center",
       border: "1px dashed #BBB",
       margin: "15px auto",
       color: "#FFF",
-      minHeight: "88vh",
+      minHeight: "87vh",
       minWidth: "1200px",
       props,
     };
@@ -187,17 +173,9 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
-        <div style={{ display: "flex", flex: "1" }}>
-          <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
-          <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
-          <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>
-            No orders in an hour
+          <div style={{alignSelf: "flex-end", margin: "5px 30px"}}>
+              <BookmarksModal/>
           </div>
-          <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>
-            Semi mode
-          </div>
-          <div style={this.headerStyle("#7A8B99")}>Unavailable</div>
-        </div>
         <table>
           <td>
             <button

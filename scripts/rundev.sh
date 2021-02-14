@@ -10,6 +10,6 @@ then
     # Name first Pane and start zsh
     tmux rename-window -t 1 'Main'
     tmux new-window -d -n frontEnd 'npm start'
-    tmux new-window -d -n backEnd 'node ./serve/server.js'
+    tmux new-window -d -n backEnd 'cd serve/ && node server.js'
 fi
 tmux attach-session -t $SESSION:1

@@ -33,19 +33,6 @@ export class SelectConn extends Component {
   };
 
   render() {
-    if (this.props.area === "OVERHEAD") {
-      return (
-        <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
-          <input
-            type="submit"
-            value="C08"
-            className="btn"
-            style={this.getStyle(1)}
-            onClick={this.onSubmit}
-          ></input>
-        </form>
-      );
-    } else {
       return (
         <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
           <input
@@ -136,7 +123,6 @@ export class SelectConn extends Component {
       );
     }
   }
-}
 
 // PropTypes
 SelectConn.propTypes = {

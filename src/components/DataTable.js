@@ -26,7 +26,7 @@ class DataTable extends Component {
   };
 
   bodyHeight = () => {
-    if (this.state.paging == true) {
+    if (this.state.paging === true) {
       this.setState({
         bodyHeight: "61vh",
       });
