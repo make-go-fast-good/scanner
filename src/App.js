@@ -97,7 +97,7 @@ class App extends Component {
               path="/HEX"
               render={() => (
                 <React.Fragment>
-                  <AppBar title="Hex Parser (tt14xx only)" />
+                  <AppBar title="MFS Hex Decoder (tt14xx only)" />
                   <Hex />
                 </React.Fragment>
               )}
