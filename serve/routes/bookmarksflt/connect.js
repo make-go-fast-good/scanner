@@ -51,6 +51,7 @@ Router.get(
         .catch((err) => {
           console.log(err);
         });
+
       const navErrorString = await axios
         .get(request.query.error, { timeout: request.query.timeout }) //for GET
         .then((res) => {
@@ -115,7 +116,7 @@ Router.get(
           status.backgroundColor = "rgba(200, 0, 0, 0.7)";
           break;
         default:
-          status.backgroundColor = "rgba(227, 227, 227, 1)";
+          status.backgroundColor = "#7A8B99";
       }
 
       // if (srmStatus === "10") status.backgroundColor = "rgba(0, 215, 0, 0.7)";

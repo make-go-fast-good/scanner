@@ -20,7 +20,7 @@ Built using
 
 > Hyperlinks with status to web-interface of automatic storage and retrieval machines.
 
-![bookmarks](assets/img/bookmarks.png)
+![bookmarks](assets/img/bookmarks_new.png)
 
 ### AG-Link
 
