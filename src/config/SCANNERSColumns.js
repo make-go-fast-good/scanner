@@ -9,39 +9,37 @@ const cols = {
       title: "Read History",
       field: "bitField",
       render: (rowData) => [
-        ...rowData.bitField
-          .split("")
-          .map((char) =>
-            char === "0" ? (
-              <div
-                style={{
-                  display: "inline-block",
-                  margin: "1px",
-                  width: 3,
-                  height: 24,
-                  backgroundColor: "limegreen ",
-                }}
-              ></div>
-            ) : (
-              <div
-                style={{
-                  display: "inline-block",
-                  margin: "1px",
-                  width: 3,
-                  height: 24,
-                  backgroundColor: "red ",
-                }}
-              ></div>
-            )
-          ),
+        ...rowData.bitField.split("").map((char) =>
+          char === "0" ? (
+            <div
+              style={{
+                display: "inline-block",
+                margin: "1px",
+                width: 3,
+                height: 24,
+                backgroundColor: "limegreen ",
+              }}
+            ></div>
+          ) : (
+            <div
+              style={{
+                display: "inline-block",
+                margin: "1px",
+                width: 3,
+                height: 24,
+                backgroundColor: "red ",
+              }}
+            ></div>
+          )
+        ),
       ],
       cellStyle: { whiteSpace: "nowrap" },
       grouping: false,
     },
-    { title: "Floating Read_rate", field: "data.leserate_100" },
-    { title: "Overall Read_rate", field: "data.leserate" },
+    { title: "Floating_RR", field: "data.leserate_100" },
+    { title: "Overall_RR", field: "data.leserate" },
     { title: "Reads", field: "data.anz_read" },
-    { title: "No reads", field: "data.anz_noread" },
+    { title: "No_reads", field: "data.anz_noread" },
   ],
   extended: [
     { title: "FPNR", field: "data.fpnr", defaultSort: "asc" },
@@ -51,43 +49,41 @@ const cols = {
       title: "Read History",
       field: "bitField",
       render: (rowData) => [
-        ...rowData.bitField
-          .split("")
-          .map((char) =>
-            char === "0" ? (
-              <div
-                style={{
-                  display: "inline-block",
-                  margin: "1px",
-                  width: 3,
-                  height: 24,
-                  backgroundColor: "limegreen ",
-                }}
-              ></div>
-            ) : (
-              <div
-                style={{
-                  display: "inline-block",
-                  margin: "1px",
-                  width: 3,
-                  height: 24,
-                  backgroundColor: "red ",
-                }}
-              ></div>
-            )
-          ),
+        ...rowData.bitField.split("").map((char) =>
+          char === "0" ? (
+            <div
+              style={{
+                display: "inline-block",
+                margin: "1px",
+                width: 3,
+                height: 24,
+                backgroundColor: "limegreen ",
+              }}
+            ></div>
+          ) : (
+            <div
+              style={{
+                display: "inline-block",
+                margin: "1px",
+                width: 3,
+                height: 24,
+                backgroundColor: "red ",
+              }}
+            ></div>
+          )
+        ),
       ],
       cellStyle: { whiteSpace: "nowrap" },
       grouping: false,
     },
-    { title: "Floating Read_rate", field: "data.leserate_100" },
-    { title: "Overall Read_rate", field: "data.leserate" },
+    { title: "Floating_RR", field: "data.leserate_100" },
+    { title: "Overall_RR", field: "data.leserate" },
     { title: "Reads", field: "data.anz_read" },
-    { title: "No reads", field: "data.anz_noread" },
-    { title: "Max_NoScan until_fault", field: "data.max_noscan" },
-    { title: "Subsequent amount_NoScan", field: "data.anz_noscan_ff" },
-    { title: "Max_NoRead until_fault", field: "data.max_noread" },
-    { title: "Subsequent amount_NoRead", field: "data.anz_noread_ff" },
+    { title: "No_reads", field: "data.anz_noread" },
+    { title: "Max_NoScan_until_fault", field: "data.max_noscan" },
+    { title: "Subsequent_amount_NoScan", field: "data.anz_noscan_ff" },
+    { title: "Max_NoRead_until_fault", field: "data.max_noread" },
+    { title: "Subsequent_amount_NoRead", field: "data.anz_noread_ff" },
     { title: "Amount_of_reads (100 max)", field: "data.anz_lesungen" },
     { title: "Scanner_name", field: "scannerName" },
     { title: "Error_status of_Scanner", field: "data.status" },

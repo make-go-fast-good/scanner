@@ -1,115 +1,115 @@
-import {css} from "@emotion/core";
-import axios from "axios";
+import MaterialTable from "material-table";
 import React, {Component} from "react";
-import {BrowserRouter as Router} from "react-router-dom";
-import "../App.css";
-import {Container} from "./Container";
-import PlcConnections from "./PlcConnections";
+import DB171Columns from "../config/DB171Columns";
+import DB1852Columns from "../config/DB1852Columns";
+import DB421Columns from "../config/DB421Columns";
+import ERRORColumns from "../config/ERRORColumns";
+import SCANNERSColumns from "../config/SCANNERSColumns.js";
+import TT13Columns from "../config/TT13Columns";
+import Home from "./Home";
 
-class DataTable extends Component {
+export class DataTable extends Component {
   state = {
-    type: this.props.type,
-    area: undefined,
-    data: undefined,
-    options: {},
-    loading: false,
+    extended: false,
     paging: true,
-        pageSize: 20,
-    error: undefined,
-    bodyHeight: "61vh",
-  };
-
-  pagination = () => {
-    this.setState({
-      paging: !this.state.paging,
-    });
-  };
-
-  bodyHeight = () => {
-    if (this.state.paging === true) {
-      this.setState({
-        bodyHeight: "61vh",
-      });
-    } else {
-      this.setState({
-        bodyHeight: "62vh",
-      });
-    }
-  };
-
-  makeTable = (plcData, area) => {
-    this.setState({
-      area: area,
-      data: plcData,
-      pagination: this.pagination.bind(this, true),
-      options: {
-        // maxBodyHeight: this.bodyHeight.bind(this), // makes the headers fixed if the body size is larger.
-        maxBodyHeight: this.state.bodyHeight,
-        paging: this.state.paging,
-        exportButton: true,
-        pageSize: this.state.pageSize,
-        search: true,
-        grouping: true,
-        sorting: true,
-        headerStyle: {
-          backgroundColor: "#555",
-          color: "#FFF",
-          textAlign: "center",
-        },
-        cellStyle: {
-          textAlign: "center",
-        },
-      },
-      loading: false,
-    });
-  };
-
-  // Select Connection
-  getData = (area) => {
-    this.setState({ loading: true, area: area.conn });
-    axios
-      .get("http://localhost:8080/" + this.state.type + "/connect", {
-        params: {
-          area: area,
-        },
-      })
-      .then((res) => {
-        this.makeTable(res.data, area.conn);
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          loading: false,
-          error: "Connection Error: Verify connection to the PLC network.",
-        });
-      });
   };
 
   render() {
-    const override = css`
-      margin: 300px 50%;
-      display: block;
-      border-color: #d2d2d2;
-    `;
+    let _columns;
+    let tableColumns;
 
-    return (
-      <Router>
-        <React.Fragment>
-          <PlcConnections getData={this.getData} area={this.state.type} />
-          <Container
-            getData={this.getData}
-            area={this.state.area}
-            data={this.state.data}
-            options={this.state.options}
-            key={this.state.key}
-            loading={this.state.loading}
-            css={override}
-            error={this.state.error}
-            type={this.state.type}
-          />
-        </React.Fragment>
-      </Router>
-    );
+    switch (this.props.type) {
+      case "TT13":
+        tableColumns = TT13Columns;
+        break;
+      case "SCANNERS":
+        tableColumns = SCANNERSColumns;
+        break;
+      case "ERROR":
+        tableColumns = ERRORColumns;
+        break;
+      case "OVERHEAD":
+        switch (this.props.area) {
+          case "C08":
+            tableColumns = DB1852Columns;
+            break;
+          case "C09":
+          case "C10":
+          case "C12":
+            tableColumns = DB421Columns;
+            break;
+          case "C11":
+            tableColumns = DB171Columns;
+        }
+    }
+
+    if (this.props.loading === true) {
+      return <Home loading={this.props.loading} css={this.props.css} />;
+    } else if (this.props.error !== undefined) {
+      return <Home error={this.props.error} />;
+    } else if (this.props.data === undefined) {
+      return <Home />;
+    } else {
+      this.state.extended === false
+        ? (_columns = tableColumns.condensed)
+        : (_columns = tableColumns.extended);
+      return (
+        <MaterialTable
+          style={{ marginTop: "15px" }}
+          key={this.props.key}
+          title={this.props.area}
+          columns={_columns}
+          data={this.props.data}
+          options={this.props.options}
+          actions={[
+            {
+              icon: "refresh",
+              tooltip: "Refresh PLC Data",
+              isFreeAction: true,
+              onClick: (e) => {
+                // console.log(e)
+                let conn = this.props.area;
+                e.preventDefault();
+                this.props.getData({ conn });
+              },
+            },
+            {
+              icon: this.state.extended === false ? "add" : "remove",
+              tooltip:
+                this.state.extended === false
+                  ? "Extended Data View"
+                  : "Condensed Data View",
+              isFreeAction: true,
+              onClick: () =>
+                this.setState({
+                  extended: !this.state.extended,
+                }),
+            },
+            // {
+            //   icon: this.state.paging === false ? "add" : "remove",
+            //   tooltip:
+            //     this.state.paging === false
+            //       ? "Enable pagination"
+            //       : "Disable pagination",
+            //   isFreeAction: true,
+            //   onClick: () => {
+            //     this.setState({
+            //       paging: !this.state.paging,
+            //     });
+            //     this.props.options.paging = this.state.paging;
+            //     if (this.state.paging) {
+            //       this.props.options.maxBodyHeight = "61vh";
+            //     } else {
+            //       this.props.options.maxBodyHeight = "68vh";
+            //     }
+            //     console.log("this.state");
+            //     console.log(this.state);
+            //   },
+            // },
+          ]}
+        />
+      );
+    }
   }
 }
 
