@@ -29,7 +29,7 @@ Router.get(
   wrapper(async (request, response) => {
     if (request.query.m_name) {
       const keyMode = await axios
-        .get(request.query.keyMode, { timeout: 25000 })
+        .get(request.query.keyMode, { timeout: request.query.timeout })
         .then((res) => {
           return res.data;
         })
@@ -38,7 +38,7 @@ Router.get(
         });
 
       const srmStatus = await axios
-        .get(request.query.srmStatus, { timeout: 25000 })
+        .get(request.query.srmStatus, { timeout: request.query.timeout })
         .then((res) => {
           let status = res.data;
           status = status.substring(78, 88);
@@ -52,7 +52,7 @@ Router.get(
           console.log(err);
         });
       const navErrorString = await axios
-        .get(request.query.error, { timeout: 25000 }) //for GET
+        .get(request.query.error, { timeout: request.query.timeout }) //for GET
         .then((res) => {
           let err = res.data;
           // remove whitespace from string
@@ -66,7 +66,7 @@ Router.get(
         });
 
       const sinceLastOrder = await axios
-        .get(request.query.orderStatus, { timeout: 25000 })
+        .get(request.query.orderStatus, { timeout: request.query.timeout })
         .then((res) => {
           let status = res.data;
           // its a whole html page, get the last row
@@ -110,23 +110,16 @@ Router.get(
           break;
         case "semi":
           status.backgroundColor = "rgba(160, 160, 160, 0.7)";
-          // status.backgroundColor = "rgba(210, 210, 210, 0.7)"
           break;
         case "local":
           status.backgroundColor = "rgba(200, 0, 0, 0.7)";
           break;
         default:
-          // status.backgroundColor = "rgba(210, 210, 210, 0.7)"
-          // status.backgroundColor = "rgba(192, 192, 192, 0.7)";
           status.backgroundColor = "rgba(227, 227, 227, 1)";
       }
 
-      srmStatus == "10"
-        ? (status.backgroundColor = "rgba(0, 215, 0, 0.7)")
-        : (status.backgroundColor = "rgba(160, 160, 160, 0.7)");
-
+      // if (srmStatus === "10") status.backgroundColor = "rgba(0, 215, 0, 0.7)";
       if (overHour === true) status.backgroundColor = "rgba(249, 141, 59, 1)";
-
       if (navError === true) status.backgroundColor = "rgba(200, 0, 0, 0.7)";
 
       response.send(status);

@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, {Component} from "react";
-import {findDOMNode} from "react-dom";
+import React, { Component } from "react";
+import { findDOMNode } from "react-dom";
 import "../../../App.css";
 import bookmarks from "../../../config/Bookmarks.json";
-import BookmarksModal from "./BookmarksModal"
+import BookmarksModal from "./BookmarksModal";
 
 // class Navette {
 //     constructor(val) {
@@ -80,6 +80,7 @@ class Bookmarks extends Component {
             srmStatus: srmStatus,
             error: error,
             orderStatus: orderStatus,
+            timeout: 15000,
           },
         })
         .then((res) => {
@@ -173,9 +174,9 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
-          <div style={{alignSelf: "flex-end", margin: "5px 30px"}}>
-              <BookmarksModal/>
-          </div>
+        <div style={{ alignSelf: "flex-end", margin: "5px 30px" }}>
+          <BookmarksModal />
+        </div>
         <table>
           <td>
             <button
