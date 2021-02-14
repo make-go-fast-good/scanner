@@ -8,7 +8,7 @@ install:
 
 run:
 	@echo "==> starting dev server"
-	@npm start
+	@${currentDir}/scripts/rundev.sh
 .PHONY: run
 
 build:
