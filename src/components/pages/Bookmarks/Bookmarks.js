@@ -4,7 +4,6 @@ import {findDOMNode} from "react-dom";
 import "../../../App.css";
 import bookmarks from "../../../config/Bookmarks.json";
 
-
 // class Navette {
 //     constructor(val) {
 //         this.id = val.id;
@@ -102,14 +101,14 @@ class Bookmarks extends Component {
   headerStyle = (props) => {
     return {
       background: props,
-      color: "#FFF",
-      fontSize: "16px",
-      flexWrap: "wrap",
       display: "flex",
       flex: "1",
       justifyContent: "space-around",
       alignItems: "center",
-      margin: "5px 20px auto",
+      color: "#FFF",
+      fontSize: "16px",
+      flexWrap: "wrap",
+      margin: "5px 40px auto",
       padding: "auto",
       minHeight: "4vh",
     };
@@ -188,21 +187,17 @@ class Bookmarks extends Component {
   render() {
     return (
       <div style={this.getStyle()}>
-        {/* <div> */}
-        {/* <p style={this.headerStyle()}>Auto Mode</p> */}
-        {/* <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}></div> */}
-        {/* </div> */}
-
-        <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
-        <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
-        <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>
-          No orders in an hour
+        <div style={{ display: "flex", flex: "1" }}>
+          <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>Auto Mode</div>
+          <div style={this.headerStyle("rgba(200, 0, 0, 0.7)")}>Faulted</div>
+          <div style={this.headerStyle("rgba(249, 141, 59, 1)")}>
+            No orders in an hour
+          </div>
+          <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>
+            Semi mode
+          </div>
+          <div style={this.headerStyle("#7A8B99")}>Unavailable</div>
         </div>
-        <div style={this.headerStyle("rgba(160, 160, 160, 0.7)")}>
-          Semi mode
-        </div>
-        <div style={this.headerStyle("#7A8B99")}>Unavailable</div>
-
         <table>
           <td>
             <button
