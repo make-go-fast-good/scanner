@@ -18,6 +18,7 @@ mv s7_server.exe $outputDir/s7_server/
 
 echo "==> Packaging front-end server"
 cd $appDir
+rsrc -ico assets/favicon.ico
 cmd.exe /C pkg frontendserver.js -o  PLC_Toolkit.exe --target node10-win-x64
 mv PLC_Toolkit.exe $outputDir/build/
 cd $outputDir/build/
