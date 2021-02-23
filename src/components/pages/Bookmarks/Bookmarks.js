@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { Component } from "react";
-import { findDOMNode } from "react-dom";
+import React, {Component} from "react";
+import {findDOMNode} from "react-dom";
 import "../../../App.css";
 import bookmarks from "../../../config/Bookmarks.json";
+import "./Bookmarks.css";
 import BookmarksModal from "./BookmarksModal";
 
 // class Navette {
@@ -102,17 +103,13 @@ class Bookmarks extends Component {
 
   getStyle = (props) => {
     return {
-      flexDirection: "column",
       background: "#F4F4F4",
-      flexWrap: "wrap",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
       border: "1px dashed #BBB",
       margin: "5px auto",
       color: "#555",
       minHeight: "89vh",
-      minWidth: "1200px",
+      minWidth: "98%",
+      overflow: "auto",
       props,
     };
   };
@@ -123,15 +120,11 @@ class Bookmarks extends Component {
       background: "#7A8B99",
       color: "#EEE",
       fontSize: "18px",
-      flexWrap: "wrap",
-      display: "flex",
-      justifyContent: "space-around",
-      flex: "1",
-      alignItems: "center",
-      margin: "15px auto",
-      padding: "15px auto",
-      minHeight: "15vh",
-      minWidth: "6vh",
+      // margin: "15px auto",
+      margin: "auto",
+      padding: "1em auto",
+      minHeight: "7em",
+      minWidth: "3em",
       cursor: "pointer",
     };
   };
@@ -142,43 +135,22 @@ class Bookmarks extends Component {
       background: "#6A7A88",
       color: "#EEE",
       fontSize: "16px",
-      flexWrap: "wrap",
-      display: "flex",
-      flex: "1",
-      justifyContent: "space-around",
-      alignItems: "center",
-      margin: "50px 20px auto",
-      padding: "15px auto",
-      minHeight: "8vh",
-      minWidth: "8vh",
+      margin: "2em auto",
+      padding: "1em auto",
+      minHeight: "4em",
+      minWidth: "4em",
       cursor: "pointer",
-    };
-  };
-
-  noStyle = () => {
-    return {
-      background: "#F4F4F4",
-      flexWrap: "wrap",
-      display: "flex",
-      flex: "1",
-      justifyContent: "space-around",
-      alignItems: "center",
-      margin: "43px 15px auto",
-      padding: "10px auto",
-      color: "#F4F4F4",
-      minHeight: "8vh",
-      minWidth: "8vh",
     };
   };
 
   render() {
     return (
       <div style={this.getStyle()}>
-        <div style={{ alignSelf: "flex-end", margin: "5px 30px" }}>
+        <div style={{ alignSelf: "flex-end", margin: "1em" }}>
           <BookmarksModal />
         </div>
-        <table>
-          <td>
+        <div class="gridContainer">
+          <div class="6214">
             <button
               ref="N6204"
               style={this.navStyle()}
@@ -188,6 +160,8 @@ class Bookmarks extends Component {
                 6<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="6213">
             <button
               ref="N6203"
               style={this.navStyle()}
@@ -197,6 +171,8 @@ class Bookmarks extends Component {
                 6<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="6212">
             <button
               ref="N6202"
               style={this.navStyle()}
@@ -206,6 +182,8 @@ class Bookmarks extends Component {
                 6<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="6211">
             <button
               ref="N6201"
               style={this.navStyle()}
@@ -215,8 +193,8 @@ class Bookmarks extends Component {
                 6<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="6085">
             <button
               ref="NL6085"
               style={this.liftStyle()}
@@ -228,6 +206,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="6084">
             <button
               ref="NL6084"
               style={this.liftStyle()}
@@ -239,6 +219,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="6083">
             <button
               ref="NL6083"
               style={this.liftStyle()}
@@ -250,6 +232,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="6082">
             <button
               ref="NL6082"
               style={this.liftStyle()}
@@ -261,15 +245,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="6114">
             <button
               ref="N6104"
               style={this.navStyle()}
@@ -279,6 +256,8 @@ class Bookmarks extends Component {
                 6<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="6113">
             <button
               ref="N6103"
               style={this.navStyle()}
@@ -288,6 +267,8 @@ class Bookmarks extends Component {
                 6<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="6112">
             <button
               ref="N6102"
               style={this.navStyle()}
@@ -297,6 +278,8 @@ class Bookmarks extends Component {
                 6<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="6111">
             <button
               ref="N6101"
               style={this.navStyle()}
@@ -306,8 +289,8 @@ class Bookmarks extends Component {
                 6<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="5214">
             <button
               ref="N5204"
               style={this.navStyle()}
@@ -317,6 +300,8 @@ class Bookmarks extends Component {
                 5<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="5213">
             <button
               ref="N5203"
               style={this.navStyle()}
@@ -326,6 +311,8 @@ class Bookmarks extends Component {
                 5<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="5212">
             <button
               ref="N5202"
               style={this.navStyle()}
@@ -335,6 +322,8 @@ class Bookmarks extends Component {
                 5<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="5211">
             <button
               ref="N5201"
               style={this.navStyle()}
@@ -344,8 +333,8 @@ class Bookmarks extends Component {
                 5<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="5085">
             <button
               ref="NL5085"
               style={this.liftStyle()}
@@ -357,6 +346,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="5084">
             <button
               ref="NL5084"
               style={this.liftStyle()}
@@ -368,6 +359,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="5083">
             <button
               ref="NL5083"
               style={this.liftStyle()}
@@ -379,6 +372,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="5082">
             <button
               ref="NL5082"
               style={this.liftStyle()}
@@ -390,15 +385,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="5114">
             <button
               ref="N5104"
               style={this.navStyle()}
@@ -408,6 +396,8 @@ class Bookmarks extends Component {
                 5<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="5113">
             <button
               ref="N5103"
               style={this.navStyle()}
@@ -417,6 +407,8 @@ class Bookmarks extends Component {
                 5<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="5112">
             <button
               ref="N5102"
               style={this.navStyle()}
@@ -426,6 +418,8 @@ class Bookmarks extends Component {
                 5<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="5111">
             <button
               ref="N5101"
               style={this.navStyle()}
@@ -435,8 +429,8 @@ class Bookmarks extends Component {
                 5<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="4214">
             <button
               ref="N4204"
               style={this.navStyle()}
@@ -446,6 +440,8 @@ class Bookmarks extends Component {
                 4<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="4313">
             <button
               ref="N4203"
               style={this.navStyle()}
@@ -455,6 +451,8 @@ class Bookmarks extends Component {
                 4<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="4212">
             <button
               ref="N4202"
               style={this.navStyle()}
@@ -464,6 +462,8 @@ class Bookmarks extends Component {
                 4<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="4211">
             <button
               ref="N4201"
               style={this.navStyle()}
@@ -473,8 +473,8 @@ class Bookmarks extends Component {
                 4<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="4085">
             <button
               ref="NL4085"
               style={this.liftStyle()}
@@ -486,6 +486,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="4084">
             <button
               ref="NL4084"
               style={this.liftStyle()}
@@ -497,6 +499,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="4083">
             <button
               ref="NL4083"
               style={this.liftStyle()}
@@ -508,6 +512,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="4082">
             <button
               ref="NL4082"
               style={this.liftStyle()}
@@ -519,15 +525,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="4114">
             <button
               ref="N4104"
               style={this.navStyle()}
@@ -537,6 +536,8 @@ class Bookmarks extends Component {
                 4<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="4113">
             <button
               ref="N4103"
               style={this.navStyle()}
@@ -546,6 +547,8 @@ class Bookmarks extends Component {
                 4<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="4112">
             <button
               ref="N4102"
               style={this.navStyle()}
@@ -555,6 +558,8 @@ class Bookmarks extends Component {
                 4<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="4111">
             <button
               ref="N4101"
               style={this.navStyle()}
@@ -564,8 +569,8 @@ class Bookmarks extends Component {
                 4<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="3214">
             <button
               ref="N3204"
               style={this.navStyle()}
@@ -575,6 +580,8 @@ class Bookmarks extends Component {
                 3<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="3213">
             <button
               ref="N3203"
               style={this.navStyle()}
@@ -584,6 +591,8 @@ class Bookmarks extends Component {
                 3<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="3212">
             <button
               ref="N3202"
               style={this.navStyle()}
@@ -593,6 +602,8 @@ class Bookmarks extends Component {
                 3<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="3211">
             <button
               ref="N3201"
               style={this.navStyle()}
@@ -602,8 +613,8 @@ class Bookmarks extends Component {
                 3<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="3085">
             <button
               ref="NL3085"
               style={this.liftStyle()}
@@ -615,6 +626,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="3084">
             <button
               ref="NL3084"
               style={this.liftStyle()}
@@ -626,6 +639,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="3083">
             <button
               ref="NL3083"
               style={this.liftStyle()}
@@ -637,6 +652,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="3082">
             <button
               ref="NL3082"
               style={this.liftStyle()}
@@ -648,15 +665,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="3114">
             <button
               ref="N3104"
               style={this.navStyle()}
@@ -666,6 +676,8 @@ class Bookmarks extends Component {
                 3<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="3113">
             <button
               ref="N3103"
               style={this.navStyle()}
@@ -675,6 +687,8 @@ class Bookmarks extends Component {
                 3<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="3112">
             <button
               ref="N3102"
               style={this.navStyle()}
@@ -684,6 +698,8 @@ class Bookmarks extends Component {
                 3<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="3111">
             <button
               ref="N3101"
               style={this.navStyle()}
@@ -693,8 +709,8 @@ class Bookmarks extends Component {
                 3<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="2214">
             <button
               ref="N2204"
               style={this.navStyle()}
@@ -704,6 +720,8 @@ class Bookmarks extends Component {
                 2<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="2213">
             <button
               ref="N2203"
               style={this.navStyle()}
@@ -713,6 +731,8 @@ class Bookmarks extends Component {
                 2<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="2212">
             <button
               ref="N2202"
               style={this.navStyle()}
@@ -722,6 +742,8 @@ class Bookmarks extends Component {
                 2<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="2211">
             <button
               ref="N2201"
               style={this.navStyle()}
@@ -731,8 +753,8 @@ class Bookmarks extends Component {
                 2<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="2085">
             <button
               ref="NL2085"
               style={this.liftStyle()}
@@ -744,6 +766,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="2084">
             <button
               ref="NL2084"
               style={this.liftStyle()}
@@ -755,6 +779,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="2083">
             <button
               ref="NL2083"
               style={this.liftStyle()}
@@ -766,6 +792,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="2082">
             <button
               ref="NL2082"
               style={this.liftStyle()}
@@ -777,15 +805,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="2114">
             <button
               ref="N2104"
               style={this.navStyle()}
@@ -795,6 +816,8 @@ class Bookmarks extends Component {
                 2<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="2113">
             <button
               ref="N2103"
               style={this.navStyle()}
@@ -804,6 +827,8 @@ class Bookmarks extends Component {
                 2<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="2112">
             <button
               ref="N2102"
               style={this.navStyle()}
@@ -813,6 +838,8 @@ class Bookmarks extends Component {
                 2<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="2111">
             <button
               ref="N2101"
               style={this.navStyle()}
@@ -822,8 +849,8 @@ class Bookmarks extends Component {
                 2<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="1214">
             <button
               ref="N1204"
               style={this.navStyle()}
@@ -833,6 +860,8 @@ class Bookmarks extends Component {
                 1<br />2<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="1213">
             <button
               ref="N1203"
               style={this.navStyle()}
@@ -842,6 +871,8 @@ class Bookmarks extends Component {
                 1<br />2<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="1212">
             <button
               ref="N1202"
               style={this.navStyle()}
@@ -851,6 +882,8 @@ class Bookmarks extends Component {
                 1<br />2<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="1211">
             <button
               ref="N1201"
               style={this.navStyle()}
@@ -860,8 +893,8 @@ class Bookmarks extends Component {
                 1<br />2<br />1<br />1
               </div>
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="1085">
             <button
               ref="NL1085"
               style={this.liftStyle()}
@@ -873,6 +906,8 @@ class Bookmarks extends Component {
                 85
               </div>
             </button>
+          </div>
+          <div class="1084">
             <button
               ref="NL1084"
               style={this.liftStyle()}
@@ -884,6 +919,8 @@ class Bookmarks extends Component {
                 84
               </div>
             </button>
+          </div>
+          <div class="1083">
             <button
               ref="NL1083"
               style={this.liftStyle()}
@@ -895,6 +932,8 @@ class Bookmarks extends Component {
                 83
               </div>
             </button>
+          </div>
+          <div class="1082">
             <button
               ref="NL1082"
               style={this.liftStyle()}
@@ -906,15 +945,8 @@ class Bookmarks extends Component {
                 82
               </div>
             </button>
-            <div style={this.noStyle()}>
-              <div>
-                60
-                <br />
-                82
-              </div>
-            </div>
-          </td>
-          <td>
+          </div>
+          <div class="1114">
             <button
               ref="N1104"
               style={this.navStyle()}
@@ -924,6 +956,8 @@ class Bookmarks extends Component {
                 1<br />1<br />1<br />4
               </div>
             </button>
+          </div>
+          <div class="1113">
             <button
               ref="N1103"
               style={this.navStyle()}
@@ -933,6 +967,8 @@ class Bookmarks extends Component {
                 1<br />1<br />1<br />3
               </div>
             </button>
+          </div>
+          <div class="1112">
             <button
               ref="N1102"
               style={this.navStyle()}
@@ -942,6 +978,8 @@ class Bookmarks extends Component {
                 1<br />1<br />1<br />2
               </div>
             </button>
+          </div>
+          <div class="1111">
             <button
               ref="N1101"
               style={this.navStyle()}
@@ -951,8 +989,8 @@ class Bookmarks extends Component {
                 1<br />1<br />1<br />1
               </div>
             </button>
-          </td>
-        </table>
+          </div>
+        </div>
       </div>
     );
   }
