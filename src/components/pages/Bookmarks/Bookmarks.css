@@ -5,9 +5,11 @@
 	grid-template-rows: repeat(1, 1fr) 1fr 1fr 1fr;
 	grid-auto-columns: 1fr;
 	grid-auto-rows: 1fr;
-	grid-gap: 1em 1em;
+	grid-gap: auto;
 	grid-auto-flow: column;
-  margin: 4em 2em 2em 2em;
+  margin: 4em auto;
+  align-items: center;
+  justify-items: center;
 /* position: absolute; */
 /*   left: 50%; */
 /*   top: 50%; */
@@ -52,7 +54,7 @@
   grid-area: 7 / 2 / 8 / 3;
   width: 3em;
   height: 3em;
-  align-self: end;
+  align-self: start;
 }
 .6114 {
   grid-area: 1 / 3 / 3 / 4;
@@ -91,6 +93,7 @@
   grid-area: 2 / 5 / 3 / 6;
   width: 3em;
   height: 3em;
+  align-self: end;
 }
 .5084 {
   grid-area: 3 / 5 / 4 / 6;
@@ -330,6 +333,7 @@
 	grid-area: 3 / 14 / 4 / 15;
 	width: 3em;
 	height: 3em;
+	align-self: start;
 }
 .1082 {
 	grid-area: 4 / 14 / 5 / 15;

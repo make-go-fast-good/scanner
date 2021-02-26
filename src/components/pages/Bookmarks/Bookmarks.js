@@ -120,8 +120,6 @@ class Bookmarks extends Component {
       background: "#7A8B99",
       color: "#EEE",
       fontSize: "18px",
-      // margin: "15px auto",
-      margin: "auto",
       padding: "1em auto",
       minHeight: "7em",
       minWidth: "3em",
