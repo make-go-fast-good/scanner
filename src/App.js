@@ -1,13 +1,11 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import AppBar from "./components/layout/Appbar";
-import Home from "./components/Home";
-import DataTableContainer from "./components/DataTableContainer";
-import Hex from "./components/pages/Hex/Hex.js";
-import Bookmarks from "./components/pages/Bookmarks/Bookmarks.js";
-import About from "./components/pages/About";
-
+import React, {Component} from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import "./App.css";
+import DataTableContainer from "./components/DataTableContainer";
+import Home from "./components/Home";
+import AppBar from "./components/layout/Appbar";
+import Bookmarks from "./components/pages/Bookmarks/Bookmarks.js";
+import Hex from "./components/pages/Hex/Hex.js";
 
 class App extends Component {
   render() {
@@ -70,7 +68,7 @@ class App extends Component {
               path="/BOOKMARKS"
               render={() => (
                 <React.Fragment>
-                  <AppBar title="Bookmarks" minWidth="1200px" />
+                  <AppBar title="Bookmarks" minWidth="98%" />
                   <Bookmarks />
                 </React.Fragment>
               )}
