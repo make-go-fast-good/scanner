@@ -59,14 +59,8 @@ class BookmarksModal extends Component {
               transform: "translate(-50%, -50%)",
             },
             overlay: {
-              backdropFilter: "blur(2px)",
-              backdropFilter: "brightness(60%)",
-              backdropFilter: "contrast(40%)",
-              backdropFilter: "grayscale(30%)",
-              backdropFilter: "invert(70%)",
-              backdropFilter: "opacity(20%)",
-              backdropFilter: "sepia(90%)",
-              backdropFilter: "saturate(80%)",
+              backdropFilter:
+                "blur(2px) brightness(60%) contrast(40%) grayscale(30%) invert(70%) opacity(20%) sepia(90%) saturate(80%)",
             },
           }}
         >
@@ -102,16 +96,16 @@ const contentStyle = {
   margin: "20px",
 };
 
-const closeStyle = {
-  display: "flex",
-  flex: "1",
-  background: "#666",
-  color: "#fff",
-  border: "none",
-  padding: "8px 12px",
-  cursor: "pointer",
-  float: "right",
-};
+// const closeStyle = {
+//   display: "flex",
+//   flex: "1",
+//   background: "#666",
+//   color: "#fff",
+//   border: "none",
+//   padding: "8px 12px",
+//   cursor: "pointer",
+//   float: "right",
+// };
 
 const openStyle = {
   display: "flex",

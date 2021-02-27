@@ -14,26 +14,26 @@
     { "title": "Ack", "field": "data.ta_data_ack" },
     { "title": "Overflow", "field": "data.ta_data_order_ext_ueberlauf" },
     {
-      "title": "No_Weight Measure",
+      "title": "No_Weight_Meas",
       "field": "data.ta_data_order_ext_kein_gewicht"
     },
     {
-      "title": "No_Contour Measure",
+      "title": "No_Contour_Meas",
       "field": "data.ta_data_order_ext_kein_kontur"
     },
     { "title": "Special_1", "field": "data.ta_data_order_ext_sonder_1" },
     { "title": "Special_2", "field": "data.ta_data_order_ext_sonder_2" },
     { "title": "Special_3", "field": "data.ta_data_order_ext_sonder_3" },
-    { "title": "Order Received", "field": "data.ta_data_status_order_empf" },
+    { "title": "Order_Rec", "field": "data.ta_data_status_order_empf" },
     { "title": "Blocked", "field": "data.ta_data_status_gesperrt" },
     { "title": "Released", "field": "data.ta_data_status_freigabe" },
     { "title": "Dest_OK", "field": "data.ta_data_status_ziel_ok" },
     { "title": "TDB_Known", "field": "data.ta_data_status_tdb_bekannt" },
-    { "title": "New_data received", "field": "data.ta_data_status_ndr" },
+    { "title": "New_data_Rec", "field": "data.ta_data_status_ndr" },
     { "title": "No_Scan", "field": "data.ta_data_ack_ext_noscan" },
     { "title": "No_Read", "field": "data.ta_data_ack_ext_noread" },
     { "title": "No_Data", "field": "data.ta_data_ack_ext_nodata" },
-    { "title": "Barcode present", "field": "data.ta_data_status_barcode" },
+    { "title": "Barcode_Pres", "field": "data.ta_data_status_barcode" },
     { "title": "Complete", "field": "data.ta_data_status_data_komplett" },
     { "title": "Zombie", "field": "data.ta_data_status_ta_zombie" }
   ],

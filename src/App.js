@@ -27,12 +27,12 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/TT13"
+              path="/aglink"
               render={() => (
                 <React.Fragment>
                   <AppBar title="AG-Link" />
                   <DataTableContainer
-                    type="TT13"
+                    type="aglink"
                     grouping={true}
                     exportButton={true}
                     bodyHeight="67vh"
@@ -46,12 +46,12 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/ERROR"
+              path="/error"
               render={() => (
                 <React.Fragment>
                   <AppBar title="Error Log" />
                   <DataTableContainer
-                    type="ERROR"
+                    type="error"
                     grouping={true}
                     exportButton={true}
                     bodyHeight="67vh"
@@ -65,7 +65,7 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/BOOKMARKS"
+              path="/bookmarks"
               render={() => (
                 <React.Fragment>
                   <AppBar title="Bookmarks" minWidth="98%" />
@@ -76,12 +76,12 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/SCANNERS"
+              path="/scanners"
               render={() => (
                 <React.Fragment>
                   <AppBar title="Scanners" />
                   <DataTableContainer
-                    type="SCANNERS"
+                    type="scanners"
                     grouping={false}
                     paging={false}
                     bodyHeight="74vh"
@@ -92,7 +92,7 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/HEX"
+              path="/hex"
               render={() => (
                 <React.Fragment>
                   <AppBar title="MFS Hex Decoder (tt14xx only)" />
@@ -103,7 +103,7 @@ class App extends Component {
             <Route
               exact
               strict
-              path="/ABOUT"
+              path="/about"
               render={() => (
                 <React.Fragment>
                   <AppBar title="About" />

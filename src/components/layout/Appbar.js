@@ -90,21 +90,21 @@ export default function DenseAppBar(props) {
               <HomeTwoToneIcon className={classes.menuButton} />
               Home
             </MenuItem>
-            <MenuItem component={Link} to="/TT13" onClick={handleClose}>
+            <MenuItem component={Link} to="/aglink" onClick={handleClose}>
               <EmailTwoToneIcon className={classes.menuButton} />
               AG-Link
             </MenuItem>
-            <MenuItem component={Link} to="/SCANNERS" onClick={handleClose}>
+            <MenuItem component={Link} to="/scanners" onClick={handleClose}>
               <ScannerTwoToneIcon className={classes.menuButton} />
               Scanners
             </MenuItem>
-            <MenuItem component={Link} to="/ERROR" onClick={handleClose}>
+            <MenuItem component={Link} to="/error" onClick={handleClose}>
               <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
             </MenuItem>
-            <MenuItem component={Link} to="/BOOKMARKS" onClick={handleClose}>
+            <MenuItem component={Link} to="/bookmarks" onClick={handleClose}>
               <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
             </MenuItem>
-            <MenuItem component={Link} to="/HEX" onClick={handleClose}>
+            <MenuItem component={Link} to="/hex" onClick={handleClose}>
               <SearchIcon className={classes.menuButton} />
               Hex Parser
             </MenuItem>

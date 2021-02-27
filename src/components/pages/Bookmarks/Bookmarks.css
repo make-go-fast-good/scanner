@@ -1,359 +1,349 @@
 .gridContainer {
-	display: grid;
+  display: grid;
   width: 96%;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: repeat(1, 1fr) 1fr 1fr 1fr;
-	grid-auto-columns: 1fr;
-	grid-auto-rows: 1fr;
-	grid-gap: auto;
-	grid-auto-flow: column;
-  margin: 4em auto;
-  align-items: center;
-  justify-items: center;
-/* position: absolute; */
-/*   left: 50%; */
-/*   top: 50%; */
-/*   transform: translate(-50%, -50%); */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(1, 1fr) 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: auto;
+  grid-auto-flow: column;
+  margin: 4em 1em 0 1em;
+  padding: auto;
+  justify-items: center; /* position: absolute; */ /*   left: 50%; */ /*   top: 50%; */ /*   transform: translate(-50%, -50%); */
 }
-
-.6214 {
-	grid-area: 1 / 1 / 2 / 2;
-	width: 2em;
-}
-.6213 {
-	grid-area: 2 / 1 / 3 / 2;
+.N6214 {
+  grid-area: 1 / 1 / span 1 / span 1;
   width: 2em;
 }
-.6212 {
-	grid-area: 3 / 1 / 4 / 2;
+.N6213 {
+  grid-area: 2 / 1 / span 1 / span 1;
   width: 2em;
 }
-.6211 {
-	grid-area: 4 / 1 / 5 / 2;
+.N6212 {
+  grid-area: 3 / 1 / span 1 / span 1;
   width: 2em;
 }
-.6085 {
-	grid-area: 1 / 2 / 2 / 3;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.N6211 {
+  grid-area: 4 / 1 / span 1 / span 1;
+  width: 2em;
 }
-.6084 {
-	grid-area: 2 / 2 / 3 / 3;
-	width: 3em;
-	height: 3em;
-	align-self: end;
-}
-.6083 {
-	grid-area: 3 / 2 / 4 / 3;
-	width: 3em;
-	height: 3em;
-	align-self: start;
-}
-.6082 {
-  grid-area: 7 / 2 / 8 / 3;
+.NL6085 {
+  grid-area: 1 / 2 / span 1 / span 1;
   width: 3em;
   height: 3em;
   align-self: start;
 }
-.6114 {
-  grid-area: 1 / 3 / 3 / 4;
-  width: 2em;
-}
-.6113 {
-  grid-area: 3 / 3 / 5 / 4;
-  width: 2em;
-}
-.6112 {
-  grid-area: 5 / 3 / 7 / 4;
-  width: 2em;
-}
-.6111 {
-  grid-area: 7 / 3 / 9 / 4;
-  width: 2em;
-}
-
-.5214 {
-  grid-area: 1 / 4 / 3 / 5;
-  width: 2em;
-}
-.5213 {
-  grid-area: 3 / 4 / 5 / 5;
-  width: 2em;
-}
-.5212 {
-  grid-area: 5 / 4 / 7 / 5;
-  width: 2em;
-}
-.5211 {
-  grid-area: 7 / 4 / 9 / 5;
-  width: 2em;
-}
-.5085 {
-  grid-area: 2 / 5 / 3 / 6;
-  width: 3em;
-  height: 3em;
-  align-self: end;
-}
-.5084 {
-  grid-area: 3 / 5 / 4 / 6;
-  width: 3em;
-  height: 3em;
-  align-self: end;
-}
-.5083 {
-  grid-area: 6 / 5 / 7 / 6;
+.NL6084 {
+  grid-area: 2 / 2 / span 1 / span 1;
   width: 3em;
   height: 3em;
   align-self: start;
 }
-.5082 {
-	grid-area: 4 / 2 / 5 / 3;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL6083 {
+  grid-area: 3 / 2 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.5114 {
-	grid-area: 1 / 3 / 2 / 4;
+.NL6082 {
+  grid-area: 4 / 2 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
+}
+.N6114 {
+  grid-area: 1 / 3 / span 1 / span 1;
   width: 2em;
 }
-.5113 {
-	grid-area: 2 / 3 / 3 / 4;
+.N6113 {
+  grid-area: 2 / 3 / span 1 / span 1;
   width: 2em;
 }
-.5112 {
-	grid-area: 3 / 3 / 4 / 4;
+.N6112 {
+  grid-area: 3 / 3 / span 1 / span 1;
   width: 2em;
 }
-.5111 {
-	grid-area: 4 / 3 / 5 / 4;
+.N6111 {
+  grid-area: 4 / 3 / span 1 / span 1;
   width: 2em;
 }
-
-.4214 {
-	grid-area: 1 / 4 / 2 / 5;
+.N5214 {
+  grid-area: 1 / 4 / span 1 / span 1;
   width: 2em;
 }
-.4213 {
-	grid-area: 2 / 4 / 3 / 5;
+.N5213 {
+  grid-area: 2 / 4 / span 1 / span 1;
   width: 2em;
 }
-.4212 {
-	grid-area: 3 / 4 / 4 / 5;
+.N5212 {
+  grid-area: 3 / 4 / span 1 / span 1;
   width: 2em;
 }
-.4211 {
-	grid-area: 4 / 4 / 5 / 5;
+.N5211 {
+  grid-area: 4 / 4 / span 1 / span 1;
   width: 2em;
 }
-.4085 {
-	grid-area: 1 / 5 / 2 / 6;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL5085 {
+  grid-area: 1 / 5 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.4084 {
-	grid-area: 2 / 5 / 3 / 6;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL5084 {
+  grid-area: 2 / 5 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.4083 {
-	grid-area: 3 / 5 / 4 / 6;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL5083 {
+  grid-area: 3 / 5 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.4082 {
-	grid-area: 4 / 5 / 5 / 6;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL5082 {
+  grid-area: 4 / 5 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.4114 {
-	grid-area: 1 / 6 / 2 / 7;
+.N5114 {
+  grid-area: 1 / 6 / span 1 / span 1;
   width: 2em;
 }
-.4113 {
-	grid-area: 2 / 6 / 3 / 7;
+.N5113 {
+  grid-area: 2 / 6 / span 1 / span 1;
   width: 2em;
 }
-.4112 {
-	grid-area: 3 / 6 / 4 / 7;
+.N5112 {
+  grid-area: 3 / 6 / span 1 / span 1;
   width: 2em;
 }
-.4111 {
-	grid-area: 4 / 6 / 5 / 7;
+.N5111 {
+  grid-area: 4 / 6 / span 1 / span 1;
   width: 2em;
 }
-
-.3214 {
-	grid-area: 1 / 7 / 2 / 8;
+.N4214 {
+  grid-area: 1 / 7 / span 1 / span 1;
   width: 2em;
 }
-.3213 {
-	grid-area: 2 / 7 / 3 / 8;
+.N4213 {
+  grid-area: 2 / 7 / span 1 / span 1;
   width: 2em;
 }
-.3212 {
-	grid-area: 3 / 7 / 4 / 8;
+.N4212 {
+  grid-area: 3 / 7 / span 1 / span 1;
   width: 2em;
 }
-.3211 {
-	grid-area: 4 / 7 / 5 / 8;
+.N4211 {
+  grid-area: 4 / 7 / span 1 / span 1;
   width: 2em;
 }
-.3085 {
-	grid-area: 1 / 8 / 2 / 9;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL4085 {
+  grid-area: 1 / 8 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.3084 {
-	grid-area: 2 / 8 / 3 / 9;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL4084 {
+  grid-area: 2 / 8 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.3083 {
-	grid-area: 3 / 8 / 4 / 9;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL4083 {
+  grid-area: 3 / 8 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.3082 {
-	grid-area: 4 / 8 / 5 / 9;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL4082 {
+  grid-area: 4 / 8 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.3114 {
-	grid-area: 1 / 9 / 2 / 10;
+.N4114 {
+  grid-area: 1 / 9 / span 1 / span 1;
   width: 2em;
 }
-.3113 {
-	grid-area: 2 / 9 / 3 / 10;
+.N4113 {
+  grid-area: 2 / 9 / span 1 / span 1;
   width: 2em;
 }
-.3112 {
-	grid-area: 3 / 9 / 4 / 10;
+.N4112 {
+  grid-area: 3 / 9 / span 1 / span 1;
   width: 2em;
 }
-.3111 {
-	grid-area: 4 / 9 / 5 / 10;
+.N4111 {
+  grid-area: 4 / 9 / span 1 / span 1;
   width: 2em;
 }
-
-.2214 {
-	grid-area: 1 / 10 / 2 / 11;
+.N3214 {
+  grid-area: 1 / 10 / span 1 / span 1;
   width: 2em;
 }
-.2213 {
-	grid-area: 2 / 10 / 3 / 11;
+.N3213 {
+  grid-area: 2 / 10 / span 1 / span 1;
   width: 2em;
 }
-.2212 {
-	grid-area: 3 / 10 / 4 / 11;
+.N3212 {
+  grid-area: 3 / 10 / span 1 / span 1;
   width: 2em;
 }
-.2211 {
-	grid-area: 4 / 10 / 5 / 11;
+.N3211 {
+  grid-area: 4 / 10 / span 1 / span 1;
   width: 2em;
 }
-.2085 {
-	grid-area: 1 / 11 / 2 / 12;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL3085 {
+  grid-area: 1 / 11 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.2084 {
-	grid-area: 2 / 11 / 3 / 12;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL3084 {
+  grid-area: 2 / 11 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.2083 {
-	grid-area: 3 / 11 / 4 / 12;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL3083 {
+  grid-area: 3 / 11 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.2082 {
-	grid-area: 4 / 11 / 5 / 12;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL3082 {
+  grid-area: 4 / 11 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.2114 {
-	grid-area: 1 / 12 / 2 / 13;
+.N3114 {
+  grid-area: 1 / 12 / span 1 / span 1;
   width: 2em;
 }
-.2113 {
-	grid-area: 2 / 12 / 3 / 13;
+.N3113 {
+  grid-area: 2 / 12 / span 1 / span 1;
   width: 2em;
 }
-.2112 {
-	grid-area: 3 / 12 / 4 / 13;
+.N3112 {
+  grid-area: 3 / 12 / span 1 / span 1;
   width: 2em;
 }
-.2111 {
-	grid-area: 4 / 12 / 5 / 13;
+.N3111 {
+  grid-area: 4 / 12 / span 1 / span 1;
   width: 2em;
 }
-
-.1214 {
-	grid-area: 1 / 13 / 2 / 14;
+.N2214 {
+  grid-area: 1 / 13 / span 1 / span 1;
   width: 2em;
 }
-.1213 {
-	grid-area: 2 / 13 / 3 / 14;
+.N2213 {
+  grid-area: 2 / 13 / span 1 / span 1;
   width: 2em;
 }
-.1212 {
-	grid-area: 3 / 13 / 4 / 14;
+.N2212 {
+  grid-area: 3 / 13 / span 1 / span 1;
   width: 2em;
 }
-.1211 {
-	grid-area: 4 / 13 / 5 / 14;
+.N2211 {
+  grid-area: 4 / 13 / span 1 / span 1;
   width: 2em;
 }
-.1085 {
-	grid-area: 1 / 14 / 2 / 15;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL2085 {
+  grid-area: 1 / 14 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.1084 {
-	grid-area: 2 / 14 / 3 / 15;
-	width: 3em;
-	height: 3em;
-	align-self: end;
+.NL2084 {
+  grid-area: 2 / 14 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.1083 {
-	grid-area: 3 / 14 / 4 / 15;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL2083 {
+  grid-area: 3 / 14 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.1082 {
-	grid-area: 4 / 14 / 5 / 15;
-	width: 3em;
-	height: 3em;
-	align-self: start;
+.NL2082 {
+  grid-area: 4 / 14 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
 }
-.1114 {
-	grid-area: 1 / 15 / 2 / 16;
+.N2114 {
+  grid-area: 1 / 15 / span 1 / span 1;
   width: 2em;
 }
-.1113 {
-	grid-area: 2 / 15 / 3 / 16;
+.N2113 {
+  grid-area: 2 / 15 / span 1 / span 1;
   width: 2em;
 }
-.1112 {
-	grid-area: 3 / 15 / 4 / 16;
+.N2112 {
+  grid-area: 3 / 15 / span 1 / span 1;
   width: 2em;
 }
-.1111 {
-	grid-area: 4 / 15 / 5 / 16;
+.N2111 {
+  grid-area: 4 / 15 / span 1 / span 1;
+  width: 2em;
+}
+.N1214 {
+  grid-area: 1 / 16 / span 1 / span 1;
+  width: 2em;
+}
+.N1213 {
+  grid-area: 2 / 16 / span 1 / span 1;
+  width: 2em;
+}
+.N1212 {
+  grid-area: 3 / 16 / span 1 / span 1;
+  width: 2em;
+}
+.N1211 {
+  grid-area: 4 / 16 / span 1 / span 1;
+  width: 2em;
+}
+.NL1085 {
+  grid-area: 1 / 17 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
+}
+.NL1084 {
+  grid-area: 2 / 17 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
+}
+.NL1083 {
+  grid-area: 3 / 17 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
+}
+.NL1082 {
+  grid-area: 4 / 17 / span 1 / span 1;
+  width: 3em;
+  height: 3em;
+  align-self: start;
+}
+.N1114 {
+  grid-area: 1 / 18 / span 1 / span 1;
+  width: 2em;
+}
+.N1113 {
+  grid-area: 2 / 18 / span 1 / span 1;
+  width: 2em;
+}
+.N1112 {
+  grid-area: 3 / 18 / span 1 / span 1;
+  width: 2em;
+}
+.N1111 {
+  grid-area: 4 / 18 / span 1 / span 1;
   width: 2em;
 }

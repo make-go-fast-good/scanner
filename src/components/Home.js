@@ -9,7 +9,7 @@ import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import SearchTwoToneIcon from "@material-ui/icons/SearchTwoTone";
 // import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
-export class DefaultTable extends Component {
+export class Home extends Component {
   getStyle = () => {
     return {
       background: "#F4F4F4",
@@ -42,17 +42,17 @@ export class DefaultTable extends Component {
       return (
         <h2 style={this.getStyle()}>
           <Card
-            to="/TT13"
+            to="/aglink"
             primary="AG-Link"
             icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
-            to="/SCANNERS"
+            to="/scanners"
             primary="Scanner Data"
             icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
-            to="/ERROR"
+            to="/error"
             primary="Error Log"
             icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
           />
@@ -62,12 +62,12 @@ export class DefaultTable extends Component {
           {/*   icon={<MyLocationTwoToneIcon style={{ fontSize: "38px" }} />} */}
           {/* /> */}
           <Card
-            to="/BOOKMARKS"
+            to="/bookmarks"
             primary="Bookmarks"
             icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
-            to="/HEX"
+            to="/hex"
             primary="Matrix Hex parser"
             icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />}
           />
@@ -83,4 +83,4 @@ export class DefaultTable extends Component {
   }
 }
 
-export default DefaultTable;
+export default Home;

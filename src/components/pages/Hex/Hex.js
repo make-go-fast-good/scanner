@@ -4,7 +4,7 @@ import HexTitle from "./HexTitle.js";
 import HexVal from "./HexVal.js";
 import HexDoc from "./HexPdf.tsx";
 
-import HEXPARAMS from "../../../config/HexVal.json";
+import HEXPARAMS from "../../../config/hex/HexVal.json";
 
 import pdf1413 from "./assets/TT1413.pdf";
 import pdf1430 from "./assets/TT1430.pdf";
@@ -214,13 +214,13 @@ class Hex extends Component {
 
       switch (tmpTT) {
         case 750:
-          console.log("yes 750");
+          // console.log("yes 750");
           break;
         case 751:
-          console.log("yes 751");
+          // console.log("yes 751");
           break;
         case 1413:
-          console.log("yes 1413");
+          // console.log("yes 1413");
           targetState = "tt1413";
           this.setState((targetState) => {
             targetState.tt1413.map((_obj, index) => {

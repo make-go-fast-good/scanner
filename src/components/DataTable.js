@@ -1,11 +1,8 @@
 import MaterialTable from "material-table";
-import React, {Component} from "react";
-import DB171Columns from "../config/DB171Columns";
-import DB1852Columns from "../config/DB1852Columns";
-import DB421Columns from "../config/DB421Columns";
-import ERRORColumns from "../config/ERRORColumns";
-import SCANNERSColumns from "../config/SCANNERSColumns.js";
-import TT13Columns from "../config/TT13Columns";
+import React, { Component } from "react";
+import ErrorColumns from "../config/error/ErrorColumns";
+import ScannerColumns from "../config/scanner/ScannerColumns.js";
+import AgLinkColumns from "../config/aglink/AgLinkColumns";
 import Home from "./Home";
 
 export class DataTable extends Component {
@@ -15,32 +12,21 @@ export class DataTable extends Component {
   };
 
   render() {
-    let _columns;
+    let columns;
     let tableColumns;
 
     switch (this.props.type) {
-      case "TT13":
-        tableColumns = TT13Columns;
+      case "aglink":
+        tableColumns = AgLinkColumns;
         break;
-      case "SCANNERS":
-        tableColumns = SCANNERSColumns;
+      case "scanners":
+        tableColumns = ScannerColumns;
         break;
-      case "ERROR":
-        tableColumns = ERRORColumns;
+      case "error":
+        tableColumns = ErrorColumns;
         break;
-      case "OVERHEAD":
-        switch (this.props.area) {
-          case "C08":
-            tableColumns = DB1852Columns;
-            break;
-          case "C09":
-          case "C10":
-          case "C12":
-            tableColumns = DB421Columns;
-            break;
-          case "C11":
-            tableColumns = DB171Columns;
-        }
+      default:
+        break;
     }
 
     if (this.props.loading === true) {
@@ -51,14 +37,14 @@ export class DataTable extends Component {
       return <Home />;
     } else {
       this.state.extended === false
-        ? (_columns = tableColumns.condensed)
-        : (_columns = tableColumns.extended);
+        ? (columns = tableColumns.condensed)
+        : (columns = tableColumns.extended);
       return (
         <MaterialTable
           style={{ marginTop: "15px" }}
           key={this.props.key}
           title={this.props.area}
-          columns={_columns}
+          columns={columns}
           data={this.props.data}
           options={this.props.options}
           actions={[
