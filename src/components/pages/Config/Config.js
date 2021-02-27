@@ -43,7 +43,7 @@ class Config extends Component {
   render() {
     return (
       <div style={containerStyle}>
-        <p style={{ margin: "1em", padding: "1em" }}>
+          <p style={{ color: "#000", margin: "1em", padding: "1em" }}>
           Press Shift+Enter to save file.
         </p>
         <div style={editorStyle}>
