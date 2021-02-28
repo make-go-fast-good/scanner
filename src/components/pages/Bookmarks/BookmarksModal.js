@@ -38,8 +38,9 @@ class BookmarksModal extends Component {
   };
 
   render() {
+      // console.log(this.props)
     return (
-      <div>
+      <div class="modal">
         <div>
           <button style={openStyle} onClick={this.handleOpenModal}>
             More Details
@@ -96,20 +97,7 @@ const contentStyle = {
   margin: "20px",
 };
 
-// const closeStyle = {
-//   display: "flex",
-//   flex: "1",
-//   background: "#666",
-//   color: "#fff",
-//   border: "none",
-//   padding: "8px 12px",
-//   cursor: "pointer",
-//   float: "right",
-// };
-
 const openStyle = {
-  display: "flex",
-  flex: "1",
   background: "#7A8B99",
   color: "#fff",
   border: "none",

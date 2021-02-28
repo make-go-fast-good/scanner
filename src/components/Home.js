@@ -56,11 +56,11 @@ export class Home extends Component {
             primary="Error Log"
             icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
           />
-          <Card
-            to="/blockade"
-            primary="Blockade Checklist"
-            icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />}
-          />
+          {/* <Card */}
+          {/*   to="/blockade" */}
+          {/*   primary="Blockade Checklist" */}
+          {/*   icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />} */}
+          {/* /> */}
           <Card
             to="/bookmarks"
             primary="Bookmarks"

@@ -9,7 +9,7 @@
     "@phuocng/react-pdf-viewer": "^1.7.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.3",
+    "@testing-library/user-event": "^12.8.0",
     "@types/react-pdf": "^5.0.1",
     "axios": "^0.21.1",
     "express": "^4.17.1",
@@ -19,7 +19,7 @@
     "mui-datatables": "^3.7.6",
     "nodes7": "^0.3.12",
     "opn": "^6.0.0",
-    "pdfjs-dist": "^2.6.347",
+    "pdfjs-dist": "^2.4.456",
     "pkg": "^4.4.9",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
@@ -36,6 +36,7 @@
     "react-spinners": "^0.10.6",
     "react-switch": "^6.0.0",
     "serve": "^11.3.2",
+    "styled-components": "^5.2.1",
     "typescript": "^4.2.2"
   },
   "scripts": {
