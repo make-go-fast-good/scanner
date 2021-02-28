@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Typography } from '@material-ui/core';
-
+import {Typography} from '@material-ui/core';
+import React, {Component} from "react";
 import "../../../App.css";
+
 
 class Navettes extends Component {
 

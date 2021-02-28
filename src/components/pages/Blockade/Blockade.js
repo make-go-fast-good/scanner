@@ -1,82 +1,85 @@
 import React, {Component} from "react";
-import PARAMS from "../../../config/blockade/Blockade.json";
-import Nav from "./Navettes.js";
+import config from "../../../config/blockade/Blockade.json";
+import Grid from "./Grid";
 
 class Location {
-    constructor(val) {
-        this.id = val;
-        this.active = false;
-    }
+  constructor(val) {
+    this.id = val;
+    this.active = false;
+  }
 }
 
+const containerSytle = {
+  background: "#F4F4F4",
+  border: "1px dashed #BBB",
+  margin: "15px auto",
+  color: "#555",
+  minHeight: "88vh",
+};
+
+const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven
+iam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con
+sequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum do
+lore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, s
+unt in culpa qui officia deserunt mollit anim id est laborum.`;
+
 class Blockade extends Component {
+  componentDidMount() {
+    this.init(config.NAVETTES, config.RACK, config.SHELF);
+  }
 
-    componentDidMount() {
-        this.init(PARAMS.NAVETTES, PARAMS.RACK, PARAMS.SHELF);
-    }
+  state = {
+    rack: [],
+    navs: [],
+    shelf: [],
+  };
 
-    state = {
-        rack: [],
-        navs: [],
-        shelf: []
-    };
+  init = (navs, rack, shelf) => {
+    this.setState({
+      navs: navs.map((_obj) => {
+        return new Location(_obj);
+      }),
+      rack: rack.map((_obj) => {
+        return new Location(_obj);
+      }),
+      shelf: shelf.map((_obj) => {
+        return new Location(_obj);
+      }),
+    });
+  };
 
-    init = (navs, rack, shelf) => {
-        this.setState({
-            navs: navs.map(_obj => {
-                return new Location(_obj);
-            }),
-            rack: rack.map(_obj => {
-                return new Location(_obj);
-            }),
-            shelf: shelf.map(_obj => {
-                return new Location(_obj);
-            })
-        })
-    };
+  markActive = (nav) => {
+    this.setState({
+      navs: this.state.navs.map((nav) => {
+        if (nav.id === nav) {
+          nav.active = !nav.active;
+        }
+        return nav;
+      }),
+    });
+  };
 
-    markActive = nav => {
-        this.setState({
-            navs: this.state.navs.map(nav => {
-                if (nav.id === nav) {
-                    nav.active = !nav.active;
-                }
-                return nav;
-            })
-        });
-    };
-
-
-    getStyle = props => {
-        return {
-            background: "#F4F4F4",
-            flexWrap: "wrap",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            border: "1px dashed #BBB",
-            margin: "15px auto",
-            color: "#555",
-            minHeight: "88vh"
-        };
-    };
-
-    render() {
-
-        return(
-             <div style={this.getStyle()}>
-                 <div id="one">
-                 </div>
-                 <div id="two">
-                 </div>
-                 <div id="three">
-                     <Nav
-                         nav={this.state.navs}
-                     />
-                 </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div style={containerSytle} class="container">
+        <div class="container">
+          <div class="left">
+              {lorem}
+          </div>
+          <div class="mid">
+              {lorem}
+          </div>
+          <div class="right">
+              {lorem}
+          </div>
+          <div class="bottom">
+            <Grid />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Blockade;
