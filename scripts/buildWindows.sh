@@ -12,6 +12,9 @@ npm run-script build
 mkdir -p $outputDir/{s7_server,config,build,Documentation}
 cp -r $appDir/{build,config} $outputDir
 cp -r $docDir/*.pdf $outputDir/Documentation/
+cp  $docDir/README.txt $outputDir/
+cp  $appDir/scripts/init.bat $outputDir/
+
 cd $appDir/serve/
 cmd.exe /C pkg server.js -o s7_Server.exe --target node10-win-x64
 mv s7_server.exe $outputDir/s7_server/
