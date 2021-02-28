@@ -4,8 +4,9 @@ import "./App.css";
 import DataTableContainer from "./components/DataTableContainer";
 import Home from "./components/Home";
 import AppBar from "./components/layout/Appbar";
+import Blockade from "./components/pages/Blockade/Blockade";
+import Bookmarks from "./components/pages/Bookmarks/Bookmarks";
 import Config from "./components/pages/Config/Config";
-import Bookmarks from "./components/pages/Bookmarks/Bookmarks.js";
 import Hex from "./components/pages/Hex/Hex.js";
 
 class App extends Component {
@@ -109,6 +110,17 @@ class App extends Component {
                 <React.Fragment>
                   <AppBar title="Config Editor" />
                   <Config />
+                </React.Fragment>
+              )}
+            ></Route>
+            <Route
+              exact
+              strict
+              path="/blockade"
+              render={() => (
+                <React.Fragment>
+                  <AppBar title="Blockade Checklist" />
+                  <Blockade />
                 </React.Fragment>
               )}
             ></Route>

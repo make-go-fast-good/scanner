@@ -3,7 +3,7 @@ import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 // import { KEYCODE_ENTER } from "./keyboard";
 
-import config from "./exampleConnections.json";
+import config from "./ExampleConnections.json";
 
 const code = JSON.stringify(config, 0, 2);
 

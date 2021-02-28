@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PARAMS from "../config/Coordinates.json";
-import Nav from "./pages/Coordinates/Navettes.js";
+import React, {Component} from "react";
+import PARAMS from "../../../config/blockade/Blockade.json";
+import Nav from "./Navettes.js";
 
 class Location {
     constructor(val) {
@@ -9,7 +9,7 @@ class Location {
     }
 }
 
-class Coordinates extends Component {
+class Blockade extends Component {
 
     componentDidMount() {
         this.init(PARAMS.NAVETTES, PARAMS.RACK, PARAMS.SHELF);
@@ -79,4 +79,4 @@ class Coordinates extends Component {
     }
 }
 
-export default Coordinates;
+export default Blockade;

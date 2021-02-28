@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropagateLoader from "react-spinners/PropagateLoader";
-import Card from "./Card";
-
+import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import SearchTwoToneIcon from "@material-ui/icons/SearchTwoTone";
+import React, {Component} from "react";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import Card from "./Card";
+
 // import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
 export class Home extends Component {
@@ -56,11 +56,11 @@ export class Home extends Component {
             primary="Error Log"
             icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
           />
-          {/* <Card */}
-          {/*   to="/COORDINATES" */}
-          {/*   primary="Matrix Coordinates" */}
-          {/*   icon={<MyLocationTwoToneIcon style={{ fontSize: "38px" }} />} */}
-          {/* /> */}
+          <Card
+            to="/blockade"
+            primary="Blockade Checklist"
+            icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />}
+          />
           <Card
             to="/bookmarks"
             primary="Bookmarks"
