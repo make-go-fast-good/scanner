@@ -7,23 +7,20 @@ import "./Bookmarks.css";
 import BookmarksModal from "./BookmarksModal";
 import BookmarksSwitch from "./BookmarksSwitch";
 
+const interval = 60000;
+
 class Bookmarks extends Component {
-  constructor() {
-    super();
-    this.state = {
-      checked: false,
-      loading: true,
-      error: undefined,
-      data: undefined,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
+  state = {
+    checked: false,
+    init: true,
+  };
 
   componentDidMount() {
     bookmarksConfig.machine.map((m) => {
       return this.getStatus(m.ip, m.ref);
     });
-    this.setState({ loading: false });
+
+    setTimeout(this.setState({ init: false }), interval);
   }
 
   componentWillUnmount() {
@@ -36,6 +33,10 @@ class Bookmarks extends Component {
     clearTimeout(this.intervalID);
   }
 
+  handleChange = (e) => {
+    this.setState({ checked: e });
+  };
+
   openLink = (addr) => {
     const url1 = "http://";
     const url2 = "/admin.html";
@@ -44,7 +45,19 @@ class Bookmarks extends Component {
 
   // Select Connection
   getStatus = (addr, m_name) => {
+    if (this.state.checked === false && this.state.init === false) {
+      // call getStatus() again in 60 seconds
+      this.intervalID = setTimeout(
+        this.getStatus.bind(this, addr, m_name),
+        interval
+      );
+      return;
+    }
+
     return new Promise((resolve, reject) => {
+      this.setState({
+        updateTime: new Date().toLocaleString(),
+      });
       let keyMode = "http://" + addr + "/LevelControlKeySwitchMode?";
       let error = "http://" + addr + "/Srm1CurrErrors?";
       let srmStatus = "http://" + addr + "/srm1CurrSrmStatus.html?";
@@ -62,22 +75,16 @@ class Bookmarks extends Component {
           },
         })
         .then((res) => {
-          this.setState({
-            updateTime: new Date().toLocaleString(),
-          });
-
           let updateComponent = findDOMNode(this.refs[res.data.name]);
           if (updateComponent !== null) {
             updateComponent.style.color = "rgb(255,255,255)";
-            resolve(
-              (updateComponent.style.backgroundColor = res.data.backgroundColor)
-            );
-          }
-          if (this.state.checked === true) {
-            // call getStatus() again in 60 seconds
+
             this.intervalID = setTimeout(
               this.getStatus.bind(this, addr, m_name),
-              10000
+              interval
+            );
+            resolve(
+              (updateComponent.style.backgroundColor = res.data.backgroundColor)
             );
           }
         })
@@ -87,11 +94,6 @@ class Bookmarks extends Component {
         });
     });
   };
-
-  handleChange(checked) {
-    this.setState({ checked });
-    console.log(this.state.checked);
-  }
 
   render() {
     const MATRIX = bookmarksConfig.machine.map((m) => {
@@ -136,7 +138,7 @@ class Bookmarks extends Component {
             style={switchStyle}
           />
           <div class="time">Last Updated: {this.state.updateTime}</div>
-          <BookmarksModal />
+          <BookmarksModal interval={interval / 1000} />
         </div>
         <div class="gridContainer">{MATRIX}</div>
       </div>

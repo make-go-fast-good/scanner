@@ -37,8 +37,22 @@ class BookmarksModal extends Component {
     };
   };
 
+  intervalStyle = (props) => {
+    return {
+      background: props,
+      display: "flex",
+      flex: "1",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#7A8B99",
+      fontSize: "16px",
+      flexWrap: "wrap",
+      margin: "1em",
+      padding: "1em",
+    };
+  };
   render() {
-      // console.log(this.props)
+      console.log(this.props)
     return (
       <div class="modal">
         <div>
@@ -71,6 +85,9 @@ class BookmarksModal extends Component {
           {/* </button> */}
 
           <div style={contentStyle}>
+            <div style={this.intervalStyle("#FFF")}>
+              When Auto Refresh is on, Bookmarks will update every {this.props.interval} seconds.
+            </div>
             <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>
               Auto Mode
             </div>
