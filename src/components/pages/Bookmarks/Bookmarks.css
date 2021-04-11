@@ -7,345 +7,369 @@
   grid-auto-rows: 1fr;
   grid-gap: auto;
   grid-auto-flow: column;
-  margin: 2em 1em 0 1em;
+  margin: 3em 1em 1em 1.75em;
   padding: auto;
   justify-items: center; /* position: absolute; */ /*   left: 50%; */ /*   top: 50%; */ /*   transform: translate(-50%, -50%); */
 }
 .N6214 {
   grid-area: 1 / 1 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6213 {
   grid-area: 2 / 1 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6212 {
   grid-area: 3 / 1 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6211 {
   grid-area: 4 / 1 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL6085 {
   grid-area: 1 / 2 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL6084 {
   grid-area: 2 / 2 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL6083 {
   grid-area: 3 / 2 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL6082 {
   grid-area: 4 / 2 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N6114 {
   grid-area: 1 / 3 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6113 {
   grid-area: 2 / 3 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6112 {
   grid-area: 3 / 3 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N6111 {
   grid-area: 4 / 3 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5214 {
   grid-area: 1 / 4 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5213 {
   grid-area: 2 / 4 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5212 {
   grid-area: 3 / 4 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5211 {
   grid-area: 4 / 4 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL5085 {
   grid-area: 1 / 5 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL5084 {
   grid-area: 2 / 5 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL5083 {
   grid-area: 3 / 5 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL5082 {
   grid-area: 4 / 5 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N5114 {
   grid-area: 1 / 6 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5113 {
   grid-area: 2 / 6 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5112 {
   grid-area: 3 / 6 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N5111 {
   grid-area: 4 / 6 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4214 {
   grid-area: 1 / 7 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4213 {
   grid-area: 2 / 7 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4212 {
   grid-area: 3 / 7 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4211 {
   grid-area: 4 / 7 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL4085 {
   grid-area: 1 / 8 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL4084 {
   grid-area: 2 / 8 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL4083 {
   grid-area: 3 / 8 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL4082 {
   grid-area: 4 / 8 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N4114 {
   grid-area: 1 / 9 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4113 {
   grid-area: 2 / 9 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4112 {
   grid-area: 3 / 9 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N4111 {
   grid-area: 4 / 9 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3214 {
   grid-area: 1 / 10 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3213 {
   grid-area: 2 / 10 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3212 {
   grid-area: 3 / 10 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3211 {
   grid-area: 4 / 10 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL3085 {
   grid-area: 1 / 11 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL3084 {
   grid-area: 2 / 11 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL3083 {
   grid-area: 3 / 11 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL3082 {
   grid-area: 4 / 11 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N3114 {
   grid-area: 1 / 12 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3113 {
   grid-area: 2 / 12 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3112 {
   grid-area: 3 / 12 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N3111 {
   grid-area: 4 / 12 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2214 {
   grid-area: 1 / 13 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2213 {
   grid-area: 2 / 13 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2212 {
   grid-area: 3 / 13 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2211 {
   grid-area: 4 / 13 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL2085 {
   grid-area: 1 / 14 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL2084 {
   grid-area: 2 / 14 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL2083 {
   grid-area: 3 / 14 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL2082 {
   grid-area: 4 / 14 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N2114 {
   grid-area: 1 / 15 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2113 {
   grid-area: 2 / 15 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2112 {
   grid-area: 3 / 15 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N2111 {
   grid-area: 4 / 15 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1214 {
   grid-area: 1 / 16 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1213 {
   grid-area: 2 / 16 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1212 {
   grid-area: 3 / 16 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1211 {
   grid-area: 4 / 16 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .NL1085 {
   grid-area: 1 / 17 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL1084 {
   grid-area: 2 / 17 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL1083 {
   grid-area: 3 / 17 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .NL1082 {
   grid-area: 4 / 17 / span 1 / span 1;
-  width: 3em;
-  height: 3em;
-  align-self: start;
+  width: 4.5em;
+  height: 4.5em;
+  align-self: auto;
+  margin-left: .25em
 }
 .N1114 {
   grid-area: 1 / 18 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1113 {
   grid-area: 2 / 18 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1112 {
   grid-area: 3 / 18 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 .N1111 {
   grid-area: 4 / 18 / span 1 / span 1;
-  width: 2em;
+  width: 3.5em;
 }
 
 .headerContainer {

@@ -10,7 +10,7 @@ import Card from "./Card";
 // import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
 
 export class Home extends Component {
-  getStyle = () => {
+  getStyle = (props) => {
     return {
       background: "#F4F4F4",
       flexWrap: "wrap",
@@ -20,7 +20,7 @@ export class Home extends Component {
       border: "1px dashed #BBB",
       margin: "5px auto",
       color: "#555",
-      minHeight: "85vh",
+      minHeight: props || "85vh",
     };
   };
 
@@ -40,7 +40,7 @@ export class Home extends Component {
       return <h2 style={this.getStyle()}>{this.props.error}</h2>;
     } else if (this.props.home === true) {
       return (
-        <h2 style={this.getStyle()}>
+        <h2 style={this.getStyle("89.5vh")}>
           <Card
             to="/aglink"
             primary="AG-Link"

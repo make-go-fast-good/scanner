@@ -75,6 +75,7 @@ class Bookmarks extends Component {
           },
         })
         .then((res) => {
+          console.log(res.data);
           let updateComponent = findDOMNode(this.refs[res.data.name]);
           if (updateComponent !== null) {
             updateComponent.style.color = "rgb(255,255,255)";
@@ -163,6 +164,7 @@ const navStyle = {
   color: "#EEE",
   fontSize: "18px",
   padding: "1em 1em",
+  margin: ".25em 0",
   minHeight: "7em",
   minWidth: "3em",
   maxWidth: "3em",
@@ -171,7 +173,7 @@ const navStyle = {
 };
 
 const liftStyle = {
-  bordercolor: "#D3D3E3",
+  borderColor: "#E3E3E3",
   background: "#6A7A88",
   color: "#EEE",
   fontSize: "16px",
@@ -189,7 +191,7 @@ const containerStyle = {
   border: "1px dashed #BBB",
   margin: "5px auto",
   color: "#555",
-  minHeight: "89vh",
+  minHeight: "89.5vh",
   minWidth: "98%",
   overflow: "auto",
 };

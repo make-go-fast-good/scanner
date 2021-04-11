@@ -4,7 +4,7 @@ function About() {
   return (
     <React.Fragment>
       <h1>About</h1>
-      <p>This is my AGLink replacement.</p>
+        <p>Made by Phillip Crandall for Lowes DFC 3311<br/>2019-21</p>
     </React.Fragment>
   );
 }

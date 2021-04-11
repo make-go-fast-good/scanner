@@ -8,6 +8,7 @@ import Blockade from "./components/pages/Blockade/Blockade";
 import Bookmarks from "./components/pages/Bookmarks/Bookmarks";
 import Config from "./components/pages/Config/Config";
 import Hex from "./components/pages/Hex/Hex.js";
+import About from "./components/pages/About/About"
 
 class App extends Component {
   render() {
@@ -97,7 +98,7 @@ class App extends Component {
               path="/hex"
               render={() => (
                 <React.Fragment>
-                  <AppBar title="MFS Hex Decoder (tt14xx only)" />
+                  <AppBar title="Bookmarks MFS Hex Decoder" />
                   <Hex />
                 </React.Fragment>
               )}
@@ -131,7 +132,8 @@ class App extends Component {
               render={() => (
                 <React.Fragment>
                   <AppBar title="About" />
-                  <DataTableContainer type="ABOUT" />
+                    {/* <DataTableContainer type="About" /> */}
+                    <About />
                 </React.Fragment>
               )}
             ></Route>

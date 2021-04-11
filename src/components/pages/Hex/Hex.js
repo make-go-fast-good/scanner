@@ -150,6 +150,9 @@ class Hex extends Component {
     let i = 0;
     let reset = false;
     let tmpLen = 0;
+
+    // remove MFS key from string
+    str = str.replace("MFS SRM1:", "");
     // remove whitespace from string
     str = str.replace(/\s+/g, "");
 
@@ -337,8 +340,8 @@ class Hex extends Component {
               <HexDoc myTitle="TT1413" fileUrl={pdf1413} />
               <HexDoc myTitle="TT1430" fileUrl={pdf1430} />
               <HexDoc myTitle="TT1434" fileUrl={pdf1434} />
-              <HexDoc myTitle="TT750" fileUrl={pdf750} />
-              <HexDoc myTitle="TT751" fileUrl={pdf751} />
+              {/* <HexDoc myTitle="TT750" fileUrl={pdf750} /> */}
+              {/* <HexDoc myTitle="TT751" fileUrl={pdf751} /> */}
             </div>
           </div>
         </React.Fragment>
@@ -401,8 +404,8 @@ class Hex extends Component {
               <HexDoc myTitle="TT1413" fileUrl={pdf1413} />
               <HexDoc myTitle="TT1430" fileUrl={pdf1430} />
               <HexDoc myTitle="TT1434" fileUrl={pdf1434} />
-              <HexDoc myTitle="TT750" fileUrl={pdf750} />
-              <HexDoc myTitle="TT751" fileUrl={pdf751} />
+              {/* <HexDoc myTitle="TT750" fileUrl={pdf750} /> */}
+              {/* <HexDoc myTitle="TT751" fileUrl={pdf751} /> */}
             </div>
           </div>
         </React.Fragment>
