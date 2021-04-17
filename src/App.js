@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {HashRouter as Router, Route} from "react-router-dom";
 import "./App.css";
 import DataTableContainer from "./components/DataTableContainer";
 import Home from "./components/Home";
@@ -9,6 +9,8 @@ import Bookmarks from "./components/pages/Bookmarks/Bookmarks";
 import Config from "./components/pages/Config/Config";
 import Hex from "./components/pages/Hex/Hex.js";
 import About from "./components/pages/About/About"
+
+// const srv = require('../serve/server')
 
 class App extends Component {
   render() {

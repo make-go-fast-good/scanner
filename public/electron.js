@@ -3,6 +3,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const isDev = require("electron-is-dev");
+const server = require("../serve/server");
 
 function createWindow() {
   const menu = electron.Menu.buildFromTemplate(template);
@@ -14,19 +15,21 @@ function createWindow() {
     height: 900,
     frame: true,
     webPreferences: {
-      devTools: isDev,
+      // devTools: isDev,
       nodeIntegration: true,
     },
   });
 
+  mainWindow.loadURL(
+    isDev
+      ? "http://localhost:3000"
+      : `file://${path.join(__dirname, "../build/index.html")}`
+  );
+
   if (isDev) {
     mainWindow.webContents.openDevTools({ mode: "detach" });
-    mainWindow.loadURL("http://localhost:3000");
-  } else {
-    mainWindow.loadURL(
-      `file://${path.join(__dirname, "../../build/index.html")}`
-    );
   }
+
   mainWindow.on("closed", () => (mainWindow = null));
 
   mainWindow.webContents.on("new-window", function (e, url) {
@@ -42,6 +45,7 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
+
 app.on("activate", () => {
   if (mainWindow === null) {
     createWindow();
@@ -58,8 +62,6 @@ const template = [
   {
     label: "View",
     submenu: [
-      { role: "reload" },
-      { role: "forceReload" },
       { role: "toggleDevTools" },
       { type: "separator" },
       { role: "resetZoom" },
@@ -67,6 +69,37 @@ const template = [
       { role: "zoomOut" },
       { type: "separator" },
       { role: "togglefullscreen" },
+    ],
+  },
+  {
+    label: "Navigation",
+    submenu: [
+      {
+        label: "Refresh Page",
+        accelerator: "f5",
+        click() {
+          mainWindow.reload();
+        },
+      },
+      { type: "separator" },
+      {
+        label: "Go Back",
+        accelerator: "shift+h",
+        click() {
+          if (mainWindow.webContents.canGoBack()) {
+            mainWindow.webContents.goBack();
+          }
+        },
+      },
+      {
+        label: "Go Forward",
+        accelerator: "shift+l",
+        click() {
+          if (mainWindow.webContents.canGoForward()) {
+            mainWindow.webContents.goForward();
+          }
+        },
+      },
     ],
   },
   {
@@ -90,7 +123,7 @@ const template = [
           const { dialog } = require("electron");
           let options = {
             //Minimum options object
-            message: "Something to do at Lowes DFC 3311\npcrandall 2019-21",
+            message: "Something to do at Lowes DFC 3311\nPhillip Crandall 2019-21",
             type: "info",
             title: "About",
           };
