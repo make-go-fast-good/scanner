@@ -1,13 +1,13 @@
 const electron = require("electron");
+// const {dialog,electron} = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const isDev = require("electron-is-dev");
 const server = require("../serve/server");
-const { dialog } = require("electron");
 
-const { autoUpdater } = require("electron-updater");
-const logger = require("electron-log");
+// const { autoUpdater } = require("electron-updater");
+// const logger = require("electron-log");
 
 function createWindow() {
   const menu = electron.Menu.buildFromTemplate(menuTemplate);
@@ -154,68 +154,68 @@ const menuTemplate = [
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
  */
 
-autoUpdater.channel = "latest";
-autoUpdater.allowDowngrade = false;
+// autoUpdater.channel = "latest";
+// autoUpdater.allowDowngrade = false;
 
-autoUpdater.logger = logger;
-autoUpdater.logger.transports.file.level = "silly";
-autoUpdater.logger.transports.file.appName = "private repo";
-autoUpdater.autoDownload = true;
+// autoUpdater.logger = logger;
+// autoUpdater.logger.transports.file.level = "silly";
+// autoUpdater.logger.transports.file.appName = "private repo";
+// autoUpdater.autoDownload = true;
 
-autoUpdater.on("update-downloaded", () => {
-  dialog.showMessageBox({
-    message: "Update downloaded...",
-  });
-});
+// autoUpdater.on("update-downloaded", () => {
+//   dialog.showMessageBox({
+//     message: "Update downloaded...",
+//   });
+// });
 
-autoUpdater.on("checking-for-update", () => {
-  dialog.showMessageBox({
-    message: "Checking for updates...",
-  });
-});
+// autoUpdater.on("checking-for-update", (info) => {
+//   dialog.showMessageBox({
+//     message: "Checking for updates..." + info,
+//   });
+// });
 
-autoUpdater.on("update-available", () => {
-  dialog.showMessageBox({
-    message: "Update available !!",
-  });
-});
+// autoUpdater.on("update-available", (info) => {
+//   dialog.showMessageBox({
+//     message: "Update available !!" + info,
+//   });
+// });
 
-autoUpdater.on("update-not-available", () => {
-  dialog.showMessageBox({
-    message: "No updates available",
-  });
-});
+// autoUpdater.on("update-not-available", (info) => {
+//   dialog.showMessageBox({
+//     message: "No updates available" + info,
+//   });
+// });
 
-autoUpdater.on("error", (error) => {
-  autoUpdater.logger.debug(error);
-});
+// autoUpdater.on("error", (error) => {
+//   autoUpdater.logger.debug(error);
+// });
 
-autoUpdater.on("download-progress", (progressObj) => {
-  let log_message = "Download speed: " + progressObj.bytesPerSecond;
-  log_message = log_message + " - Downloaded " + progressObj.percent + "%";
-  log_message =
-    log_message +
-    " (" +
-    progressObj.transferred +
-    "/" +
-    progressObj.total +
-    ")";
-  sendStatusToWindow(log_message);
-});
+// autoUpdater.on("download-progress", (progressObj) => {
+//   let log_message = "Download speed: " + progressObj.bytesPerSecond;
+//   log_message = log_message + " - Downloaded " + progressObj.percent + "%";
+//   log_message =
+//     log_message +
+//     " (" +
+//     progressObj.transferred +
+//     "/" +
+//     progressObj.total +
+//     ")";
+//   sendStatusToWindow(log_message);
+// });
 
-autoUpdater.on("update-downloaded", (info) => {
-  let options = {
-    buttons: ["Yes", "No", "Cancel"],
-    message: "Do you want to install updates now?",
-    title: "Updates Downloaded",
-  };
+// autoUpdater.on("update-downloaded", () => {
+//   let options = {
+//     buttons: ["Yes", "No", "Cancel"],
+//     message: "Do you want to install updates now?",
+//     title: "Updates Downloaded",
+//   };
 
-  dialog.showMessageBox(options, (response) => {
-    console.log(response);
-    if (response === 0) autoUpdater.quitAndInstall();
-  });
-});
+//   dialog.showMessageBox(options, (response) => {
+//     console.log(response);
+//     if (response === 0) autoUpdater.quitAndInstall();
+//   });
+// });
 
-app.on("ready", () => {
-  if (!isDev) autoUpdater.checkForUpdatesAndNotify();
-});
+// app.on("ready", () => {
+//   if (!isDev) autoUpdater.checkForUpdatesAndNotify();
+// });

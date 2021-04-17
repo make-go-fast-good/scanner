@@ -10,22 +10,16 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@phuocng/react-pdf-viewer": "^1.7.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.0",
     "@types/react-dom": "^17.0.1",
     "axios": "^0.21.1",
     "concurrently": "^6.0.1",
-    "cross-env": "^7.0.3",
     "electron-is-dev": "^2.0.0",
     "electron-log": "^4.3.4",
     "electron-updater": "^4.3.8",
     "express": "^4.17.1",
-    "material-icons": "^0.5.3",
     "material-table": "^1.69.2",
     "nodes7": "^0.3.12",
     "opn": "^6.0.0",
-    "pdfjs-dist": "^2.4.456",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -39,8 +33,7 @@
     "react-spinners": "^0.10.6",
     "react-switch": "^6.0.0",
     "serve-handler": "^6.1.3",
-    "typescript": "^4.2.4",
-    "wait-on": "^5.3.0"
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "build": "yarn react-build && yarn electron-build",
@@ -49,8 +42,11 @@
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=never",
+    "electron-build-msi": "electron-builder -c.extraMetadata.main=./build/electron.js --win=msi --publish=never",
     "electron-build-portable": "electron-builder -c.extraMetadata.main=./build/electron.js --win portable --dir",
+    "electron-publish-portable": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=portable --dir --publish=always",
     "electron-publish": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=always",
+    "electron-publish-appx": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=appx --dir --publish=always",
     "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\" \" node serve/server.js \""
   },
   "eslintConfig": {
@@ -72,6 +68,11 @@
     "@types/react-dom": "^17.0.1",
     "electron": "^12.0.2",
     "electron-builder": "^22.10.5",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.0",
+    "cross-env": "^7.0.3",
+    "wait-on": "^5.3.0"
   }
 }

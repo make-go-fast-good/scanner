@@ -3,12 +3,13 @@
   "appId": "com.electron.plc_toolkit",
   "files": ["build/**/*", "serve/**/*"],
   "directories": {
-    "buildResources": "build"
+    "buildResources": "assets"
   },
   "nsis": {
     "oneClick": false,
+    "perMachine": false,
     "createDesktopShortcut": "always",
-    "createStartMenuShortcut": "true",
+    "createStartMenuShortcut": true,
     "shortcutName": "PLC Toolkit"
   },
   "publish": [
