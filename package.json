@@ -1,7 +1,7 @@
 {
   "author": "Phillip Crandall",
   "name": "plc_toolkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "homepage": "./",
   "description": "Read data from Siemens S7 PLCs",
@@ -99,8 +99,7 @@
       {
         "provider": "github",
         "owner": "pcrandall",
-        "repo": "plc_toolkit",
-        "token": "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"
+        "repo": "plc_toolkit"
       }
     ]
   }

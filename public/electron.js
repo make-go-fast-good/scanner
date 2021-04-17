@@ -5,19 +5,12 @@ const path = require("path");
 const isDev = require("electron-is-dev");
 const server = require("../serve/server");
 
-const { NsisUpdater } = require("electron-updater");
-
-const options = {
-  requestHeaders: {
-    // Any request headers to include here
-    Authorization: "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",
-  },
-  provider: "github",
-  url: "https://github.com/pcrandall/plc_toolkit.git",
-};
+const log = require('electron-log');
+const updater = require("electron-updater");
+const autoUpdater = updater.autoUpdater;
 
 function createWindow() {
-  const menu = electron.Menu.buildFromTemplate(template);
+  const menu = electron.Menu.buildFromTemplate(menuTemplate);
 
   electron.Menu.setApplicationMenu(menu);
 
@@ -48,14 +41,15 @@ function createWindow() {
     e.preventDefault();
     require("electron").shell.openExternal(url);
   });
+
+  autoUpdater.checkForUpdates();
 }
 
 app.on("ready", function () {
   createWindow();
-  const autoUpdater = new NsisUpdater(options);
-  autoUpdater.checkForUpdatesAndNotify();
-});
 
+  // autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -69,7 +63,7 @@ app.on("activate", () => {
   }
 });
 
-const template = [
+const menuTemplate = [
   {
     label: "File",
     submenu: [{ role: "quit" }],
@@ -149,3 +143,69 @@ const template = [
     ],
   },
 ];
+
+
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
+
+// autoUpdater.requestHeaders = {
+//   "PRIVATE-TOKEN": "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",
+// };
+//
+autoUpdater.autoDownload = true;
+
+autoUpdater.setFeedURL({
+  // provider: "github",
+  // url: "https://github.com/pcrandall/plc_toolkit.git",
+   token: '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',
+   owner: 'pcrandall',
+   repo: 'plc_toolkit'
+});
+
+autoUpdater.on("checking-for-update", function () {
+  sendStatusToWindow("Checking for update...");
+});
+
+autoUpdater.on("update-available", function (info) {
+  sendStatusToWindow("Update available." + info);
+});
+
+autoUpdater.on("update-not-available", function (info) {
+  sendStatusToWindow("Update not available." + info);
+});
+
+autoUpdater.on("error", function (err) {
+  sendStatusToWindow("Error in auto-updater." + err);
+});
+
+autoUpdater.on("download-progress", function (progressObj) {
+  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+  log_message =
+    log_message + " - Downloaded " + parseInt(progressObj.percent) + "%";
+  log_message =
+    log_message +
+    " (" +
+    progressObj.transferred +
+    "/" +
+    progressObj.total +
+    ")";
+  sendStatusToWindow(log_message);
+});
+
+autoUpdater.on("update-downloaded", function (info) {
+  sendStatusToWindow("Update downloaded; will install in 1 seconds" + info);
+});
+
+autoUpdater.on("update-downloaded", function (info) {
+  setTimeout(function () {
+  sendStatusToWindow(info);
+    autoUpdater.quitAndInstall();
+  }, 1000);
+});
+
+function sendStatusToWindow(text) {
+  log.info(text);
+  console.log(text)
+  mainWindow.webContents.send('message', text);
+}
