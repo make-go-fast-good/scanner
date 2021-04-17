@@ -1,0 +1,23 @@
+{
+  "productName": "PLC Toolkit",
+  "appId": "com.electron.plc_toolkit",
+  "files": ["build/**/*", "serve/**/*"],
+  "directories": {
+    "buildResources": "build"
+  },
+  "nsis": {
+    "oneClick": false,
+    "createDesktopShortcut": "always",
+    "createStartMenuShortcut": "true",
+    "shortcutName": "PLC Toolkit"
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "private": true,
+      "owner": "pcrandall",
+      "repo": "plc_toolkit",
+      "token": "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"
+    }
+  ]
+}

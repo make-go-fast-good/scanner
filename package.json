@@ -6,10 +6,6 @@
   "homepage": "./",
   "description": "Read data from Siemens S7 PLCs",
   "main": "public/electron.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pcrandall/plc_toolkit.git"
-  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -77,30 +73,5 @@
     "electron": "^12.0.2",
     "electron-builder": "^22.10.5",
     "typescript": "^4.2.4"
-  },
-  "build": {
-    "productName": "PLC Toolkit",
-    "appId": "com.electron.plc_toolkit",
-    "files": [
-      "build/**/*",
-      "serve/**/*"
-    ],
-    "directories": {
-      "buildResources": "build"
-    },
-    "extraResources": "config/**/*",
-    "nsis": {
-      "oneClick": false,
-      "createDesktopShortcut": "always",
-      "createStartMenuShortcut": "true",
-      "shortcutName": "PLC Toolkit"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "pcrandall",
-        "repo": "plc_toolkit"
-      }
-    ]
   }
 }

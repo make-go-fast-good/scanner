@@ -4,10 +4,10 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
 const isDev = require("electron-is-dev");
 const server = require("../serve/server");
+const { dialog } = require("electron");
 
-const log = require('electron-log');
-const updater = require("electron-updater");
-const autoUpdater = updater.autoUpdater;
+const { autoUpdater } = require("electron-updater");
+const logger = require("electron-log");
 
 function createWindow() {
   const menu = electron.Menu.buildFromTemplate(menuTemplate);
@@ -20,7 +20,10 @@ function createWindow() {
     frame: true,
     webPreferences: {
       // devTools: isDev,
+      defaultEncoding: "UTF-8",
       nodeIntegration: true,
+      contextIsolation: false,
+      // enableRemoteModule: true,
     },
   });
 
@@ -41,15 +44,14 @@ function createWindow() {
     e.preventDefault();
     require("electron").shell.openExternal(url);
   });
-
-  autoUpdater.checkForUpdates();
 }
 
 app.on("ready", function () {
   createWindow();
-
   // autoUpdater.checkForUpdatesAndNotify();
 });
+
+// app.on('ready', createWindow)
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -144,45 +146,53 @@ const menuTemplate = [
   },
 ];
 
+/**
+ * Auto Updater
+ *
+ * Uncomment the following code below and install `electron-updater` to
+ * support auto updating. Code Signing with a valid certificate is required.
+ * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
+ */
 
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
-log.info('App starting...');
+autoUpdater.channel = "latest";
+autoUpdater.allowDowngrade = false;
 
-// autoUpdater.requestHeaders = {
-//   "PRIVATE-TOKEN": "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",
-// };
-//
+autoUpdater.logger = logger;
+autoUpdater.logger.transports.file.level = "silly";
+autoUpdater.logger.transports.file.appName = "private repo";
 autoUpdater.autoDownload = true;
 
-autoUpdater.setFeedURL({
-  // provider: "github",
-  // url: "https://github.com/pcrandall/plc_toolkit.git",
-   token: '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',
-   owner: 'pcrandall',
-   repo: 'plc_toolkit'
+autoUpdater.on("update-downloaded", () => {
+  dialog.showMessageBox({
+    message: "Update downloaded...",
+  });
 });
 
-autoUpdater.on("checking-for-update", function () {
-  sendStatusToWindow("Checking for update...");
+autoUpdater.on("checking-for-update", () => {
+  dialog.showMessageBox({
+    message: "Checking for updates...",
+  });
 });
 
-autoUpdater.on("update-available", function (info) {
-  sendStatusToWindow("Update available." + info);
+autoUpdater.on("update-available", () => {
+  dialog.showMessageBox({
+    message: "Update available !!",
+  });
 });
 
-autoUpdater.on("update-not-available", function (info) {
-  sendStatusToWindow("Update not available." + info);
+autoUpdater.on("update-not-available", () => {
+  dialog.showMessageBox({
+    message: "No updates available",
+  });
 });
 
-autoUpdater.on("error", function (err) {
-  sendStatusToWindow("Error in auto-updater." + err);
+autoUpdater.on("error", (error) => {
+  autoUpdater.logger.debug(error);
 });
 
-autoUpdater.on("download-progress", function (progressObj) {
+autoUpdater.on("download-progress", (progressObj) => {
   let log_message = "Download speed: " + progressObj.bytesPerSecond;
-  log_message =
-    log_message + " - Downloaded " + parseInt(progressObj.percent) + "%";
+  log_message = log_message + " - Downloaded " + progressObj.percent + "%";
   log_message =
     log_message +
     " (" +
@@ -193,19 +203,19 @@ autoUpdater.on("download-progress", function (progressObj) {
   sendStatusToWindow(log_message);
 });
 
-autoUpdater.on("update-downloaded", function (info) {
-  sendStatusToWindow("Update downloaded; will install in 1 seconds" + info);
+autoUpdater.on("update-downloaded", (info) => {
+  let options = {
+    buttons: ["Yes", "No", "Cancel"],
+    message: "Do you want to install updates now?",
+    title: "Updates Downloaded",
+  };
+
+  dialog.showMessageBox(options, (response) => {
+    console.log(response);
+    if (response === 0) autoUpdater.quitAndInstall();
+  });
 });
 
-autoUpdater.on("update-downloaded", function (info) {
-  setTimeout(function () {
-  sendStatusToWindow(info);
-    autoUpdater.quitAndInstall();
-  }, 1000);
+app.on("ready", () => {
+  if (!isDev) autoUpdater.checkForUpdatesAndNotify();
 });
-
-function sendStatusToWindow(text) {
-  log.info(text);
-  console.log(text)
-  mainWindow.webContents.send('message', text);
-}
