@@ -1,19 +1,21 @@
 const Express = require("express");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+// const path = require("path");
 
 const Variables = require("./createSCANNERSStruct");
 const Process = require("./processSCANNERSData");
+const Connections = require("../../../config/Connections.json");
 
 function readData(_plc) {
   let Plc = new Nodes7();
-  //using fs to read the configuration outside of the packaged executable.
-  const myConn = fs.readFileSync(
-    path.join(path.dirname(process.cwd()), "./config/Connections.json")
-  );
-  let Connections = JSON.parse(myConn);
+
+  ////using fs to read the configuration outside of the packaged executable.
+  //const myConn = fs.readFileSync(
+  //  path.join(path.dirname(process.cwd()), "./config/Connections.json")
+  //);
+
   let plcConnection = Connections[_plc.conn];
 
   return new Promise((resolve, reject) => {
