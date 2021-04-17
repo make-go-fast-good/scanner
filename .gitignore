@@ -25,3 +25,5 @@ yarn-error.log*
 #releases
 /releases
 /dist
+
+electron-builder.yml

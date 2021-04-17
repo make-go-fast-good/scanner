@@ -1,12 +1,16 @@
 {
-  "author": "pcrandall",
+  "author": "Phillip Crandall",
   "name": "plc_toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "homepage": "./",
+  "description": "Read data from Siemens S7 PLCs",
   "main": "public/electron.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pcrandall/plc_toolkit.git"
+  },
   "dependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.12.13",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@phuocng/react-pdf-viewer": "^1.7.0",
@@ -14,16 +18,15 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.0",
     "@types/react-dom": "^17.0.1",
-    "@types/react-pdf": "^5.0.1",
-    "@types/prismjs": "^1.16.3",
     "axios": "^0.21.1",
     "concurrently": "^6.0.1",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.3.4",
+    "electron-updater": "^4.3.8",
     "express": "^4.17.1",
     "material-icons": "^0.5.3",
     "material-table": "^1.69.2",
-    "mui-datatables": "^3.7.6",
     "nodes7": "^0.3.12",
     "opn": "^6.0.0",
     "pdfjs-dist": "^2.4.456",
@@ -39,22 +42,20 @@
     "react-simple-code-editor": "^0.11.0",
     "react-spinners": "^0.10.6",
     "react-switch": "^6.0.0",
-    "serve": "^11.3.2",
     "serve-handler": "^6.1.3",
-    "styled-components": "^5.2.1",
     "typescript": "^4.2.4",
     "wait-on": "^5.3.0"
   },
   "scripts": {
-    "react-start": "concurrently \"react-scripts start\" \"cd ./serve && node server.js \"",
+    "build": "yarn react-build && yarn electron-build",
+    "react-start": "concurrently \"react-scripts start\" \" node serve/server.js \"",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
-    "electron-release": "yarn react-build && electron-builder --publish=always",
-    "build": "yarn react-build && yarn electron-build",
-    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-build": "electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir",
-    "electron-build-portable": "electron-builder -c.extraMetadata.main=./build/electron.js --win portable --dir"
+    "electron-build": "electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=never",
+    "electron-build-portable": "electron-builder -c.extraMetadata.main=./build/electron.js --win portable --dir",
+    "electron-publish": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=always",
+    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\" \" node serve/server.js \""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -72,8 +73,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.12.13",
-    "@types/prismjs": "^1.16.3",
     "@types/react-dom": "^17.0.1",
     "electron": "^12.0.2",
     "electron-builder": "^22.10.5",
@@ -91,10 +90,18 @@
     },
     "extraResources": "config/**/*",
     "nsis": {
-        "oneClick": false,
-        "createDesktopShortcut": "always",
-        "createStartMenuShortcut": "true",
-        "shortcutName": "PLC Toolkit"
-    }
+      "oneClick": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": "true",
+      "shortcutName": "PLC Toolkit"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "pcrandall",
+        "repo": "plc_toolkit",
+        "token": "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"
+      }
+    ]
   }
 }

@@ -5,6 +5,17 @@ const path = require("path");
 const isDev = require("electron-is-dev");
 const server = require("../serve/server");
 
+const { NsisUpdater } = require("electron-updater");
+
+const options = {
+  requestHeaders: {
+    // Any request headers to include here
+    Authorization: "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",
+  },
+  provider: "github",
+  url: "https://github.com/pcrandall/plc_toolkit.git",
+};
+
 function createWindow() {
   const menu = electron.Menu.buildFromTemplate(template);
 
@@ -39,7 +50,13 @@ function createWindow() {
   });
 }
 
-app.on("ready", createWindow);
+app.on("ready", function () {
+  createWindow();
+  const autoUpdater = new NsisUpdater(options);
+  autoUpdater.checkForUpdatesAndNotify();
+});
+
+
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
@@ -53,12 +70,10 @@ app.on("activate", () => {
 });
 
 const template = [
-  // { role: 'fileMenu' }
   {
     label: "File",
     submenu: [{ role: "quit" }],
   },
-  // { role: 'viewMenu' }
   {
     label: "View",
     submenu: [
@@ -123,7 +138,8 @@ const template = [
           const { dialog } = require("electron");
           let options = {
             //Minimum options object
-            message: "Something to do at Lowes DFC 3311\nPhillip Crandall 2019-21",
+            message:
+              "Something to do at Lowes DFC 3311\nPhillip Crandall 2019-21",
             type: "info",
             title: "About",
           };
