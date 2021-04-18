@@ -8,7 +8,8 @@ import Viewer, {
   Worker,
 } from "@phuocng/react-pdf-viewer";
 import "@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css";
-import CloseSharpIcon from "@material-ui/icons/CloseSharp";
+/* import CloseSharpIcon from "@material-ui/icons/CloseSharp"; */
+import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 
 interface SinglePageViewExampleProps {
   fileUrl: string;
@@ -46,7 +47,7 @@ const ModalExample: React.FC<SinglePageViewExampleProps> = ({
             position={Position.BottomRight}
             target={
               <Button onClick={() => setShown(false)}>
-                <CloseSharpIcon style={{ fontSize: "36px" }} />
+                <CloseRoundedIcon style={{ fontSize: "28px" }} />
               </Button>
             }
             content={() => "Close"}

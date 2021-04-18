@@ -10,7 +10,6 @@ import Config from "./components/pages/Config/Config";
 import Hex from "./components/pages/Hex/Hex.js";
 import About from "./components/pages/About/About"
 
-// const srv = require('../serve/server')
 
 class App extends Component {
   render() {
