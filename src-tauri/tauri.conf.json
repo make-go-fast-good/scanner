@@ -14,15 +14,9 @@
       "active": true,
       "targets": "all",
       "identifier": "com.tauri.dev",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
+      "icon": ["icons/icon.ico"],
       "resources": [],
-      "externalBin": ["../assets/Executables/s7_Server.exe"],
+      "externalBin": ["s7_Server/s7_Server"],
       "copyright": "",
       "category": "DeveloperTool",
       "shortDescription": "",
@@ -54,10 +48,11 @@
     "windows": [
       {
         "title": "PLC Toolkit",
-        "width": 1440,
-        "height": 900,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "minWidth": 1250,
+        "minHeight": 600,
+        "maximized": true
       }
     ],
     "security": {
