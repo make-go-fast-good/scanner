@@ -1,13 +1,11 @@
 // window.addEventListener('load', function () {
-import {inputText, resultText, wbName, firstRow} from './coordparse.js'
-import '../vendor/spin.js'
-import {shim} from 'core-js'
+import {firstRow, inputText, resultText, wbName} from './coordparse.js'
 
-const canvasDatagrid = require('canvas-datagrid')
-const parseData = require('./coordparse.js')
+const canvasDatagrid = require('../lib/canvas-datagrid')
 const Spinner = require('../lib/spin.js')
 const XLSX = require('../lib/xlsx.full.min.js')
 const Blob = require('../lib/Blob.js')
+const parseData = require('./coordparse.js')
 // const shim = require('../lib/shim.js')
 //const alertify = require('../vendor/alertify.js')
 // const Spinner = require('../vendor/spin.js')

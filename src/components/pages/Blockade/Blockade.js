@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import config from "../../../config/blockade/Blockade.json";
 import Grid from "./Grid";
+import Inputs from "./Input";
+import "./styles.css";
 
 class Location {
   constructor(val) {
@@ -62,21 +64,20 @@ class Blockade extends Component {
 
   render() {
     return (
-      <div style={containerSytle} class="container">
-        <div class="container">
-          <div class="left">
+      <div style={containerSytle} class="grid-container">
+          <div class="Left">
+              <Inputs />
               {lorem}
           </div>
-          <div class="mid">
+          <div class="Mid">
               {lorem}
           </div>
-          <div class="right">
+          <div class="Right">
               {lorem}
           </div>
-          <div class="bottom">
+          <div class="Bottom">
             <Grid />
           </div>
-        </div>
       </div>
     );
   }

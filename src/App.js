@@ -4,11 +4,11 @@ import "./App.css";
 import DataTableContainer from "./components/DataTableContainer";
 import Home from "./components/Home";
 import AppBar from "./components/layout/Appbar";
+import About from "./components/pages/About/About";
 import Blockade from "./components/pages/Blockade/Blockade";
 import Bookmarks from "./components/pages/Bookmarks/Bookmarks";
 import Config from "./components/pages/Config/Config";
 import Hex from "./components/pages/Hex/Hex.js";
-import About from "./components/pages/About/About"
 
 
 class App extends Component {

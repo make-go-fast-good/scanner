@@ -51,11 +51,12 @@
     "wait-on": "^5.3.0"
   },
   "scripts": {
-    "tauri": "tauri",
-    "pkg": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64 && upx --ultra-brute s7_Server-x86_64-pc-windows-msvc.exe && cp s7_Server-x86_64-pc-windows-msvc.exe ../src-tauri/s7_Server",
-    "build": "yarn react-build && yarn electron-build",
-    "react-start": "concurrently \"react-scripts start\" \" cd ./serve && node server.js \"",
     "start": "react-scripts start",
+    "build": "yarn react-build && yarn electron-build",
+    "tauri": "tauri",
+    "pkg": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64",
+    "pkg-compress": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64 && upx --ultra-brute s7_Server-x86_64-pc-windows-msvc.exe && cp s7_Server-x86_64-pc-windows-msvc.exe ../src-tauri/s7_Server",
+    "react-start": "concurrently \"react-scripts start\" \" cd ./serve && node server.js \"",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
