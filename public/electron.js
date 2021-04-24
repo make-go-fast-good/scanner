@@ -2,30 +2,33 @@ const electron = require("electron");
 // const {dialog,electron} = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const globalShortcut = electron.globalShortcut;
+const contextMenu = require("electron-context-menu");
 const path = require("path");
 const isDev = require("electron-is-dev");
 const server = require("../serve/server");
 
-// const { autoUpdater } = require("electron-updater");
-// const logger = require("electron-log");
-
 function createWindow() {
-  const menu = electron.Menu.buildFromTemplate(menuTemplate);
 
-  electron.Menu.setApplicationMenu(menu);
+  electron.Menu.setApplicationMenu(null); // no default menue
+
+// Declare shortcuts
+    globalShortcut.register('F5', () => mainWindow.webContents.reload());
+    globalShortcut.register('Shift + H', () => mainWindow.webContents.canGoBack() ? mainWindow.webContents.goBack() : null );
+    globalShortcut.register('Shift + L', () => mainWindow.webContents.goForward() ? mainWindow.webContents.goForward() : null);
 
   mainWindow = new BrowserWindow({
-    width: 1440,
-    height: 900,
+    show: false,
     frame: true,
     webPreferences: {
       // devTools: isDev,
       defaultEncoding: "UTF-8",
       nodeIntegration: true,
       contextIsolation: false,
-      // enableRemoteModule: true,
     },
   });
+  mainWindow.maximize();
+  mainWindow.show();
 
   mainWindow.loadURL(
     isDev
@@ -40,9 +43,8 @@ function createWindow() {
   mainWindow.on("closed", () => (mainWindow = null));
 
   mainWindow.webContents.on("new-window", function (e, url) {
-    // Open external urls in an actual browser
     e.preventDefault();
-    require("electron").shell.openExternal(url);
+    mainWindow.loadURL(url);
   });
 }
 
@@ -50,8 +52,6 @@ app.on("ready", function () {
   createWindow();
   // autoUpdater.checkForUpdatesAndNotify();
 });
-
-// app.on('ready', createWindow)
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -65,86 +65,63 @@ app.on("activate", () => {
   }
 });
 
-const menuTemplate = [
-  {
-    label: "File",
-    submenu: [{ role: "quit" }],
-  },
-  {
-    label: "View",
-    submenu: [
-      { role: "toggleDevTools" },
-      { type: "separator" },
-      { role: "resetZoom" },
-      { role: "zoomIn" },
-      { role: "zoomOut" },
-      { type: "separator" },
-      { role: "togglefullscreen" },
-    ],
-  },
-  {
-    label: "Navigation",
-    submenu: [
-      {
-        label: "Refresh Page",
-        accelerator: "f5",
-        click() {
-          mainWindow.reload();
-        },
+contextMenu({
+  menu: (actions, props, browserWindow, dictionarySuggestions) => [
+    ...dictionarySuggestions,
+    actions.copy({
+      transform: (content) => `modified_copy_${content}`,
+    }),
+    actions.paste({
+      transform: (content) => `modified_paste_${content}`,
+    }),
+    actions.separator(),
+    {
+      label: "Back",
+      accelerator: "shift + h",
+      click: () => {
+        if (mainWindow.webContents.canGoBack()) {
+          mainWindow.webContents.goBack();
+        }
       },
-      { type: "separator" },
-      {
-        label: "Go Back",
-        accelerator: "shift+h",
-        click() {
-          if (mainWindow.webContents.canGoBack()) {
-            mainWindow.webContents.goBack();
-          }
-        },
+    },
+    {
+      label: "Refresh",
+      accelerator: "f5",
+      click: () => {
+        mainWindow.reload();
       },
-      {
-        label: "Go Forward",
-        accelerator: "shift+l",
-        click() {
-          if (mainWindow.webContents.canGoForward()) {
-            mainWindow.webContents.goForward();
-          }
-        },
+    },
+    {
+      label: "Forward",
+      accelerator: "shift + l",
+      click: () => {
+        if (mainWindow.webContents.canGoForward()) {
+          mainWindow.webContents.goForward();
+        }
       },
-    ],
-  },
-  {
-    role: "help",
-    submenu: [
-      {
-        label: "Learn More",
-        click: () => {
-          const { dialog } = require("electron");
-          let options = {
-            //Minimum options object
-            message: "Coming soon...",
-            type: "info",
-          };
-          dialog.showMessageBox(options);
-        },
+    },
+    actions.separator(),
+    { role: "zoomIn" },
+    { role: "zoomOut" },
+    { role: "resetZoom" },
+    actions.separator(),
+    {
+      label: "About",
+      click: () => {
+        const { dialog } = require("electron");
+        let options = {
+          //Minimum options object
+          message: "Something to do at Lowes DFC 3311\n\n\npcrandall `21",
+          type: "info",
+          title: "PLC Toolkit",
+        };
+        dialog.showMessageBox(options);
       },
-      {
-        label: "About",
-        click: () => {
-          const { dialog } = require("electron");
-          let options = {
-            //Minimum options object
-            message:
-              "Something to do at Lowes DFC 3311\nPhillip Crandall 2019-21",
-            type: "info",
-            title: "About",
-          };
-          dialog.showMessageBox(options);
-        },
-      },
-    ],
-  },
-];
+    },
+    actions.separator(),
+    actions.inspect(),
+  ],
+});
 
 /**
  * Auto Updater

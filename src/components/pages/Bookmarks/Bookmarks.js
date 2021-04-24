@@ -1,11 +1,14 @@
-import axios from "axios";
 import React, { Component } from "react";
 import { findDOMNode, render } from "react-dom";
-import "../../../App.css";
-import bookmarksConfig from "../../../config/bookmarks/Bookmarks.json";
-import "./Bookmarks.css";
 import BookmarksModal from "./BookmarksModal";
+// import OrdersModal from "./OrdersModal";
 import BookmarksSwitch from "./BookmarksSwitch";
+import axios from "axios";
+
+import bookmarksConfig from "../../../config/bookmarks/Bookmarks.json";
+
+import "../../../App.css";
+import "./Bookmarks.css";
 
 const interval = 60000;
 
@@ -140,6 +143,7 @@ class Bookmarks extends Component {
           />
           <div class="time">Last Updated: {this.state.updateTime}</div>
           <BookmarksModal interval={interval / 1000} />
+          {/* <OrdersModal interval={interval / 1000} /> */}
         </div>
         <div class="gridContainer">{MATRIX}</div>
       </div>
@@ -170,6 +174,10 @@ const navStyle = {
   maxWidth: "3em",
   overflowWrap: "break-word",
   cursor: "pointer",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };
 
 const liftStyle = {
@@ -184,6 +192,10 @@ const liftStyle = {
   minWidth: "4em",
   maxWidth: "4em",
   cursor: "pointer",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };
 
 const containerStyle = {
@@ -194,4 +206,8 @@ const containerStyle = {
   minHeight: "89.5vh",
   minWidth: "98%",
   overflow: "auto",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };

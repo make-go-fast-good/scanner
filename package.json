@@ -1,13 +1,14 @@
 {
   "author": "Phillip Crandall",
   "name": "plc_toolkit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "homepage": "./",
   "description": "Read data from Siemens S7 PLCs",
   "main": "public/electron.js",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.12.13",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@phuocng/react-pdf-viewer": "^1.7.0",
@@ -22,6 +23,7 @@
     "axios": "^0.21.1",
     "concurrently": "^6.0.1",
     "cross-env": "^7.0.3",
+    "electron-context-menu": "^2.5.1",
     "electron-is-dev": "^2.0.0",
     "express": "^4.17.1",
     "material-icons": "^0.5.3",
@@ -50,6 +52,7 @@
   },
   "scripts": {
     "tauri": "tauri",
+    "pkg": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64 && upx --ultra-brute s7_Server-x86_64-pc-windows-msvc.exe && cp s7_Server-x86_64-pc-windows-msvc.exe ../src-tauri/s7_Server",
     "build": "yarn react-build && yarn electron-build",
     "react-start": "concurrently \"react-scripts start\" \" cd ./serve && node server.js \"",
     "start": "react-scripts start",
@@ -57,12 +60,10 @@
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=never",
-    "electron-build-msi": "electron-builder -c.extraMetadata.main=./build/electron.js --win=msi --publish=never",
+    "electron-publish": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=always",
     "electron-build-portable": "electron-builder -c.extraMetadata.main=./build/electron.js --win portable --dir",
     "electron-publish-portable": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=portable --dir --publish=always",
-    "electron-publish": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=always",
-    "electron-publish-appx": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=appx --dir --publish=always",
-    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\" \" node serve/server.js \""
+    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"

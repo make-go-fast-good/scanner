@@ -12,27 +12,14 @@
   "tauri": {
     "bundle": {
       "active": true,
-      "targets": "all",
-      "identifier": "com.tauri.dev",
+      "targets": "false",
+      "identifier": "com.tauri.phillip_crandall",
       "icon": ["icons/icon.ico"],
       "resources": [],
       "externalBin": ["s7_Server/s7_Server"],
       "copyright": "",
-      "category": "DeveloperTool",
-      "shortDescription": "",
-      "longDescription": "",
-      "deb": {
-        "depends": [],
-        "useBootstrapper": false
-      },
-      "macOS": {
-        "frameworks": [],
-        "minimumSystemVersion": "",
-        "useBootstrapper": false,
-        "exceptionDomain": "",
-        "signingIdentity": null,
-        "entitlements": null
-      },
+      "category": "Productivity",
+      "shortDescription": "Read Data from Siemens S7 PLCs",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -43,7 +30,7 @@
       "active": false
     },
     "allowlist": {
-      "all": true
+      "all": false
     },
     "windows": [
       {

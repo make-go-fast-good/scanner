@@ -34,6 +34,10 @@ class BookmarksModal extends Component {
       margin: "15px",
       padding: "0px 20px",
       minHeight: "10vh",
+      WebkitUserSelect: "none",
+      msUserSelect: "none",
+      MozUserSelect: "none",
+      userSelect: "none",
     };
   };
 
@@ -49,10 +53,14 @@ class BookmarksModal extends Component {
       flexWrap: "wrap",
       margin: "1em",
       padding: "1em",
+      WebkitUserSelect: "none",
+      msUserSelect: "none",
+      MozUserSelect: "none",
+      userSelect: "none",
     };
   };
   render() {
-      console.log(this.props)
+    console.log(this.props);
     return (
       <div class="modal">
         <div>
@@ -86,7 +94,8 @@ class BookmarksModal extends Component {
 
           <div style={contentStyle}>
             <div style={this.intervalStyle("#FFF")}>
-              When Auto Refresh is on, Bookmarks will update every {this.props.interval} seconds.
+              When Auto Refresh is on, Bookmarks will update every{" "}
+              {this.props.interval} seconds.
             </div>
             <div style={this.headerStyle("rgba(0, 215, 0, 0.7)")}>
               Auto Mode
@@ -105,6 +114,7 @@ class BookmarksModal extends Component {
     );
   }
 }
+
 const contentStyle = {
   display: "flex",
   flex: "1",
