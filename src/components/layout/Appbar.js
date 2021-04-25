@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,7 +15,7 @@ import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
 import CheckCircleTwoToneIcon from "@material-ui/icons/CheckCircleTwoTone";
-import FindInPageTwoToneIcon from '@material-ui/icons/FindInPageTwoTone';
+import FindInPageTwoToneIcon from "@material-ui/icons/FindInPageTwoTone";
 
 import Logo from "./Logo";
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     background: "yellow",
   },
   colorIcon: {
-    color: "rgba(0,0,0,0.7)",
+    color: "rgba(0,0,0,0.8)",
     // background: "#A8A8A8",
     // padding: "2px",
     // width: "1.25em",
@@ -114,7 +114,7 @@ export default function DenseAppBar(props) {
               Checklist
             </MenuItem>
             <MenuItem component={Link} to="/error" onClick={handleClose}>
-              <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
+              <ErrorTwoToneIcon className={classes.menuButton} /> PLC Error Log
             </MenuItem>
             <MenuItem component={Link} to="/hex" onClick={handleClose}>
               <FindInPageTwoToneIcon className={classes.menuButton} />

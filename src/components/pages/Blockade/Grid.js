@@ -45,9 +45,11 @@ class Grid extends Component {
 
     return (
       <>
-        <Typography variant="h5" align="center">
-          Blockade Checklist
-        </Typography>
+        <div style={headerStyle}>
+          <Typography variant="h5" align="center">
+            Blockade Checklist
+          </Typography>
+        </div>
         <DataGrid
           style={gridStyle}
           columns={columns}
@@ -68,4 +70,9 @@ const gridStyle = {
   minHeight: "22vh",
   maxHeight: "22vh",
   overflow: "auto",
+  color: "black",
+};
+
+const headerStyle = {
+  color: "black",
 };

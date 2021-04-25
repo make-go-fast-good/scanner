@@ -8,18 +8,19 @@ class Inputs extends Component {
   render() {
     return (
       <div style={getStyle}>
-        <Typography variant="h6" align="left">
-          Single Coordinate Check:
+        <Typography variant="h5" align="left">
+          Coordinate Check
         </Typography>
         <input
           type="text"
           name="filename"
           value=""
           id="inputText"
+          placeholder="Paste coordinate here"
           style={inputStyle}
         ></input>
-        <Typography variant="h6" align="left">
-          Message
+        <Typography variant="h7" align="left">
+          Result
         </Typography>
         <input
           type="text"
@@ -36,14 +37,12 @@ class Inputs extends Component {
           // onClick={parseData()}
           style={buttonStyle}
         ></input>
-        <Typography variant="h6" align="left">
-          Select Blockade Checklist File:
+        <Typography variant="h7" align="left">
+          Upload Blockade Checklist File
         </Typography>
-        <input className="file" id="file" type="file"
-          style={fileStyle}
-        ></input>
-        <Typography variant="h6" align="left">
-          Filename:
+        <input className="file" id="file" type="file" style={fileStyle}></input>
+        <Typography variant="h7" align="left">
+          Filename
         </Typography>
         <input
           type="text"
@@ -75,6 +74,7 @@ const getStyle = {
   justifyContent: "space-between",
   padding: "1em",
   margin: "1em",
+  color: "black",
 };
 
 const inputStyle = {
@@ -92,7 +92,7 @@ const buttonStyle = {
   padding: ".5em",
   margin: "1em 0 1em 0",
   width: "70%",
-    cursor: "pointer"
+  cursor: "pointer",
 };
 
 const fileStyle = {

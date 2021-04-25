@@ -1,12 +1,12 @@
 .navette_shut {
-  background-color: lightgrey;
+  background-color: #7A8B99;
+  /* background-color: lightgrey; */
   border-style: solid;
   border-width: thin;
   border-color: black;
   color: black;
   margin: auto;
   padding: .5em .25em;
-  font-size: 1.15em;
   text-align: center;
   min-width: 1.15em;
 }

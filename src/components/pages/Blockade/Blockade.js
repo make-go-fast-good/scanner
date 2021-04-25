@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import config from "../../../config/blockade/Blockade.json";
 import Grid from "./Grid";
 import Inputs from "./Input";
 import Navettes from "./Navettes";
-import { Typography } from "@material-ui/core";
+import Aisle from "./Aisle";
 import "./styles.css";
 
 class Location {
@@ -18,8 +18,10 @@ const containerSytle = {
   border: "1px dashed #BBB",
   margin: "15px auto",
   color: "#555",
-  minHeight: "87vh",
+  minHeight: "700px",
   maxHeight: "87vh",
+  minWidth: "1200px",
+  overflow: "auto",
 };
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -32,6 +34,7 @@ unt in culpa qui officia deserunt mollit anim id est laborum.`;
 class Blockade extends Component {
   componentDidMount() {
     this.init(config.NAVETTES, config.RACK, config.SHELF);
+      console.log(this.state)
   }
 
   state = {
@@ -68,21 +71,20 @@ class Blockade extends Component {
   render() {
     return (
       <div style={containerSytle} className="grid-container">
-          <div className="Left">
-              <Inputs />
-          </div>
-          <div className="Mid">
-              {lorem}
-          </div>
-          <div className="Right">
-              {/* {lorem} */}
-              <Navettes
-                  nav={this.state.navs}
-              />
-          </div>
-          <div className="Bottom">
-            <Grid />
-          </div>
+        <div className="Left">
+          <Inputs />
+        </div>
+        <div className="Mid">
+          {/* {lorem} */}
+          <Aisle />
+        </div>
+        <div className="Right">
+          {/* {lorem} */}
+          <Navettes nav={this.state.navs} />
+        </div>
+        <div className="Bottom">
+          <Grid />
+        </div>
       </div>
     );
   }
