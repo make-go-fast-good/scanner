@@ -1,27 +1,28 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
-import MenuIcon from "@material-ui/icons/Menu";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-import SearchIcon from "@material-ui/icons/Search";
-import React from "react";
-import {Link} from "react-router-dom";
+import CheckCircleTwoToneIcon from "@material-ui/icons/CheckCircleTwoTone";
+import FindInPageTwoToneIcon from '@material-ui/icons/FindInPageTwoTone';
+
 import Logo from "./Logo";
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    fontSize: "20px",
+    fontSize: "24px",
     margin: "10px 0px 5px 0px",
     padding: "1px",
   },
@@ -31,6 +32,13 @@ const useStyles = makeStyles((theme) => ({
   colorInherit: {
     color: "black",
     background: "yellow",
+  },
+  colorIcon: {
+    color: "rgba(0,0,0,0.7)",
+    // background: "#A8A8A8",
+    // padding: "2px",
+    // width: "1.25em",
+    //   borderRadius: "4px"
   },
   colorPrimary: {
     color: "black",
@@ -65,7 +73,7 @@ export default function DenseAppBar(props) {
             className={classes.menuButton}
             onClick={handleClick}
           >
-            <MenuIcon />
+            <MenuRoundedIcon fontSize="large" className={classes.colorIcon} />
           </IconButton>
           <Typography variant="h6" color="inherit" style={{ flex: 1 }}>
             {props.title}
@@ -98,14 +106,18 @@ export default function DenseAppBar(props) {
               <ScannerTwoToneIcon className={classes.menuButton} />
               Scanners
             </MenuItem>
-            <MenuItem component={Link} to="/error" onClick={handleClose}>
-              <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
-            </MenuItem>
             <MenuItem component={Link} to="/bookmarks" onClick={handleClose}>
               <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks
             </MenuItem>
+            <MenuItem component={Link} to="/blockade" onClick={handleClose}>
+              <CheckCircleTwoToneIcon className={classes.menuButton} /> Blockade
+              Checklist
+            </MenuItem>
+            <MenuItem component={Link} to="/error" onClick={handleClose}>
+              <ErrorTwoToneIcon className={classes.menuButton} /> Error Log
+            </MenuItem>
             <MenuItem component={Link} to="/hex" onClick={handleClose}>
-              <SearchIcon className={classes.menuButton} />
+              <FindInPageTwoToneIcon className={classes.menuButton} />
               Hex Parser
             </MenuItem>
           </Menu>

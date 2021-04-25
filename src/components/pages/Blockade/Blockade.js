@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import config from "../../../config/blockade/Blockade.json";
 import Grid from "./Grid";
 import Inputs from "./Input";
+import { Typography } from "@material-ui/core";
 import "./styles.css";
 
 class Location {
@@ -16,7 +17,8 @@ const containerSytle = {
   border: "1px dashed #BBB",
   margin: "15px auto",
   color: "#555",
-  minHeight: "88vh",
+  minHeight: "87vh",
+  maxHeight: "87vh",
 };
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -64,18 +66,17 @@ class Blockade extends Component {
 
   render() {
     return (
-      <div style={containerSytle} class="grid-container">
-          <div class="Left">
+      <div style={containerSytle} className="grid-container">
+          <div className="Left">
               <Inputs />
+          </div>
+          <div className="Mid">
               {lorem}
           </div>
-          <div class="Mid">
+          <div className="Right">
               {lorem}
           </div>
-          <div class="Right">
-              {lorem}
-          </div>
-          <div class="Bottom">
+          <div className="Bottom">
             <Grid />
           </div>
       </div>

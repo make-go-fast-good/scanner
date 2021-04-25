@@ -1,13 +1,15 @@
+import React, {Component} from "react";
+
+import PropagateLoader from "react-spinners/PropagateLoader";
+
 import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-import SearchTwoToneIcon from "@material-ui/icons/SearchTwoTone";
-import React, {Component} from "react";
-import PropagateLoader from "react-spinners/PropagateLoader";
-import Card from "./Card";
+import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone';
+import FindInPageTwoToneIcon from '@material-ui/icons/FindInPageTwoTone';
 
-// import FlightTakeoffTwoToneIcon from "@material-ui/icons/FlightTakeoffTwoTone";
+import Card from "./Card";
 
 export class Home extends Component {
   getStyle = (props) => {
@@ -52,24 +54,24 @@ export class Home extends Component {
             icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
-            to="/error"
-            primary="Error Log"
-            icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
-          />
-          <Card
-            to="/blockade"
-            primary="Blockade Checklist"
-            icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />}
-          />
-          <Card
             to="/bookmarks"
             primary="Bookmarks"
             icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
+            to="/blockade"
+            primary="Blockade Checklist"
+            icon={<CheckCircleTwoToneIcon style={{ fontSize: "38px" }} />}
+          />
+          <Card
+            to="/error"
+            primary="Error Log"
+            icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
+          />
+          <Card
             to="/hex"
             primary="Matrix Hex parser"
-            icon={<SearchTwoToneIcon style={{ fontSize: "38px" }} />}
+            icon={<FindInPageTwoToneIcon style={{ fontSize: "38px" }} />}
           />
         </h2>
       );

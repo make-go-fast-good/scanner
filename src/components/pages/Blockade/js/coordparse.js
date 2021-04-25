@@ -189,13 +189,13 @@ function parseData(e) {
 
     function validTranfer(x) {
         x = parseInt(x);
-        let bool = false;
         if ((x >= transfers.pos1.min && x <= transfers.pos1.max) ||
             (x >= transfers.pos2.min && x <= transfers.pos2.max) ||
             (x >= transfers.pos3.min && x <= transfers.pos3.max) ||
             (x >= transfers.pos4.min && x <= transfers.pos4.max)) {
-            bool = true;
+            return true;
+        }else{
+            return false;
         }
-        return bool;
     }
 }

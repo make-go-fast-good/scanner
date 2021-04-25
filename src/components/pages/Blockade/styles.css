@@ -1,18 +1,28 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 5px 5px;
   grid-template-areas:
-    "Left Mid Right"
-    "Left Mid Right"
-    "Bottom Bottom Bottom";
+    "Left Mid Mid Right"
+    "Left Mid Mid Right"
+    "Left Mid Mid Right"
+    "Bottom Bottom Bottom Bottom";
 }
 
-.Bottom { grid-area: Bottom; }
+.Left {
+  grid-area: Left;
+}
 
-.Left { grid-area: Left; }
+.Mid {
+  grid-area: Mid;
+}
 
-.Mid { grid-area: Mid; }
+.Right {
+  grid-area: Right;
+}
 
-.Right { grid-area: Right; }
+.Bottom {
+  grid-area: Bottom;
+  padding: 1em;
+}

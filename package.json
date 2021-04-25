@@ -60,11 +60,11 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
+    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-build": "electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=never",
     "electron-publish": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=nsis --dir --publish=always",
     "electron-build-portable": "electron-builder -c.extraMetadata.main=./build/electron.js --win portable --dir",
-    "electron-publish-portable": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=portable --dir --publish=always",
-    "electron-start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-publish-portable": "yarn react-build && electron-builder -c.extraMetadata.main=./build/electron.js --win=portable --dir --publish=always"
   },
   "eslintConfig": {
     "extends": "react-app"
