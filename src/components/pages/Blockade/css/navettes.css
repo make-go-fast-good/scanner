@@ -1,0 +1,20 @@
+.navette_shut {
+  background-color: lightgrey;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  color: black;
+  margin: auto;
+  padding: .5em .25em;
+  font-size: 1.15em;
+  text-align: center;
+  min-width: 1.15em;
+}
+
+.invisible_td {
+  display: block;
+  margin: 0.1em;
+  padding: 0.05em;
+  opacity: 0;
+}
+

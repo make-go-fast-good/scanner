@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import config from "../../../config/blockade/Blockade.json";
 import Grid from "./Grid";
 import Inputs from "./Input";
+import Navettes from "./Navettes";
 import { Typography } from "@material-ui/core";
 import "./styles.css";
 
@@ -74,7 +75,10 @@ class Blockade extends Component {
               {lorem}
           </div>
           <div className="Right">
-              {lorem}
+              {/* {lorem} */}
+              <Navettes
+                  nav={this.state.navs}
+              />
           </div>
           <div className="Bottom">
             <Grid />

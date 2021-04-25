@@ -9,13 +9,18 @@ const isDev = require("electron-is-dev");
 const server = require("../serve/server");
 
 function createWindow() {
-
   electron.Menu.setApplicationMenu(null); // no default menue
 
-// Declare shortcuts
-    globalShortcut.register('F5', () => mainWindow.webContents.reload());
-    globalShortcut.register('Shift + H', () => mainWindow.webContents.canGoBack() ? mainWindow.webContents.goBack() : null );
-    globalShortcut.register('Shift + L', () => mainWindow.webContents.goForward() ? mainWindow.webContents.goForward() : null);
+  // Declare shortcuts
+  globalShortcut.register("F5", () => mainWindow.webContents.reload());
+  globalShortcut.register("alt + left", () =>
+    mainWindow.webContents.canGoBack() ? mainWindow.webContents.goBack() : null
+  );
+  globalShortcut.register("alt + right", () =>
+    mainWindow.webContents.goForward()
+      ? mainWindow.webContents.goForward()
+      : null
+  );
 
   mainWindow = new BrowserWindow({
     show: false,
