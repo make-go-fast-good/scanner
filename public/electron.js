@@ -74,10 +74,10 @@ contextMenu({
   menu: (actions, props, browserWindow, dictionarySuggestions) => [
     ...dictionarySuggestions,
     actions.copy({
-      transform: (content) => `modified_copy_${content}`,
+      transform: (content) => `${content}`,
     }),
     actions.paste({
-      transform: (content) => `modified_paste_${content}`,
+      transform: (content) => `${content}`,
     }),
     actions.separator(),
     {

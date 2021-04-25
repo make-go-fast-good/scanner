@@ -1,0 +1,59 @@
+#aisle_center {
+display: flex;
+  justify-content: center;
+  align-items: center;
+  border: thin solid black;
+  background-color: #b2bcc4;
+  min-height: 14em;
+  min-width: 8em;
+  text-align: center;
+  justify-items: center;
+  padding: 1em .5em;
+  margin: .25em;
+}
+
+.location {
+display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7A8B99;
+  border: thin solid black;
+  padding: 1em .5em;
+  margin: .085em .085em;
+  min-height: 3.4em;
+  min-width: 3.4em;
+}
+
+.shelf {
+  background-color: silver;
+  border: thin solid black;
+  height: auto;
+  min-height: 2.5em;
+  padding:  .2em;
+  margin: .35em 0 .35em 0;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  color: black !important;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.success {
+  color: #468847;
+}
+.error {
+  color: #b94a48;
+}
+.info {
+  color: #3a87ad;
+}
+

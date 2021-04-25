@@ -65,7 +65,7 @@ export class Home extends Component {
           />
           <Card
             to="/error"
-            primary="Error Log"
+            primary="PLC Error Log"
             icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
           />
           <Card
