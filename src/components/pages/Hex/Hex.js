@@ -6,8 +6,6 @@ import HexDoc from "./HexPdf.tsx";
 
 import HEXPARAMS from "../../../config/hex/HexVal.json";
 
-import HEXPARAMS from "../../../config/hex/HexVal.json";
-
 import pdf1413 from "./assets/TT1413.pdf";
 import pdf1430 from "./assets/TT1430.pdf";
 import pdf1434 from "./assets/TT1434.pdf";

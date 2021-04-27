@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import config from "../../../config/blockade/Blockade.json";
 import Grid from "./Grid";
 import Inputs from "./Input";
 import Navettes from "./Navettes";
 import Aisle from "./Aisle";
 import "./styles.css";
+import "./js/coordparse"
+import config from "../../../config/blockade/Blockade.json";
 
 class Location {
   constructor(val) {
@@ -32,28 +33,29 @@ lore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, s
 unt in culpa qui officia deserunt mollit anim id est laborum.`;
 
 class Blockade extends Component {
+  state = {};
+
   componentDidMount() {
     this.init(config.NAVETTES, config.RACK, config.SHELF);
       console.log(this.state)
   }
 
-  state = {
-    rack: [],
-    navs: [],
-    shelf: [],
-  };
 
   init = (navs, rack, shelf) => {
     this.setState({
-      navs: navs.map((_obj) => {
-        return new Location(_obj);
-      }),
+      navs: [...navs.map((_obj) => {
+        return new Location(_obj)
+      })]
+    });
+    this.setState({
       rack: rack.map((_obj) => {
         return new Location(_obj);
-      }),
-      shelf: shelf.map((_obj) => {
+      })
+      });
+    this.setState({
+      shelf: [...shelf.map((_obj) => {
         return new Location(_obj);
-      }),
+      })]
     });
   };
 

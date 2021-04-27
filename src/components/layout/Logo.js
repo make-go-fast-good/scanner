@@ -16,7 +16,7 @@ export class Logo extends Component {
 
 const ssi_logo = {
   float: "right",
-  height: "15px",
+  height: "16px",
   display: "inline",
 };
 

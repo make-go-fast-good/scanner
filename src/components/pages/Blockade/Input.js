@@ -5,6 +5,13 @@ import { Typography } from "@material-ui/core";
 // import './js/main';
 
 class Inputs extends Component {
+  state = {
+    coordinate: "",
+    result: "",
+  };
+
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     return (
       <div style={getStyle}>
@@ -13,11 +20,11 @@ class Inputs extends Component {
         </Typography>
         <input
           type="text"
-          name="filename"
-          value=""
-          id="inputText"
+          name="coordinate"
           placeholder="Paste coordinate here"
           style={inputStyle}
+          value={this.state.coordinate}
+          onChange={this.onChange}
         ></input>
         <Typography variant="h7" align="left">
           Result
@@ -25,9 +32,8 @@ class Inputs extends Component {
         <input
           type="text"
           name="result"
-          value=""
-          id="resultText"
           style={inputStyle}
+          value={this.state.result}
           readOnly
         ></input>
         <input
@@ -74,7 +80,10 @@ const getStyle = {
   justifyContent: "space-between",
   padding: "1em",
   margin: "1em",
-  color: "black",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };
 
 const inputStyle = {
@@ -82,6 +91,10 @@ const inputStyle = {
   padding: ".25em",
   margin: "1em 0 1em 0",
   width: "80%",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };
 
 const buttonStyle = {
@@ -93,6 +106,10 @@ const buttonStyle = {
   margin: "1em 0 1em 0",
   width: "70%",
   cursor: "pointer",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };
 
 const fileStyle = {

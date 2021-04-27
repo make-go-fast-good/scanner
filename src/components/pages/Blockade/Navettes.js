@@ -210,5 +210,8 @@ const navStyle = {
 const getStyle = {
   padding: "1em 0 0 0",
   margin: "1em 1em 0 0 ",
-  color: "black",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };

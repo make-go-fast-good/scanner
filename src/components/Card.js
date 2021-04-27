@@ -6,7 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 
 import { Link as RouterLink } from "react-router-dom";
-import { Icon } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 function ListItemLink(props) {
@@ -31,9 +30,10 @@ function ListItemLink(props) {
           justifyContent={"space-evenly"}
           textAlign={"center"}
           minHeight={250}
+          color={"#555"}
         >
           {primary}
-          {icon ? <Icon fontSize={"large"}>{icon}</Icon> : null}
+          {icon ? <>{icon}</> : null}
         </Box>
       </CardContent>
     </Card>

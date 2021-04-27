@@ -98,7 +98,7 @@ class Aisle extends Component {
                     <li>
                       <span style={{ fontSize: "56px" }}>
                         &#11014;
-                        <p style={{ fontSize: "20px" }}>
+                        <p style={{ fontSize: "20px", color: "#555" }}>
                           <br />
                           A i s l e
                           <br />
@@ -207,5 +207,8 @@ const tableStyle = {
 const getStyle = {
   padding: "1em 0 0 0",
   margin: "1em 0 0 0 ",
-  color: "black",
+  WebkitUserSelect: "none",
+  msUserSelect: "none",
+  MozUserSelect: "none",
+  userSelect: "none",
 };

@@ -10,6 +10,7 @@ display: flex;
   justify-items: center;
   padding: 1em .5em;
   margin: .25em;
+  color: #555 !important;
 }
 
 .location {

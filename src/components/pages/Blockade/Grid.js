@@ -3,9 +3,19 @@ import DataGrid, { TextEditor } from "react-data-grid";
 import { Typography } from "@material-ui/core";
 
 const columns = [
-  { key: "stoloc", name: "STOLOC", editor: TextEditor },
-  { key: "expectedluid", name: "EXPECTED LUID", editor: TextEditor },
-  { key: "verifiedluid", name: "VERIFIED LUID", editor: TextEditor },
+  { key: "stoloc", name: "STOLOC", editor: TextEditor, editable: true },
+  {
+    key: "expectedluid",
+    name: "EXPECTED LUID",
+    editor: TextEditor,
+    editable: true,
+  },
+  {
+    key: "verifiedluid",
+    name: "VERIFIED LUID",
+    editor: TextEditor,
+    editable: true,
+  },
 ];
 
 const rows = [
@@ -37,7 +47,6 @@ class Grid extends Component {
       return { rows };
     });
   };
-
   render() {
     let rowlength = this.state.rows.length;
 
@@ -53,11 +62,11 @@ class Grid extends Component {
         <DataGrid
           style={gridStyle}
           columns={columns}
-          rows={this.state.rows}
           rowGetter={(i) => this.state.rows[i]}
+          rows={this.state.rows}
+          rowsCount={rowlength}
           onGridRowsUpdated={this.onGridRowsUpdated}
           enableCellSelect={true}
-          className="fill-grid"
         />
       </>
     );
@@ -70,9 +79,7 @@ const gridStyle = {
   minHeight: "22vh",
   maxHeight: "22vh",
   overflow: "auto",
-  color: "black",
 };
 
 const headerStyle = {
-  color: "black",
 };
