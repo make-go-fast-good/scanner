@@ -20,7 +20,7 @@ function ListItemLink(props) {
   );
 
   return (
-    <Card button component={renderLink}>
+    <Card button="true" component={renderLink}>
       <CardContent>
         <Box
           display={"flex"}
