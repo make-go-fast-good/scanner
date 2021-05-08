@@ -10,18 +10,10 @@ import Typography from "@material-ui/core/Typography";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
-import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
-import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
-import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-import CheckCircleTwoToneIcon from "@material-ui/icons/CheckCircleTwoTone";
-import FindInPageTwoToneIcon from "@material-ui/icons/FindInPageTwoTone";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarcode } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faTasks } from "@fortawesome/free-solid-svg-icons";
@@ -38,19 +30,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "1px",
   },
   menuButton: {
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
+    // margin: theme.spacing(1),
   },
   menuIcon: {
     color: "#555",
-    // background: "#555",
-    // background: "white",
-    // borderRadius: ".15em",
-    //   width: "1.25em"
   },
   colorPrimary: {
     color: "#555",
-    // color: "black",
     background: "yellow",
     fontWeight: "bold",
   },
@@ -104,38 +90,48 @@ export default function DenseAppBar(props) {
               horizontal: "center",
             }}
           >
-            <MenuItem component={Link} to="/" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <HomeTwoToneIcon className={classes.menuButton} /> */}
-              <FontAwesomeIcon icon={faHome} className={classes.menuButton} />
+            <MenuItem component={Link} to="/" onClick={handleClose}>
+              <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faHome} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "8px" }}>{""}</div>
               Home
             </MenuItem>
-            <MenuItem component={Link} to="/aglink" onClick={handleClose} style={{marginRight: ""}}>
-              {/* <EmailTwoToneIcon className={classes.menuButton} /> */}
-              <FontAwesomeIcon icon={faPaperPlane} className={classes.menuButton} />
+            <MenuItem component={Link} to="/aglink" onClick={handleClose}>
+              <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faPaperPlane} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "10px" }}>{""}</div>
               AG-Link
             </MenuItem>
-            <MenuItem component={Link} to="/scanners" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <ScannerTwoToneIcon className={classes.menuButton} /> */}
-              <FontAwesomeIcon icon={faBarcode} className={classes.menuButton} />
+            <MenuItem component={Link} to="/scanners" onClick={handleClose}>
+              <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faBarcode} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "10px" }}>{""}</div>
               Scanners
             </MenuItem>
-            <MenuItem component={Link} to="/bookmarks" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <BookmarksTwoToneIcon className={classes.menuButton} /> Bookmarks */}
-               <FontAwesomeIcon icon={faBookmark} className={classes.menuButton} /> Bookmarks
+            <MenuItem component={Link} to="/bookmarks" onClick={handleClose}>
+              <div style={{ marginLeft: "3.5px", marginRight: "2px" }}>
+                {""}
+              </div>
+              <FontAwesomeIcon icon={faBookmark} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "11px" }}>{""}</div>
+              Bookmarks
             </MenuItem>
-            <MenuItem component={Link} to="/blockade" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <CheckCircleTwoToneIcon className={classes.menuButton} /> Blockade */}
-              {/* Checklist */}
-               <FontAwesomeIcon icon={faTasks} className={classes.menuButton} />Blockade
-              Checklist
+            <MenuItem component={Link} to="/blockade" onClick={handleClose}>
+              <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faTasks} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "11px" }}>{""}</div>
+              Blockade Checklist
             </MenuItem>
-            <MenuItem component={Link} to="/error" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <ErrorTwoToneIcon className={classes.menuButton} /> PLC Error Log */}
-               <FontAwesomeIcon icon={faExclamationTriangle} className={classes.menuButton} />PLC Error Log
+            <MenuItem component={Link} to="/error" onClick={handleClose}>
+              <div style={{ marginLeft: "2px", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faExclamationTriangle} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "8px" }}>{""}</div>
+              PLC Error Log
             </MenuItem>
-            <MenuItem component={Link} to="/hex" onClick={handleClose}style={{marginRight: ""}}>
-              {/* <FindInPageTwoToneIcon className={classes.menuButton} /> */}
-               <FontAwesomeIcon icon={faRetweet} className={classes.menuButton} />
+            <MenuItem component={Link} to="/hex" onClick={handleClose}>
+              <div style={{ marginLeft: "2px", marginRight: "2px" }}>{""}</div>
+              <FontAwesomeIcon icon={faRetweet} className={classes.menuButton}/>
+              <div style={{ marginLeft: "", marginRight: "7px" }}>{""}</div>
               Hex Parser
             </MenuItem>
           </Menu>

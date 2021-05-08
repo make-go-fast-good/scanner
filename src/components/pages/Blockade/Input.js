@@ -10,6 +10,13 @@ class Inputs extends Component {
     result: "",
   };
 
+    onClick = (e) => {
+        // console.log(e)
+        console.log(this.state.coordinate)
+
+        // this.setState({ result: e.target.value });
+    }
+
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
@@ -40,6 +47,7 @@ class Inputs extends Component {
           type="button"
           id="ParseButton"
           value="Check Coordinate"
+          onClick={this.onClick()}
           // onClick={parseData()}
           style={buttonStyle}
         ></input>

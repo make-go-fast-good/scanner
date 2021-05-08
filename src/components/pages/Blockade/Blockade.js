@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Grid from "./Grid.tsx";
+import Grid from "./Grid";
 import Inputs from "./Input";
 import Navettes from "./Navettes";
 import Aisle from "./Aisle";
