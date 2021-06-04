@@ -1,0 +1,32 @@
+{
+  "applicationId": "js.neutralino.sample",
+  "port": 0,
+  "defaultMode": "window",
+  "enableHTTPServer": true,
+  "enableNativeAPI": true,
+  "url": "/resources/",
+  "nativeBlockList": [],
+  "globalVariables": {
+    "TEST": "Test Value"
+  },
+  "modes": {
+    "window": {
+      "title": "PLC Toolkit",
+      "width": 800,
+      "height": 500,
+      "fullScreen": false,
+      "alwaysOnTop": false,
+      "icon": "/resources/icons/icon.ico",
+      "enableInspector": true,
+      "borderless": false,
+      "maximize": true
+    },
+    "browser": {},
+    "cloud": {}
+  },
+  "cli": {
+    "binaryName": "PLC_Toolkit",
+    "resourcesPath": "/resources/",
+    "clientLibrary": "/resources/js/neutralino.js"
+  }
+}

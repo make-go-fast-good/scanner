@@ -69,12 +69,12 @@ export class Home extends Component {
             // icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
             icon={<FontAwesomeIcon icon={faBookmark} style={{ fontSize: "38px" }} />}
           />
-          <Card
-            to="/blockade"
-            primary="Blockade Checklist"
-            // icon={<CheckCircleTwoToneIcon style={{ fontSize: "38px" }} />}
-            icon={<FontAwesomeIcon icon={faTasks} style={{ fontSize: "38px" }} />}
-          />
+          {/* <Card */}
+          {/*   to="/blockade" */}
+          {/*   primary="Blockade Checklist" */}
+          {/*   // icon={<CheckCircleTwoToneIcon style={{ fontSize: "38px" }} />} */}
+          {/*   icon={<FontAwesomeIcon icon={faTasks} style={{ fontSize: "38px" }} />} */}
+          {/* /> */}
           <Card
             to="/error"
             primary="PLC Error Log"

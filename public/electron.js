@@ -82,7 +82,7 @@ contextMenu({
     actions.separator(),
     {
       label: "Back",
-      accelerator: "shift + h",
+      accelerator: "alt + left",
       click: () => {
         if (mainWindow.webContents.canGoBack()) {
           mainWindow.webContents.goBack();
@@ -98,7 +98,7 @@ contextMenu({
     },
     {
       label: "Forward",
-      accelerator: "shift + l",
+      accelerator: "alt + right",
       click: () => {
         if (mainWindow.webContents.canGoForward()) {
           mainWindow.webContents.goForward();

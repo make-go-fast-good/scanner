@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cfa92f5a.chunk.css",
+    "main.js": "./static/js/main.a92a57c2.chunk.js",
+    "main.js.map": "./static/js/main.a92a57c2.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.b12d32c2.js",
+    "runtime-main.js.map": "./static/js/runtime-main.b12d32c2.js.map",
+    "static/css/2.371c07c7.chunk.css": "./static/css/2.371c07c7.chunk.css",
+    "static/js/2.6bd84eb4.chunk.js": "./static/js/2.6bd84eb4.chunk.js",
+    "static/js/2.6bd84eb4.chunk.js.map": "./static/js/2.6bd84eb4.chunk.js.map",
+    "static/js/3.b9f011c5.chunk.js": "./static/js/3.b9f011c5.chunk.js",
+    "static/js/3.b9f011c5.chunk.js.map": "./static/js/3.b9f011c5.chunk.js.map",
+    "static/js/4.e6529836.chunk.js": "./static/js/4.e6529836.chunk.js",
+    "static/js/4.e6529836.chunk.js.map": "./static/js/4.e6529836.chunk.js.map",
+    "static/js/5.5d953c35.chunk.js": "./static/js/5.5d953c35.chunk.js",
+    "static/js/5.5d953c35.chunk.js.map": "./static/js/5.5d953c35.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.371c07c7.chunk.css.map": "./static/css/2.371c07c7.chunk.css.map",
+    "static/css/main.cfa92f5a.chunk.css.map": "./static/css/main.cfa92f5a.chunk.css.map",
+    "static/js/2.6bd84eb4.chunk.js.LICENSE.txt": "./static/js/2.6bd84eb4.chunk.js.LICENSE.txt",
+    "static/js/3.b9f011c5.chunk.js.LICENSE.txt": "./static/js/3.b9f011c5.chunk.js.LICENSE.txt",
+    "static/js/4.e6529836.chunk.js.LICENSE.txt": "./static/js/4.e6529836.chunk.js.LICENSE.txt",
+    "static/js/5.5d953c35.chunk.js.LICENSE.txt": "./static/js/5.5d953c35.chunk.js.LICENSE.txt",
+    "static/media/App.css": "./static/media/MaterialIcons-Regular.a5fc98f2.ttf",
+    "static/media/TT1413.081f4997.pdf": "./static/media/TT1413.081f4997.pdf",
+    "static/media/TT1430.393e4219.pdf": "./static/media/TT1430.393e4219.pdf",
+    "static/media/TT1434.8225bdf2.pdf": "./static/media/TT1434.8225bdf2.pdf",
+    "static/media/TT750.86c0bc82.pdf": "./static/media/TT750.86c0bc82.pdf",
+    "static/media/TT751.050beb8f.pdf": "./static/media/TT751.050beb8f.pdf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b12d32c2.js",
+    "static/css/2.371c07c7.chunk.css",
+    "static/js/2.6bd84eb4.chunk.js",
+    "static/css/main.cfa92f5a.chunk.css",
+    "static/js/main.a92a57c2.chunk.js"
+  ]
+}

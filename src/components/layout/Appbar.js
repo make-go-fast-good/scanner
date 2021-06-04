@@ -116,12 +116,12 @@ export default function DenseAppBar(props) {
               <div style={{ marginLeft: "", marginRight: "11px" }}>{""}</div>
               Bookmarks
             </MenuItem>
-            <MenuItem component={Link} to="/blockade" onClick={handleClose}>
-              <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div>
-              <FontAwesomeIcon icon={faTasks} className={classes.menuButton}/>
-              <div style={{ marginLeft: "", marginRight: "11px" }}>{""}</div>
-              Blockade Checklist
-            </MenuItem>
+            {/* <MenuItem component={Link} to="/blockade" onClick={handleClose}> */}
+            {/*   <div style={{ marginLeft: "", marginRight: "2px" }}>{""}</div> */}
+            {/*   <FontAwesomeIcon icon={faTasks} className={classes.menuButton}/> */}
+            {/*   <div style={{ marginLeft: "", marginRight: "11px" }}>{""}</div> */}
+            {/*   Blockade Checklist */}
+            {/* </MenuItem> */}
             <MenuItem component={Link} to="/error" onClick={handleClose}>
               <div style={{ marginLeft: "2px", marginRight: "2px" }}>{""}</div>
               <FontAwesomeIcon icon={faExclamationTriangle} className={classes.menuButton}/>
