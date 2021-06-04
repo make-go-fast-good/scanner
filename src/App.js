@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {HashRouter as Router, Route} from "react-router-dom";
+import React, { Component } from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import DataTableContainer from "./components/DataTableContainer";
 import Home from "./components/Home";
@@ -9,7 +9,6 @@ import Blockade from "./components/pages/Blockade/Blockade";
 import Bookmarks from "./components/pages/Bookmarks/Bookmarks";
 import Config from "./components/pages/Config/Config";
 import Hex from "./components/pages/Hex/Hex.js";
-
 
 class App extends Component {
   render() {
@@ -24,7 +23,7 @@ class App extends Component {
               render={() => (
                 <React.Fragment>
                   <AppBar title="Homepage" />
-                  <Home home={true} />
+                  <Home home={true} bodyHeight="67vh" />
                 </React.Fragment>
               )}
             ></Route>
@@ -39,7 +38,7 @@ class App extends Component {
                     type="aglink"
                     grouping={true}
                     exportButton={true}
-                    bodyHeight="67vh"
+                    bodyHeight="63vh"
                     // paging={true}
                     // pageSize="50"
                     // pageOptions="5, 10, 25, 50"
@@ -133,8 +132,8 @@ class App extends Component {
               render={() => (
                 <React.Fragment>
                   <AppBar title="About" />
-                    {/* <DataTableContainer type="About" /> */}
-                    <About />
+                  {/* <DataTableContainer type="About" /> */}
+                  <About />
                 </React.Fragment>
               )}
             ></Route>
