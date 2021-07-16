@@ -9,8 +9,8 @@ import HEXPARAMS from "../../../config/hex/HexVal.json";
 import pdf1413 from "./assets/TT1413.pdf";
 import pdf1430 from "./assets/TT1430.pdf";
 import pdf1434 from "./assets/TT1434.pdf";
-import pdf750 from "./assets/TT750.pdf";
-import pdf751 from "./assets/TT751.pdf";
+// import pdf750 from "./assets/TT750.pdf";
+// import pdf751 from "./assets/TT751.pdf";
 
 class General {
   constructor(val) {
