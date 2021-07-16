@@ -2,21 +2,21 @@ import React, {Component} from "react";
 
 import PropagateLoader from "react-spinners/PropagateLoader";
 
-// import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
-// import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-// import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
-// import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
-// import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone';
-// import FindInPageTwoToneIcon from '@material-ui/icons/FindInPageTwoTone';
+import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
+import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
+import ScannerTwoToneIcon from "@material-ui/icons/ScannerTwoTone";
+import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone';
+import FindInPageTwoToneIcon from '@material-ui/icons/FindInPageTwoTone';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBarcode } from '@fortawesome/free-solid-svg-icons'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { faRetweet } from '@fortawesome/free-solid-svg-icons'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
-import { faTasks } from '@fortawesome/free-solid-svg-icons'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBarcode } from '@fortawesome/free-solid-svg-icons'
+// import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+// import { faSearch } from '@fortawesome/free-solid-svg-icons'
+// import { faRetweet } from '@fortawesome/free-solid-svg-icons'
+// import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+// import { faTasks } from '@fortawesome/free-solid-svg-icons'
+// import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 import Card from "./Card";
 
@@ -55,19 +55,20 @@ export class Home extends Component {
           <Card
             to="/aglink"
             primary="AG-Link"
-            // icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
-            icon={<FontAwesomeIcon icon={faPaperPlane} style={{ fontSize: "38px" }} />}
+            icon={<EmailTwoToneIcon style={{ fontSize: "38px" }} />}
+            // icon={<FontAwesomeIcon icon={faPaperPlane} style={{ fontSize: "38px" }} />}
           />
           <Card
             to="/scanners"
-            primary="Scanner Data"
-            icon={<FontAwesomeIcon icon={faBarcode} style={{ fontSize: "38px" }} />}
+            primary="Scanners"
+            icon={<ScannerTwoToneIcon style={{ fontSize: "38px" }} />}
+            // icon={<FontAwesomeIcon icon={faBarcode} style={{ fontSize: "38px" }} />}
           />
           <Card
             to="/bookmarks"
             primary="Bookmarks"
-            // icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
-            icon={<FontAwesomeIcon icon={faBookmark} style={{ fontSize: "38px" }} />}
+            icon={<BookmarksTwoToneIcon style={{ fontSize: "38px" }} />}
+            // icon={<FontAwesomeIcon icon={faBookmark} style={{ fontSize: "38px" }} />}
           />
           {/* <Card */}
           {/*   to="/blockade" */}
@@ -78,13 +79,14 @@ export class Home extends Component {
           <Card
             to="/error"
             primary="PLC Error Log"
-            icon={<FontAwesomeIcon icon={faExclamationTriangle} style={{ fontSize: "38px" }} />}
+            icon={<ErrorTwoToneIcon style={{ fontSize: "38px" }} />}
+            // icon={<FontAwesomeIcon icon={faExclamationTriangle} style={{ fontSize: "38px" }} />}
           />
           <Card
             to="/hex"
             primary="Matrix Hex parser"
-            // icon={<FindInPageTwoToneIcon style={{ fontSize: "38px" }} />}
-            icon={<FontAwesomeIcon icon={faRetweet} style={{ fontSize: "38px" }} />}
+            icon={<FindInPageTwoToneIcon style={{ fontSize: "38px" }} />}
+            // icon={<FontAwesomeIcon icon={faRetweet} style={{ fontSize: "38px" }} />}
           />
         </h2>
       );
