@@ -81,6 +81,13 @@ contextMenu({
     }),
     actions.separator(),
     {
+      label: "Home",
+      accelerator: "alt + up",
+      click: () => {
+          mainWindow.webContents.loadURL(`file://${path.join(__dirname, "../build/index.html")}`);
+      },
+      },
+    {
       label: "Back",
       accelerator: "alt + left",
       click: () => {
@@ -116,7 +123,7 @@ contextMenu({
         const { dialog } = require("electron");
         let options = {
           //Minimum options object
-          message: "Something to do at Lowes DFC 3311\n\n\npcrandall `21",
+          message: "Built for Lowes DFC 3311\n\n\tpcrandall `21",
           type: "info",
           title: "PLC Toolkit",
         };
