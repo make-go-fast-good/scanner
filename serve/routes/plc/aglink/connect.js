@@ -6,7 +6,9 @@ const Nodes7 = require("nodes7");
 
 const Variables = require("./createTT13Struct");
 const Process = require("./processTT13Data");
-const Connections = require("../../../config/Connections.json");
+// const Connections = require("./config/Connections.json");
+// const Connections = require("../../../config/Connections.json");
+const Connections = require("../../config/Connections.json");
 
 function readData(_plc) {
   let Plc = new Nodes7();

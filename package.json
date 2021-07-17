@@ -45,6 +45,7 @@
     "start": "react-scripts start",
     "build": "yarn react-build && yarn electron-build",
     "pkg": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64",
+    "pkg-compress": "cd serve && pkg server.js -o s7_Server-x86_64-pc-windows-msvc.exe --target node10-win-x64 && upx --ultra-brute s7_Server-x86_64-pc-windows-msvc.exe",
     "react-start": "concurrently \"react-scripts start\" \" cd ./serve && node server.js \"",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test --env=jsdom",

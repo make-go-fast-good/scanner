@@ -3,9 +3,8 @@ const Variables = require("./createErrorStruct");
 const Router = Express.Router();
 const Nodes7 = require("nodes7");
 const Process = require("./processErrorData");
-// const fs = require("fs");
-// const path = require("path");
-const Connections = require("../../../config/Connections.json");
+// const Connections = require("../../../config/Connections.json");
+const Connections = require("../../config/Connections.json");
 
 function readData(_plc) {
   let Plc = new Nodes7();
